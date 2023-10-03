@@ -54,7 +54,7 @@ def make_compute_metrics(tokenizer, metrics_name="bleu"):
         labels = np.where(labels != -100, labels, tokenizer.pad_token_id)
         decoded_labels = tokenizer.batch_decode(labels, skip_special_tokens=True)
 
-        result = metric.compute(predictions=decoded_preds, references=decoded_labels)
+        results = metric.compute(predictions=decoded_preds, references=decoded_labels)
 
         return {k: round(v, 4) for k, v in results.items() if isinstance(v, (float, int))}
     
