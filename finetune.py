@@ -56,7 +56,7 @@ def make_compute_metrics(tokenizer, metrics_name="bleu"):
 
         result = metric.compute(predictions=decoded_preds, references=decoded_labels)
 
-        return {"bleu": round(r, 4) for r in result}
+        return {k: round(v, 4) for k, v in results.items() if isinstance(v, (float, int))}
     
     return compute_metrics
 

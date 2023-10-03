@@ -3,7 +3,9 @@ import evaluate
 
 if __name__ == "__main__":
 
-    metric = evaluate.load_metric("blue")
+    metric = evaluate.load("bleu")
 
-    print(metric.compute([["Here we are"], ["This is more text"]], [["Here you are"], ["This is more text"]]))
+    print(results := metric.compute(predictions=["Here you are", "This is more text"], references=[["Here we are"], ["This is more text"]]))
+
+    print({k: round(v, 4) for k, v in results.items() if isinstance(v, (float, int))})
 
