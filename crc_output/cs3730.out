@@ -1,0 +1,30 @@
+RUN: Tue Oct 3 13:42:38 EDT 2023
+  File "/ihome/dvillarreal/alc307/projects/CS3730/finetune.py", line 59
+    try:
+TabError: inconsistent use of tabs and spaces in indentation
+RUNNING  SCRIPT
+  File "/ihome/dvillarreal/alc307/projects/CS3730/finetune.py", line 59
+    try:
+TabError: inconsistent use of tabs and spaces in indentation
+DONE
+==============================================================================
+                                JOB STATISTICS                                
+==============================================================================
+
+           JobId: 629940
+      SubmitTime: 2023-10-03T13:42:37
+         EndTime: 2023-10-03T14:42:38
+         RunTime: 00:00:19
+            TRES: cpu=4,mem=21456M,node=1,billing=32,gres/gpu=4
+       Partition: a100
+        NodeList: gpu-n36
+         Command: /ihome/dvillarreal/alc307/projects/CS3730/crc_job.sh
+
+==============================================================================
+ For more information use the command:
+   - `sacct -M gpu -j 629940 -S 2023-10-03T13:42:37 -E 2023-10-03T14:42:38`
+
+ To control the output of the above command:
+   - Add `--format=<field1,field2,etc>` with fields of interest
+   - See the list of all possible fields by running: `sacct --helpformat`
+==============================================================================
