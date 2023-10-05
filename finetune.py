@@ -5,11 +5,13 @@ from transformers import (AutoModelForSeq2SeqLM,
                           AutoTokenizer, 
                           DataCollatorForSeq2Seq,
                           Seq2SeqTrainingArguments,
-                          Seq2SeqTrainer,)
+                          Seq2SeqTrainer,
+                          pipeline,)
 
 import argparse
 import evaluate
 import os
+import tensorboard
 import torch
 
 import numpy as np
@@ -34,7 +36,9 @@ def make_preprocess(tokenizer):
 
         # Memory reqs grow quadratically with input size, stops at max_length
         tokens = tokenizer(inputs, max_length=max_length, padding=padding, truncation=True, return_tensors="pt")
-        labels = tokenizer(targets, max_length=max_length, padding=padding, truncation=True, return_tensors="pt")
+
+        with tokenizer.as_target_tokenizer():
+            labels = tokenizer(targets, max_length=max_length, padding=padding, truncation=True, return_tensors="pt")
 
         tokens["labels"] = labels["input_ids"]
         return tokens
@@ -52,7 +56,9 @@ def make_compute_metrics(tokenizer, metrics_name="bleu"):
         decoded_preds = tokenizer.batch_decode(preds, skip_special_tokens=True)
 
         labels = np.where(labels != -100, labels, tokenizer.pad_token_id)
-        decoded_labels = tokenizer.batch_decode(labels, skip_special_tokens=True)
+
+        with tokenizer.as_target_tokenizer():
+            decoded_labels = tokenizer.batch_decode(labels, skip_special_tokens=True)
 
         results = metric.compute(predictions=decoded_preds, references=decoded_labels)
 
@@ -84,7 +90,8 @@ def make_trainer(model, tokenizer, dataset,
             predict_with_generate=True,
             fp16=True,
             load_best_model_at_end=True,
-            metric_for_best_model=metrics_name,)
+            metric_for_best_model=metrics_name,
+            report_to="tensorboard")
 
     compute_metrics = make_compute_metrics(tokenizer=tokenizer, metrics_name=metrics_name)
 
@@ -95,8 +102,26 @@ def make_trainer(model, tokenizer, dataset,
             args=args,
             train_dataset=dataset["train"],
             eval_dataset=dataset["valid"],
+            data_collator=dc,
             tokenizer=tokenizer,
             compute_metrics=compute_metrics,)
+
+def preview_translation(model, tokenizer, dataset, num_examples = 5):
+    
+    padding = "max length"
+    max_length = 200
+
+    tokens = tokenizer(dataset[:5]["sp"], max_length=max_length, padding=padding, truncation=True, return_tensors="pt")
+
+    with tokenizer.as_target_tokenizer():
+            labels = tokenizer(dataset[:5]["nah"], max_length=max_length, padding=padding, truncation=True, return_tensors="pt")
+
+    tokens["labels"] = labels["input_ids"]
+
+    output = model(tokens, decoder_input_ids=model._shift_right(labels.input_ids))
+
+    with tokenizer.as_target_tokenizer():
+        return tokenizer.batch_decode(output.last_hidden_state, skip_special_tokens=True)
 
 def main(args: argparse.ArgumentParser):
 
@@ -123,6 +148,10 @@ def main(args: argparse.ArgumentParser):
     # Make the trainer and train the model
     trainer = make_trainer(model, tokenizer, dataset, output="test_run")
     trainer.train()
+
+    # Sample the model's output
+    examples = preview_translation(model, tokenizer, dataset["test"])
+
 
 def add_args(parser: argparse.ArgumentParser):
     """
