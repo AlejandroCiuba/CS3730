@@ -1,6 +1,7 @@
 # Finetune model
 from datasets import (DatasetDict,
                       load_dataset,)
+from pathlib import Path
 from transformers import (AutoModelForSeq2SeqLM, 
                           AutoTokenizer, 
                           DataCollatorForSeq2Seq,
@@ -35,12 +36,7 @@ def make_preprocess(tokenizer):
         targets = [str(t) for t in examples["nah"]]
 
         # Memory reqs grow quadratically with input size, stops at max_length
-        tokens = tokenizer(inputs, max_length=max_length, padding=padding, truncation=True, return_tensors="pt")
-
-        with tokenizer.as_target_tokenizer():
-            labels = tokenizer(targets, max_length=max_length, padding=padding, truncation=True, return_tensors="pt")
-
-        tokens["labels"] = labels["input_ids"]
+        tokens = tokenizer(text=inputs, text_target=targets, max_length=max_length, padding=padding, truncation=True, return_tensors="pt")
         return tokens
 
     return preprocess
@@ -108,26 +104,20 @@ def make_trainer(model, tokenizer, dataset,
 
 def preview_translation(model, tokenizer, dataset, num_examples = 5):
     
-    padding = "max length"
+    padding = "max_length"
     max_length = 200
 
-    tokens = tokenizer(dataset[:5]["sp"], max_length=max_length, padding=padding, truncation=True, return_tensors="pt")
-
-    with tokenizer.as_target_tokenizer():
-            labels = tokenizer(dataset[:5]["nah"], max_length=max_length, padding=padding, truncation=True, return_tensors="pt")
-
-    tokens["labels"] = labels["input_ids"]
-
-    output = model(tokens, decoder_input_ids=model._shift_right(labels.input_ids))
+    tokens = tokenizer(text=dataset[:5]["sp"], text_target=dataset[:5]["nah"], max_length=max_length, padding=padding, truncation=True, return_tensors="pt")
+    output = model(tokens, decoder_input_ids=model._shift_right(tokens["labels"]))
 
     with tokenizer.as_target_tokenizer():
         return tokenizer.batch_decode(output.last_hidden_state, skip_special_tokens=True)
 
 def main(args: argparse.ArgumentParser):
 
-    # Load the model and tokenizer
-    model = AutoModelForSeq2SeqLM.from_pretrained("google/mt5-small")
-    tokenizer = AutoTokenizer.from_pretrained("google/mt5-small")
+    # Load the model and tokenizer; we use a sentencepiece-based tokenizer, so we disable fast-tokenization
+    model = AutoModelForSeq2SeqLM.from_pretrained(args.model)
+    tokenizer = AutoTokenizer.from_pretrained(args.model, use_fast=False)
 
     # Load the preprocessing function
     preprocess = make_preprocess(tokenizer=tokenizer)
@@ -146,17 +136,44 @@ def main(args: argparse.ArgumentParser):
                 'valid': valid['train']})
     
     # Make the trainer and train the model
-    trainer = make_trainer(model, tokenizer, dataset, output="test_run")
-    trainer.train()
+    if args.finetune:
+        print("Model finetuning started...")
+        trainer = make_trainer(model, tokenizer, dataset, output="test_run")
+        trainer.train()
 
     # Sample the model's output
-    examples = preview_translation(model, tokenizer, dataset["test"])
-
+    if args.eval:
+        print("Model evaluation started...")
+        examples = preview_translation(model, tokenizer, dataset["test"])
 
 def add_args(parser: argparse.ArgumentParser):
     """
     Add arguments to the parser if split.py is the main program.
     """
+
+    parser.add_argument(
+        "-m",
+        "--model",
+        type=Path,
+        required=True,
+        help="Model location; either on the HugginFace Hub or a local directory.\n \n",
+    )
+
+    parser.add_argument(
+        "-f",
+        "--finetune",
+        type=int,
+        default=1,
+        help="Perform model fine-tuning.\n \n",
+    )
+
+    parser.add_argument(
+        "-e",
+        "--eval",
+        type=int,
+        default=1,
+        help="Perform model evaluation (after fine-tuning if enabled).\n \n",
+    )
 
     parser.add_argument(
         "-v",
