@@ -29,7 +29,7 @@ version=`python finetune.py --version`
 
 echo "RUNNING $version SCRIPT"
 
-python finetune.py 
+python finetune.py -m google/mt5-small
 
 echo "DONE"
 
