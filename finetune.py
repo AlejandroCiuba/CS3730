@@ -108,7 +108,7 @@ def make_trainer(model, tokenizer, dataset,
 
 def preview_translation(model, tokenizer, dataset, num_examples = 5):
     
-    padding = "max length"
+    padding = "max_length"
     max_length = 200
 
     tokens = tokenizer(dataset[:5]["sp"], max_length=max_length, padding=padding, truncation=True, return_tensors="pt")
