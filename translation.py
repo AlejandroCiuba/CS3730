@@ -6,19 +6,29 @@ from transformers import (AutoTokenizer,
 from transformers.pipelines.pt_utils import KeyPairDataset
 
 import evaluate
+import nltk
 import torch
 
 def compute_metrics(preds, labels):
     results = metric.compute(predictions=[preds], references=[[labels]])
     return {k: round(v, 4) for k, v in results.items() if isinstance(v, (float, int))}
 
-def task_setup(examples):
+def task_setup(example):
 
-    examples["original_version"] = []
+    # Create the task
+    command = "Translate from English to French: "
+    task = command + example["original_version"].replace("\n", " ")
+    task = task[:sum(len(word) for word in nltk.word_tokenize(task)[:256])]  # Get the first 256 words with no format changes
+    example["task"] = task
+
+    # Reformat the target language
+    lang = example["french_version"].replace("\n", " ")[:sum(len(word) for word in nltk.word_tokenize(example["french_version"], language="french"))]
+    example["french_version"] = lang
+
+    return example
 
 
 dataset = load_dataset("Nicolas-BZRD/Original_Songs_Lyrics_with_French_Translation", split="train")
-task = "Translate from English to French: "
 
 dataset = dataset.filter(lambda x: x['language'] == "en").map(task_setup, batch_size=32).train_test_split(test_size=0.3)
 
@@ -32,9 +42,10 @@ print(dataset)
 
 for row in dataset["test"]:
     
-    # trans = pipe(row["original_version"])
+    trans = pipe(row["task"])
     # print(compute_metrics(trans, row["french_version"]))
     print(row)
+    print(trans)
     break
 
 
