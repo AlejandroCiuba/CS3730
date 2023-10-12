@@ -12,14 +12,19 @@ def compute_metrics(preds, labels):
     results = metric.compute(predictions=[preds], references=[[labels]])
     return {k: round(v, 4) for k, v in results.items() if isinstance(v, (float, int))}
 
+def task_setup(examples):
+
+    examples["original_version"] = []
+
+
 dataset = load_dataset("Nicolas-BZRD/Original_Songs_Lyrics_with_French_Translation", split="train")
 task = "Translate from English to French: "
 
-dataset = dataset.filter(lambda x: x['language'] == "en").map(lambda xs: {"original_version": task + x for x in xs}, batch_size=32).train_test_split(test_size=0.3)
+dataset = dataset.filter(lambda x: x['language'] == "en").map(task_setup, batch_size=32).train_test_split(test_size=0.3)
 
 metric = evaluate.load("bleu")
 
-tokenizer = AutoTokenizer.from_pretrained("t5-base", use_fast=False)
+tokenizer = AutoTokenizer.from_pretrained("t5-base", use_fast=False, model_max_length=256)
 model = AutoModelForSeq2SeqLM.from_pretrained("t5-base")
 
 pipe = pipeline("translation_en_to_fr", model=model, tokenizer=tokenizer, use_fast=False)
@@ -27,8 +32,10 @@ print(dataset)
 
 for row in dataset["test"]:
     
-    trans = pipe(row["original_version"])
-    print(compute_metrics(trans, row["french_version"]))
+    # trans = pipe(row["original_version"])
+    # print(compute_metrics(trans, row["french_version"]))
+    print(row)
+    break
 
 
 # input = tokenizer(text=text, max_length=256, truncation=True, padding="max_length", return_tensors="pt")
