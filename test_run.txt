@@ -1,0 +1,7 @@
+RUN: Thu 12 Oct 2023 08:36:21 PM EDT
+RUNNING segment.py 1.0.0 SCRIPT
+Model finetuning started...
+===================== PRE-EVALUATION =====================
+{'eval_loss': nan, 'eval_score': 0.0, 'eval_bp': 0.0, 'eval_sys_len': 0, 'eval_ref_len': 79684, 'eval_runtime': 1112.9964, 'eval_samples_per_second': 2.699, 'eval_steps_per_second': 0.338}
+===================== FINE-TUNING =====================
+DONE
