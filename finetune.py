@@ -8,6 +8,7 @@ from transformers import (AutoModelForSeq2SeqLM,
                           Seq2SeqTrainingArguments,
                           Seq2SeqTrainer,
                           pipeline,)
+from tqdm import tqdm
 
 import argparse
 import evaluate
@@ -19,7 +20,7 @@ import numpy as np
 
 VERSION = "1.0.0"
 
-def make_preprocess(tokenizer):
+def make_preprocess(tokenizer, task = "Spanish to Nahuatl"):
     """
     Returns a preprocessing function using the given tokenizer.
     """
@@ -32,8 +33,8 @@ def make_preprocess(tokenizer):
         padding = "max_length"
         max_length = 200
 
-        inputs = [str(i) for i in examples["sp"]]
-        targets = [str(t) for t in examples["nah"]]
+        inputs = [task + ": " + str(i) for i in examples["sp"]]
+        targets = [task + ": " + str(t) for t in examples["nah"]]
 
         # Memory reqs grow quadratically with input size, stops at max_length
         tokens = tokenizer(text=inputs, text_target=targets, max_length=max_length, padding=padding, truncation=True, return_tensors="pt")
@@ -52,9 +53,10 @@ def make_compute_metrics(tokenizer, metrics_name="bleu"):
         decoded_preds = tokenizer.batch_decode(preds, skip_special_tokens=True)
 
         labels = np.where(labels != -100, labels, tokenizer.pad_token_id)
+        decoded_labels = tokenizer.batch_decode(labels, skip_special_tokens=True)
 
-        with tokenizer.as_target_tokenizer():
-            decoded_labels = tokenizer.batch_decode(labels, skip_special_tokens=True)
+        decoded_preds = [pred.strip() for pred in decoded_preds]
+        decoded_labels = [[label.strip()] for label in decoded_labels]
 
         results = metric.compute(predictions=decoded_preds, references=decoded_labels)
 
@@ -72,11 +74,11 @@ def make_trainer(model, tokenizer, dataset,
     args = Seq2SeqTrainingArguments(
             output_dir=f"models/{output}",
             evaluation_strategy="steps",
-            eval_steps=100,
+            eval_steps=1000,
             logging_strategy="steps",
             logging_steps=100,
             save_strategy="steps",
-            save_steps=200,
+            save_steps=1000,
             learning_rate=learning_rate,
             per_device_train_batch_size=batch_size,
             per_device_eval_batch_size=batch_size,
@@ -91,7 +93,7 @@ def make_trainer(model, tokenizer, dataset,
 
     compute_metrics = make_compute_metrics(tokenizer=tokenizer, metrics_name=metrics_name)
 
-    dc = DataCollatorForSeq2Seq(tokenizer=tokenizer)
+    dc = DataCollatorForSeq2Seq(tokenizer=tokenizer, model=model)
 
     return Seq2SeqTrainer(
             model=model,
@@ -102,21 +104,26 @@ def make_trainer(model, tokenizer, dataset,
             tokenizer=tokenizer,
             compute_metrics=compute_metrics,)
 
-def preview_translation(model, tokenizer, dataset, num_examples = 5):
+def preview_translation(model, tokenizer, dataset, task = "Spanish to Nahuatl", num_examples = 5):
     
-    padding = "max_length"
-    max_length = 200
+    pipe = pipeline("translation", model=model, tokenizer=tokenizer)
 
-    tokens = tokenizer(text=dataset[:5]["sp"], text_target=dataset[:5]["nah"], max_length=max_length, padding=padding, truncation=True, return_tensors="pt")
-    output = model(tokens, decoder_input_ids=model._shift_right(tokens["labels"]))
+    for i, row in tqdm(enumerate(dataset)):
+        
+        trans = pipe(task + ": " + row["sp"])
 
-    with tokenizer.as_target_tokenizer():
-        return tokenizer.batch_decode(output.last_hidden_state, skip_special_tokens=True)
+        print(f"===================== TRANSLATION {i} =====================")
+        print(f"Spanish Text: {row['sp']}\n")
+        print(f"Translation: {trans[0]['translation_text']}\n")
+        print(f"Actual Translatin: {row['nah']}\n")
+
+        if i == num_examples:
+            break
 
 def main(args: argparse.ArgumentParser):
 
     # Load the model and tokenizer; we use a sentencepiece-based tokenizer, so we disable fast-tokenization
-    model = AutoModelForSeq2SeqLM.from_pretrained(args.model)
+    model = AutoModelForSeq2SeqLM.from_pretrained(args.model, max_length=256)
     tokenizer = AutoTokenizer.from_pretrained(args.model, use_fast=False)
 
     # Load the preprocessing function
@@ -125,8 +132,7 @@ def main(args: argparse.ArgumentParser):
     # Load the dataset and split into training, testing and validation partitions
     dataset = load_dataset("hackathon-pln-es/Axolotl-Spanish-Nahuatl", split="train") \
         .filter(lambda row: isinstance(row['sp'], str) and isinstance(row['nah'], str)) \
-        .train_test_split(test_size=0.3) \
-        .map(preprocess, batched=True, batch_size = 2)
+        .train_test_split(test_size=0.3)
     
     # Separate the test split into test and validation partitions
     valid = dataset["test"].train_test_split(test_size=0.5)
@@ -137,14 +143,28 @@ def main(args: argparse.ArgumentParser):
     
     # Make the trainer and train the model
     if args.finetune:
+
+        # Make separate tokenized dataset
+        token_set = DatasetDict({
+                        'train': dataset['train'].map(preprocess, batched=True, batch_size=args.batchsize),
+                        'test': dataset['test'].map(preprocess, batched=True, batch_size=args.batchsize),
+                        'valid': dataset['valid'].map(preprocess, batched=True, batch_size=args.batchsize)})
+
         print("Model finetuning started...")
-        trainer = make_trainer(model, tokenizer, dataset, output="test_run")
+        trainer = make_trainer(model, tokenizer, dataset=token_set, batch_size=args.batchsize, output="test_run", metrics_name="sacrebleu")
+
+        print("===================== PRE-EVALUATION =====================")
+        print(trainer.evaluate())
+
+        print("===================== FINE-TUNING =====================")
         trainer.train()
 
+        print("===================== POST-EVALUATION =====================")
+        print(trainer.evaluate())
+
     # Sample the model's output
-    if args.eval:
-        print("Model evaluation started...")
-        examples = preview_translation(model, tokenizer, dataset["test"])
+    if args.examples:
+        preview_translation(model, tokenizer, dataset["test"])
 
 def add_args(parser: argparse.ArgumentParser):
     """
@@ -168,11 +188,19 @@ def add_args(parser: argparse.ArgumentParser):
     )
 
     parser.add_argument(
-        "-e",
-        "--eval",
+        "-b",
+        "--batchsize",
         type=int,
-        default=1,
-        help="Perform model evaluation (after fine-tuning if enabled).\n \n",
+        default=8,
+        help="Batch size during preprocessing and fine-tuning.\n \n",
+    )
+
+    parser.add_argument(
+        "-e",
+        "--examples",
+        type=int,
+        default=7,
+        help="Output examples from the testing data (after fine-tuning if enabled).\n \n",
     )
 
     parser.add_argument(
