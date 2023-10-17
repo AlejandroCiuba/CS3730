@@ -60,7 +60,7 @@ def make_compute_metrics(tokenizer, metrics_name="bleu"):
 
         results = metric.compute(predictions=decoded_preds, references=decoded_labels)
 
-        return {k: round(v, 4) for k, v in results.items() if isinstance(v, (float, int))}
+        return results
     
     return compute_metrics
 
@@ -74,9 +74,9 @@ def make_trainer(model, tokenizer, dataset,
     args = Seq2SeqTrainingArguments(
             output_dir=f"models/{output}",
             evaluation_strategy="steps",
-            eval_steps=1000,
+            eval_steps=100,
             logging_strategy="steps",
-            logging_steps=100,
+            logging_steps=10,
             save_strategy="steps",
             save_steps=1000,
             learning_rate=learning_rate,
