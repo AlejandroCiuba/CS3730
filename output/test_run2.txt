@@ -1,0 +1,4 @@
+RUN: Tue 17 Oct 2023 02:49:13 AM EDT
+RUNNING segment.py 1.0.0 SCRIPT
+Model finetuning started...
+===================== PRE-EVALUATION =====================

@@ -32,7 +32,7 @@ dataset = load_dataset("Nicolas-BZRD/Original_Songs_Lyrics_with_French_Translati
 
 dataset = dataset.filter(lambda x: x['language'] == "en").map(task_setup, batched=True, batch_size=32).train_test_split(test_size=0.3)
 
-metric = evaluate.load("bleu")
+metric = evaluate.load("sacrebleu")
 
 tokenizer = AutoTokenizer.from_pretrained("t5-base", use_fast=False, model_max_length=256)
 model = AutoModelForSeq2SeqLM.from_pretrained("t5-base")
@@ -45,7 +45,7 @@ count = 0
 for row in tqdm(dataset["test"]):
 
     trans = pipe(row["task"])
-    total += compute_metrics(trans[0]["translation_text"], row["french_version"])['bleu']
+    total += compute_metrics(trans[0]["translation_text"], row["french_version"])['score']
     count += 1
 
     if count >= 10:

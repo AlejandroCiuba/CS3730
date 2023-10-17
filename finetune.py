@@ -106,7 +106,7 @@ def make_trainer(model, tokenizer, dataset,
 
 def preview_translation(model, tokenizer, dataset, task = "Spanish to Nahuatl", num_examples = 5):
     
-    pipe = pipeline("translation", model=model, tokenizer=tokenizer)
+    pipe = pipeline("translation", model=model, tokenizer=tokenizer, device_map="auto")
 
     for i, row in tqdm(enumerate(dataset)):
         
@@ -121,6 +121,9 @@ def preview_translation(model, tokenizer, dataset, task = "Spanish to Nahuatl", 
             break
 
 def main(args: argparse.ArgumentParser):
+
+    # Get the device
+    device = "cuda" if torch.cuda.is_available() else "cpu"
 
     # Load the model and tokenizer; we use a sentencepiece-based tokenizer, so we disable fast-tokenization
     model = AutoModelForSeq2SeqLM.from_pretrained(args.model, max_length=256)
