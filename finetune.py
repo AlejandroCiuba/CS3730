@@ -91,7 +91,7 @@ def make_trainer(model, tokenizer, dataset,
             bf16=True,
             load_best_model_at_end=True,
             metric_for_best_model=metrics_name,
-            report_to="tensorboard")
+            report_to="tensorboard",)
 
     compute_metrics = make_compute_metrics(tokenizer=tokenizer, metrics_name=metrics_name)
 
