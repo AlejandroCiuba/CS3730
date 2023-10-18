@@ -3,6 +3,7 @@
 # Slurm script for running finetune.py on the CRC cluster
 # Alejandro Ciuba, alc307@pitt.edu
 
+############## SBATCH HEADER BEGIN ##############
 #SBATCH --job-name=cs3730
 #SBATCH --output=output/%x-%A.out
 #SBATCH --mail-user=alc307@pitt.edu
@@ -15,6 +16,7 @@
 #SBATCH --ntasks-per-node=1
 #SBATCH --time=01:00:00
 #SBATCH --qos=short
+############## SBATCH HEADER END ##############
 
 echo "RUN:" `date`
 
