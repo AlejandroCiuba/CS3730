@@ -60,7 +60,7 @@ def make_compute_metrics(tokenizer, metrics_name="bleu"):
 
         results = metric.compute(predictions=decoded_preds, references=decoded_labels)
 
-        return results
+        return {"sacrebleu": results["score"]}
     
     return compute_metrics
 
@@ -74,11 +74,11 @@ def make_trainer(model, tokenizer, dataset,
     args = Seq2SeqTrainingArguments(
             output_dir=f"models/{output}",
             evaluation_strategy="steps",
-            eval_steps=100,
+            eval_steps=2000,
             logging_strategy="steps",
             logging_steps=10,
             save_strategy="steps",
-            save_steps=1000,
+            save_steps=2000,
             learning_rate=learning_rate,
             per_device_train_batch_size=batch_size,
             per_device_eval_batch_size=batch_size,
@@ -86,7 +86,7 @@ def make_trainer(model, tokenizer, dataset,
             save_total_limit=1,
             num_train_epochs=epochs,
             predict_with_generate=True,
-            fp16=True,
+            bf16=True,
             load_best_model_at_end=True,
             metric_for_best_model=metrics_name,
             report_to="tensorboard")
@@ -151,7 +151,7 @@ def main(args: argparse.ArgumentParser):
         token_set = DatasetDict({
                         'train': dataset['train'].map(preprocess, batched=True, batch_size=args.batchsize),
                         'test': dataset['test'].map(preprocess, batched=True, batch_size=args.batchsize),
-                        'valid': dataset['valid'].map(preprocess, batched=True, batch_size=args.batchsize)})
+                        'valid': dataset['valid'].map(preprocess, batched=True, batch_size=args.batchsize).select(range(200)),})
 
         print("Model finetuning started...")
         trainer = make_trainer(model, tokenizer, dataset=token_set, batch_size=args.batchsize, output="test_run", metrics_name="sacrebleu")
