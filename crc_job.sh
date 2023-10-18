@@ -4,13 +4,15 @@
 # Alejandro Ciuba, alc307@pitt.edu
 
 #SBATCH --job-name=cs3730
-#SBATCH --output=crc_output/%x-%A.out
+#SBATCH --output=output/%x-%A.out
+#SBATCH --mail-user=alc307@pitt.edu
+#SBATCH --mail-type=END
 #SBATCH --mail-type=FAIL
 #SBATCH --cluster=gpu
 #SBATCH --partition=a100
 #SBATCH --nodes=1
 #SBATCH --gres=gpu:1
-#SBATCH --ntasks-per-node=4
+#SBATCH --ntasks-per-node=1
 #SBATCH --time=01:00:00
 #SBATCH --qos=short
 
@@ -30,8 +32,19 @@ version=`python finetune.py --version`
 echo "RUNNING $version SCRIPT"
 
 python finetune.py -m google/mt5-small \
-				   -f 0 \
-				   -e 5
+				   -d hackathon-pln-es/Axolotl-Spanish-Nahuatl \
+				   -s train \
+				   -sl sp \
+				   -tl nah \
+				   -t "Spanish to Nahuatl" \
+				   -me sacrebleu \
+				   -f 1 \
+				   -l 4e-5 \
+				   -e 1 \
+				   -b 8 \
+				   -sa 0.5 \
+				   -x 5 \
+				   -o models/test_run2
 
 echo "DONE"
 
