@@ -4,12 +4,12 @@
 # Alejandro Ciuba, alc307@pitt.edu
 
 #SBATCH --job-name=cs3730
-#SBATCH --output=crc_output/%x.out
+#SBATCH --output=crc_output/%x-%A.out
 #SBATCH --mail-type=FAIL
 #SBATCH --cluster=gpu
 #SBATCH --partition=a100
 #SBATCH --nodes=1
-#SBATCH --gres=gpu:4
+#SBATCH --gres=gpu:1
 #SBATCH --ntasks-per-node=4
 #SBATCH --time=01:00:00
 #SBATCH --qos=short
@@ -30,8 +30,8 @@ version=`python finetune.py --version`
 echo "RUNNING $version SCRIPT"
 
 python finetune.py -m google/mt5-small \
-		   -f 1 \
-		   -e 5
+				   -f 0 \
+				   -e 5
 
 echo "DONE"
 
