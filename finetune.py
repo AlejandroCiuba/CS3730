@@ -71,7 +71,7 @@ def make_trainer(model, tokenizer, dataset,
     Creates a trainer for the model.
     """
 
-    save_steps = int(len(dataset["train"]) * save_at)
+    save_steps = int((len(dataset["train"]) / batch_size) * save_at)
 
     args = Seq2SeqTrainingArguments(
             output_dir=output,
