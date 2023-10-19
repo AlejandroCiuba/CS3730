@@ -62,9 +62,9 @@ def make_preprocess(tokenizer, task = "", source = "", target = "", device = "cu
 
     return preprocess
 
-def make_compute_metrics(tokenizer, metrics_name="bleu"):
+def make_compute_metrics(tokenizer, metric_name="bleu", keys=[]):
 
-    metric = evaluate.load(metrics_name)
+    metric = evaluate.load(metric_name)
 
     def compute_metrics(eval_pred):
 
@@ -80,7 +80,7 @@ def make_compute_metrics(tokenizer, metrics_name="bleu"):
 
         results = metric.compute(predictions=decoded_preds, references=decoded_labels)
 
-        return {k : v for k, v in results.items()}
+        return {f"{metric_name}_{k}" : v for k, v in results.items() if k in keys and len(keys) != 0}
     
     return compute_metrics
 
@@ -182,7 +182,7 @@ def main(args: argparse.ArgumentParser):
         logger.info("Model finetuning started...")
         trainer = make_trainer(model, tokenizer, dataset=token_set, 
                                learning_rate=args.learning_rate, epochs=args.epochs, batch_size=args.batchsize, 
-                               save_at=args.save_at, output=args.output, metrics_name=args.metric)
+                               save_at=args.save_at, output=args.output, metrics_name=f"{args.metric}_{args.metric_keys[0]}")
 
         logger.info(f"PRE-EVALUATION: {str(trainer.evaluate())}")
 
@@ -261,6 +261,15 @@ def add_args(parser: argparse.ArgumentParser):
         "--metric",
         type=str,
         default="sacrebleu",
+        help="Evaluation metric; defaults to sacrebleu.\n \n",
+    )
+
+    parser.add_argument(
+        "-mk",
+        "--metric_keys",
+        type=str,
+        nargs="*",
+        default="score",
         help="Evaluation metric; defaults to sacrebleu.\n \n",
     )
 
