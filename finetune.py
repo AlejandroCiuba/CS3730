@@ -86,7 +86,7 @@ def make_compute_metrics(tokenizer, metric_name="bleu", keys=[]):
 
 def make_trainer(model, tokenizer, dataset,
                  learning_rate = 4e-5, epochs = 1, batch_size = 8, 
-                 save_at = 0.5, output = "models", metrics_name = "bleu"):
+                 save_at = 0.5, output = "models", metric_name = "bleu", metric_keys=["bleu"]):
     """
     Creates a trainer for the model.
     """
@@ -110,10 +110,10 @@ def make_trainer(model, tokenizer, dataset,
             predict_with_generate=True,
             bf16=True,
             load_best_model_at_end=True,
-            metric_for_best_model=metrics_name,
+            metric_for_best_model=f"{metric_name}_{metric_keys[0]}",
             report_to="tensorboard",)
 
-    compute_metrics = make_compute_metrics(tokenizer=tokenizer, metrics_name=metrics_name)
+    compute_metrics = make_compute_metrics(tokenizer=tokenizer, metrics_name=metric_name, keys=metric_keys)
 
     dc = DataCollatorForSeq2Seq(tokenizer=tokenizer, model=model)
 
@@ -182,7 +182,7 @@ def main(args: argparse.ArgumentParser):
         logger.info("Model finetuning started...")
         trainer = make_trainer(model, tokenizer, dataset=token_set, 
                                learning_rate=args.learning_rate, epochs=args.epochs, batch_size=args.batchsize, 
-                               save_at=args.save_at, output=args.output, metrics_name=f"{args.metric}_{args.metric_keys[0]}")
+                               save_at=args.save_at, output=args.output, metrics_name=args.metric, keys=args.metric_keys)
 
         logger.info(f"PRE-EVALUATION: {str(trainer.evaluate())}")
 
@@ -270,7 +270,7 @@ def add_args(parser: argparse.ArgumentParser):
         type=str,
         nargs="*",
         default="score",
-        help="Evaluation metric; defaults to sacrebleu.\n \n",
+        help="Specific key(s) in the metric dictionary to evaluate the model on.\n \n",
     )
 
     parser.add_argument(
