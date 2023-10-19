@@ -46,8 +46,8 @@ python finetune.py -m google/mt5-small \
 				   -b 8 \
 				   -sa 0.5 \
 				   -x 5 \
-				   -o models/test_run2
-				   -l logs/
+				   -o models/test_run2 \
+				   -l logs
 
 echo "DONE"
 

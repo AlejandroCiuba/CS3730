@@ -1,0 +1,61 @@
+RUN: Thu Oct 19 17:06:10 EDT 2023
+Traceback (most recent call last):
+  File "/ihome/dvillarreal/alc307/projects/CS3730/finetune.py", line 352, in <module>
+    add_args(parser)
+  File "/ihome/dvillarreal/alc307/projects/CS3730/finetune.py", line 323, in add_args
+    parser.add_argument(
+  File "/ihome/crc/install/python/Anaconda3-2022.10/lib/python3.9/argparse.py", line 1441, in add_argument
+    return self._add_action(action)
+  File "/ihome/crc/install/python/Anaconda3-2022.10/lib/python3.9/argparse.py", line 1806, in _add_action
+    self._optionals._add_action(action)
+  File "/ihome/crc/install/python/Anaconda3-2022.10/lib/python3.9/argparse.py", line 1643, in _add_action
+    action = super(_ArgumentGroup, self)._add_action(action)
+  File "/ihome/crc/install/python/Anaconda3-2022.10/lib/python3.9/argparse.py", line 1455, in _add_action
+    self._check_conflict(action)
+  File "/ihome/crc/install/python/Anaconda3-2022.10/lib/python3.9/argparse.py", line 1592, in _check_conflict
+    conflict_handler(action, confl_optionals)
+  File "/ihome/crc/install/python/Anaconda3-2022.10/lib/python3.9/argparse.py", line 1601, in _handle_conflict_error
+    raise ArgumentError(action, message % conflict_string)
+argparse.ArgumentError: argument -l/--logging: conflicting option string: -l
+RUNNING  SCRIPT
+Traceback (most recent call last):
+  File "/ihome/dvillarreal/alc307/projects/CS3730/finetune.py", line 352, in <module>
+    add_args(parser)
+  File "/ihome/dvillarreal/alc307/projects/CS3730/finetune.py", line 323, in add_args
+    parser.add_argument(
+  File "/ihome/crc/install/python/Anaconda3-2022.10/lib/python3.9/argparse.py", line 1441, in add_argument
+    return self._add_action(action)
+  File "/ihome/crc/install/python/Anaconda3-2022.10/lib/python3.9/argparse.py", line 1806, in _add_action
+    self._optionals._add_action(action)
+  File "/ihome/crc/install/python/Anaconda3-2022.10/lib/python3.9/argparse.py", line 1643, in _add_action
+    action = super(_ArgumentGroup, self)._add_action(action)
+  File "/ihome/crc/install/python/Anaconda3-2022.10/lib/python3.9/argparse.py", line 1455, in _add_action
+    self._check_conflict(action)
+  File "/ihome/crc/install/python/Anaconda3-2022.10/lib/python3.9/argparse.py", line 1592, in _check_conflict
+    conflict_handler(action, confl_optionals)
+  File "/ihome/crc/install/python/Anaconda3-2022.10/lib/python3.9/argparse.py", line 1601, in _handle_conflict_error
+    raise ArgumentError(action, message % conflict_string)
+argparse.ArgumentError: argument -l/--logging: conflicting option string: -l
+/var/spool/slurmd/job653536/slurm_script: line 50: -l: command not found
+DONE
+==============================================================================
+                                JOB STATISTICS                                
+==============================================================================
+
+           JobId: 653536
+      SubmitTime: 2023-10-19T17:06:10
+         EndTime: 2023-10-19T18:06:10
+         RunTime: 00:01:48
+            TRES: cpu=1,mem=5364M,node=1,billing=8,gres/gpu=1
+       Partition: a100
+        NodeList: gpu-n42
+         Command: /ihome/dvillarreal/alc307/projects/CS3730/crc_job.sh
+
+==============================================================================
+ For more information use the command:
+   - `sacct -M gpu -j 653536 -S 2023-10-19T17:06:10 -E 2023-10-19T18:06:10`
+
+ To control the output of the above command:
+   - Add `--format=<field1,field2,etc>` with fields of interest
+   - See the list of all possible fields by running: `sacct --helpformat`
+==============================================================================
