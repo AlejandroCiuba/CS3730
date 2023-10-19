@@ -40,7 +40,7 @@ python finetune.py -m google/mt5-small \
 				   -tl nah \
 				   -t "Spanish to Nahuatl" \
 				   -me sacrebleu \
-				   -f 1 \
+				   -f 0 \
 				   -l 4e-5 \
 				   -e 1 \
 				   -b 8 \

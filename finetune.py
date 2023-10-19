@@ -12,13 +12,33 @@ from tqdm import tqdm
 
 import argparse
 import evaluate
+import logging
 import os
 import tensorboard
 import torch
 
 import numpy as np
 
-VERSION = "1.0.7"
+VERSION = "1.0.8"
+
+def make_logger(filepath):
+
+    # Set up logger
+    version_tracking = {"version": "VERSION %s" % VERSION}
+
+    fmt = logging.Formatter(fmt="%(version)s : %(asctime)s : %(message)s",
+                            datefmt='%Y-%m-%d %H:%M:%S')
+
+    logger = logging.getLogger("data_log")
+    logger.setLevel(logging.INFO)
+
+    handler = logging.FileHandler(f"{filepath}/data-{VERSION}.log")
+    handler.setFormatter(fmt)
+
+    logger.addHandler(handler)
+    logger = logging.LoggerAdapter(logger, version_tracking)
+
+    return logger
 
 def make_preprocess(tokenizer, task = "", source = "", target = "", device = "cuda"):
     """
@@ -71,7 +91,7 @@ def make_trainer(model, tokenizer, dataset,
     Creates a trainer for the model.
     """
 
-    save_steps = int((len(dataset["train"]) / batch_size) * save_at)
+    save_steps = int((len(dataset["train"]) // batch_size) * save_at)
 
     args = Seq2SeqTrainingArguments(
             output_dir=output,
@@ -114,27 +134,31 @@ def preview_translation(model, tokenizer, dataset, task = "", num_examples = 5, 
         
         trans = pipe(task + ": " + row["sp"])
 
-        print(f"===================== TRANSLATION {i} =====================")
-        print(f"Spanish Text: {row['sp']}\n")
-        print(f"Translation: {trans[0]['translation_text']}\n")
-        print(f"Actual Translatin: {row['nah']}\n")
+        yield i, row, trans
 
         if i == num_examples:
             break
 
 def main(args: argparse.ArgumentParser):
 
+    # Logger setup
+    logger = make_logger(args.logging)
+    logger.info("===================== RUN =====================")
+
     # Sync the device
     device = "cuda" if torch.cuda.is_available() else "cpu"
 
     # Load the model and tokenizer; we use a sentencepiece-based tokenizer, so we disable fast-tokenization
+    logger.info(f"MODEL: {args.model}")
     model = AutoModelForSeq2SeqLM.from_pretrained(args.model, max_length=256).to(device)
     tokenizer = AutoTokenizer.from_pretrained(args.model, use_fast=False)
 
     # Load the preprocessing function
+    logger.info(f"TASK: {args.task}")
     preprocess = make_preprocess(tokenizer=tokenizer, task=args.task, source=args.source, target=args.target, device=device)
 
     # Load the dataset and split into training, testing and validation partitions
+    logger.info(f"DATASET: {args.dataset}")
     dataset = load_dataset(args.dataset, split=args.split if args.split != "" else None) \
         .filter(lambda row: isinstance(row[args.source], str) and isinstance(row[args.target], str)) \
         .train_test_split(test_size=0.3)
@@ -155,23 +179,29 @@ def main(args: argparse.ArgumentParser):
                         'test': dataset['test'].map(preprocess, batched=True, batch_size=args.batchsize),
                         'valid': dataset['valid'].map(preprocess, batched=True, batch_size=args.batchsize),})
 
-        print("Model finetuning started...")
+        logger.info("Model finetuning started...")
         trainer = make_trainer(model, tokenizer, dataset=token_set, 
                                learning_rate=args.learning_rate, epochs=args.epochs, batch_size=args.batchsize, 
                                save_at=args.save_at, output=args.output, metrics_name=args.metric)
 
-        print("===================== PRE-EVALUATION =====================")
-        print(trainer.evaluate())
+        logger.info(f"PRE-EVALUATION: {str(trainer.evaluate())}")
 
-        print("===================== FINE-TUNING =====================")
+        logger.info("FINE-TUNING")
         trainer.train()
 
-        print("===================== POST-EVALUATION =====================")
-        print(trainer.evaluate())
+        logger.info(f"PRE-EVALUATION: {str(trainer.evaluate())}")
 
     # Sample the model's output
     if args.examples:
-        preview_translation(model, tokenizer, task=args.task, dataset=dataset["test"], device=device)
+
+        for i, row, trans in preview_translation(model, tokenizer, task=args.task, dataset=dataset["test"], device=device):
+
+            logger.info(f"TRANSLATION {i}")
+            logger.info(f"\tSpanish Text: {row['sp']}\n")
+            logger.info(f"\tTranslation: {trans[0]['translation_text']}\n")
+            logger.info(f"\tActual Translation: {row['nah']}\n")
+
+    logger.info("RUN COMPLETED")
 
 def add_args(parser: argparse.ArgumentParser):
     """
@@ -288,6 +318,14 @@ def add_args(parser: argparse.ArgumentParser):
         type=Path,
         required=True,
         help="Directory to save the models.\n \n",
+    )
+
+    parser.add_argument(
+        "-l",
+        "--logging",
+        type=Path,
+        required=True,
+        help="Directory to save logging outputs.\n \n",
     )
 
     parser.add_argument(
