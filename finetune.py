@@ -321,7 +321,7 @@ def add_args(parser: argparse.ArgumentParser):
     )
 
     parser.add_argument(
-        "-l",
+        "-lo",
         "--logging",
         type=Path,
         required=True,
