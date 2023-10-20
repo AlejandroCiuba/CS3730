@@ -62,7 +62,7 @@ def make_preprocess(tokenizer, task = "", source = "", target = "", device = "cu
 
     return preprocess
 
-def make_compute_metrics(tokenizer, metric_name="bleu", keys=[]):
+def make_compute_metrics(tokenizer, metric_name="bleu", metric_keys=[]):
 
     metric = evaluate.load(metric_name)
 
@@ -80,7 +80,7 @@ def make_compute_metrics(tokenizer, metric_name="bleu", keys=[]):
 
         results = metric.compute(predictions=decoded_preds, references=decoded_labels)
 
-        return {f"{metric_name}_{k}" : v for k, v in results.items() if k in keys and len(keys) != 0}
+        return {f"{metric_name}_{k}" : v for k, v in results.items() if k in metric_keys and len(metric_keys) != 0}
     
     return compute_metrics
 
@@ -113,7 +113,7 @@ def make_trainer(model, tokenizer, dataset,
             metric_for_best_model=f"{metric_name}_{metric_keys[0]}",
             report_to="tensorboard",)
 
-    compute_metrics = make_compute_metrics(tokenizer=tokenizer, metrics_name=metric_name, keys=metric_keys)
+    compute_metrics = make_compute_metrics(tokenizer=tokenizer, metric_name=metric_name, metric_keys=metric_keys)
 
     dc = DataCollatorForSeq2Seq(tokenizer=tokenizer, model=model)
 
@@ -182,7 +182,7 @@ def main(args: argparse.ArgumentParser):
         logger.info("Model finetuning started...")
         trainer = make_trainer(model, tokenizer, dataset=token_set, 
                                learning_rate=args.learning_rate, epochs=args.epochs, batch_size=args.batchsize, 
-                               save_at=args.save_at, output=args.output, metrics_name=args.metric, keys=args.metric_keys)
+                               save_at=args.save_at, output=args.output, metric_name=args.metric, metric_keys=args.metric_keys)
 
         logger.info(f"PRE-EVALUATION: {str(trainer.evaluate())}")
 
