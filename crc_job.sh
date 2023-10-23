@@ -44,7 +44,7 @@ python finetune.py -m google/mt5-small \
 				   -mk score \
 				   -f 1 \
 				   -l 4e-5 \
-				   -e 1 \
+				   -e 8 \
 				   -b 8 \
 				   -sa 0.25 \
 				   -x 25 \
