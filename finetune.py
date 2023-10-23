@@ -112,16 +112,16 @@ def make_trainer(model, tokenizer, dataset,
     Creates a trainer for the model.
     """
 
-    save_steps = int((len(dataset["train"]) // batch_size) * save_at)
+    save_steps = int((len(dataset["train"]) // batch_size) * save_at) if save_at != 1 else "epoch"
 
     args = Seq2SeqTrainingArguments(
             output_dir=output,
-            evaluation_strategy="steps",
-            eval_steps=save_steps,
+            evaluation_strategy="steps" if isinstance(save_steps, (int)) else save_steps,
+            eval_steps=save_steps if isinstance(save_steps, (int)) else 1,
             logging_strategy="steps",
-            logging_steps=100,
-            save_strategy="steps",
-            save_steps=save_steps,
+            logging_steps=100,    # Dirty fix, but I need to get this done
+            save_strategy="steps" if isinstance(save_steps, (int)) else save_steps,
+            save_steps=save_steps if isinstance(save_steps, (int)) else 1,
             learning_rate=learning_rate,
             per_device_train_batch_size=batch_size,
             per_device_eval_batch_size=batch_size,
@@ -142,7 +142,7 @@ def make_trainer(model, tokenizer, dataset,
             model=model,
             args=args,
             train_dataset=dataset["train"],
-            eval_dataset=combine.concatenate_datasets([dataset["valid"], dataset["test"]]),
+            eval_dataset=dataset["valid"],
             data_collator=dc,
             tokenizer=tokenizer,
             compute_metrics=compute_metrics,)
@@ -209,12 +209,13 @@ def main(args: argparse.ArgumentParser):
                                learning_rate=args.learning_rate, epochs=args.epochs, batch_size=args.batchsize, 
                                save_at=args.save_at, output=args.output, metric_name=args.metric, metric_keys=args.metric_keys)
 
-        logger.info(f"PRE-EVALUATION: {str(trainer.evaluate())}")
+        logger.info(f"PRE-EVALUATION (VALIDATION): {str(trainer.evaluate())}")
 
         logger.info("FINE-TUNING")
         trainer.train()
 
-        logger.info(f"PRE-EVALUATION: {str(trainer.evaluate())}")
+        logger.info(f"POST-EVALUATION (VALIDATION): {str(trainer.evaluate())}")
+        logger.info(f"POST-EVALUATION (TEST): {str(trainer.evaluate(eval_dataset=dataset['test']))}")
 
     # Sample the model's output
     if args.examples:
