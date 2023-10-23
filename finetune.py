@@ -20,7 +20,7 @@ import torch
 
 import numpy as np
 
-VERSION = "1.0.8"
+VERSION = "1.1.0"
 
 def make_logger(filepath):
 
@@ -147,13 +147,13 @@ def make_trainer(model, tokenizer, dataset,
             tokenizer=tokenizer,
             compute_metrics=compute_metrics,)
 
-def preview_translation(model, tokenizer, dataset, task = "", num_examples = 5, **kwargs):
+def preview_translation(model, tokenizer, dataset, task = "", source = "", num_examples = 5, **kwargs):
     
     pipe = pipeline("translation", model=model, tokenizer=tokenizer, device=kwargs["device"])
 
     for i, row in tqdm(enumerate(dataset)):
         
-        trans = pipe(task + ": " + row["sp"])
+        trans = pipe(task + ": " + row[source])
 
         yield i, row, trans
 
@@ -218,12 +218,13 @@ def main(args: argparse.ArgumentParser):
     # Sample the model's output
     if args.examples:
 
-        for i, row, trans in preview_translation(model, tokenizer, task=args.task, dataset=dataset["valid"], device=device):
+        for i, row, trans in preview_translation(model, tokenizer, task=args.task, 
+                                                 source=args.source, dataset=dataset["valid"], device=device):
 
             logger.info(f"TRANSLATION {i}")
-            logger.info(f"\tSpanish Text: {row['sp']}\n")
+            logger.info(f"\tSpanish Text: {row[args.source]}\n")
             logger.info(f"\tTranslation: {trans[0]['translation_text']}\n")
-            logger.info(f"\tActual Translation: {row['nah']}\n")
+            logger.info(f"\tActual Translation: {row[args.target]}\n")
 
     logger.info("RUN COMPLETED")
 

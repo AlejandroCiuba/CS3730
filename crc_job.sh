@@ -14,7 +14,7 @@
 #SBATCH --nodes=1
 #SBATCH --gres=gpu:1
 #SBATCH --ntasks-per-node=1
-#SBATCH --time=03:00:00
+#SBATCH --time=4-00:00:00
 #SBATCH --qos=short
 ############## SBATCH HEADER END ##############
 
@@ -34,20 +34,21 @@ version=`python finetune.py --version`
 echo "RUNNING $version SCRIPT"
 
 python finetune.py -m google/mt5-small \
-				   -d hackathon-pln-es/Axolotl-Spanish-Nahuatl \
+				   -d opus_books opus_wikipedia \
 				   -s train \
-				   -sl sp \
-				   -tl nah \
-				   -t "Spanish to Nahuatl" \
+				   -sl en \
+				   -tl es \
+				   -ts 0.3 \
+				   -t "English to Spanish" \
 				   -me sacrebleu \
 				   -mk score \
 				   -f 1 \
 				   -l 4e-5 \
 				   -e 1 \
 				   -b 8 \
-				   -sa 0.5 \
-				   -x 5 \
-				   -o models/test_run2 \
+				   -sa 0.25 \
+				   -x 25 \
+				   -o models/baseline \
                    -lo logs
 
 echo "DONE"
