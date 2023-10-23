@@ -41,7 +41,7 @@ def make_logger(filepath):
 
     return logger
 
-def opus_formatter(dataset_list, lang1="en", lang2="es"):
+def opus_formatter(dataset_list, lang1 = "en", lang2 = "es", batch_size = 128):
     """
     Takes a list of opus datasets and combines them into one that is formatted for the rest of the pipeline.
     """
@@ -56,7 +56,7 @@ def opus_formatter(dataset_list, lang1="en", lang2="es"):
 
 
     dsets = [load_dataset(name, lang1=lang1, lang2=lang2, split="train") \
-             .map(preprocess, fn_kwargs={"name": name}, batch_size=32, batched=True) \
+             .map(preprocess, fn_kwargs={"name": name}, batched=True, batch_size=batch_size) \
              .remove_columns("translation") for name in dataset_list]
 
     return combine.concatenate_datasets(dsets=dsets).shuffle()
@@ -185,7 +185,8 @@ def main(args: argparse.ArgumentParser):
             .filter(lambda row: isinstance(row[args.source], str) and isinstance(row[args.target], str)) \
             .train_test_split(test_size=0.3)
     else:
-        dataset = opus_formatter(args.dataset, lang1=args.source, lang2=args.target).train_test_split(test_size=args.test_split)
+        dataset = opus_formatter(args.dataset, lang1=args.source, lang2=args.target, batch_size=args.text_batch_size) \
+            .train_test_split(test_size=args.test_split)
     
     # Separate the test split into test and validation partitions
     valid = dataset["test"].train_test_split(test_size=0.5)
@@ -199,9 +200,9 @@ def main(args: argparse.ArgumentParser):
 
         # Make separate tokenized dataset
         token_set = DatasetDict({
-                        'train': dataset['train'].map(preprocess, batched=True, batch_size=args.batchsize),
-                        'test': dataset['test'].map(preprocess, batched=True, batch_size=args.batchsize),
-                        'valid': dataset['valid'].map(preprocess, batched=True, batch_size=args.batchsize),})
+                        'train': dataset['train'].map(preprocess, batched=True, batch_size=args.text_batch_size),
+                        'test': dataset['test'].map(preprocess, batched=True, batch_size=args.text_batch_size),
+                        'valid': dataset['valid'].map(preprocess, batched=True, batch_size=args.text_batch_size),})
 
         logger.info("Model finetuning started...")
         trainer = make_trainer(model, tokenizer, dataset=token_set, 
@@ -280,6 +281,14 @@ def add_args(parser: argparse.ArgumentParser):
         type=int,
         default=0,
         help="If the datasets are opus-based; defaults to 0.\n \n",
+    )
+
+    parser.add_argument(
+        "-tb",
+        "--text_batch_size",
+        type=int,
+        default=32,
+        help="batch size for text preprocessing.\n \n",
     )
 
     parser.add_argument(

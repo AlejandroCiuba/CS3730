@@ -15,6 +15,7 @@ python finetune.py -m google/mt5-small \
 				   -tl es \
                    -ts 0.3 \
                    -op 1 \
+				   -tb 128 \
 				   -t "English to Spanish" \
 				   -me sacrebleu \
 				   -mk score \
