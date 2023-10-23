@@ -11,6 +11,7 @@
 #SBATCH --mail-type=FAIL
 #SBATCH --cluster=gpu
 #SBATCH --partition=a100
+#SBATCH --constraint=amd
 #SBATCH --nodes=1
 #SBATCH --gres=gpu:1
 #SBATCH --ntasks-per-node=1
@@ -47,7 +48,7 @@ python finetune.py -m google/mt5-small \
 				   -f 1 \
 				   -l 4e-5 \
 				   -e 2 \
-				   -b 8 \
+				   -b 16 \
 				   -sa 1 \
 				   -x 25 \
 				   -o models/baseline \
