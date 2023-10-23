@@ -1,5 +1,6 @@
 # Finetune model
-from datasets import (DatasetDict,
+from datasets import (combine,
+                      DatasetDict,
                       load_dataset,)
 from pathlib import Path
 from transformers import (AutoModelForSeq2SeqLM, 
@@ -39,6 +40,26 @@ def make_logger(filepath):
     logger = logging.LoggerAdapter(logger, version_tracking)
 
     return logger
+
+def opus_formatter(dataset_list, lang1="en", lang2="es"):
+    """
+    Takes a list of opus datasets and combines them into one that is formatted for the rest of the pipeline.
+    """
+
+    def preprocess(lines, **kwargs):
+
+        lines[lang1] = [translation[lang1] for translation in lines["translation"]]
+        lines[lang2] = [translation[lang2] for translation in lines["translation"]]
+        lines["id"]  = [f"{kwargs['name']}-{id}" for id in lines["id"]]
+
+        return lines
+
+
+    dsets = [load_dataset(name, lang1=lang1, lang2=lang2, split="train") \
+             .map(preprocess, fn_kwargs={"name": name}, batch_size=32, batched=True) \
+             .remove_columns("translation") for name in dataset_list]
+
+    return combine.concatenate_datasets(dsets=dsets).shuffle()
 
 def make_preprocess(tokenizer, task = "", source = "", target = "", device = "cuda"):
     """
@@ -121,7 +142,7 @@ def make_trainer(model, tokenizer, dataset,
             model=model,
             args=args,
             train_dataset=dataset["train"],
-            eval_dataset=dataset["valid"],
+            eval_dataset=combine.concatenate_datasets([dataset["valid"], dataset["test"]]),
             data_collator=dc,
             tokenizer=tokenizer,
             compute_metrics=compute_metrics,)
@@ -158,17 +179,20 @@ def main(args: argparse.ArgumentParser):
     preprocess = make_preprocess(tokenizer=tokenizer, task=args.task, source=args.source, target=args.target, device=device)
 
     # Load the dataset and split into training, testing and validation partitions
-    logger.info(f"DATASET: {args.dataset}")
-    dataset = load_dataset(args.dataset, split=args.split if args.split != "" else None) \
-        .filter(lambda row: isinstance(row[args.source], str) and isinstance(row[args.target], str)) \
-        .train_test_split(test_size=0.3)
+    logger.info(f"DATASET(S): {', '.join(args.dataset)}")
+    if not args.opus:
+        dataset = load_dataset(args.dataset[0], split=args.split if args.split != "" else None) \
+            .filter(lambda row: isinstance(row[args.source], str) and isinstance(row[args.target], str)) \
+            .train_test_split(test_size=0.3)
+    else:
+        dataset = opus_formatter(args.dataset, lang1=args.source, lang2=args.target).train_test_split(test_size=args.test_split)
     
     # Separate the test split into test and validation partitions
     valid = dataset["test"].train_test_split(test_size=0.5)
     dataset = DatasetDict({
                 'train': dataset['train'],
                 'test': valid['test'],
-                'valid': valid['train'],})
+                'valid': valid['train'],}).shuffle(seed=42)
     
     # Make the trainer and train the model
     if args.finetune:
@@ -194,7 +218,7 @@ def main(args: argparse.ArgumentParser):
     # Sample the model's output
     if args.examples:
 
-        for i, row, trans in preview_translation(model, tokenizer, task=args.task, dataset=dataset["test"], device=device):
+        for i, row, trans in preview_translation(model, tokenizer, task=args.task, dataset=dataset["valid"], device=device):
 
             logger.info(f"TRANSLATION {i}")
             logger.info(f"\tSpanish Text: {row['sp']}\n")
@@ -220,8 +244,9 @@ def add_args(parser: argparse.ArgumentParser):
         "-d",
         "--dataset",
         type=str,
+        nargs="+",
         default="hackathon-pln-es/Axolotl-Spanish-Nahuatl",
-        help="Dataset; either on the HuggingFace Hub or a local directory.\n \n",
+        help="Datasets; either on the HuggingFace Hub or a local directory. Assumes one dataset if opus is False.\n \n",
     )
 
     parser.add_argument(
@@ -249,6 +274,22 @@ def add_args(parser: argparse.ArgumentParser):
     )
 
     parser.add_argument(
+        "-op",
+        "--opus",
+        type=int,
+        default=0,
+        help="If the datasets are opus-based; defaults to 0.\n \n",
+    )
+
+    parser.add_argument(
+        "-ts",
+        "--test_split",
+        type=float,
+        default=0.3,
+        help="Test/dev split; defaults to 0.3, 30%%.\n \n",
+    )
+
+    parser.add_argument(
         "-t",
         "--task",
         type=str,
@@ -270,7 +311,7 @@ def add_args(parser: argparse.ArgumentParser):
         type=str,
         nargs="*",
         default="score",
-        help="Specific key(s) in the metric dictionary to evaluate the model on.\n \n",
+        help="Specific keys in the metric dictionary to evaluate the model on.\n \n",
     )
 
     parser.add_argument(
@@ -310,7 +351,7 @@ def add_args(parser: argparse.ArgumentParser):
         "--save_at",
         type=float,
         default=0.5,
-        help="Save every X percent; for example: 0.3 -> Evaluates at 0.3, 0.6 and 0.9. Also evaluates.\n \n",
+        help="Save every X percent; for example: 0.3 saves at 0.3, 0.6 and 0.9. Also evaluates.\n \n",
     )
 
     parser.add_argument(
@@ -318,7 +359,7 @@ def add_args(parser: argparse.ArgumentParser):
         "--examples",
         type=int,
         default=7,
-        help="Output examples from the testing data (after fine-tuning if enabled).\n \n",
+        help="Output examples from the testing data, after fine-tuning if enabled.\n \n",
     )
 
     parser.add_argument(
