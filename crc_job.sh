@@ -48,7 +48,7 @@ python finetune.py -m google/mt5-small \
 				   -f 1 \
 				   -l 4e-5 \
 				   -e 2 \
-				   -b 16 \
+				   -b 8 \
 				   -sa 1 \
 				   -x 25 \
 				   -o models/baseline \
