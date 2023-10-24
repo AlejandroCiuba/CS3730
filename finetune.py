@@ -215,7 +215,7 @@ def main(args: argparse.ArgumentParser):
         logger.info(f"\tEVALUATION METRIC: {args.metric} using {','.join(args.metric_keys)}")
 
         trainer = make_trainer(model, tokenizer, dataset=token_set, 
-                               learning_rate=args.learning_rate, epochs=args.epochs, batch_size=args.batchsize, 
+                               learning_rate=args.learning_rate, epochs=args.epochs, batch_size=args.batch_size, 
                                save_at=args.save_at, output=args.output, metric_name=args.metric, metric_keys=args.metric_keys)
 
         logger.info(f"PRE-EVALUATION (VALIDATION): {str(trainer.evaluate())}")
@@ -361,7 +361,7 @@ def add_args(parser: argparse.ArgumentParser):
 
     parser.add_argument(
         "-b",
-        "--batchsize",
+        "--batch_size",
         type=int,
         default=8,
         help="Batch size during preprocessing and fine-tuning.\n \n",

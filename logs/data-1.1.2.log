@@ -1,0 +1,7 @@
+VERSION 1.1.2 : 2023-10-23 21:36:06 : ===================== RUN =====================
+VERSION 1.1.2 : 2023-10-23 21:36:06 : MODEL: google/mt5-small
+VERSION 1.1.2 : 2023-10-23 21:36:23 : TASK: English to Spanish
+VERSION 1.1.2 : 2023-10-23 21:36:23 : DATASET(S): opus_books, opus_wikipedia
+VERSION 1.1.2 : 2023-10-23 21:51:47 : Model finetuning started...
+VERSION 1.1.2 : 2023-10-23 21:51:47 : HYPERPARAMETERS:
+VERSION 1.1.2 : 2023-10-23 21:51:47 : 	EPOCHS: 2
