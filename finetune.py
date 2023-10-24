@@ -20,7 +20,7 @@ import torch
 
 import numpy as np
 
-VERSION = "1.1.0"
+VERSION = "1.1.2"
 
 def make_logger(filepath):
 
@@ -205,6 +205,15 @@ def main(args: argparse.ArgumentParser):
                         'valid': dataset['valid'].map(preprocess, batched=True, batch_size=args.text_batch_size),})
 
         logger.info("Model finetuning started...")
+        logger.info("HYPERPARAMETERS:")
+        logger.info(f"\tEPOCHS: {args.epochs}")
+        logger.info(f"\tBATCH SIZE: {args.batch_size}")
+        logger.info(f"\tLEARNING RATE: {args.learning_rate:g}")
+        logger.info(f"\tTRAINING SIZE: {len(dataset['train'])}")
+        logger.info(f"\tVALIDATION SIZE: {len(dataset['valid'])}")
+        logger.info(f"\tTESTING SIZE: {len(dataset['test'])}")
+        logger.info(f"\tEVALUATION METRIC: {args.metric} using {','.join(args.metric_keys)}")
+
         trainer = make_trainer(model, tokenizer, dataset=token_set, 
                                learning_rate=args.learning_rate, epochs=args.epochs, batch_size=args.batchsize, 
                                save_at=args.save_at, output=args.output, metric_name=args.metric, metric_keys=args.metric_keys)
@@ -216,6 +225,7 @@ def main(args: argparse.ArgumentParser):
 
         logger.info(f"POST-EVALUATION (VALIDATION): {str(trainer.evaluate())}")
         logger.info(f"POST-EVALUATION (TEST): {str(trainer.evaluate(eval_dataset=dataset['test']))}")
+        logger.info(f"SAVE LOCATION: {args.save_at}")
 
     # Sample the model's output
     if args.examples:
@@ -320,7 +330,7 @@ def add_args(parser: argparse.ArgumentParser):
         "-mk",
         "--metric_keys",
         type=str,
-        nargs="*",
+        nargs="+",
         default="score",
         help="Specific keys in the metric dictionary to evaluate the model on.\n \n",
     )
