@@ -156,7 +156,7 @@ def preview_translation(model, tokenizer, dataset, task = "", source = "", num_e
         
         trans = pipe(task + ": " + row[source])
 
-        yield i, row, trans
+        yield (i, row, trans)
 
         if i == num_examples:
             break
