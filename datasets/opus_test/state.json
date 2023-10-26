@@ -1,0 +1,19 @@
+{
+  "_data_files": [
+    {
+      "filename": "data-00000-of-00001.arrow"
+    }
+  ],
+  "_fingerprint": "578f5821d49a253e",
+  "_format_columns": [
+    "en",
+    "es",
+    "id",
+    "nllb-200-distilled-600M",
+    "nllb-200-distilled-600M_score"
+  ],
+  "_format_kwargs": {},
+  "_format_type": null,
+  "_output_all_columns": false,
+  "_split": null
+}
