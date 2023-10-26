@@ -10,3 +10,7 @@ VERSION 1.1.0 : 2023-10-23 02:05:53 : DATASET(S): opus_books, opus_wikipedia
 VERSION 1.1.0 : 2023-10-23 02:22:41 : Model finetuning started...
 VERSION 1.1.0 : 2023-10-23 04:50:17 : PRE-EVALUATION: {'eval_loss': 59.030914306640625, 'eval_sacrebleu_score': 0.010246896998194893, 'eval_runtime': 8855.1609, 'eval_samples_per_second': 64.535, 'eval_steps_per_second': 8.067}
 VERSION 1.1.0 : 2023-10-23 04:50:17 : FINE-TUNING
+VERSION 1.1.0 : 2023-10-26 00:58:48 : ===================== RUN =====================
+VERSION 1.1.0 : 2023-10-26 00:58:48 : MODEL: facebook/nllb-200-distilled-600M
+VERSION 1.1.0 : 2023-10-26 00:59:47 : TASK: Spanish to Nahuatl
+VERSION 1.1.0 : 2023-10-26 00:59:47 : DATASET(S): opus_books, opus_wikipedia
