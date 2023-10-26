@@ -4,7 +4,7 @@
 # Alejandro Ciuba, alc307@pitt.edu
 
 ############## SBATCH HEADER BEGIN ##############
-#SBATCH --job-name=cs3730
+#SBATCH --job-name=cs3730-finetune
 #SBATCH --output=output/%x-%A.out
 #SBATCH --mail-user=alc307@pitt.edu
 #SBATCH --mail-type=END
@@ -15,7 +15,7 @@
 #SBATCH --nodes=1
 #SBATCH --gres=gpu:1
 #SBATCH --ntasks-per-node=1
-#SBATCH --time=5-00:00:00
+#SBATCH --time=3-00:00:00
 #SBATCH --qos=short
 ############## SBATCH HEADER END ##############
 
@@ -35,8 +35,9 @@ version=`python finetune.py --version`
 echo "RUNNING $version SCRIPT"
 
 python finetune.py -m google/mt5-small \
-				   -d opus_books opus_wikipedia \
+				   -d datasets/opus \
 				   -s train \
+				   -lc 1 \
 				   -sl en \
 				   -tl es \
 				   -ts 0.3 \

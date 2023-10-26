@@ -4,7 +4,7 @@
 # Alejandro Ciuba, alc307@pitt.edu
 
 ############## SBATCH HEADER BEGIN ##############
-#SBATCH --job-name=cs3730
+#SBATCH --job-name=cs3730-scores
 #SBATCH --output=output/%x-%A.out
 #SBATCH --mail-user=alc307@pitt.edu
 #SBATCH --mail-type=END

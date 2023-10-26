@@ -1,7 +1,8 @@
 # Finetune model
 from datasets import (combine,
                       DatasetDict,
-                      load_dataset,)
+                      load_dataset,
+                      load_from_disk,)
 from pathlib import Path
 from transformers import (AutoModelForSeq2SeqLM, 
                           AutoTokenizer, 
@@ -20,7 +21,7 @@ import torch
 
 import numpy as np
 
-VERSION = "1.1.2"
+VERSION = "1.1.3"
 
 def make_logger(filepath):
 
@@ -33,7 +34,7 @@ def make_logger(filepath):
     logger = logging.getLogger("data_log")
     logger.setLevel(logging.INFO)
 
-    handler = logging.FileHandler(f"{filepath}/data-{VERSION}.log")
+    handler = logging.FileHandler(f"{filepath}/finetune-{VERSION}.log")
     handler.setFormatter(fmt)
 
     logger.addHandler(handler)
@@ -180,20 +181,25 @@ def main(args: argparse.ArgumentParser):
 
     # Load the dataset and split into training, testing and validation partitions
     logger.info(f"DATASET(S): {', '.join(args.dataset)}")
-    if not args.opus:
-        dataset = load_dataset(args.dataset[0], split=args.split if args.split != "" else None) \
-            .filter(lambda row: isinstance(row[args.source], str) and isinstance(row[args.target], str)) \
-            .train_test_split(test_size=0.3)
+    if not args.local:
+
+        if not args.opus:
+            dataset = load_dataset(args.dataset[0], split=args.split) \
+                .filter(lambda row: isinstance(row[args.source], str) and isinstance(row[args.target], str)) \
+                .train_test_split(test_size=0.3)
+        else:
+            dataset = opus_formatter(args.dataset, lang1=args.source, lang2=args.target, batch_size=args.text_batch_size) \
+                .train_test_split(test_size=args.test_split)
+        
+        # Separate the test split into test and validation partitions
+        valid = dataset["test"].train_test_split(test_size=0.5)
+        dataset = DatasetDict({
+                    'train': dataset['train'],
+                    'test': valid['test'],
+                    'valid': valid['train'],}).shuffle(seed=42)
+        
     else:
-        dataset = opus_formatter(args.dataset, lang1=args.source, lang2=args.target, batch_size=args.text_batch_size) \
-            .train_test_split(test_size=args.test_split)
-    
-    # Separate the test split into test and validation partitions
-    valid = dataset["test"].train_test_split(test_size=0.5)
-    dataset = DatasetDict({
-                'train': dataset['train'],
-                'test': valid['test'],
-                'valid': valid['train'],}).shuffle(seed=42)
+        dataset = load_from_disk(args.dataset[0])
     
     # Make the trainer and train the model
     if args.finetune:
@@ -224,7 +230,12 @@ def main(args: argparse.ArgumentParser):
         trainer.train()
 
         logger.info(f"POST-EVALUATION (VALIDATION): {str(trainer.evaluate())}")
-        logger.info(f"POST-EVALUATION (TEST): {str(trainer.evaluate(eval_dataset=dataset['test']))}")
+
+        try:
+            logger.info(f"POST-EVALUATION (TEST): {str(trainer.evaluate(eval_dataset=token_set['test']))}")
+        except:
+            logger.info("UNABLE TO RUN POST-EVALUATION ON THE TEST SET, SKIPPING...")
+
         logger.info(f"SAVE LOCATION: {args.save_at}")
 
     # Sample the model's output
@@ -233,9 +244,9 @@ def main(args: argparse.ArgumentParser):
         for i, row, trans in preview_translation(model, tokenizer, task=args.task, 
                                                  source=args.source, dataset=dataset["valid"], device=device):
 
-            logger.info(f"TRANSLATION {i}")
-            logger.info(f"\tSpanish Text: {row[args.source]}\n")
-            logger.info(f"\tTranslation: {trans[0]['translation_text']}\n")
+            logger.info(f"TRANSLATION {i} on \"{args.task}\"")
+            logger.info(f"\tOriginal Text: {row[args.source]}\n")
+            logger.info(f"\tGenerated Translation: {trans[0]['translation_text']}\n")
             logger.info(f"\tActual Translation: {row[args.target]}\n")
 
     logger.info("RUN COMPLETED")
@@ -266,8 +277,16 @@ def add_args(parser: argparse.ArgumentParser):
         "-s",
         "--split",
         type=str,
-        default="train",
+        default="",
         help="Split to load; empty string for the full dataset.\n \n",
+    )
+
+    parser.add_argument(
+        "-lc",
+        "--local",
+        type=int,
+        default=0,
+        help="If it is a local dataset; defaults to False (0).\n \n",
     )
 
     parser.add_argument(

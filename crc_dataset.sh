@@ -4,7 +4,7 @@
 # Alejandro Ciuba, alc307@pitt.edu
 
 ############## SBATCH HEADER BEGIN ##############
-#SBATCH --job-name=cs3730
+#SBATCH --job-name=cs3730-dataset
 #SBATCH --output=output/%x-%A.out
 #SBATCH --mail-user=alc307@pitt.edu
 #SBATCH --mail-type=END
@@ -40,7 +40,7 @@ python dataset.py -d opus_books opus_wikipedia \
                   -tl es \
                   -op 1 \
                   -b 128 \
-                  -o datasets/opus_test \
+                  -o datasets/opus \
                   -lo logs
 
 echo "DONE"

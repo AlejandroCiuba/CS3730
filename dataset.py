@@ -45,7 +45,7 @@ def opus_formatter(dataset_list, lang1 = "en", lang2 = "es", batch_size = 128):
              .map(preprocess, fn_kwargs={"name": name}, batched=True, batch_size=batch_size) \
              .remove_columns("translation") for name in dataset_list]
     
-    return combine.interleave_datasets(datasets=dsets, stopping_strategy="all_exhausted", seed=42)
+    return combine.concatenate_datasets(dsets=dsets).shuffle(seed=42)
 
 def main(args: argparse.ArgumentParser):
 
