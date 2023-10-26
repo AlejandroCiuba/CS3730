@@ -41,12 +41,11 @@ def opus_formatter(dataset_list, lang1 = "en", lang2 = "es", batch_size = 128):
 
         return lines
 
-
     dsets = [load_dataset(name, lang1=lang1, lang2=lang2, split="train") \
              .map(preprocess, fn_kwargs={"name": name}, batched=True, batch_size=batch_size) \
              .remove_columns("translation") for name in dataset_list]
     
-    return combine.interleave_datasets(datasets=dsets, seed=42)
+    return combine.interleave_datasets(datasets=dsets, stopping_strategy="all_exhausted", seed=42)
 
 def main(args: argparse.ArgumentParser):
 
@@ -70,8 +69,6 @@ def main(args: argparse.ArgumentParser):
 
     logger.info(f"\tPOST-PROCESSING COLUMNS: {', '.join(dataset.column_names)}")
     logger.info(f"\tPOST-PROCESSING ROWS: {len(dataset)}")
-
-    dataset = dataset.select(range(0,1000))
 
     # Separate the test split into test and validation partitions
     dataset = dataset.train_test_split(train_size=args.train_size)
