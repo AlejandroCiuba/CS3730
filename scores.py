@@ -3,13 +3,15 @@ from datasets import (combine,
                       load_dataset,)
 from pathlib import Path
 from tqdm import tqdm
-from transformers import pipeline
+from transformers import (AutoTokenizer, 
+                          AutoModelForSeq2SeqLM)
 
 import argparse
+import evaluate
 import logging
 import torch
 
-VERSION = "1.0.0"
+VERSION = "1.2.0"
 
 def make_logger(filepath):
 
@@ -29,6 +31,17 @@ def make_logger(filepath):
     logger = logging.LoggerAdapter(logger, version_tracking)
 
     return logger
+
+def make_translate(source, target, tokenizer, model, model_name, device):
+
+    def translate(examples):
+
+        inputs = tokenizer(examples[source], padding="max_length", max_length=200, truncation=True, return_tensors="pt").input_ids.to(device)
+        gen_tokens = model.generate(inputs, forced_bos_token_id=tokenizer.lang_code_to_id[target], max_length=200)
+        examples[model_name] = tokenizer.batch_decode(gen_tokens, skip_special_tokens=True)
+        return examples
+    
+    return translate
 
 def opus_formatter(dataset_list, lang1 = "en", lang2 = "es", batch_size = 128):
     """
@@ -52,15 +65,18 @@ def opus_formatter(dataset_list, lang1 = "en", lang2 = "es", batch_size = 128):
 
 def main(args: argparse.ArgumentParser):
 
+    # Load the logger to make the pretty output files
     logger = make_logger(args.logging)
     logger.info("===================== RUN =====================")
 
     # Sync the device
     device = "cuda" if torch.cuda.is_available() else "cpu"
 
+    # Get the model
     logger.info(f"MODEL: {args.model} on {device}")
-    pipe = pipeline("translation", args.model, device=device)
-    logger.info(f"\t{pipe}")
+    model = AutoModelForSeq2SeqLM.from_pretrained(args.model, max_length=256).to(device)
+    model_name = str(args.model).split("/")[-1]
+    tokenizer = AutoTokenizer.from_pretrained(args.model, use_fast=False)
 
     # Load the dataset and split into training, testing and validation partitions
     logger.info(f"DATASET(S): {', '.join(args.dataset)}")
@@ -70,7 +86,25 @@ def main(args: argparse.ArgumentParser):
     else:
         dataset = opus_formatter(args.dataset, lang1=args.source, lang2=args.target, batch_size=args.text_batch_size)
     
-    logger.info(f"\t{dataset}")
+    logger.info(f"\tCOLUMNS: {', '.join(dataset.column_names)}")
+    logger.info(f"\tROWS: {len(dataset)}")
+
+    # Load the metric
+    metric = evaluate.load(args.metric)
+    logger.info(f"METRIC: {metric.name} using {args.metric_key}")
+
+    translate = make_translate(args.source, args.target_code, tokenizer, model, model_name, device)
+    dataset = dataset.map(translate, batched=True, batch_size=args.batch_size)
+
+    scores = []
+    for pred, ref in zip(dataset[model_name], dataset[args.target]):
+        scores.append(metric.compute(predictions=[pred], references=[[ref]])[args.metric_key])
+
+    dataset = dataset.add_column(name=f"{model_name}_{args.metric_key}", column=scores)
+    logger.info(f"NEW COLUMNS: {', '.join(dataset.column_names)}")
+
+    dataset.save_to_disk(args.output)
+    logger.info(f"SAVE LOCATION: {args.output}")
 
 def add_args(parser: argparse.ArgumentParser):
     """
@@ -83,6 +117,22 @@ def add_args(parser: argparse.ArgumentParser):
         type=Path,
         required=True,
         help="Model location; either on the HugginFace Hub or a local directory.\n \n",
+    )
+
+    parser.add_argument(
+        "-sc",
+        "--source_code",
+        type=str,
+        default=None,
+        help="Source language code used by the model if required.\n \n",
+    )
+
+    parser.add_argument(
+        "-tc",
+        "--target_code",
+        type=str,
+        default=None,
+        help="Target language code used by the model if required.\n \n",
     )
 
     parser.add_argument(
@@ -135,6 +185,14 @@ def add_args(parser: argparse.ArgumentParser):
     )
 
     parser.add_argument(
+        "-b",
+        "--batch_size",
+        type=int,
+        default=32,
+        help="batch size for text preprocessing.\n \n",
+    )
+
+    parser.add_argument(
         "-me",
         "--metric",
         type=str,
@@ -144,11 +202,10 @@ def add_args(parser: argparse.ArgumentParser):
 
     parser.add_argument(
         "-mk",
-        "--metric_keys",
+        "--metric_key",
         type=str,
-        nargs="*",
         default="score",
-        help="Specific keys in the metric dictionary to evaluate the model on.\n \n",
+        help="Specific key in the metric dictionary to evaluate the model on.\n \n",
     )
 
     parser.add_argument(
