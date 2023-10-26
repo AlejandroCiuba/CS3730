@@ -57,7 +57,7 @@ def opus_formatter(dataset_list, lang1 = "en", lang2 = "es", batch_size = 128):
         return lines
 
 
-    dsets = [load_dataset(name, lang1=lang1, lang2=lang2, split="train", streaming=True) \
+    dsets = [load_dataset(name, lang1=lang1, lang2=lang2, split="train") \
              .map(preprocess, fn_kwargs={"name": name}, batched=True, batch_size=batch_size) \
              .remove_columns("translation") for name in dataset_list]
 
@@ -81,29 +81,27 @@ def main(args: argparse.ArgumentParser):
     # Load the dataset and split into training, testing and validation partitions
     logger.info(f"DATASET(S): {', '.join(args.dataset)}")
     if not args.opus:
-        dataset = load_dataset(args.dataset[0], split=args.split if args.split != "" else None, streaming=True) \
+        dataset = load_dataset(args.dataset[0], split=args.split if args.split != "" else None) \
             .filter(lambda row: isinstance(row[args.source], str) and isinstance(row[args.target], str))
     else:
         dataset = opus_formatter(args.dataset, lang1=args.source, lang2=args.target, batch_size=args.text_batch_size)
     
-    logger.info(f"\tCOLUMNS: {', '.join(dataset.info.features)}")
-    logger.info(f"\tROWS: {dataset.dataset_size}")
+    logger.info(f"\tCOLUMNS: {', '.join(dataset.column_names)}")
+    logger.info(f"\tROWS: {len(dataset)}")
 
     # Load the metric
     metric = evaluate.load(args.metric)
     logger.info(f"METRIC: {metric.name} using {args.metric_key}")
 
-    dataset = dataset.take(250)
-
     translate = make_translate(args.source, args.target_code, tokenizer, model, model_name, device)
     dataset = dataset.map(translate, batched=True, batch_size=args.batch_size)
 
     scores = []
-    for row in tqdm(dataset):
-        scores.append(metric.compute(predictions=[row[model_name]], references=[[row[args.target]]])[args.metric_key])
+    for pred, ref in zip(dataset[model_name], dataset[args.target]):
+        scores.append(metric.compute(predictions=[pred], references=[[ref]])[args.metric_key])
 
     dataset = dataset.add_column(name=f"{model_name}_{args.metric_key}", column=scores)
-    logger.info(f"NEW COLUMNS: {', '.join(dataset.info.features)}")
+    logger.info(f"NEW COLUMNS: {', '.join(dataset.column_names)}")
 
     dataset.save_to_disk(args.output)
     logger.info(f"SAVE LOCATION: {args.output}")
