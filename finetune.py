@@ -171,7 +171,7 @@ def main(args: argparse.ArgumentParser):
     device = "cuda" if torch.cuda.is_available() else "cpu"
 
     # Load the model and tokenizer; we use a sentencepiece-based tokenizer, so we disable fast-tokenization
-    logger.info(f"MODEL: {args.model}")
+    logger.info(f"MODEL: {args.model} on {device}")
     model = AutoModelForSeq2SeqLM.from_pretrained(args.model, max_length=256).to(device)
     tokenizer = AutoTokenizer.from_pretrained(args.model, use_fast=False)
 
