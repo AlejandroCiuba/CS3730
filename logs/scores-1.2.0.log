@@ -1,0 +1,6 @@
+VERSION 1.2.0 : 2023-10-26 05:00:12 : ===================== RUN =====================
+VERSION 1.2.0 : 2023-10-26 05:00:13 : MODEL: facebook/nllb-200-distilled-600M on cuda
+VERSION 1.2.0 : 2023-10-26 05:00:47 : DATASET(S): opus_books, opus_wikipedia
+VERSION 1.2.0 : 2023-10-26 05:01:31 : 	COLUMNS: id, en, es
+VERSION 1.2.0 : 2023-10-26 05:01:31 : 	ROWS: 1904898
+VERSION 1.2.0 : 2023-10-26 05:01:34 : METRIC: sacrebleu using score
