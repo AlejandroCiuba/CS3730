@@ -35,7 +35,7 @@ version=`python finetune.py --version`
 echo "RUNNING $version SCRIPT"
 
 python finetune.py -m google/mt5-small \
-				   -d datasets/opus \
+				   -d datasets/ix_datasets/opus \
 				   -s train \
 				   -lc 1 \
 				   -sl en \
