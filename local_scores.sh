@@ -4,11 +4,11 @@
 
 echo "RUN: `date`"
 
-version=`python scores.py --version`
+version=`python3 scores.py --version`
 
 echo "RUNNING $version SCRIPT"
 
-python scores.py -m facebook/nllb-200-distilled-600M \
+python3 scores.py -m facebook/nllb-200-distilled-600M \
                  -tc spa_Latn \
                  -d opus_books opus_wikipedia \
                  -s train \

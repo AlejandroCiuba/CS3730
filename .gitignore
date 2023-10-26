@@ -153,6 +153,7 @@ cython_debug/
 
 # datasets
 datasets/*.csv
+datasets/*/*
 
 # models
 models/*

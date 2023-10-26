@@ -32,13 +32,22 @@ def make_logger(filepath):
 
     return logger
 
-def make_translate(source, target, tokenizer, model, model_name, device):
+def make_translate(source, target, tokenizer, model, model_name, device, task=""):
 
     def translate(examples):
 
-        inputs = tokenizer(examples[source], padding="max_length", max_length=200, truncation=True, return_tensors="pt").input_ids.to(device)
-        gen_tokens = model.generate(inputs, forced_bos_token_id=tokenizer.lang_code_to_id[target], max_length=200)
-        examples[model_name] = tokenizer.batch_decode(gen_tokens, skip_special_tokens=True)
+        if model_name == "nllb-200-distilled-600M":
+
+            inputs = tokenizer(examples[source], padding="max_length", max_length=200, truncation=True, return_tensors="pt").input_ids.to(device)
+            gen_tokens = model.generate(inputs, forced_bos_token_id=tokenizer.lang_code_to_id[target], max_length=200)
+            examples[model_name] = tokenizer.batch_decode(gen_tokens, skip_special_tokens=True)
+
+        else:
+            inputs = [f"{task}: {line}" for line in examples[source]]
+            input_ids = tokenizer(inputs, return_tensors="pt").input_ids.to(device)
+            gen_tokens = model.generate(input_ids)
+            examples[model_name] = tokenizer.batch_decode(gen_tokens[0])
+
         return examples
     
     return translate
@@ -73,10 +82,10 @@ def main(args: argparse.ArgumentParser):
     device = "cuda" if torch.cuda.is_available() else "cpu"
 
     # Get the model
-    logger.info(f"MODEL: {args.model} on {device}")
-    model = AutoModelForSeq2SeqLM.from_pretrained(args.model, max_length=256).to(device)
+    logger.info(f"MODEL(S): {args.model} on {device}")
     model_name = str(args.model).split("/")[-1]
-    tokenizer = AutoTokenizer.from_pretrained(args.model, use_fast=False)
+    model = AutoModelForSeq2SeqLM.from_pretrained(args.model, max_length=200).to(device)
+    tokenizer = AutoTokenizer.from_pretrained(args.model, use_fast=True if args.fast else False)
 
     # Load the dataset and split into training, testing and validation partitions
     logger.info(f"DATASET(S): {', '.join(args.dataset)}")
@@ -92,16 +101,20 @@ def main(args: argparse.ArgumentParser):
     # Load the metric
     metric = evaluate.load(args.metric)
     logger.info(f"METRIC: {metric.name} using {args.metric_key}")
+    
+    dataset = dataset.select(range(0, 20))
 
-    translate = make_translate(args.source, args.target_code, tokenizer, model, model_name, device)
+    translate = make_translate(args.source, args.target_code, tokenizer, model, model_name, device, task=args.task)
     dataset = dataset.map(translate, batched=True, batch_size=args.batch_size)
 
-    scores = []
-    for pred, ref in zip(dataset[model_name], dataset[args.target]):
-        scores.append(metric.compute(predictions=[pred], references=[[ref]])[args.metric_key])
+    dataset = dataset.add_column(name=f"{model_name}_{args.metric}", column=[0] * len(dataset))
+    for i, row in tqdm(enumerate(dataset)):
+        pred, ref = row[model_name], row[args.target]
+        dataset[i][f"{model_name}_{args.metric_key}"] = metric.compute(predictions=[pred], references=[[ref]])[args.metric_key]
 
-    dataset = dataset.add_column(name=f"{model_name}_{args.metric_key}", column=scores)
+    # dataset = dataset.add_column(name=f"{model_name}_{args.metric_key}", column=scores)
     logger.info(f"NEW COLUMNS: {', '.join(dataset.column_names)}")
+    print(dataset[0])
 
     dataset.save_to_disk(args.output)
     logger.info(f"SAVE LOCATION: {args.output}")
@@ -120,6 +133,14 @@ def add_args(parser: argparse.ArgumentParser):
     )
 
     parser.add_argument(
+        "-f",
+        "--fast",
+        type=int,
+        default=1,
+        help="Uses the fast tokenizer; assumes it exists.\n \n",
+    )
+
+    parser.add_argument(
         "-sc",
         "--source_code",
         type=str,
@@ -133,6 +154,14 @@ def add_args(parser: argparse.ArgumentParser):
         type=str,
         default=None,
         help="Target language code used by the model if required.\n \n",
+    )
+
+    parser.add_argument(
+        "-ts",
+        "--task",
+        type=str,
+        default="Translate from English to Spanish",
+        help="Task for the model if it requires an instruction.\n \n",
     )
 
     parser.add_argument(
