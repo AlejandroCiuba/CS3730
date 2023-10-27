@@ -152,8 +152,7 @@ dmypy.json
 cython_debug/
 
 # datasets
-datasets/*.csv
-datasets/*/*
+datasets/*
 
 # models
 models/*

@@ -1,0 +1,97 @@
+VERSION 1.4.0 : 2023-10-27 01:49:38 : ===================== RUN =====================
+VERSION 1.4.0 : 2023-10-27 01:49:38 : MODEL(S): google/flan-t5-large on cuda
+VERSION 1.4.0 : 2023-10-27 01:49:43 : DATASET(S): opus_test
+VERSION 1.4.0 : 2023-10-27 01:50:01 : ===================== RUN =====================
+VERSION 1.4.0 : 2023-10-27 01:50:01 : MODEL(S): google/flan-t5-large on cuda
+VERSION 1.4.0 : 2023-10-27 01:50:07 : DATASET(S): opus_test
+VERSION 1.4.0 : 2023-10-27 01:50:48 : ===================== RUN =====================
+VERSION 1.4.0 : 2023-10-27 01:50:48 : MODEL(S): google/flan-t5-large on cuda
+VERSION 1.4.0 : 2023-10-27 01:50:54 : DATASET(S): datasets/opus_test
+VERSION 1.4.0 : 2023-10-27 01:50:54 : 	COLUMNS: id, en, es, flan-t5-large, flan-t5-large_score
+VERSION 1.4.0 : 2023-10-27 01:50:54 : 	ROWS: 20
+VERSION 1.4.0 : 2023-10-27 01:50:54 : METRIC: sacrebleu using score
+VERSION 1.4.0 : 2023-10-27 01:57:16 : ===================== RUN =====================
+VERSION 1.4.0 : 2023-10-27 01:57:16 : MODEL(S): google/flan-t5-large on cuda
+VERSION 1.4.0 : 2023-10-27 01:57:22 : DATASET(S): datasets/opus_test
+VERSION 1.4.0 : 2023-10-27 01:57:22 : 	SPLITS: train, test, valid
+VERSION 1.4.0 : 2023-10-27 01:57:59 : ===================== RUN =====================
+VERSION 1.4.0 : 2023-10-27 01:57:59 : MODEL(S): google/flan-t5-large on cuda
+VERSION 1.4.0 : 2023-10-27 01:58:04 : DATASET(S): datasets/opus_test
+VERSION 1.4.0 : 2023-10-27 01:58:04 : 	SPLITS: train, test, valid
+VERSION 1.4.0 : 2023-10-27 01:58:51 : ===================== RUN =====================
+VERSION 1.4.0 : 2023-10-27 01:58:51 : MODEL(S): google/flan-t5-large on cuda
+VERSION 1.4.0 : 2023-10-27 01:58:57 : DATASET(S): datasets/opus_test
+VERSION 1.4.0 : 2023-10-27 01:58:57 : 	SPLITS: train, test, valid
+VERSION 1.4.0 : 2023-10-27 01:58:57 : 	COLUMNS: id, en, es
+VERSION 1.4.0 : 2023-10-27 02:00:03 : ===================== RUN =====================
+VERSION 1.4.0 : 2023-10-27 02:00:03 : MODEL(S): google/flan-t5-large on cuda
+VERSION 1.4.0 : 2023-10-27 02:00:08 : DATASET(S): datasets/opus_test
+VERSION 1.4.0 : 2023-10-27 02:00:08 : 	SPLITS: train, test, valid
+VERSION 1.4.0 : 2023-10-27 02:00:08 : 	COLUMNS: id, en, es
+VERSION 1.4.0 : 2023-10-27 02:00:08 : 	ROWS: 61-14-13
+VERSION 1.4.0 : 2023-10-27 02:00:09 : METRIC: sacrebleu using score
+VERSION 1.4.0 : 2023-10-27 02:00:25 : ===================== RUN =====================
+VERSION 1.4.0 : 2023-10-27 02:00:25 : MODEL(S): google/flan-t5-large on cuda
+VERSION 1.4.0 : 2023-10-27 02:00:30 : DATASET(S): datasets/opus_test
+VERSION 1.4.0 : 2023-10-27 02:00:30 : 	SPLITS: train, test, valid
+VERSION 1.4.0 : 2023-10-27 02:00:30 : 	COLUMNS: id, en, es
+VERSION 1.4.0 : 2023-10-27 02:00:30 : 	ROWS: 61-14-13
+VERSION 1.4.0 : 2023-10-27 02:00:31 : METRIC: sacrebleu using score
+VERSION 1.4.0 : 2023-10-27 02:01:00 : ===================== RUN =====================
+VERSION 1.4.0 : 2023-10-27 02:01:00 : MODEL(S): google/flan-t5-large on cuda
+VERSION 1.4.0 : 2023-10-27 02:01:05 : DATASET(S): datasets/opus_test
+VERSION 1.4.0 : 2023-10-27 02:01:05 : 	SPLITS: train, test, valid
+VERSION 1.4.0 : 2023-10-27 02:01:05 : 	COLUMNS: id, en, es
+VERSION 1.4.0 : 2023-10-27 02:01:05 : 	ROWS: 61-14-13
+VERSION 1.4.0 : 2023-10-27 02:01:06 : METRIC: sacrebleu using score
+VERSION 1.4.0 : 2023-10-27 02:02:31 : ===================== RUN =====================
+VERSION 1.4.0 : 2023-10-27 02:02:31 : MODEL(S): google/flan-t5-large on cuda
+VERSION 1.4.0 : 2023-10-27 02:02:37 : DATASET(S): datasets/opus_test
+VERSION 1.4.0 : 2023-10-27 02:02:37 : 	SPLITS: train, test, valid
+VERSION 1.4.0 : 2023-10-27 02:02:37 : 	COLUMNS: id, en, es
+VERSION 1.4.0 : 2023-10-27 02:02:37 : 	ROWS: 61-14-13
+VERSION 1.4.0 : 2023-10-27 02:02:37 : METRIC: sacrebleu using score
+VERSION 1.4.0 : 2023-10-27 02:03:00 : NEW COLUMNS: id, en, es, flan-t5-large, flan-t5-large_score
+VERSION 1.4.0 : 2023-10-27 02:03:50 : ===================== RUN =====================
+VERSION 1.4.0 : 2023-10-27 02:03:50 : MODEL(S): google/flan-t5-large on cuda
+VERSION 1.4.0 : 2023-10-27 02:04:13 : ===================== RUN =====================
+VERSION 1.4.0 : 2023-10-27 02:04:13 : MODEL(S): google/flan-t5-large on cuda
+VERSION 1.4.0 : 2023-10-27 02:04:19 : DATASET(S): datasets/opus_test
+VERSION 1.4.0 : 2023-10-27 02:04:19 : 	SPLITS: train, test, valid
+VERSION 1.4.0 : 2023-10-27 02:04:19 : 	COLUMNS: id, en, es
+VERSION 1.4.0 : 2023-10-27 02:04:19 : 	ROWS: 61-14-13
+VERSION 1.4.0 : 2023-10-27 02:04:19 : METRIC: sacrebleu using score
+VERSION 1.4.0 : 2023-10-27 02:04:44 : NEW COLUMNS: id, en, es, flan-t5-large, flan-t5-large_score
+VERSION 1.4.0 : 2023-10-27 02:05:37 : ===================== RUN =====================
+VERSION 1.4.0 : 2023-10-27 02:05:37 : MODEL(S): google/flan-t5-large on cuda
+VERSION 1.4.0 : 2023-10-27 02:05:42 : DATASET(S): datasets/opus_test
+VERSION 1.4.0 : 2023-10-27 02:05:42 : 	SPLITS: train, test, valid
+VERSION 1.4.0 : 2023-10-27 02:05:42 : 	COLUMNS: id, en, es
+VERSION 1.4.0 : 2023-10-27 02:05:42 : 	ROWS: 61-14-13
+VERSION 1.4.0 : 2023-10-27 02:05:43 : METRIC: sacrebleu using score
+VERSION 1.4.0 : 2023-10-27 02:06:04 : NEW COLUMNS: id, en, es, flan-t5-large, flan-t5-large_score
+VERSION 1.4.0 : 2023-10-27 02:06:04 : Example from train: Dataset({
+    features: ['id', 'en', 'es', 'flan-t5-large', 'flan-t5-large_score'],
+    num_rows: 61
+})
+VERSION 1.4.0 : 2023-10-27 02:06:04 : SAVE LOCATION: datasets/opus_flan_test
+VERSION 1.4.0 : 2023-10-27 02:06:58 : ===================== RUN =====================
+VERSION 1.4.0 : 2023-10-27 02:06:58 : MODEL(S): google/flan-t5-large on cuda
+VERSION 1.4.0 : 2023-10-27 02:07:03 : DATASET(S): datasets/opus_test
+VERSION 1.4.0 : 2023-10-27 02:07:03 : 	SPLITS: train, test, valid
+VERSION 1.4.0 : 2023-10-27 02:07:03 : 	COLUMNS: id, en, es
+VERSION 1.4.0 : 2023-10-27 02:07:03 : 	ROWS: 61-14-13
+VERSION 1.4.0 : 2023-10-27 02:07:04 : METRIC: sacrebleu using score
+VERSION 1.4.0 : 2023-10-27 02:07:24 : NEW COLUMNS: id, en, es, flan-t5-large, flan-t5-large_score
+VERSION 1.4.0 : 2023-10-27 02:07:24 : Example from train: {'id': 'opus_wikipedia-58566', 'en': '===Research===In addtition to the research centers and institutes of the university, there are numerous research institutions situated in the city of Heidelberg.', 'es': '=== Investigación ===Además de los centros de investigación e institutos de la universidad, existen numerosas instituciones de investigación situadas en la ciudad de Heidelberg.', 'flan-t5-large': '===Resea===Además de los centros y institutos de investigación de la universidad, hay numerosas instituciones de investigación situadas en la ciudad de Heidelberg.', 'flan-t5-large_score': 65.88852581937098}
+VERSION 1.4.0 : 2023-10-27 02:07:24 : SAVE LOCATION: datasets/opus_flan_test
+VERSION 1.4.0 : 2023-10-27 02:08:05 : ===================== RUN =====================
+VERSION 1.4.0 : 2023-10-27 02:08:05 : MODEL(S): facebook/nllb-200-distilled-600M on cuda
+VERSION 1.4.0 : 2023-10-27 02:08:14 : DATASET(S): datasets/opus_test
+VERSION 1.4.0 : 2023-10-27 02:08:14 : 	SPLITS: train, test, valid
+VERSION 1.4.0 : 2023-10-27 02:08:14 : 	COLUMNS: id, en, es
+VERSION 1.4.0 : 2023-10-27 02:08:14 : 	ROWS: 61-14-13
+VERSION 1.4.0 : 2023-10-27 02:08:15 : METRIC: sacrebleu using score
+VERSION 1.4.0 : 2023-10-27 02:08:38 : NEW COLUMNS: id, en, es, nllb-200-distilled-600M, nllb-200-distilled-600M_score
+VERSION 1.4.0 : 2023-10-27 02:08:38 : Example from train: {'id': 'opus_wikipedia-58566', 'en': '===Research===In addtition to the research centers and institutes of the university, there are numerous research institutions situated in the city of Heidelberg.', 'es': '=== Investigación ===Además de los centros de investigación e institutos de la universidad, existen numerosas instituciones de investigación situadas en la ciudad de Heidelberg.', 'nllb-200-distilled-600M': 'Además de los centros e institutos de investigación de la universidad, hay numerosas instituciones de investigación situadas en la ciudad de Heidelberg.', 'nllb-200-distilled-600M_score': 52.28027711881673}
+VERSION 1.4.0 : 2023-10-27 02:08:38 : SAVE LOCATION: datasets/opus_nllb_test

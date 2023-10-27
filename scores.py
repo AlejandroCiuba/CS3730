@@ -1,6 +1,10 @@
 # Get the sacrebleu scores from the two larger models
 from datasets import (combine,
-                      load_dataset,)
+                      Dataset,
+                      DatasetDict,
+                      load_dataset,
+                      load_from_disk,)
+from itertools import chain
 from pathlib import Path
 from tqdm import tqdm
 from transformers import (AutoTokenizer, 
@@ -11,7 +15,7 @@ import evaluate
 import logging
 import torch
 
-VERSION = "1.2.0"
+VERSION = "1.4.0"
 
 def make_logger(filepath):
 
@@ -40,13 +44,14 @@ def make_translate(source, target, tokenizer, model, model_name, device, task=""
 
             inputs = tokenizer(examples[source], padding="max_length", max_length=200, truncation=True, return_tensors="pt").input_ids.to(device)
             gen_tokens = model.generate(inputs, forced_bos_token_id=tokenizer.lang_code_to_id[target], max_length=200)
-            examples[model_name] = tokenizer.batch_decode(gen_tokens, skip_special_tokens=True)
 
         else:
+
             inputs = [f"{task}: {line}" for line in examples[source]]
-            input_ids = tokenizer(inputs, return_tensors="pt").input_ids.to(device)
+            input_ids = tokenizer(inputs, padding="max_length", max_length=200, truncation=True, return_tensors="pt").input_ids.to(device)
             gen_tokens = model.generate(input_ids)
-            examples[model_name] = tokenizer.batch_decode(gen_tokens[0])
+
+        examples[model_name] = tokenizer.batch_decode(gen_tokens, skip_special_tokens=True)
 
         return examples
     
@@ -89,33 +94,61 @@ def main(args: argparse.ArgumentParser):
 
     # Load the dataset and split into training, testing and validation partitions
     logger.info(f"DATASET(S): {', '.join(args.dataset)}")
-    if not args.opus:
-        dataset = load_dataset(args.dataset[0], split=args.split if args.split != "" else None) \
-            .filter(lambda row: isinstance(row[args.source], str) and isinstance(row[args.target], str))
-    else:
-        dataset = opus_formatter(args.dataset, lang1=args.source, lang2=args.target, batch_size=args.text_batch_size)
+    if not args.local:
 
-    logger.info(f"\tCOLUMNS: {', '.join(dataset.column_names)}")
-    logger.info(f"\tROWS: {len(dataset)}")
+        if not args.opus:
+            dataset = load_dataset(args.dataset[0], split=args.split if args.split != "" else None) \
+                .filter(lambda row: isinstance(row[args.source], str) and isinstance(row[args.target], str))
+        else:
+            dataset = opus_formatter(args.dataset, lang1=args.source, lang2=args.target, batch_size=args.text_batch_size)
+
+    else:
+        dataset = load_from_disk(args.dataset[0])
+
+    if isinstance(dataset, DatasetDict):
+
+        logger.info(f"\tSPLITS: {', '.join(dataset.column_names.keys())}")
+        logger.info(f"\tCOLUMNS: {', '.join(list(dataset.column_names.values())[0])}")
+        logger.info(f"\tROWS: {'-'.join(str(len(dataset[key])) for key in dataset)}")
+
+    elif isinstance(dataset, Dataset):
+        logger.info(f"\tCOLUMNS: {', '.join(dataset.column_names)}")
+        logger.info(f"\tROWS: {str(len(dataset))}")
 
     # Load the metric
     metric = evaluate.load(args.metric)
     logger.info(f"METRIC: {metric.name} using {args.metric_key}")
-    
-    dataset = dataset.select(range(0, 20))
 
     translate = make_translate(args.source, args.target_code, tokenizer, model, model_name, device, task=args.task)
     dataset = dataset.map(translate, batched=True, batch_size=args.batch_size)
 
-    key = list()
-    for example in dataset:
-        pred, ref = example[model_name], example[args.target]
-        key.append(metric.compute(predictions=[pred], references=[[ref]])[args.metric_key])
+    if isinstance(dataset, DatasetDict):
 
-    dataset = dataset.add_column(name=f"{model_name}_{args.metric_key}", column=key)
-    logger.info(f"NEW COLUMNS: {', '.join(dataset.column_names)}")
-    print(dataset[0])
-    print(key[0])
+        for split in dataset.column_names.keys():
+
+            key = list()
+
+            for example in dataset[split]:
+                pred, ref = example[model_name], example[args.target]
+                key.append(metric.compute(predictions=[pred], references=[[ref]])[args.metric_key])
+
+            dataset[split] = dataset[split].add_column(name=f"{model_name}_{args.metric_key}", column=key)
+
+        logger.info(f"NEW COLUMNS: {', '.join(list(dataset.column_names.values())[0])}")
+        logger.info(f"Example from {list(dataset.column_names.keys())[0]}: {dataset[list(dataset.column_names.keys())[0]][0]}")
+
+    elif isinstance(dataset, Dataset):
+
+        key = list()
+
+        for example in dataset:
+            pred, ref = example[model_name], example[args.target]
+            key.append(metric.compute(predictions=[pred], references=[[ref]])[args.metric_key])
+
+        dataset = dataset.add_column(name=f"{model_name}_{args.metric_key}", column=key)
+
+        logger.info(f"NEW COLUMNS: {', '.join(dataset.column_names)}")
+        logger.info(f"\nExample: {dataset[0]}")
 
     dataset.save_to_disk(args.output)
     logger.info(f"SAVE LOCATION: {args.output}")
@@ -172,6 +205,14 @@ def add_args(parser: argparse.ArgumentParser):
         nargs="+",
         default="hackathon-pln-es/Axolotl-Spanish-Nahuatl",
         help="Datasets; either on the HuggingFace Hub or a local directory. Assumes one dataset if opus is False.\n \n",
+    )
+
+    parser.add_argument(
+        "-lc",
+        "--local",
+        type=int,
+        default=0,
+        help="Boolean to check if the dataset is local; defaults to False (0).\n \n",
     )
 
     parser.add_argument(

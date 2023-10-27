@@ -82,3 +82,31 @@ VERSION 1.2.0 : 2023-10-27 00:44:20 : 	ROWS: 1904898
 VERSION 1.2.0 : 2023-10-27 00:44:21 : METRIC: sacrebleu using score
 VERSION 1.2.0 : 2023-10-27 00:44:28 : NEW COLUMNS: id, en, es, nllb-200-distilled-600M, nllb-200-distilled-600M_score
 VERSION 1.2.0 : 2023-10-27 00:44:28 : SAVE LOCATION: datasets/opus_test
+VERSION 1.2.0 : 2023-10-27 01:38:10 : ===================== RUN =====================
+VERSION 1.2.0 : 2023-10-27 01:38:10 : MODEL(S): google/flan-t5-large on cuda
+VERSION 1.2.0 : 2023-10-27 01:39:39 : DATASET(S): opus_books, opus_wikipedia
+VERSION 1.2.0 : 2023-10-27 01:39:41 : 	COLUMNS: id, en, es
+VERSION 1.2.0 : 2023-10-27 01:39:41 : 	ROWS: 1904898
+VERSION 1.2.0 : 2023-10-27 01:39:41 : METRIC: sacrebleu using score
+VERSION 1.2.0 : 2023-10-27 01:40:15 : ===================== RUN =====================
+VERSION 1.2.0 : 2023-10-27 01:40:15 : MODEL(S): google/flan-t5-large on cuda
+VERSION 1.2.0 : 2023-10-27 01:40:21 : DATASET(S): opus_books, opus_wikipedia
+VERSION 1.2.0 : 2023-10-27 01:40:23 : 	COLUMNS: id, en, es
+VERSION 1.2.0 : 2023-10-27 01:40:23 : 	ROWS: 1904898
+VERSION 1.2.0 : 2023-10-27 01:40:23 : METRIC: sacrebleu using score
+VERSION 1.2.0 : 2023-10-27 01:41:43 : ===================== RUN =====================
+VERSION 1.2.0 : 2023-10-27 01:41:43 : MODEL(S): google/flan-t5-large on cuda
+VERSION 1.2.0 : 2023-10-27 01:41:49 : DATASET(S): opus_books, opus_wikipedia
+VERSION 1.2.0 : 2023-10-27 01:41:50 : 	COLUMNS: id, en, es
+VERSION 1.2.0 : 2023-10-27 01:41:50 : 	ROWS: 1904898
+VERSION 1.2.0 : 2023-10-27 01:41:51 : METRIC: sacrebleu using score
+VERSION 1.2.0 : 2023-10-27 01:42:00 : NEW COLUMNS: id, en, es, flan-t5-large, flan-t5-large_score
+VERSION 1.2.0 : 2023-10-27 01:42:00 : SAVE LOCATION: datasets/opus_test
+VERSION 1.2.0 : 2023-10-27 01:43:13 : ===================== RUN =====================
+VERSION 1.2.0 : 2023-10-27 01:43:13 : MODEL(S): google/flan-t5-large on cuda
+VERSION 1.2.0 : 2023-10-27 01:43:18 : DATASET(S): opus_books, opus_wikipedia
+VERSION 1.2.0 : 2023-10-27 01:43:21 : 	COLUMNS: id, en, es
+VERSION 1.2.0 : 2023-10-27 01:43:21 : 	ROWS: 1904898
+VERSION 1.2.0 : 2023-10-27 01:43:21 : METRIC: sacrebleu using score
+VERSION 1.2.0 : 2023-10-27 01:43:33 : NEW COLUMNS: id, en, es, flan-t5-large, flan-t5-large_score
+VERSION 1.2.0 : 2023-10-27 01:43:33 : SAVE LOCATION: datasets/opus_test
