@@ -128,7 +128,7 @@ def main(args: argparse.ArgumentParser):
 
             key = list()
 
-            for example in dataset[split]:
+            for example in tqdm(dataset[split]):
                 pred, ref = example[model_name], example[args.target]
                 key.append(metric.compute(predictions=[pred], references=[[ref]])[args.metric_key])
 
@@ -141,7 +141,7 @@ def main(args: argparse.ArgumentParser):
 
         key = list()
 
-        for example in dataset:
+        for example in tqdm(dataset):
             pred, ref = example[model_name], example[args.target]
             key.append(metric.compute(predictions=[pred], references=[[ref]])[args.metric_key])
 
