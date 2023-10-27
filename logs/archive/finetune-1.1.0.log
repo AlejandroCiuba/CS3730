@@ -1,0 +1,21 @@
+VERSION 1.1.0 : 2023-10-23 01:17:50 : ===================== RUN =====================
+VERSION 1.1.0 : 2023-10-23 01:17:50 : MODEL: google/mt5-small
+VERSION 1.1.0 : 2023-10-23 01:17:55 : TASK: English to Spanish
+VERSION 1.1.0 : 2023-10-23 01:17:55 : DATASET(S): opus_books, opus_wikipedia
+VERSION 1.1.0 : 2023-10-23 01:49:15 : Model finetuning started...
+VERSION 1.1.0 : 2023-10-23 02:05:47 : ===================== RUN =====================
+VERSION 1.1.0 : 2023-10-23 02:05:47 : MODEL: google/mt5-small
+VERSION 1.1.0 : 2023-10-23 02:05:53 : TASK: English to Spanish
+VERSION 1.1.0 : 2023-10-23 02:05:53 : DATASET(S): opus_books, opus_wikipedia
+VERSION 1.1.0 : 2023-10-23 02:22:41 : Model finetuning started...
+VERSION 1.1.0 : 2023-10-23 04:50:17 : PRE-EVALUATION: {'eval_loss': 59.030914306640625, 'eval_sacrebleu_score': 0.010246896998194893, 'eval_runtime': 8855.1609, 'eval_samples_per_second': 64.535, 'eval_steps_per_second': 8.067}
+VERSION 1.1.0 : 2023-10-23 04:50:17 : FINE-TUNING
+VERSION 1.1.0 : 2023-10-23 19:46:11 : ===================== RUN =====================
+VERSION 1.1.0 : 2023-10-23 19:46:11 : MODEL: google/mt5-small
+VERSION 1.1.0 : 2023-10-23 19:46:39 : TASK: English to Spanish
+VERSION 1.1.0 : 2023-10-23 19:46:39 : DATASET(S): opus_books, opus_wikipedia
+VERSION 1.1.0 : 2023-10-23 21:04:04 : ===================== RUN =====================
+VERSION 1.1.0 : 2023-10-23 21:04:04 : MODEL: google/mt5-small
+VERSION 1.1.0 : 2023-10-23 21:04:37 : TASK: English to Spanish
+VERSION 1.1.0 : 2023-10-23 21:04:37 : DATASET(S): opus_books, opus_wikipedia
+VERSION 1.1.0 : 2023-10-23 21:21:38 : Model finetuning started...

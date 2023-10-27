@@ -1,0 +1,84 @@
+VERSION 1.2.0 : 2023-10-26 05:00:12 : ===================== RUN =====================
+VERSION 1.2.0 : 2023-10-26 05:00:13 : MODEL: facebook/nllb-200-distilled-600M on cuda
+VERSION 1.2.0 : 2023-10-26 05:00:47 : DATASET(S): opus_books, opus_wikipedia
+VERSION 1.2.0 : 2023-10-26 05:01:31 : 	COLUMNS: id, en, es
+VERSION 1.2.0 : 2023-10-26 05:01:31 : 	ROWS: 1904898
+VERSION 1.2.0 : 2023-10-26 05:01:34 : METRIC: sacrebleu using score
+VERSION 1.2.0 : 2023-10-26 16:19:18 : ===================== RUN =====================
+VERSION 1.2.0 : 2023-10-26 16:19:18 : MODEL: facebook/nllb-200-distilled-600M on cpu
+VERSION 1.2.0 : 2023-10-26 16:23:10 : DATASET(S): opus_books, opus_wikipedia
+VERSION 1.2.0 : 2023-10-26 16:23:52 : 	COLUMNS: id, en, es
+VERSION 1.2.0 : 2023-10-26 16:23:52 : 	ROWS: 1904898
+VERSION 1.2.0 : 2023-10-26 16:23:53 : METRIC: sacrebleu using score
+VERSION 1.2.0 : 2023-10-26 16:36:45 : NEW COLUMNS: id, en, es, nllb-200-distilled-600M
+VERSION 1.2.0 : 2023-10-26 16:36:45 : SAVE LOCATION: datasets/opus_test
+VERSION 1.2.0 : 2023-10-26 17:18:28 : ===================== RUN =====================
+VERSION 1.2.0 : 2023-10-26 17:18:28 : MODEL(S): facebook/nllb-200-distilled-600M on cpu
+VERSION 1.2.0 : 2023-10-26 17:20:36 : DATASET(S): opus_books, opus_wikipedia
+VERSION 1.2.0 : 2023-10-26 17:21:27 : 	COLUMNS: id, en, es
+VERSION 1.2.0 : 2023-10-26 17:21:27 : 	ROWS: 1904898
+VERSION 1.2.0 : 2023-10-26 17:21:29 : METRIC: sacrebleu using score
+VERSION 1.2.0 : 2023-10-26 17:27:37 : NEW COLUMNS: id, en, es, nllb-200-distilled-600M
+VERSION 1.2.0 : 2023-10-26 17:27:37 : SAVE LOCATION: datasets/opus_test
+VERSION 1.2.0 : 2023-10-26 17:32:25 : ===================== RUN =====================
+VERSION 1.2.0 : 2023-10-26 17:32:25 : MODEL(S): facebook/nllb-200-distilled-600M on cpu
+VERSION 1.2.0 : 2023-10-26 17:34:39 : DATASET(S): opus_books, opus_wikipedia
+VERSION 1.2.0 : 2023-10-26 17:35:09 : 	COLUMNS: id, en, es
+VERSION 1.2.0 : 2023-10-26 17:35:09 : 	ROWS: 1904898
+VERSION 1.2.0 : 2023-10-26 17:35:10 : METRIC: sacrebleu using score
+VERSION 1.2.0 : 2023-10-26 17:39:53 : NEW COLUMNS: id, en, es, nllb-200-distilled-600M, nllb-200-distilled-600M_sacrebleu
+VERSION 1.2.0 : 2023-10-26 17:39:53 : SAVE LOCATION: datasets/opus_test
+VERSION 1.2.0 : 2023-10-26 23:27:23 : ===================== RUN =====================
+VERSION 1.2.0 : 2023-10-26 23:27:23 : MODEL(S): facebook/nllb-200-distilled-600M on cuda
+VERSION 1.2.0 : 2023-10-26 23:27:38 : DATASET(S): opus_books, opus_wikipedia
+VERSION 1.2.0 : 2023-10-26 23:27:44 : 	COLUMNS: id, en, es
+VERSION 1.2.0 : 2023-10-26 23:27:44 : 	ROWS: 1904898
+VERSION 1.2.0 : 2023-10-26 23:27:44 : METRIC: sacrebleu using score
+VERSION 1.2.0 : 2023-10-26 23:27:52 : NEW COLUMNS: id, en, es, nllb-200-distilled-600M, nllb-200-distilled-600M_sacrebleu
+VERSION 1.2.0 : 2023-10-26 23:27:52 : SAVE LOCATION: datasets/opus_test
+VERSION 1.2.0 : 2023-10-26 23:32:16 : ===================== RUN =====================
+VERSION 1.2.0 : 2023-10-26 23:32:16 : MODEL(S): facebook/nllb-200-distilled-600M on cuda
+VERSION 1.2.0 : 2023-10-26 23:32:27 : DATASET(S): opus_books, opus_wikipedia
+VERSION 1.2.0 : 2023-10-26 23:32:29 : 	COLUMNS: id, en, es
+VERSION 1.2.0 : 2023-10-26 23:32:29 : 	ROWS: 1904898
+VERSION 1.2.0 : 2023-10-26 23:32:29 : METRIC: sacrebleu using score
+VERSION 1.2.0 : 2023-10-26 23:32:36 : NEW COLUMNS: id, en, es, nllb-200-distilled-600M, nllb-200-distilled-600M_sacrebleu
+VERSION 1.2.0 : 2023-10-26 23:32:36 : SAVE LOCATION: datasets/opus_test
+VERSION 1.2.0 : 2023-10-26 23:37:56 : ===================== RUN =====================
+VERSION 1.2.0 : 2023-10-26 23:37:56 : MODEL(S): facebook/nllb-200-distilled-600M on cuda
+VERSION 1.2.0 : 2023-10-26 23:38:06 : DATASET(S): opus_books, opus_wikipedia
+VERSION 1.2.0 : 2023-10-26 23:38:08 : 	COLUMNS: id, en, es
+VERSION 1.2.0 : 2023-10-26 23:38:08 : 	ROWS: 1904898
+VERSION 1.2.0 : 2023-10-26 23:38:09 : METRIC: sacrebleu using score
+VERSION 1.2.0 : 2023-10-26 23:38:15 : NEW COLUMNS: id, en, es, nllb-200-distilled-600M, nllb-200-distilled-600M_sacrebleu
+VERSION 1.2.0 : 2023-10-26 23:38:15 : SAVE LOCATION: datasets/opus_test
+VERSION 1.2.0 : 2023-10-26 23:38:25 : ===================== RUN =====================
+VERSION 1.2.0 : 2023-10-26 23:38:25 : MODEL(S): facebook/nllb-200-distilled-600M on cuda
+VERSION 1.2.0 : 2023-10-26 23:38:35 : DATASET(S): opus_books, opus_wikipedia
+VERSION 1.2.0 : 2023-10-26 23:38:37 : 	COLUMNS: id, en, es
+VERSION 1.2.0 : 2023-10-26 23:38:37 : 	ROWS: 1904898
+VERSION 1.2.0 : 2023-10-26 23:38:38 : METRIC: sacrebleu using score
+VERSION 1.2.0 : 2023-10-26 23:38:45 : NEW COLUMNS: id, en, es, nllb-200-distilled-600M, nllb-200-distilled-600M_sacrebleu
+VERSION 1.2.0 : 2023-10-26 23:38:45 : SAVE LOCATION: datasets/opus_test
+VERSION 1.2.0 : 2023-10-27 00:42:28 : ===================== RUN =====================
+VERSION 1.2.0 : 2023-10-27 00:42:28 : MODEL(S): facebook/nllb-200-distilled-600M on cuda
+VERSION 1.2.0 : 2023-10-27 00:42:38 : DATASET(S): opus_books, opus_wikipedia
+VERSION 1.2.0 : 2023-10-27 00:42:40 : 	COLUMNS: id, en, es
+VERSION 1.2.0 : 2023-10-27 00:42:40 : 	ROWS: 1904898
+VERSION 1.2.0 : 2023-10-27 00:42:41 : METRIC: sacrebleu using score
+VERSION 1.2.0 : 2023-10-27 00:43:24 : ===================== RUN =====================
+VERSION 1.2.0 : 2023-10-27 00:43:24 : MODEL(S): facebook/nllb-200-distilled-600M on cuda
+VERSION 1.2.0 : 2023-10-27 00:43:34 : DATASET(S): opus_books, opus_wikipedia
+VERSION 1.2.0 : 2023-10-27 00:43:36 : 	COLUMNS: id, en, es
+VERSION 1.2.0 : 2023-10-27 00:43:36 : 	ROWS: 1904898
+VERSION 1.2.0 : 2023-10-27 00:43:36 : METRIC: sacrebleu using score
+VERSION 1.2.0 : 2023-10-27 00:43:43 : NEW COLUMNS: id, en, es, nllb-200-distilled-600M, nllb-200-distilled-600M_score
+VERSION 1.2.0 : 2023-10-27 00:43:43 : SAVE LOCATION: datasets/opus_test
+VERSION 1.2.0 : 2023-10-27 00:44:08 : ===================== RUN =====================
+VERSION 1.2.0 : 2023-10-27 00:44:08 : MODEL(S): facebook/nllb-200-distilled-600M on cuda
+VERSION 1.2.0 : 2023-10-27 00:44:18 : DATASET(S): opus_books, opus_wikipedia
+VERSION 1.2.0 : 2023-10-27 00:44:20 : 	COLUMNS: id, en, es
+VERSION 1.2.0 : 2023-10-27 00:44:20 : 	ROWS: 1904898
+VERSION 1.2.0 : 2023-10-27 00:44:21 : METRIC: sacrebleu using score
+VERSION 1.2.0 : 2023-10-27 00:44:28 : NEW COLUMNS: id, en, es, nllb-200-distilled-600M, nllb-200-distilled-600M_score
+VERSION 1.2.0 : 2023-10-27 00:44:28 : SAVE LOCATION: datasets/opus_test

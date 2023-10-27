@@ -16,7 +16,7 @@
 #SBATCH --gres=gpu:1
 #SBATCH --ntasks-per-node=1
 #SBATCH --array=0-1
-#SBATCH --time=10:00:00
+#SBATCH --time=2-10:00:00
 #SBATCH --qos=short
 ############## SBATCH HEADER END ##############
 
@@ -54,7 +54,8 @@ if [ "${SLURM_ARRAY_TASK_ID}" = "0" ]; then
                      -me sacrebleu \
                      -mk score \
                      -o datasets/ix_datasets/opus_nllb \
-                     -lo logs
+                     -lo logs \
+                     -ln $SLURM_ARRAY_TASK_ID
 
 elif [ "${SLURM_ARRAY_TASK_ID}" = "1" ]; then
 
@@ -73,7 +74,8 @@ elif [ "${SLURM_ARRAY_TASK_ID}" = "1" ]; then
                          -me sacrebleu \
                          -mk score \
                          -o datasets/ix_datasets/opus_flan \
-                         -lo logs
+                         -lo logs \
+                         -ln $SLURM_ARRAY_TASK_ID
 
 fi
 

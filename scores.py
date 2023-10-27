@@ -15,9 +15,9 @@ import evaluate
 import logging
 import torch
 
-VERSION = "1.4.0"
+VERSION = "1.5.0"
 
-def make_logger(filepath):
+def make_logger(filepath, logging_num):
 
     # Set up logger
     version_tracking = {"version": "VERSION %s" % VERSION}
@@ -28,7 +28,11 @@ def make_logger(filepath):
     logger = logging.getLogger("data_log")
     logger.setLevel(logging.INFO)
 
-    handler = logging.FileHandler(f"{filepath}/scores-{VERSION}.log")
+    if logging_num == -1:
+        handler = logging.FileHandler(f"{filepath}/scores-{VERSION}.log")
+    else:
+        handler = logging.FileHandler(f"{filepath}/scores-{logging_num}-{VERSION}.log")
+
     handler.setFormatter(fmt)
 
     logger.addHandler(handler)
@@ -80,7 +84,7 @@ def opus_formatter(dataset_list, lang1 = "en", lang2 = "es", batch_size = 128):
 def main(args: argparse.ArgumentParser):
 
     # Load the logger to make the pretty output files
-    logger = make_logger(args.logging)
+    logger = make_logger(args.logging, args.logging_number)
     logger.info("===================== RUN =====================")
 
     # Sync the device
@@ -293,6 +297,14 @@ def add_args(parser: argparse.ArgumentParser):
         type=Path,
         required=True,
         help="Directory to save logging outputs.\n \n",
+    )
+
+    parser.add_argument(
+        "-ln",
+        "--logging_number",
+        type=int,
+        default=-1,
+        help="If parallelized, which logging file this instance will write to; avoids race conditions. Defaults to -1 (no parallelization).\n \n",
     )
 
     parser.add_argument(
