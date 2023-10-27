@@ -5,7 +5,7 @@
 
 ############## SBATCH HEADER BEGIN ##############
 #SBATCH --job-name=cs3730-scores
-#SBATCH --output=output/%x-%A.out
+#SBATCH --output=output/%x--%a-%A.out
 #SBATCH --mail-user=alc307@pitt.edu
 #SBATCH --mail-type=END
 #SBATCH --mail-type=FAIL
@@ -15,6 +15,7 @@
 #SBATCH --nodes=1
 #SBATCH --gres=gpu:1
 #SBATCH --ntasks-per-node=1
+#SBATCH --array=0-1
 #SBATCH --time=10:00:00
 #SBATCH --qos=short
 ############## SBATCH HEADER END ##############
@@ -34,21 +35,43 @@ echo "RUN: `date`"
 
 version=`python scores.py --version`
 
-echo "RUNNING $version SCRIPT"
+echo "RUNNING $version SCRIPT ON $SLURM_ARRAY_TASK_ID"
 
-python scores.py -m facebook/nllb-200-distilled-600M \
-                 -tc spa_Latn \
-                 -d opus_books opus_wikipedia \
-                 -s train \
-                 -sl en \
-                 -tl es \
-                 -op 1 \
-                 -tb 128 \
-                 -b 32 \
-                 -me sacrebleu \
-                 -mk score \
-                 -o datasets/opus_scores \
-                 -lo logs
+if [ "${SLURM_ARRAY_TASK_ID}" = "0" ]; then
+
+    python scores.py -m facebook/nllb-200-distilled-600M \
+                     -f 1 \
+                     -tc spa_Latn \
+                     -d datasets/ix_datasets/opus \
+                     -lc 1 \
+                     -s train \
+                     -sl en \
+                     -tl es \
+                     -op 0 \
+                     -tb 128 \
+                     -b 32 \
+                     -me sacrebleu \
+                     -mk score \
+                     -o datasets/ix_datasets/opus_nllb \
+                     -lo logs
+
+elif [ "${SLURM_ARRAY_TASK_ID}" = "1" ]; then
+
+        python scores.py -m google/flan-t5-large \
+                         -f 1 \
+                         -tc spa_Latn \
+                         -d datasets/ix_datasets/opus \
+                         -lc 1 \
+                         -s train \
+                         -sl en \
+                         -tl es \
+                         -op 0 \
+                         -tb 128 \
+                         -b 32 \
+                         -me sacrebleu \
+                         -mk score \
+                         -o datasets/ix_datasets/opus_flan \
+                         -lo logs
 
 echo "DONE"
 
