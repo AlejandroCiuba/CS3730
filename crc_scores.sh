@@ -5,7 +5,7 @@
 
 ############## SBATCH HEADER BEGIN ##############
 #SBATCH --job-name=cs3730-scores
-#SBATCH --output=output/%x--%a-%A.out
+#SBATCH --output=output/%x-%a-%A.out
 #SBATCH --mail-user=alc307@pitt.edu
 #SBATCH --mail-type=END
 #SBATCH --mail-type=FAIL
@@ -42,6 +42,7 @@ if [ "${SLURM_ARRAY_TASK_ID}" = "0" ]; then
     python scores.py -m facebook/nllb-200-distilled-600M \
                      -f 1 \
                      -tc spa_Latn \
+                     -ts "Translate from English to Spanish" \
                      -d datasets/ix_datasets/opus \
                      -lc 1 \
                      -s train \
@@ -60,6 +61,7 @@ elif [ "${SLURM_ARRAY_TASK_ID}" = "1" ]; then
         python scores.py -m google/flan-t5-large \
                          -f 1 \
                          -tc spa_Latn \
+                         -ts "Translate from English to Spanish" \
                          -d datasets/ix_datasets/opus \
                          -lc 1 \
                          -s train \
@@ -72,6 +74,8 @@ elif [ "${SLURM_ARRAY_TASK_ID}" = "1" ]; then
                          -mk score \
                          -o datasets/ix_datasets/opus_flan \
                          -lo logs
+
+fi
 
 echo "DONE"
 
