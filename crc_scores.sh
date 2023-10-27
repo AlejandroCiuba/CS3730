@@ -5,7 +5,7 @@
 
 ############## SBATCH HEADER BEGIN ##############
 #SBATCH --job-name=cs3730-scores
-#SBATCH --output=output/%x--%a-%A.out
+#SBATCH --output=output/%x-%a-%A.out
 #SBATCH --mail-user=alc307@pitt.edu
 #SBATCH --mail-type=END
 #SBATCH --mail-type=FAIL
@@ -74,6 +74,8 @@ elif [ "${SLURM_ARRAY_TASK_ID}" = "1" ]; then
                          -mk score \
                          -o datasets/ix_datasets/opus_flan \
                          -lo logs
+
+fi
 
 echo "DONE"
 
