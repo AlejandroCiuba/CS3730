@@ -94,7 +94,7 @@ def main(args: argparse.ArgumentParser):
             .filter(lambda row: isinstance(row[args.source], str) and isinstance(row[args.target], str))
     else:
         dataset = opus_formatter(args.dataset, lang1=args.source, lang2=args.target, batch_size=args.text_batch_size)
-    
+
     logger.info(f"\tCOLUMNS: {', '.join(dataset.column_names)}")
     logger.info(f"\tROWS: {len(dataset)}")
 
@@ -107,14 +107,15 @@ def main(args: argparse.ArgumentParser):
     translate = make_translate(args.source, args.target_code, tokenizer, model, model_name, device, task=args.task)
     dataset = dataset.map(translate, batched=True, batch_size=args.batch_size)
 
-    dataset = dataset.add_column(name=f"{model_name}_{args.metric}", column=[0] * len(dataset))
-    for i, row in tqdm(enumerate(dataset)):
-        pred, ref = row[model_name], row[args.target]
-        dataset[i][f"{model_name}_{args.metric_key}"] = metric.compute(predictions=[pred], references=[[ref]])[args.metric_key]
+    key = list()
+    for example in dataset:
+        pred, ref = example[model_name], example[args.target]
+        key.append(metric.compute(predictions=[pred], references=[[ref]])[args.metric_key])
 
-    # dataset = dataset.add_column(name=f"{model_name}_{args.metric_key}", column=scores)
+    dataset = dataset.add_column(name=f"{model_name}_{args.metric_key}", column=key)
     logger.info(f"NEW COLUMNS: {', '.join(dataset.column_names)}")
     print(dataset[0])
+    print(key[0])
 
     dataset.save_to_disk(args.output)
     logger.info(f"SAVE LOCATION: {args.output}")
