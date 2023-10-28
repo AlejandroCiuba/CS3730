@@ -242,12 +242,13 @@ def main(args: argparse.ArgumentParser):
     if args.examples:
 
         for i, row, trans in preview_translation(model, tokenizer, task=args.task, 
-                                                 source=args.source, dataset=dataset["valid"], device=device):
+                                                 source=args.source, dataset=dataset["valid"], 
+                                                 num_examples=args.examples, device=device):
 
             logger.info(f"TRANSLATION {i} on \"{args.task}\"")
-            logger.info(f"\tOriginal Text: {row[args.source]}\n")
-            logger.info(f"\tGenerated Translation: {trans[0]['translation_text']}\n")
-            logger.info(f"\tActual Translation: {row[args.target]}\n")
+            logger.info(f"\tOriginal Text: {row[args.source]}")
+            logger.info(f"\tGenerated Translation: {trans[0]['translation_text']}")
+            logger.info(f"\tActual Translation: {row[args.target]}")
 
     logger.info("RUN COMPLETED")
 

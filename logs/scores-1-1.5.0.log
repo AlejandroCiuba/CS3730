@@ -1,0 +1,7 @@
+VERSION 1.5.0 : 2023-10-27 22:27:22 : ===================== RUN =====================
+VERSION 1.5.0 : 2023-10-27 22:27:23 : MODEL(S): google/flan-t5-large on cuda
+VERSION 1.5.0 : 2023-10-27 22:29:38 : DATASET(S): datasets/ix_datasets/opus
+VERSION 1.5.0 : 2023-10-27 22:29:40 : 	SPLITS: train, test, valid
+VERSION 1.5.0 : 2023-10-27 22:29:40 : 	COLUMNS: id, en, es
+VERSION 1.5.0 : 2023-10-27 22:29:40 : 	ROWS: 1189762-254950-254949
+VERSION 1.5.0 : 2023-10-27 22:29:43 : METRIC: sacrebleu using score
