@@ -5,3 +5,6 @@ VERSION 1.5.0 : 2023-10-27 19:25:33 : 	SPLITS: train, test, valid
 VERSION 1.5.0 : 2023-10-27 19:25:33 : 	COLUMNS: id, en, es
 VERSION 1.5.0 : 2023-10-27 19:25:33 : 	ROWS: 1189762-254950-254949
 VERSION 1.5.0 : 2023-10-27 19:25:36 : METRIC: sacrebleu using score
+VERSION 1.5.0 : 2023-10-28 21:18:13 : NEW COLUMNS: id, en, es, nllb-200-distilled-600M, nllb-200-distilled-600M_score
+VERSION 1.5.0 : 2023-10-28 21:18:13 : Example from train: {'id': 'opus_wikipedia-986880', 'en': 'It is endemic to Italy.', 'es': 'Es originaria de Italia.', 'nllb-200-distilled-600M': 'Es endémico de Italia.', 'nllb-200-distilled-600M_score': 42.72870063962342}
+VERSION 1.5.0 : 2023-10-28 21:18:18 : SAVE LOCATION: datasets/ix_datasets/opus_nllb
