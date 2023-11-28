@@ -13,3 +13,31 @@ VERSION 1.1.3 : 2023-10-26 20:40:25 : 	TESTING SIZE: 254950
 VERSION 1.1.3 : 2023-10-26 20:40:25 : 	EVALUATION METRIC: sacrebleu using score
 VERSION 1.1.3 : 2023-10-26 21:34:04 : PRE-EVALUATION (VALIDATION): {'eval_loss': 58.16686248779297, 'eval_sacrebleu_score': 0.008916486098283445, 'eval_runtime': 3214.8542, 'eval_samples_per_second': 79.303, 'eval_steps_per_second': 4.957}
 VERSION 1.1.3 : 2023-10-26 21:34:04 : FINE-TUNING
+VERSION 1.1.3 : 2023-10-27 22:40:59 : POST-EVALUATION (VALIDATION): {'eval_loss': 0.2294660359621048, 'eval_sacrebleu_score': 49.771545046789335, 'eval_runtime': 24911.0397, 'eval_samples_per_second': 10.234, 'eval_steps_per_second': 0.64, 'epoch': 2.0}
+VERSION 1.1.3 : 2023-10-28 04:57:32 : POST-EVALUATION (TEST): {'eval_loss': 0.22966474294662476, 'eval_sacrebleu_score': 49.76586829863507, 'eval_runtime': 22591.9787, 'eval_samples_per_second': 11.285, 'eval_steps_per_second': 0.705, 'epoch': 2.0}
+VERSION 1.1.3 : 2023-10-28 04:57:32 : SAVE LOCATION: 1.0
+VERSION 1.1.3 : 2023-10-28 04:57:33 : TRANSLATION 0 on "English to Spanish"
+VERSION 1.1.3 : 2023-10-28 04:57:33 : 	Original Text: Martín Lousteau (born December 8, 1970) was the Minister of Economy and Production of Argentina under the administration of President Cristina Fernández de Kirchner, from December 10, 2007, until April 24, 2008.
+VERSION 1.1.3 : 2023-10-28 04:57:33 : 	Generated Translation: English to Spanish: Martín Lousteau (nacido el 8 de diciembre de 1970) fue el Ministro de Economía y producción de Argentina bajo la administración del presidente Cristina Fernández de Kirchner, desde el 10 de diciembre de 2007 hasta el 24 de abril de 2008.
+VERSION 1.1.3 : 2023-10-28 04:57:33 : 	Actual Translation: Martín Lousteau (n. Buenos Aires, Argentina, 8 de diciembre de 1970) es un economista y político argentino, que se desempeño como Ministro de Economía de Argentina, desde el 10 de diciembre de 2007 hasta el 24 de abril de 2008.
+VERSION 1.1.3 : 2023-10-28 04:57:33 : TRANSLATION 1 on "English to Spanish"
+VERSION 1.1.3 : 2023-10-28 04:57:33 : 	Original Text: Forel was able to combine the "dynamic approach" of French psychiatry with the biological orientation of the German school of psychiatric thought.
+VERSION 1.1.3 : 2023-10-28 04:57:33 : 	Generated Translation: English to Spanish: Forel fue capaz de combinar el enfoque dinámico de la psiquiatra francesa con la orientación biológica de la escuela alemana de pensamiento psiquiátrico.
+VERSION 1.1.3 : 2023-10-28 04:57:33 : 	Actual Translation: Forel fue capaz de combinar "el acercamiento dinámico" de la psiquiatría francesa con la orientación biológica del pensamiento psiquiátrico de la escuela alemana.
+VERSION 1.1.3 : 2023-10-28 04:57:34 : TRANSLATION 2 on "English to Spanish"
+VERSION 1.1.3 : 2023-10-28 04:57:34 : 	Original Text: Howard Browne, who had been on a leave of absence from Ziff-Davis to write fiction, took over as editor and began by throwing away 300,000 words of inventory that Palmer had acquired before he left.
+VERSION 1.1.3 : 2023-10-28 04:57:34 : 	Generated Translation: English to Spanish: Howard Browne, que había estado en una estancia de ausencia de Ziff-Davis para escribir ficción, se hizo editor y comenzó a poner a cabo 300.000 palabras de inventario que Palmer había adquirido antes de que dejó.
+VERSION 1.1.3 : 2023-10-28 04:57:34 : 	Actual Translation: Howard Browne, quien se había ausentado de Ziff-Davis para escribir ficción, asumió el cargo de editor y comenzó desechando alrededor de 300 000 palabras del inventario que Palmer había adquirido antes de renunciar.
+VERSION 1.1.3 : 2023-10-28 04:57:35 : TRANSLATION 3 on "English to Spanish"
+VERSION 1.1.3 : 2023-10-28 04:57:35 : 	Original Text: ==History==The club was established on 10 May 1930, and was initially named Selmashstroy (Сельмашстрой).
+VERSION 1.1.3 : 2023-10-28 04:57:35 : 	Generated Translation: English to Spanish: == Historia ==El club fue establecido el 10 de mayo de 1930, y fue nombrado inicialmente Selmashstroy (Сельмашстрой).
+VERSION 1.1.3 : 2023-10-28 04:57:35 : 	Actual Translation: ==Historia==El club fue fundado el 10 de mayo de 1930 y fue nombrado inicialmente Selmashstroy (Сельмашстрой).
+VERSION 1.1.3 : 2023-10-28 04:57:35 : TRANSLATION 4 on "English to Spanish"
+VERSION 1.1.3 : 2023-10-28 04:57:35 : 	Original Text: In the first half of the 20th century, the parish lost many members, as residential neighborhoods were torn down to develop banks and department stores in the city center.
+VERSION 1.1.3 : 2023-10-28 04:57:35 : 	Generated Translation: English to Spanish: En la primera mitad del siglo XX, la parroquia perdió muchos miembros, ya que los barrios residenciales fueron demolidos para desarrollar bancos y tiendas de departamento en el centro de la ciudad.
+VERSION 1.1.3 : 2023-10-28 04:57:35 : 	Actual Translation: En la primera mitad del siglo XX, la parroquia perdió muchos miembros, ya que loscercanos barrios residenciales fueron derribados para desarrollar bancos y grandes almacenes en el centro de la ciudad.
+VERSION 1.1.3 : 2023-10-28 04:57:36 : TRANSLATION 5 on "English to Spanish"
+VERSION 1.1.3 : 2023-10-28 04:57:36 : 	Original Text: There were 5,906 housing units at an average density of 17 per square mile (7/km²).
+VERSION 1.1.3 : 2023-10-28 04:57:36 : 	Generated Translation: English to Spanish: Había 5.906 viviendas con una densidad media de 7 viviendas/km2.
+VERSION 1.1.3 : 2023-10-28 04:57:36 : 	Actual Translation: Hay 5.906 unidades habitacionales con una densidad promedio de 7 u.a./km² (17 u.a./mi²).
+VERSION 1.1.3 : 2023-10-28 04:57:36 : RUN COMPLETED

@@ -1,2 +1,0 @@
-RUN: Thu Oct 26 19:34:35 EDT 2023
-slurmstepd: error: *** JOB 658082 ON gpu-n40 CANCELLED AT 2023-10-26T19:36:23 ***
