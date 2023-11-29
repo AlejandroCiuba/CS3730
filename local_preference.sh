@@ -4,7 +4,7 @@
 
 echo "RUN: `date`"
 
-version=`python finetune.py --version`
+version=`python finetune_preference.py --version`
 
 echo "RUNNING $version SCRIPT"
 
@@ -24,7 +24,7 @@ python finetune_preference.py -m google/mt5-small \
 							  -f 1 \
 							  -l 4e-5 \
 							  -e 1 \
-							  -b 2 \
+							  -b 1 \
 							  -sa 0.5 \
 							  -x 5 \
 							  -o models/test_pref1 \
