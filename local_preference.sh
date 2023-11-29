@@ -20,6 +20,7 @@ python finetune.py -m google/mt5-small \
 				   -t "English to Spanish" \
 				   -me sacrebleu \
 				   -mk score \
+				   -sk 1 \
 				   -f 1 \
 				   -l 4e-5 \
 				   -e 1 \
