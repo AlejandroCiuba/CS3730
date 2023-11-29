@@ -1,4 +1,4 @@
-# Finetune model
+# Finetune model with our approach
 from datasets import (combine,
                       DatasetDict,
                       load_dataset,
@@ -21,7 +21,17 @@ import torch
 
 import numpy as np
 
-VERSION = "1.1.3"
+VERSION = "1.0.0"
+
+class PreferenceTrainer(Seq2SeqTrainer):
+
+    def compute_loss(self, model, inputs, return_outputs=False):
+
+        outputs = model(**inputs)
+        loss = outputs["loss"] if isinstance(outputs, dict) else outputs[0]
+
+        return (loss, outputs) if return_outputs else loss
+
 
 def make_logger(filepath):
 
@@ -139,7 +149,7 @@ def make_trainer(model, tokenizer, dataset,
 
     dc = DataCollatorForSeq2Seq(tokenizer=tokenizer, model=model)
 
-    return Seq2SeqTrainer(
+    return PreferenceTrainer(
             model=model,
             args=args,
             train_dataset=dataset["train"],
@@ -224,7 +234,8 @@ def main(args: argparse.ArgumentParser):
                                learning_rate=args.learning_rate, epochs=args.epochs, batch_size=args.batch_size, 
                                save_at=args.save_at, output=args.output, metric_name=args.metric, metric_keys=args.metric_keys)
 
-        logger.info(f"PRE-EVALUATION (VALIDATION): {str(trainer.evaluate())}")
+        if not args.skip:
+            logger.info(f"PRE-EVALUATION (VALIDATION): {str(trainer.evaluate())}")
 
         logger.info("FINE-TUNING")
         trainer.train()
@@ -356,6 +367,14 @@ def add_args(parser: argparse.ArgumentParser):
     )
 
     parser.add_argument(
+        "-sk",
+        "--skip",
+        type=int,
+        default=0,
+        help="Skip pre-evaluation (defaults to 0).\n \n",
+    )
+
+    parser.add_argument(
         "-f",
         "--finetune",
         type=int,
@@ -434,9 +453,9 @@ if __name__ == "__main__":
         del os.environ['PYTHONHOME']
 
     parser = argparse.ArgumentParser(
-        prog="finetune.py",
+        prog="finetune_preference.py",
         formatter_class=argparse.RawTextHelpFormatter,
-        description="Finetunes a model for machine translation.",
+        description="Fine-tunes a model with our preference-based approach.",
         epilog="Created by Alejandro Ciuba, alc307@pitt.edu",
     )
 
