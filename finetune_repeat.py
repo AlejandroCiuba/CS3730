@@ -297,7 +297,7 @@ def main(args: argparse.ArgumentParser):
                                       save_at=args.save_at, output=args.output, metric_name=args.metric, metric_keys=args.metric_keys)
 
             if not args.skip:
-                logger.info(f"PRE-EVALUATION (VALIDATION): {str(trainer_rt.evaluate())}")
+                logger.info(f"PRE-EVALUATION (VALIDATION): {str(trainer_mt.evaluate())}")
 
             logger.info("FINE-TUNING ON MACHINE TRANSLATION")
             trainer_mt.train()
@@ -504,19 +504,19 @@ def add_args(parser: argparse.ArgumentParser):
     )
 
     parser.add_argument(
-        "-tm",
-        "--task_mixture",
-        type=int,
-        default=0,
-        help="How to train on the two tasks: 0 = RT-MT, 1 = MT-RT.\n \n",
-    )
-
-    parser.add_argument(
         "-b",
         "--batch_size",
         type=int,
         default=8,
         help="Batch size during preprocessing and fine-tuning.\n \n",
+    )
+
+    parser.add_argument(
+        "-tm",
+        "--task_mixture",
+        type=int,
+        default=0,
+        help="How to train on the two tasks: 0 = RT-MT, 1 = MT-RT.\n \n",
     )
 
     parser.add_argument(
