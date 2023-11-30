@@ -2,8 +2,7 @@
 from datasets import (combine,
                       Dataset,
                       DatasetDict,
-                      load_from_disk,
-                      s)
+                      load_from_disk,)
 from functools import reduce
 from pathlib import Path
 from tqdm import tqdm
