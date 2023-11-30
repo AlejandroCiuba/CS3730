@@ -44,7 +44,7 @@ def make_logger(filepath):
     logger = logging.getLogger("data_log")
     logger.setLevel(logging.INFO)
 
-    handler = logging.FileHandler(f"{filepath}/finetune-{VERSION}.log")
+    handler = logging.FileHandler(f"{filepath}/preference-{VERSION}.log")
     handler.setFormatter(fmt)
 
     logger.addHandler(handler)

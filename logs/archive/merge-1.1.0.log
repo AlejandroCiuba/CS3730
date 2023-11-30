@@ -1,0 +1,64 @@
+VERSION 1.1.0 : 2023-11-30 00:36:11 : ===================== RUN =====================
+VERSION 1.1.0 : 2023-11-30 00:36:11 : DATASETS: datasets/opus_flan_test, datasets/opus_nllb_test
+VERSION 1.1.0 : 2023-11-30 00:36:11 : COLUMNS datasets/opus_flan_test: train, test, valid
+VERSION 1.1.0 : 2023-11-30 00:36:11 : COLUMNS datasets/opus_nllb_test: train, test, valid
+VERSION 1.1.0 : 2023-11-30 00:36:57 : ===================== RUN =====================
+VERSION 1.1.0 : 2023-11-30 00:36:57 : DATASETS: datasets/opus_flan_test, datasets/opus_nllb_test
+VERSION 1.1.0 : 2023-11-30 00:36:57 : COLUMNS datasets/opus_flan_test: id, en, es, flan-t5-large, flan-t5-large_score
+VERSION 1.1.0 : 2023-11-30 00:36:57 : COLUMNS datasets/opus_nllb_test: id, en, es, nllb-200-distilled-600M, nllb-200-distilled-600M_score
+VERSION 1.1.0 : 2023-11-30 00:53:58 : ===================== RUN =====================
+VERSION 1.1.0 : 2023-11-30 00:53:58 : DATASETS: datasets/opus_flan_test, datasets/opus_nllb_test
+VERSION 1.1.0 : 2023-11-30 00:53:58 : COLUMNS datasets/opus_flan_test: id, en, es, flan-t5-large, flan-t5-large_score
+VERSION 1.1.0 : 2023-11-30 00:53:58 : COLUMNS datasets/opus_nllb_test: id, en, es, nllb-200-distilled-600M, nllb-200-distilled-600M_score
+VERSION 1.1.0 : 2023-11-30 01:00:15 : ===================== RUN =====================
+VERSION 1.1.0 : 2023-11-30 01:00:15 : DATASETS: datasets/opus_flan_test, datasets/opus_nllb_test
+VERSION 1.1.0 : 2023-11-30 01:00:15 : COLUMNS datasets/opus_flan_test: id, en, es, flan-t5-large, flan-t5-large_score
+VERSION 1.1.0 : 2023-11-30 01:00:15 : COLUMNS datasets/opus_nllb_test: id, en, es, nllb-200-distilled-600M, nllb-200-distilled-600M_score
+VERSION 1.1.0 : 2023-11-30 01:00:25 : ===================== RUN =====================
+VERSION 1.1.0 : 2023-11-30 01:00:25 : DATASETS: datasets/opus_flan_test, datasets/opus_nllb_test
+VERSION 1.1.0 : 2023-11-30 01:00:25 : COLUMNS datasets/opus_flan_test: id, en, es, flan-t5-large, flan-t5-large_score
+VERSION 1.1.0 : 2023-11-30 01:00:25 : COLUMNS datasets/opus_nllb_test: id, en, es, nllb-200-distilled-600M, nllb-200-distilled-600M_score
+VERSION 1.1.0 : 2023-11-30 01:00:39 : ===================== RUN =====================
+VERSION 1.1.0 : 2023-11-30 01:00:39 : DATASETS: datasets/opus_flan_test, datasets/opus_nllb_test
+VERSION 1.1.0 : 2023-11-30 01:00:39 : COLUMNS datasets/opus_flan_test: id, en, es, flan-t5-large, flan-t5-large_score
+VERSION 1.1.0 : 2023-11-30 01:00:39 : COLUMNS datasets/opus_nllb_test: id, en, es, nllb-200-distilled-600M, nllb-200-distilled-600M_score
+VERSION 1.1.0 : 2023-11-30 01:00:43 : ===================== RUN =====================
+VERSION 1.1.0 : 2023-11-30 01:00:43 : DATASETS: datasets/opus_flan_test, datasets/opus_nllb_test
+VERSION 1.1.0 : 2023-11-30 01:00:43 : COLUMNS datasets/opus_flan_test: id, en, es, flan-t5-large, flan-t5-large_score
+VERSION 1.1.0 : 2023-11-30 01:00:43 : COLUMNS datasets/opus_nllb_test: id, en, es, nllb-200-distilled-600M, nllb-200-distilled-600M_score
+VERSION 1.1.0 : 2023-11-30 01:04:07 : ===================== RUN =====================
+VERSION 1.1.0 : 2023-11-30 01:04:07 : DATASETS: datasets/opus_flan_test, datasets/opus_nllb_test
+VERSION 1.1.0 : 2023-11-30 01:04:07 : COLUMNS datasets/opus_flan_test: id, en, es, flan-t5-large, flan-t5-large_score
+VERSION 1.1.0 : 2023-11-30 01:04:07 : COLUMNS datasets/opus_nllb_test: id, en, es, nllb-200-distilled-600M, nllb-200-distilled-600M_score
+VERSION 1.1.0 : 2023-11-30 01:04:32 : ===================== RUN =====================
+VERSION 1.1.0 : 2023-11-30 01:04:32 : DATASETS: datasets/opus_flan_test, datasets/opus_nllb_test
+VERSION 1.1.0 : 2023-11-30 01:04:32 : COLUMNS datasets/opus_flan_test: id, en, es, flan-t5-large, flan-t5-large_score
+VERSION 1.1.0 : 2023-11-30 01:04:32 : COLUMNS datasets/opus_nllb_test: id, en, es, nllb-200-distilled-600M, nllb-200-distilled-600M_score
+VERSION 1.1.0 : 2023-11-30 01:09:18 : ===================== RUN =====================
+VERSION 1.1.0 : 2023-11-30 01:09:18 : DATASETS: datasets/opus_flan_test, datasets/opus_nllb_test
+VERSION 1.1.0 : 2023-11-30 01:09:18 : COLUMNS datasets/opus_flan_test: id, en, es, flan-t5-large, flan-t5-large_score
+VERSION 1.1.0 : 2023-11-30 01:09:18 : COLUMNS datasets/opus_nllb_test: id, en, es, nllb-200-distilled-600M, nllb-200-distilled-600M_score
+VERSION 1.1.0 : 2023-11-30 01:11:54 : ===================== RUN =====================
+VERSION 1.1.0 : 2023-11-30 01:11:54 : DATASETS: datasets/opus_flan_test, datasets/opus_nllb_test
+VERSION 1.1.0 : 2023-11-30 01:11:54 : COLUMNS datasets/opus_flan_test: id, en, es, flan-t5-large, flan-t5-large_score
+VERSION 1.1.0 : 2023-11-30 01:11:54 : COLUMNS datasets/opus_nllb_test: id, en, es, nllb-200-distilled-600M, nllb-200-distilled-600M_score
+VERSION 1.1.0 : 2023-11-30 01:12:48 : ===================== RUN =====================
+VERSION 1.1.0 : 2023-11-30 01:12:48 : DATASETS: datasets/opus_flan_test, datasets/opus_nllb_test
+VERSION 1.1.0 : 2023-11-30 01:12:48 : COLUMNS datasets/opus_flan_test: id, en, es, flan-t5-large, flan-t5-large_score
+VERSION 1.1.0 : 2023-11-30 01:12:48 : COLUMNS datasets/opus_nllb_test: id, en, es, nllb-200-distilled-600M, nllb-200-distilled-600M_score
+VERSION 1.1.0 : 2023-11-30 01:13:41 : ===================== RUN =====================
+VERSION 1.1.0 : 2023-11-30 01:13:41 : DATASETS: datasets/opus_flan_test, datasets/opus_nllb_test
+VERSION 1.1.0 : 2023-11-30 01:13:41 : COLUMNS datasets/opus_flan_test: id, en, es, flan-t5-large, flan-t5-large_score
+VERSION 1.1.0 : 2023-11-30 01:13:41 : COLUMNS datasets/opus_nllb_test: id, en, es, nllb-200-distilled-600M, nllb-200-distilled-600M_score
+VERSION 1.1.0 : 2023-11-30 01:26:56 : ===================== RUN =====================
+VERSION 1.1.0 : 2023-11-30 01:26:56 : DATASETS: datasets/opus_flan_test, datasets/opus_nllb_test
+VERSION 1.1.0 : 2023-11-30 01:26:56 : COLUMNS datasets/opus_flan_test: id, en, es, flan-t5-large, flan-t5-large_score
+VERSION 1.1.0 : 2023-11-30 01:26:56 : COLUMNS datasets/opus_nllb_test: id, en, es, nllb-200-distilled-600M, nllb-200-distilled-600M_score
+VERSION 1.1.0 : 2023-11-30 01:27:31 : ===================== RUN =====================
+VERSION 1.1.0 : 2023-11-30 01:27:31 : DATASETS: datasets/opus_flan_test, datasets/opus_nllb_test
+VERSION 1.1.0 : 2023-11-30 01:27:31 : COLUMNS datasets/opus_flan_test: id, en, es, flan-t5-large, flan-t5-large_score
+VERSION 1.1.0 : 2023-11-30 01:27:31 : COLUMNS datasets/opus_nllb_test: id, en, es, nllb-200-distilled-600M, nllb-200-distilled-600M_score
+VERSION 1.1.0 : 2023-11-30 01:27:44 : ===================== RUN =====================
+VERSION 1.1.0 : 2023-11-30 01:27:44 : DATASETS: datasets/opus_flan_test, datasets/opus_nllb_test
+VERSION 1.1.0 : 2023-11-30 01:27:44 : COLUMNS datasets/opus_flan_test: id, en, es, flan-t5-large, flan-t5-large_score
+VERSION 1.1.0 : 2023-11-30 01:27:44 : COLUMNS datasets/opus_nllb_test: id, en, es, nllb-200-distilled-600M, nllb-200-distilled-600M_score
