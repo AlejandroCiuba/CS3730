@@ -38,7 +38,7 @@ echo "RUNNING $version SCRIPT"
 
 python3 merge.py -d datasets/ix_datasets/opus_flan datasets/ix_datasets/opus_nllb \
                  -s train test valid \
-                 -o datasets \
+                 -o datasets/ix_datasets \
                  -l logs
 
 echo "DONE"

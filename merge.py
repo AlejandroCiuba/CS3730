@@ -130,6 +130,14 @@ def add_args(parser: argparse.ArgumentParser):
         help="Directory to save logging outputs.\n \n",
     )
 
+    parser.add_argument(
+        "-v",
+        "--version",
+        action="version",
+        version=f"%(prog)s {VERSION}",
+        help="version number",
+    )
+
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(
