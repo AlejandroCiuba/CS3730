@@ -100,16 +100,17 @@ def make_preprocess_rt(tokenizer, translations = "", keys = "", source = "en", d
         padding = "max_length"
         max_length = 200
 
-        inputs = [TASK + ": " + "\n".join(trans) + f"\n{source}" for trans in zip(*[examples[col] for col in translations])]
-        
+        inputs = [TASK + ":\n" + "\n".join(trans) for trans in zip(*[examples[col] for col in translations], examples[source])]
+        print(type(examples))
         targets = []
-        for row in examples:
+        for row in range(len(examples)):
+            print(examples[row][source])
             best = keys[0]
             for key in keys[1:]:
-                if row[key] > row[best]:
+                if examples[row][key] > examples[row][best]:
                     best = key
 
-            targets.append(TASK + ": " + row[key_mapping[key]])
+            targets.append(TASK + ": " + examples[row][key_mapping[key]])
 
         # Memory reqs grow quadratically with input size, stops at max_length
         tokens = tokenizer(text=inputs, text_target=targets, max_length=max_length, padding=padding, truncation=True, return_tensors="pt").to(device)
@@ -242,107 +243,107 @@ def main(args: argparse.ArgumentParser):
     if args.finetune:
 
         # Make separate tokenized dataset
-        token_set_mt = DatasetDict({
-                        'train': datasetmt['train'].map(preprocess_mt, batched=True, batch_size=args.text_batch_size),
-                        'test': datasetmt['test'].map(preprocess_mt, batched=True, batch_size=args.text_batch_size),
-                        'valid': datasetmt['valid'].map(preprocess_mt, batched=True, batch_size=args.text_batch_size),})
         token_set_rt = DatasetDict({
                 'train': datasetrt['train'].map(preprocess_rt, batched=True, batch_size=args.text_batch_size),
                 'test': datasetrt['test'].map(preprocess_rt, batched=True, batch_size=args.text_batch_size),
                 'valid': datasetrt['valid'].map(preprocess_rt, batched=True, batch_size=args.text_batch_size),})
+    #     token_set_mt = DatasetDict({
+    #                     'train': datasetmt['train'].map(preprocess_mt, batched=True, batch_size=args.text_batch_size),
+    #                     'test': datasetmt['test'].map(preprocess_mt, batched=True, batch_size=args.text_batch_size),
+    #                     'valid': datasetmt['valid'].map(preprocess_mt, batched=True, batch_size=args.text_batch_size),})
 
-        logger.info("Model finetuning started...")
-        logger.info("HYPERPARAMETERS (MACHINE TRANSLATION):")
-        logger.info(f"\tEPOCHS: {args.epochs / 2}")
-        logger.info(f"\tBATCH SIZE: {args.batch_size}")
-        logger.info(f"\tLEARNING RATE: {args.learning_rate:g}")
-        logger.info(f"\tTRAINING SIZE: {len(datasetmt['train'])}")
-        logger.info(f"\tVALIDATION SIZE: {len(datasetmt['valid'])}")
-        logger.info(f"\tTESTING SIZE: {len(datasetmt['test'])}")
-        logger.info(f"\tEVALUATION METRIC: {args.metric} using {','.join(args.metric_keys)}")
+    #     logger.info("Model finetuning started...")
+    #     logger.info("HYPERPARAMETERS (MACHINE TRANSLATION):")
+    #     logger.info(f"\tEPOCHS: {args.epochs / 2}")
+    #     logger.info(f"\tBATCH SIZE: {args.batch_size}")
+    #     logger.info(f"\tLEARNING RATE: {args.learning_rate:g}")
+    #     logger.info(f"\tTRAINING SIZE: {len(datasetmt['train'])}")
+    #     logger.info(f"\tVALIDATION SIZE: {len(datasetmt['valid'])}")
+    #     logger.info(f"\tTESTING SIZE: {len(datasetmt['test'])}")
+    #     logger.info(f"\tEVALUATION METRIC: {args.metric} using {','.join(args.metric_keys)}")
 
-        logger.info("HYPERPARAMETERS (REPEAT TRANSLATION):")
-        logger.info(f"\tEPOCHS: {args.epochs / 2}")
-        logger.info(f"\tBATCH SIZE: {args.batch_size}")
-        logger.info(f"\tLEARNING RATE: {args.learning_rate:g}")
-        logger.info(f"\tTRAINING SIZE: {len(datasetrt['train'])}")
-        logger.info(f"\tVALIDATION SIZE: {len(datasetrt['valid'])}")
-        logger.info(f"\tTESTING SIZE: {len(datasetrt['test'])}")
-        logger.info(f"\tEVALUATION METRIC: {args.metric} using {','.join(args.metric_keys)}")
+    #     logger.info("HYPERPARAMETERS (REPEAT TRANSLATION):")
+    #     logger.info(f"\tEPOCHS: {args.epochs / 2}")
+    #     logger.info(f"\tBATCH SIZE: {args.batch_size}")
+    #     logger.info(f"\tLEARNING RATE: {args.learning_rate:g}")
+    #     logger.info(f"\tTRAINING SIZE: {len(datasetrt['train'])}")
+    #     logger.info(f"\tVALIDATION SIZE: {len(datasetrt['valid'])}")
+    #     logger.info(f"\tTESTING SIZE: {len(datasetrt['test'])}")
+    #     logger.info(f"\tEVALUATION METRIC: {args.metric} using {','.join(args.metric_keys)}")
 
-        if args.task_mixture == 0:
+    #     if args.task_mixture == 0:
 
-            trainer_rt = make_trainer(model, tokenizer, dataset=token_set_rt, 
-                                      learning_rate=args.learning_rate, epochs=args.epochs / 2, batch_size=args.batch_size, 
-                                      save_at=args.save_at, output=args.output, metric_name=args.metric, metric_keys=args.metric_keys)
+    #         trainer_rt = make_trainer(model, tokenizer, dataset=token_set_rt, 
+    #                                   learning_rate=args.learning_rate, epochs=args.epochs / 2, batch_size=args.batch_size, 
+    #                                   save_at=args.save_at, output=args.output, metric_name=args.metric, metric_keys=args.metric_keys)
 
-            if not args.skip:
-                logger.info(f"PRE-EVALUATION (VALIDATION): {str(trainer_rt.evaluate())}")
+    #         if not args.skip:
+    #             logger.info(f"PRE-EVALUATION (VALIDATION): {str(trainer_rt.evaluate())}")
 
-            logger.info("FINE-TUNING ON REPEAT TRANSLATION")
-            trainer_rt.train()
+    #         logger.info("FINE-TUNING ON REPEAT TRANSLATION")
+    #         trainer_rt.train()
 
-            trainer_mt = make_trainer(model, tokenizer, dataset=token_set_mt, 
-                                      learning_rate=args.learning_rate, epochs=args.epochs / 2, batch_size=args.batch_size, 
-                                      save_at=args.save_at, output=args.output, metric_name=args.metric, metric_keys=args.metric_keys)
+    #         trainer_mt = make_trainer(model, tokenizer, dataset=token_set_mt, 
+    #                                   learning_rate=args.learning_rate, epochs=args.epochs / 2, batch_size=args.batch_size, 
+    #                                   save_at=args.save_at, output=args.output, metric_name=args.metric, metric_keys=args.metric_keys)
             
-            logger.info("FINE-TUNING ON MACHINE TRANSLATION")
-            trainer_mt.train()
+    #         logger.info("FINE-TUNING ON MACHINE TRANSLATION")
+    #         trainer_mt.train()
 
-        if args.task_mixture == 1:
+    #     if args.task_mixture == 1:
 
 
-            trainer_mt = make_trainer(model, tokenizer, dataset=token_set_mt, 
-                                      learning_rate=args.learning_rate, epochs=args.epochs / 2, batch_size=args.batch_size, 
-                                      save_at=args.save_at, output=args.output, metric_name=args.metric, metric_keys=args.metric_keys)
+    #         trainer_mt = make_trainer(model, tokenizer, dataset=token_set_mt, 
+    #                                   learning_rate=args.learning_rate, epochs=args.epochs / 2, batch_size=args.batch_size, 
+    #                                   save_at=args.save_at, output=args.output, metric_name=args.metric, metric_keys=args.metric_keys)
 
-            if not args.skip:
-                logger.info(f"PRE-EVALUATION (VALIDATION): {str(trainer_mt.evaluate())}")
+    #         if not args.skip:
+    #             logger.info(f"PRE-EVALUATION (VALIDATION): {str(trainer_mt.evaluate())}")
 
-            logger.info("FINE-TUNING ON MACHINE TRANSLATION")
-            trainer_mt.train()
+    #         logger.info("FINE-TUNING ON MACHINE TRANSLATION")
+    #         trainer_mt.train()
             
-            trainer_rt = make_trainer(model, tokenizer, dataset=token_set_rt, 
-                                      learning_rate=args.learning_rate, epochs=args.epochs / 2, batch_size=args.batch_size, 
-                                      save_at=args.save_at, output=args.output, metric_name=args.metric, metric_keys=args.metric_keys)
+    #         trainer_rt = make_trainer(model, tokenizer, dataset=token_set_rt, 
+    #                                   learning_rate=args.learning_rate, epochs=args.epochs / 2, batch_size=args.batch_size, 
+    #                                   save_at=args.save_at, output=args.output, metric_name=args.metric, metric_keys=args.metric_keys)
             
-            logger.info("FINE-TUNING ON REPEAT TRANSLATION")
-            trainer_rt.train()
+    #         logger.info("FINE-TUNING ON REPEAT TRANSLATION")
+    #         trainer_rt.train()
 
-        logger.info(f"POST-EVALUATION (VALIDATION): {str(trainer_mt.evaluate())}")
+    #     logger.info(f"POST-EVALUATION (VALIDATION): {str(trainer_mt.evaluate())}")
 
-        try:
-            logger.info(f"POST-EVALUATION MACHINE TRANSLATION (TEST): {str(trainer_mt.evaluate(eval_dataset=token_set_mt['test']))}")
-            logger.info(f"POST-EVALUATION REPEAT TRANSLATION (TEST): {str(trainer_rt.evaluate(eval_dataset=token_set_rt['test']))}")
-        except:
-            logger.info("UNABLE TO RUN POST-EVALUATION ON THE TEST SET, SKIPPING...")
+    #     try:
+    #         logger.info(f"POST-EVALUATION MACHINE TRANSLATION (TEST): {str(trainer_mt.evaluate(eval_dataset=token_set_mt['test']))}")
+    #         logger.info(f"POST-EVALUATION REPEAT TRANSLATION (TEST): {str(trainer_rt.evaluate(eval_dataset=token_set_rt['test']))}")
+    #     except:
+    #         logger.info("UNABLE TO RUN POST-EVALUATION ON THE TEST SET, SKIPPING...")
 
-        logger.info(f"SAVE LOCATION: {args.save_at}")
+    #     logger.info(f"SAVE LOCATION: {args.save_at}")
 
-    # Sample the model's output
-    if args.examples:
+    # # Sample the model's output
+    # if args.examples:
 
-        logger.info("MACHINE TRANSLATION SAMPLES:")
-        for i, row, trans in preview_translation(model, tokenizer, task=args.task, 
-                                                 source=args.source, dataset=datasetmt["valid"], 
-                                                 num_examples=args.examples, device=device):
+    #     logger.info("MACHINE TRANSLATION SAMPLES:")
+    #     for i, row, trans in preview_translation(model, tokenizer, task=args.task, 
+    #                                              source=args.source, dataset=datasetmt["valid"], 
+    #                                              num_examples=args.examples, device=device):
 
-            logger.info(f"TRANSLATION {i} on \"{args.task}\"")
-            logger.info(f"\tOriginal Text: {row[args.source]}")
-            logger.info(f"\tGenerated Translation: {trans[0]['translation_text']}")
-            logger.info(f"\tActual Translation: {row[args.target]}")
+    #         logger.info(f"TRANSLATION {i} on \"{args.task}\"")
+    #         logger.info(f"\tOriginal Text: {row[args.source]}")
+    #         logger.info(f"\tGenerated Translation: {trans[0]['translation_text']}")
+    #         logger.info(f"\tActual Translation: {row[args.target]}")
 
-        logger.info("REPEAT TRANSLATION SAMPLES:")
-        for i, row, trans in preview_translation(model, tokenizer, task="Repeat the best translation", 
-                                                 source=args.source, dataset=datasetrt["valid"], 
-                                                 num_examples=args.examples, device=device):
+    #     logger.info("REPEAT TRANSLATION SAMPLES:")
+    #     for i, row, trans in preview_translation(model, tokenizer, task="Repeat the best translation", 
+    #                                              source=args.source, dataset=datasetrt["valid"], 
+    #                                              num_examples=args.examples, device=device):
 
-            logger.info(f"TRANSLATION {i} on \"{args.task}\"")
-            logger.info(f"\tOriginal Text: {row[args.source]}")
-            logger.info(f"\tGenerated Translation: {trans[0]['translation_text']}")
-            logger.info(f"\tActual Translation: {row[args.target]}")
+    #         logger.info(f"TRANSLATION {i} on \"{args.task}\"")
+    #         logger.info(f"\tOriginal Text: {row[args.source]}")
+    #         logger.info(f"\tGenerated Translation: {trans[0]['translation_text']}")
+    #         logger.info(f"\tActual Translation: {row[args.target]}")
 
-    logger.info("RUN COMPLETED")
+    # logger.info("RUN COMPLETED")
 
 def add_args(parser: argparse.ArgumentParser):
     """

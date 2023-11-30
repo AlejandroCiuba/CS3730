@@ -1,0 +1,20 @@
+VERSION 1.0.0 : 2023-11-30 03:53:01 : ===================== RUN =====================
+VERSION 1.0.0 : 2023-11-30 03:53:01 : MODEL: google/mt5-small on cuda
+VERSION 1.0.0 : 2023-11-30 03:53:18 : MACHINE TRANSLATION TASK: English to Spanish
+VERSION 1.0.0 : 2023-11-30 03:53:18 : MACHINE TRANSLATION DATASET(S): datasets/ix_datasets/opus
+VERSION 1.0.0 : 2023-11-30 04:12:10 : ===================== RUN =====================
+VERSION 1.0.0 : 2023-11-30 04:12:11 : MODEL: google/mt5-small on cuda
+VERSION 1.0.0 : 2023-11-30 04:12:17 : MACHINE TRANSLATION TASK: English to Spanish
+VERSION 1.0.0 : 2023-11-30 04:12:17 : MACHINE TRANSLATION DATASET(S): datasets/ix_datasets/opus
+VERSION 1.0.0 : 2023-11-30 04:21:55 : ===================== RUN =====================
+VERSION 1.0.0 : 2023-11-30 04:21:55 : MODEL: google/mt5-small on cuda
+VERSION 1.0.0 : 2023-11-30 04:22:01 : MACHINE TRANSLATION TASK: English to Spanish
+VERSION 1.0.0 : 2023-11-30 04:22:01 : MACHINE TRANSLATION DATASET(S): datasets/ix_datasets/opus
+VERSION 1.0.0 : 2023-11-30 04:29:36 : ===================== RUN =====================
+VERSION 1.0.0 : 2023-11-30 04:29:36 : MODEL: google/mt5-small on cuda
+VERSION 1.0.0 : 2023-11-30 04:29:42 : MACHINE TRANSLATION TASK: English to Spanish
+VERSION 1.0.0 : 2023-11-30 04:29:42 : MACHINE TRANSLATION DATASET(S): datasets/ix_datasets/opus
+VERSION 1.0.0 : 2023-11-30 04:33:25 : ===================== RUN =====================
+VERSION 1.0.0 : 2023-11-30 04:33:26 : MODEL: google/mt5-small on cuda
+VERSION 1.0.0 : 2023-11-30 04:33:31 : MACHINE TRANSLATION TASK: English to Spanish
+VERSION 1.0.0 : 2023-11-30 04:33:31 : MACHINE TRANSLATION DATASET(S): datasets/ix_datasets/opus

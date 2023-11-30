@@ -1,0 +1,45 @@
+RUN: Thu Nov 30 04:11:19 EST 2023
+RUNNING finetune_repeat.py 1.0.0 SCRIPT
+You are using the default legacy behaviour of the <class 'transformers.models.t5.tokenization_t5.T5Tokenizer'>. If you see this, DO NOT PANIC! This is expected, and simply means that the `legacy` (previous) behavior will be used so nothing changes for you. If you want to use the new behaviour, set `legacy=False`. This should only be set if you understand what it means, and thouroughly read the reason why this was added as explained in https://github.com/huggingface/transformers/pull/24565
+Map:   0%|          | 0/1189762 [00:00<?, ? examples/s]Map:   0%|          | 0/1189762 [00:00<?, ? examples/s]
+id
+Traceback (most recent call last):
+  File "/ihome/dvillarreal/alc307/projects/CS3730/finetune_repeat.py", line 582, in <module>
+    main(args)
+  File "/ihome/dvillarreal/alc307/projects/CS3730/finetune_repeat.py", line 247, in main
+    'train': datasetrt['train'].map(preprocess_rt, batched=True, batch_size=args.text_batch_size),
+  File "/ihome/dvillarreal/alc307/.local/lib/python3.9/site-packages/datasets/arrow_dataset.py", line 592, in wrapper
+    out: Union["Dataset", "DatasetDict"] = func(self, *args, **kwargs)
+  File "/ihome/dvillarreal/alc307/.local/lib/python3.9/site-packages/datasets/arrow_dataset.py", line 557, in wrapper
+    out: Union["Dataset", "DatasetDict"] = func(self, *args, **kwargs)
+  File "/ihome/dvillarreal/alc307/.local/lib/python3.9/site-packages/datasets/arrow_dataset.py", line 3097, in map
+    for rank, done, content in Dataset._map_single(**dataset_kwargs):
+  File "/ihome/dvillarreal/alc307/.local/lib/python3.9/site-packages/datasets/arrow_dataset.py", line 3474, in _map_single
+    batch = apply_function_on_filtered_inputs(
+  File "/ihome/dvillarreal/alc307/.local/lib/python3.9/site-packages/datasets/arrow_dataset.py", line 3353, in apply_function_on_filtered_inputs
+    processed_inputs = function(*fn_args, *additional_args, **fn_kwargs)
+  File "/ihome/dvillarreal/alc307/projects/CS3730/finetune_repeat.py", line 110, in preprocess_rt
+    if row[key] > row[best]:
+TypeError: string indices must be integers
+DONE
+==============================================================================
+                                JOB STATISTICS                                
+==============================================================================
+
+           JobId: 695852
+      SubmitTime: 2023-11-30T04:11:19
+         EndTime: 2023-12-02T16:11:19
+         RunTime: 00:00:59
+            TRES: cpu=1,mem=5364M,node=1,billing=8,gres/gpu=1
+       Partition: a100
+        NodeList: gpu-n43
+         Command: /ihome/dvillarreal/alc307/projects/CS3730/crc_repeat.sh
+
+==============================================================================
+ For more information use the command:
+   - `sacct -M gpu -j 695852 -S 2023-11-30T04:11:19 -E 2023-12-02T16:11:19`
+
+ To control the output of the above command:
+   - Add `--format=<field1,field2,etc>` with fields of interest
+   - See the list of all possible fields by running: `sacct --helpformat`
+==============================================================================
