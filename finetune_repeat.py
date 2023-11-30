@@ -23,7 +23,7 @@ import numpy as np
 
 VERSION = "1.0.0"
 
-def make_logger(filepath):
+def make_logger(filepath, mixture):
 
     # Set up logger
     version_tracking = {"version": "VERSION %s" % VERSION}
@@ -34,7 +34,7 @@ def make_logger(filepath):
     logger = logging.getLogger("data_log")
     logger.setLevel(logging.INFO)
 
-    handler = logging.FileHandler(f"{filepath}/repeat-{VERSION}.log")
+    handler = logging.FileHandler(f"{filepath}/repeat-{mixture}-{VERSION}.log")
     handler.setFormatter(fmt)
 
     logger.addHandler(handler)
@@ -197,7 +197,7 @@ def preview_translation(model, tokenizer, dataset, task = "", source = "", num_e
 def main(args: argparse.ArgumentParser):
 
     # Logger setup
-    logger = make_logger(args.logging)
+    logger = make_logger(args.logging, args.task_mixture)
     logger.info("===================== RUN =====================")
 
     # Sync the device
