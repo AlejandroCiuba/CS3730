@@ -6,3 +6,4 @@ VERSION 1.2.5 : 2023-11-30 01:53:18 : COMBINED SPLITS: {'train': ['id', 'en', 'e
 VERSION 1.2.5 : 2023-11-30 01:53:18 : COMBINED COLUMNS: ['id', 'en', 'es', 'flan-t5-large', 'flan-t5-large_score', 'nllb-200-distilled-600M', 'nllb-200-distilled-600M_score']
 VERSION 1.2.5 : 2023-11-30 01:53:18 : SAMPLE DATA: {'id': 'opus_wikipedia-1491636', 'en': 'Its symbol was the hammer and sickle over the world.', 'es': 'Su símbolo era la hoz y el martillo sobre el mundo.', 'flan-t5-large': 'Su smbolo fue el hilo y la cinta sobre el mundo.', 'flan-t5-large_score': 25.211936184349828, 'nllb-200-distilled-600M': 'Su símbolo era el martillo y la hoz sobre el mundo.', 'nllb-200-distilled-600M_score': 38.16330911371339}
 VERSION 1.2.5 : 2023-11-30 01:53:18 : SAVED TO: datasets/opus_flan_test_opus_nllb_test
+VERSION 1.2.5 : 2023-11-30 02:03:13 : ===================== RUN =====================

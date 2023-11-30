@@ -36,7 +36,7 @@ version=`python3 merge.py --version`
 
 echo "RUNNING $version SCRIPT"
 
-python3 merge.py -d datasets/opus_flan datasets/opus_nllb \
+python3 merge.py -d datasets/ix_datasets/opus_flan datasets/ix_datasets/opus_nllb \
                  -s train test valid \
                  -o datasets \
                  -l logs

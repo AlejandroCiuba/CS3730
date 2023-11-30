@@ -1,0 +1,38 @@
+RUN: Thu Nov 30 02:02:16 EST 2023
+RUN: Thu Nov 30 02:02:16 EST 2023
+usage: merge.py [-h] [-d DATASETS [DATASETS ...]] [-s SPLITS [SPLITS ...]]
+                [-id IDENTITY] -o OUTPUT -l LOGGING
+merge.py: error: the following arguments are required: -o/--output, -l/--logging
+RUNNING  SCRIPT
+Traceback (most recent call last):
+  File "/ihome/dvillarreal/alc307/projects/CS3730/merge.py", line 145, in <module>
+    main(args)
+  File "/ihome/dvillarreal/alc307/projects/CS3730/merge.py", line 43, in main
+    datasets = {name: load_from_disk(name) for name in args.datasets}
+  File "/ihome/dvillarreal/alc307/projects/CS3730/merge.py", line 43, in <dictcomp>
+    datasets = {name: load_from_disk(name) for name in args.datasets}
+  File "/ihome/dvillarreal/alc307/.local/lib/python3.9/site-packages/datasets/load.py", line 2244, in load_from_disk
+    raise FileNotFoundError(f"Directory {dataset_path} not found")
+FileNotFoundError: Directory datasets/opus_flan not found
+DONE
+==============================================================================
+                                JOB STATISTICS                                
+==============================================================================
+
+           JobId: 695847
+      SubmitTime: 2023-11-30T02:01:33
+         EndTime: 2023-11-30T08:01:33
+         RunTime: 00:01:40
+            TRES: cpu=1,mem=5364M,node=1,billing=8,gres/gpu=1
+       Partition: a100
+        NodeList: gpu-n43
+         Command: /ihome/dvillarreal/alc307/projects/CS3730/crc_merge.sh
+
+==============================================================================
+ For more information use the command:
+   - `sacct -M gpu -j 695847 -S 2023-11-30T02:01:33 -E 2023-11-30T08:01:33`
+
+ To control the output of the above command:
+   - Add `--format=<field1,field2,etc>` with fields of interest
+   - See the list of all possible fields by running: `sacct --helpformat`
+==============================================================================
