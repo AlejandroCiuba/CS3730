@@ -434,9 +434,9 @@ if __name__ == "__main__":
         del os.environ['PYTHONHOME']
 
     parser = argparse.ArgumentParser(
-        prog="segment.py",
+        prog="finetune.py",
         formatter_class=argparse.RawTextHelpFormatter,
-        description="Outputs a segmented .eaf file according to APLS standards.",
+        description="Finetunes a model for machine translation.",
         epilog="Created by Alejandro Ciuba, alc307@pitt.edu",
     )
 

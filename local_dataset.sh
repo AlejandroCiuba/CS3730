@@ -14,7 +14,7 @@ python3 dataset.py -d opus_books opus_wikipedia \
                    -tl es \
                    -op 1 \
                    -b 128 \
-                   -o datasets/opus_test \
+                   -o datasets/opus \
                    -lo logs
 
 echo "DONE"
