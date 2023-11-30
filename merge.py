@@ -13,7 +13,7 @@ import logging
 import pandas as pd
 import random as rand
 
-VERSION = "1.1.5"
+VERSION = "1.2.5"
 
 def make_logger(filepath):
 
@@ -58,7 +58,7 @@ def main(args: argparse.ArgumentParser):
     # 6. Merge into one HuggingFace DatasetDict
 
     # 1.
-    new_dataset = {split: None for split in args.split}
+    new_dataset = {split: None for split in args.splits}
     for split in args.splits:
 
         split_datasets = []  # 2. - 3.
