@@ -20,6 +20,7 @@ import tensorboard
 import torch
 
 import numpy as np
+import random as rand
 
 VERSION = "1.0.0"
 
@@ -75,8 +76,8 @@ def make_preprocess_mt(tokenizer, task = "", source = "", target = "", device = 
         padding = "max_length"
         max_length = 200
 
-        inputs = [task + ": " + str(i) for i in examples[source]]
-        targets = [task + ": " + str(t) for t in examples[target]]
+        inputs = [f"{task}: " + str(i) for i in examples[source]]
+        targets = [str(t) for t in examples[target]]
 
         # Memory reqs grow quadratically with input size, stops at max_length
         tokens = tokenizer(text=inputs, text_target=targets, max_length=max_length, padding=padding, truncation=True, return_tensors="pt").to(device)
@@ -90,7 +91,6 @@ def make_preprocess_rt(tokenizer, translations = "", keys = "", source = "en", d
     """
 
     TASK = "Repeat the best translation"
-    key_mapping = dict(zip(keys, translations))  # Establish a key-mapping (assumes order is correct)
 
     def preprocess_rt(examples):
         """
@@ -100,18 +100,24 @@ def make_preprocess_rt(tokenizer, translations = "", keys = "", source = "en", d
         padding = "max_length"
         max_length = 200
 
-        inputs = [TASK + ":\n" + "\n".join(trans) for trans in zip(*[examples[col] for col in translations], examples[source])]
-        print(type(examples))
+        inputs = []
+        for trans in zip(*[examples[col] for col in translations], examples[source]):
+
+            source = trans.pop(-1)  # Source text is always the last element, remove it to not mix it up
+            rand.shuffle(trans)  # Mix up translations to try to avoid bias in the decision
+
+            inputs.append("\n".join([f"{TASK}:", *trans, source]))
+        print(inputs)
+        print()
         targets = []
-        for row in range(len(examples)):
-            print(examples[row][source])
-            best = keys[0]
-            for key in keys[1:]:
-                if examples[row][key] > examples[row][best]:
-                    best = key
+        for batch in zip(*[examples[col] for col in translations], *[examples[key] for key in keys]):
 
-            targets.append(TASK + ": " + examples[row][key_mapping[key]])
+            trans, keys = batch[0: len(translations)], batch[len(translations):]  # Separate the translations and keys
+            best = keys.index(max(keys))  # The index of the best score should also be the index of the best translation
 
+            targets.append(trans[best])
+
+        print(targets)
         # Memory reqs grow quadratically with input size, stops at max_length
         tokens = tokenizer(text=inputs, text_target=targets, max_length=max_length, padding=padding, truncation=True, return_tensors="pt").to(device)
         return tokens

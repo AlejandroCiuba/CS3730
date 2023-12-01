@@ -76,7 +76,7 @@ def make_preprocess(tokenizer, task = "", source = "", target = "", device = "cu
         max_length = 200
 
         inputs = [task + ": " + str(i) for i in examples[source]]
-        targets = [task + ": " + str(t) for t in examples[target]]
+        targets = [str(t) for t in examples[target]]
 
         # Memory reqs grow quadratically with input size, stops at max_length
         tokens = tokenizer(text=inputs, text_target=targets, max_length=max_length, padding=padding, truncation=True, return_tensors="pt").to(device)
