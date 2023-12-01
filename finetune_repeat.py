@@ -108,8 +108,7 @@ def make_preprocess_rt(tokenizer, translations = "", keys = "", source = "en", d
             rand.shuffle(trans)  # Mix up translations to try to avoid bias in the decision
 
             inputs.append("\n".join([f"{TASK}:", *trans, src]))
-        print(inputs)
-        print()
+
         targets = []
         for batch in zip(*[examples[col] for col in translations], *[examples[key] for key in keys]):
 
@@ -118,7 +117,6 @@ def make_preprocess_rt(tokenizer, translations = "", keys = "", source = "en", d
 
             targets.append(trans[best])
 
-        print(targets)
         # Memory reqs grow quadratically with input size, stops at max_length
         tokens = tokenizer(text=inputs, text_target=targets, max_length=max_length, padding=padding, truncation=True, return_tensors="pt").to(device)
         return tokens
