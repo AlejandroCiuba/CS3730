@@ -121,7 +121,6 @@ def add_args(parser: argparse.ArgumentParser):
         help="Directory to save the merged dataset, saved as D1_D2_..._DN.\n \n",
     )
 
-
     parser.add_argument(
         "-l",
         "--logging",
