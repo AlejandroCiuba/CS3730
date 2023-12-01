@@ -1,7 +1,3 @@
-RUN: Wed 18 Oct 2023 01:04:08 AM EDT
-RUNNING segment.py 1.0.0 SCRIPT
-Model finetuning started...
-===================== PRE-EVALUATION =====================
-{'eval_loss': 48.632076263427734, 'eval_sacrebleu': 0.007723715466205732, 'eval_runtime': 7.9108, 'eval_samples_per_second': 25.282, 'eval_steps_per_second': 12.641}
-===================== FINE-TUNING =====================
-DONE
+version https://git-lfs.github.com/spec/v1
+oid sha256:0aa7030bd9d466e90633f4f7dbeb304eef1a8665664ee3b33f874d827fbb50cc
+size 383

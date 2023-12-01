@@ -1,16 +1,3 @@
-RUN: Tue 17 Oct 2023 08:45:10 PM EDT
-RUNNING segment.py 1.0.0 SCRIPT
-Model finetuning started...
-===================== PRE-EVALUATION =====================
-{'eval_loss': nan, 'eval_score': 0.0, 'eval_counts': [0, 0, 0, 0], 'eval_totals': [0, 0, 0, 0], 'eval_precisions': [0.0, 0.0, 0.0, 0.0], 'eval_bp': 0.0, 'eval_sys_len': 0, 'eval_ref_len': 80384, 'eval_runtime': 4216.5503, 'eval_samples_per_second': 0.712, 'eval_steps_per_second': 0.356}
-===================== FINE-TUNING =====================
-{'loss': 0.0, 'learning_rate': 4e-05, 'epoch': 0.0}
-{'loss': 0.0, 'learning_rate': 4e-05, 'epoch': 0.0}
-{'loss': 0.0, 'learning_rate': 4e-05, 'epoch': 0.0}
-{'loss': 0.0, 'learning_rate': 4e-05, 'epoch': 0.01}
-{'loss': 0.0, 'learning_rate': 4e-05, 'epoch': 0.01}
-{'loss': 0.0, 'learning_rate': 4e-05, 'epoch': 0.01}
-{'loss': 0.0, 'learning_rate': 4e-05, 'epoch': 0.01}
-{'loss': 0.0, 'learning_rate': 4e-05, 'epoch': 0.01}
-{'loss': 0.0, 'learning_rate': 4e-05, 'epoch': 0.01}
-{'loss': 0.0, 'learning_rate': 4e-05, 'epoch': 0.01}
+version https://git-lfs.github.com/spec/v1
+oid sha256:d684cf3bc849eb3a4343719cf513f9aaf74ecfb585b2a6c9a93b21eeef046531
+size 1027
