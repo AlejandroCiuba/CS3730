@@ -257,19 +257,21 @@ def main(args: argparse.ArgumentParser):
                         'train': datasetmt['train'].map(preprocess_mt, batched=True, batch_size=args.text_batch_size),
                         'test': datasetmt['test'].map(preprocess_mt, batched=True, batch_size=args.text_batch_size),
                         'valid': datasetmt['valid'].map(preprocess_mt, batched=True, batch_size=args.text_batch_size),})
+        
+        if args.task_mixture < 2:
 
-        logger.info("Model finetuning started...")
-        logger.info("HYPERPARAMETERS (MACHINE TRANSLATION):")
-        logger.info(f"\tEPOCHS: {args.epochs / 2}")
-        logger.info(f"\tBATCH SIZE: {args.batch_size}")
-        logger.info(f"\tLEARNING RATE: {args.learning_rate:g}")
-        logger.info(f"\tTRAINING SIZE: {len(datasetmt['train'])}")
-        logger.info(f"\tVALIDATION SIZE: {len(datasetmt['valid'])}")
-        logger.info(f"\tTESTING SIZE: {len(datasetmt['test'])}")
-        logger.info(f"\tEVALUATION METRIC: {args.metric} using {','.join(args.metric_keys)}")
+            logger.info("Model finetuning started...")
+            logger.info("HYPERPARAMETERS (MACHINE TRANSLATION):")
+            logger.info(f"\tEPOCHS: {args.epochs / 2}")
+            logger.info(f"\tBATCH SIZE: {args.batch_size}")
+            logger.info(f"\tLEARNING RATE: {args.learning_rate:g}")
+            logger.info(f"\tTRAINING SIZE: {len(datasetmt['train'])}")
+            logger.info(f"\tVALIDATION SIZE: {len(datasetmt['valid'])}")
+            logger.info(f"\tTESTING SIZE: {len(datasetmt['test'])}")
+            logger.info(f"\tEVALUATION METRIC: {args.metric} using {','.join(args.metric_keys)}")
 
         logger.info("HYPERPARAMETERS (REPEAT TRANSLATION):")
-        logger.info(f"\tEPOCHS: {args.epochs / 2}")
+        logger.info(f"\tEPOCHS: {args.epochs / 2 if args.task_mixture < 2 else args.epochs}")
         logger.info(f"\tBATCH SIZE: {args.batch_size}")
         logger.info(f"\tLEARNING RATE: {args.learning_rate:g}")
         logger.info(f"\tTRAINING SIZE: {len(datasetrt['train'])}")
@@ -277,6 +279,10 @@ def main(args: argparse.ArgumentParser):
         logger.info(f"\tTESTING SIZE: {len(datasetrt['test'])}")
         logger.info(f"\tEVALUATION METRIC: {args.metric} using {','.join(args.metric_keys)}")
 
+        # This is bad code, but I am unsure how the pointers get updated after each training set, so I make sure to give the make functions
+        # the most up-to-date model by calling them explicitly after all previous training in that mixture is done. If they always track the
+        # latest model, this code can be reduced significantly. I also put the try-catch at the end because I had some weird issues I was
+        # unsure how to solve at the time, and this is expensive to retrain for just the end results.
         if args.task_mixture == 0:
 
             trainer_rt = make_trainer(model, tokenizer, dataset=token_set_rt, 
@@ -284,7 +290,7 @@ def main(args: argparse.ArgumentParser):
                                       save_at=args.save_at, output=args.output, metric_name=args.metric, metric_keys=args.metric_keys)
 
             if not args.skip:
-                logger.info(f"PRE-EVALUATION (VALIDATION): {str(trainer_rt.evaluate())}")
+                logger.info(f"PRE-EVALUATION ON REPEAT TRANSLATION (VALIDATION): {str(trainer_rt.evaluate())}")
 
             logger.info("FINE-TUNING ON REPEAT TRANSLATION")
             trainer_rt.train()
@@ -293,18 +299,23 @@ def main(args: argparse.ArgumentParser):
                                       learning_rate=args.learning_rate, epochs=args.epochs / 2, batch_size=args.batch_size, 
                                       save_at=args.save_at, output=args.output, metric_name=args.metric, metric_keys=args.metric_keys)
             
+            if not args.skip:
+                logger.info(f"PRE-EVALUATION ON MACHINE TRANSLATION (VALIDATION): {str(trainer_mt.evaluate())}")
+            
             logger.info("FINE-TUNING ON MACHINE TRANSLATION")
             trainer_mt.train()
 
-        if args.task_mixture == 1:
+            logger.info(f"POST-EVALUATION ON REPEAT TRANSLATION (VALIDATION): {str(trainer_rt.evaluate())}")
+            logger.info(f"POST-EVALUATION ON MACHINE TRANSLATION (VALIDATION): {str(trainer_mt.evaluate())}")
 
+        elif args.task_mixture == 1:
 
             trainer_mt = make_trainer(model, tokenizer, dataset=token_set_mt, 
                                       learning_rate=args.learning_rate, epochs=args.epochs / 2, batch_size=args.batch_size, 
                                       save_at=args.save_at, output=args.output, metric_name=args.metric, metric_keys=args.metric_keys)
 
             if not args.skip:
-                logger.info(f"PRE-EVALUATION (VALIDATION): {str(trainer_mt.evaluate())}")
+                logger.info(f"PRE-EVALUATION ON MACHINE TRANSLATION (VALIDATION): {str(trainer_mt.evaluate())}")
 
             logger.info("FINE-TUNING ON MACHINE TRANSLATION")
             trainer_mt.train()
@@ -312,11 +323,30 @@ def main(args: argparse.ArgumentParser):
             trainer_rt = make_trainer(model, tokenizer, dataset=token_set_rt, 
                                       learning_rate=args.learning_rate, epochs=args.epochs / 2, batch_size=args.batch_size, 
                                       save_at=args.save_at, output=args.output, metric_name=args.metric, metric_keys=args.metric_keys)
-            
+            if not args.skip:
+                logger.info(f"PRE-EVALUATION ON REPEAT TRANSLATION (VALIDATION): {str(trainer_rt.evaluate())}")
+
             logger.info("FINE-TUNING ON REPEAT TRANSLATION")
             trainer_rt.train()
 
-        logger.info(f"POST-EVALUATION (VALIDATION): {str(trainer_mt.evaluate())}")
+            logger.info(f"POST-EVALUATION ON MACHINE TRANSLATION (VALIDATION): {str(trainer_mt.evaluate())}")
+            logger.info(f"POST-EVALUATION ON REPEAT TRANSLATION (VALIDATION): {str(trainer_rt.evaluate())}")
+
+        elif args.task_mixture == 2:
+
+            trainer_rt = make_trainer(model, tokenizer, dataset=token_set_rt, 
+                                                learning_rate=args.learning_rate, epochs=args.epochs, batch_size=args.batch_size, 
+                                                save_at=args.save_at, output=args.output, metric_name=args.metric, metric_keys=args.metric_keys)
+
+            if not args.skip:
+                logger.info(f"PRE-EVALUATION ON REPEAT TRANSLATION (VALIDATION): {str(trainer_rt.evaluate())}")
+
+            logger.info("FINE-TUNING ON REPEAT TRANSLATION")
+            trainer_rt.train()
+
+            trainer_mt = make_trainer(model, tokenizer, dataset=token_set_mt, 
+                                      learning_rate=args.learning_rate, epochs=args.epochs / 2, batch_size=args.batch_size, 
+                                      save_at=args.save_at, output=args.output, metric_name=args.metric, metric_keys=args.metric_keys)
 
         try:
             logger.info(f"POST-EVALUATION MACHINE TRANSLATION (TEST): {str(trainer_mt.evaluate(eval_dataset=token_set_mt['test']))}")
@@ -344,10 +374,9 @@ def main(args: argparse.ArgumentParser):
                                                  source=args.source, dataset=datasetrt["valid"], 
                                                  num_examples=args.examples, device=device):
 
-            logger.info(f"TRANSLATION {i} on \"{args.task}\"")
+            logger.info(f"REPEAT TRANSLATION {i}")
             logger.info(f"\tOriginal Text: {row[args.source]}")
             logger.info(f"\tGenerated Translation: {trans[0]['translation_text']}")
-            logger.info(f"\tActual Translation: {row[args.target]}")
 
     logger.info("RUN COMPLETED")
 
