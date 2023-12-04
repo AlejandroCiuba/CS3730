@@ -22,7 +22,7 @@ import torch
 import numpy as np
 import random as rand
 
-VERSION = "1.1.0"
+VERSION = "1.1.3"
 
 def make_logger(filepath, mixture):
 

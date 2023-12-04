@@ -15,7 +15,7 @@
 #SBATCH --nodes=1
 #SBATCH --gres=gpu:1
 #SBATCH --ntasks-per-node=1
-#SBATCH --array=0-1
+#SBATCH --array=0-2
 #SBATCH --time=3-00:00:00
 #SBATCH --qos=short
 ############## SBATCH HEADER END ##############

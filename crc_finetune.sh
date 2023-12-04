@@ -52,7 +52,7 @@ python finetune.py -m google/mt5-small \
 				   -b 16 \
 				   -sa 1 \
 				   -x 100 \
-				   -o models/ix_models/baseline \
+				   -o models/ix_models/baseline-fixed \
                    -lo logs
 
 echo "DONE"

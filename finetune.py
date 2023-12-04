@@ -21,7 +21,7 @@ import torch
 
 import numpy as np
 
-VERSION = "1.1.3"
+VERSION = "1.1.4"
 
 def make_logger(filepath):
 
