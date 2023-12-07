@@ -1,0 +1,738 @@
+VERSION 1.1.3 : 2023-12-04 16:57:11 : ===================== RUN =====================
+VERSION 1.1.3 : 2023-12-04 16:57:11 : MODEL: google/mt5-small on cuda
+VERSION 1.1.3 : 2023-12-04 16:57:23 : MACHINE TRANSLATION TASK: English to Spanish
+VERSION 1.1.3 : 2023-12-04 16:57:23 : MACHINE TRANSLATION DATASET(S): datasets/ix_datasets/opus
+VERSION 1.1.3 : 2023-12-04 16:58:57 : Model finetuning started...
+VERSION 1.1.3 : 2023-12-04 16:58:57 : HYPERPARAMETERS (MACHINE TRANSLATION):
+VERSION 1.1.3 : 2023-12-04 16:58:57 : 	EPOCHS: 1.0
+VERSION 1.1.3 : 2023-12-04 16:58:57 : 	BATCH SIZE: 16
+VERSION 1.1.3 : 2023-12-04 16:58:57 : 	LEARNING RATE: 4e-05
+VERSION 1.1.3 : 2023-12-04 16:58:57 : 	TRAINING SIZE: 1189762
+VERSION 1.1.3 : 2023-12-04 16:58:57 : 	VALIDATION SIZE: 254949
+VERSION 1.1.3 : 2023-12-04 16:58:57 : 	TESTING SIZE: 254950
+VERSION 1.1.3 : 2023-12-04 16:58:57 : 	EVALUATION METRIC: sacrebleu using score
+VERSION 1.1.3 : 2023-12-04 16:58:57 : HYPERPARAMETERS (REPEAT TRANSLATION):
+VERSION 1.1.3 : 2023-12-04 16:58:57 : 	EPOCHS: 1.0
+VERSION 1.1.3 : 2023-12-04 16:58:57 : 	BATCH SIZE: 16
+VERSION 1.1.3 : 2023-12-04 16:58:57 : 	LEARNING RATE: 4e-05
+VERSION 1.1.3 : 2023-12-04 16:58:57 : 	TRAINING SIZE: 1189762
+VERSION 1.1.3 : 2023-12-04 16:58:57 : 	VALIDATION SIZE: 254949
+VERSION 1.1.3 : 2023-12-04 16:58:57 : 	TESTING SIZE: 254950
+VERSION 1.1.3 : 2023-12-04 16:58:57 : 	EVALUATION METRIC: sacrebleu using score
+VERSION 1.1.3 : 2023-12-04 16:58:59 : FINE-TUNING ON REPEAT TRANSLATION
+VERSION 1.1.3 : 2023-12-05 05:18:21 : FINE-TUNING ON MACHINE TRANSLATION
+VERSION 1.1.3 : 2023-12-06 03:53:18 : POST-EVALUATION ON REPEAT TRANSLATION (VALIDATION): {'eval_loss': 0.04087920859456062, 'eval_sacrebleu_score': 58.01542815350656, 'eval_runtime': 35975.1542, 'eval_samples_per_second': 7.087, 'eval_steps_per_second': 0.443, 'epoch': 1.0}
+VERSION 1.1.3 : 2023-12-06 11:00:59 : POST-EVALUATION ON MACHINE TRANSLATION (VALIDATION): {'eval_loss': 0.24934574961662292, 'eval_sacrebleu_score': 41.64308307533143, 'eval_runtime': 25660.8862, 'eval_samples_per_second': 9.935, 'eval_steps_per_second': 0.621, 'epoch': 1.0}
+VERSION 1.1.3 : 2023-12-06 18:10:27 : POST-EVALUATION MACHINE TRANSLATION (TEST): {'eval_loss': 0.2495652139186859, 'eval_sacrebleu_score': 41.61200604937908, 'eval_runtime': 25767.4857, 'eval_samples_per_second': 9.894, 'eval_steps_per_second': 0.618, 'epoch': 1.0}
+VERSION 1.1.3 : 2023-12-07 04:12:14 : POST-EVALUATION REPEAT TRANSLATION (TEST): {'eval_loss': 0.04122745990753174, 'eval_sacrebleu_score': 58.00114200902118, 'eval_runtime': 36106.7765, 'eval_samples_per_second': 7.061, 'eval_steps_per_second': 0.441, 'epoch': 1.0}
+VERSION 1.1.3 : 2023-12-07 04:12:14 : SAVE LOCATION: 1.0
+VERSION 1.1.3 : 2023-12-07 04:12:14 : MACHINE TRANSLATION SAMPLES:
+VERSION 1.1.3 : 2023-12-07 04:12:15 : TRANSLATION 0 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:15 : 	Original Text: Martín Lousteau (born December 8, 1970) was the Minister of Economy and Production of Argentina under the administration of President Cristina Fernández de Kirchner, from December 10, 2007, until April 24, 2008.
+VERSION 1.1.3 : 2023-12-07 04:12:15 : 	Generated Translation: Martín Lousteau (nacido el 8 de diciembre de 1970) fue el Ministro de Economía y producción de Argentina bajo la administración del presidente Cristina Fernández de Kirchner, desde el 10 de diciembre de 2007 hasta el 24 de abril de 2008.
+VERSION 1.1.3 : 2023-12-07 04:12:15 : 	Actual Translation: Martín Lousteau (n. Buenos Aires, Argentina, 8 de diciembre de 1970) es un economista y político argentino, que se desempeño como Ministro de Economía de Argentina, desde el 10 de diciembre de 2007 hasta el 24 de abril de 2008.
+VERSION 1.1.3 : 2023-12-07 04:12:16 : TRANSLATION 1 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:16 : 	Original Text: Forel was able to combine the "dynamic approach" of French psychiatry with the biological orientation of the German school of psychiatric thought.
+VERSION 1.1.3 : 2023-12-07 04:12:16 : 	Generated Translation: Forel fue capaz de combinar el enfoque físico de la psiquiatra francesa con la orientación biológica de la escuela alemana de pensamiento psiquiátrico.
+VERSION 1.1.3 : 2023-12-07 04:12:16 : 	Actual Translation: Forel fue capaz de combinar "el acercamiento dinámico" de la psiquiatría francesa con la orientación biológica del pensamiento psiquiátrico de la escuela alemana.
+VERSION 1.1.3 : 2023-12-07 04:12:17 : TRANSLATION 2 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:17 : 	Original Text: Howard Browne, who had been on a leave of absence from Ziff-Davis to write fiction, took over as editor and began by throwing away 300,000 words of inventory that Palmer had acquired before he left.
+VERSION 1.1.3 : 2023-12-07 04:12:17 : 	Generated Translation: Howard Browne, que había estado en una huelga de ausencia de Ziff-Davis para escribir ficción, se hizo editor y comenzó a poner a cabo 300.000 palabras de inventario que Palmer había adquirido antes de que se retirara.
+VERSION 1.1.3 : 2023-12-07 04:12:17 : 	Actual Translation: Howard Browne, quien se había ausentado de Ziff-Davis para escribir ficción, asumió el cargo de editor y comenzó desechando alrededor de 300 000 palabras del inventario que Palmer había adquirido antes de renunciar.
+VERSION 1.1.3 : 2023-12-07 04:12:17 : TRANSLATION 3 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:17 : 	Original Text: ==History==The club was established on 10 May 1930, and was initially named Selmashstroy (Сельмашстрой).
+VERSION 1.1.3 : 2023-12-07 04:12:17 : 	Generated Translation: == Historia ==El club fue establecido el 10 de mayo de 1930, y fue nombrado inicialmente Selmashstroy (Сельмашстрой).
+VERSION 1.1.3 : 2023-12-07 04:12:17 : 	Actual Translation: ==Historia==El club fue fundado el 10 de mayo de 1930 y fue nombrado inicialmente Selmashstroy (Сельмашстрой).
+VERSION 1.1.3 : 2023-12-07 04:12:18 : TRANSLATION 4 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:18 : 	Original Text: In the first half of the 20th century, the parish lost many members, as residential neighborhoods were torn down to develop banks and department stores in the city center.
+VERSION 1.1.3 : 2023-12-07 04:12:18 : 	Generated Translation: En la primera mitad del siglo XX, la parroquia perdió muchos miembros, cuando las barrias residenciales fueron demolidas para desarrollar bancos y tiendas de departamento en el centro de la ciudad.
+VERSION 1.1.3 : 2023-12-07 04:12:18 : 	Actual Translation: En la primera mitad del siglo XX, la parroquia perdió muchos miembros, ya que loscercanos barrios residenciales fueron derribados para desarrollar bancos y grandes almacenes en el centro de la ciudad.
+VERSION 1.1.3 : 2023-12-07 04:12:18 : TRANSLATION 5 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:18 : 	Original Text: There were 5,906 housing units at an average density of 17 per square mile (7/km²).
+VERSION 1.1.3 : 2023-12-07 04:12:18 : 	Generated Translation: Había 5.906 unidades habitacionales en una densidad media de 7/km2.
+VERSION 1.1.3 : 2023-12-07 04:12:18 : 	Actual Translation: Hay 5.906 unidades habitacionales con una densidad promedio de 7 u.a./km² (17 u.a./mi²).
+VERSION 1.1.3 : 2023-12-07 04:12:19 : TRANSLATION 6 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:19 : 	Original Text: __NOTOC__Year 5 (V) was a common year starting on Thursday (link will display the full calendar) of the Julian calendar.
+VERSION 1.1.3 : 2023-12-07 04:12:19 : 	Generated Translation: El 5 (V) fue un año común comenzado el calendario juliano comenzado el día 5 (link will display the full calendar) of the Julian calendar.
+VERSION 1.1.3 : 2023-12-07 04:12:19 : 	Actual Translation: 5 (V) fue un año común comenzado en jueves según el calendario juliano, en vigor en aquella fecha.
+VERSION 1.1.3 : 2023-12-07 04:12:19 : TRANSLATION 7 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:19 : 	Original Text: Brown was the President of the Boston Athletic Association from 1941 to 1964.
+VERSION 1.1.3 : 2023-12-07 04:12:19 : 	Generated Translation: Brown fue el presidente de la Asociación de Atletismo de Boston desde 1941 hasta 1964.
+VERSION 1.1.3 : 2023-12-07 04:12:19 : 	Actual Translation: Brown fue el Presidente de la Boston Athletic Association desde 1941 hasta 1964.
+VERSION 1.1.3 : 2023-12-07 04:12:20 : TRANSLATION 8 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:20 : 	Original Text: From 9 to 25 January 2003, the Manitoba Theatre Centre, in Manitoba, Canada, held a nearly month-long "PinterFest", in which over 130 performances of twelve of Pinter's plays were performed by a dozen different theatre companies.
+VERSION 1.1.3 : 2023-12-07 04:12:20 : 	Generated Translation: Desde el 9 a 25 de enero de 2003, el Manitoba Theatre Centre, en Manitoba, Canadá, realizó un "PinterFest", en el que más de 130 actuaciones de doce de las obras de Pinter fueron interpretadas por una docena de compañías diferentes.
+VERSION 1.1.3 : 2023-12-07 04:12:20 : 	Actual Translation: Del 9 a 25 enero de 2003, el Manitoba Theatre Centre, en Manitoba, Canadá, celebró una "PinterFest" en la cual una docena de compañías de teatro realizaron más de 130 actuaciones de doce de las obras de Pinter.
+VERSION 1.1.3 : 2023-12-07 04:12:20 : TRANSLATION 9 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:20 : 	Original Text: Paris Saint-Germain became champions for the first time in their history with 56 points.
+VERSION 1.1.3 : 2023-12-07 04:12:20 : 	Generated Translation: El París Saint-Germain se convirtió en campeones por primera vez en su historia con 56 puntos.
+VERSION 1.1.3 : 2023-12-07 04:12:20 : 	Actual Translation: Paris Saint-Germain FC resultó campeón con 55 puntos, obteniendo su primer título.
+VERSION 1.1.3 : 2023-12-07 04:12:21 : TRANSLATION 10 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:21 : 	Original Text: == History ==The history of Böttcherstraße goes back to the Middle Ages.
+VERSION 1.1.3 : 2023-12-07 04:12:21 : 	Generated Translation: == Historia ==La historia de Böttcherstraße va a la edad media.
+VERSION 1.1.3 : 2023-12-07 04:12:21 : 	Actual Translation: == Historia ==La Historia de la Böttcherstraße se rastrea hasta la edad media.
+VERSION 1.1.3 : 2023-12-07 04:12:22 : TRANSLATION 11 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:22 : 	Original Text: In radio communication the goal is the transmission of information, so the amount of power reaching the receiver is unimportant as long as it is enough that the signal to noise ratio is high enough that the information can be received intelligibly.
+VERSION 1.1.3 : 2023-12-07 04:12:22 : 	Generated Translation: En la comunicación radio, el objetivo es la transmisión de información, así que la cantidad de poder alcanzando el receptor es insignificante a largo plazo, pues es suficiente que la señal a la ratio de sonido es alta suficiente que la información puede ser recibida intelligiblemente.
+VERSION 1.1.3 : 2023-12-07 04:12:22 : 	Actual Translation: En las radiocomunicaciones el objetivo es la transmisión de información, por lo tanto, la cantidad de energía que llega al receptor no es tan importante mientras sea suficiente para que la relación señal/ruido sean tan alta como para que la información pueda ser recibida inteligiblemente.
+VERSION 1.1.3 : 2023-12-07 04:12:22 : TRANSLATION 12 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:22 : 	Original Text: : In the TV series, Akane works as a model and appears in clothing advertisements throughout the city.
+VERSION 1.1.3 : 2023-12-07 04:12:22 : 	Generated Translation: En la serie de televisión, Akane trabaja como modelo y apareció en anuncios de ropa en toda la ciudad.
+VERSION 1.1.3 : 2023-12-07 04:12:22 : 	Actual Translation: ): En la serie de TV, Akane trabaja como modelo y aparece en anuncios de ropa que se pueden ver por la ciudad.
+VERSION 1.1.3 : 2023-12-07 04:12:23 : TRANSLATION 13 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:23 : 	Original Text: The National Roman Museum (in Italian: Museo Nazionale Romano) is a museum, with several branches in separate buildings throughout the city of Rome, Italy.
+VERSION 1.1.3 : 2023-12-07 04:12:23 : 	Generated Translation: El Museo Nacional Romano (en italiano: Museo Nazionale Romano) es un museo, con varios ramas en edificios separados en toda la ciudad de Roma, Italia.
+VERSION 1.1.3 : 2023-12-07 04:12:23 : 	Actual Translation: El Museo Nacional Romano (Museo Nazionale Romano en italiano es un conjunto de museos en Roma (Italia), dividido en varios lugares de la ciudad.
+VERSION 1.1.3 : 2023-12-07 04:12:23 : TRANSLATION 14 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:23 : 	Original Text: The average household size was 2.32 and the average family size was 2.89.
+VERSION 1.1.3 : 2023-12-07 04:12:23 : 	Generated Translation: El tamaño promedio de la familia era de 2.32 y el tamaño promedio de la familia era de 2.89.
+VERSION 1.1.3 : 2023-12-07 04:12:23 : 	Actual Translation: El tamaño promedio de los hogares era de 2,32 personas y el de las familias de 2,89.
+VERSION 1.1.3 : 2023-12-07 04:12:24 : TRANSLATION 15 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:24 : 	Original Text: It is also very involved in the case of Troy Davis, leading sometimes even T-shirts with the message "I am Troy Davis" during his tour in the United States.
+VERSION 1.1.3 : 2023-12-07 04:12:24 : 	Generated Translation: También es muy involucrado en el caso de Troy Davis, liderando a veces a veces a t-shirts con el mensaje "I am Troy Davis" durante su gira en los Estados Unidos.
+VERSION 1.1.3 : 2023-12-07 04:12:24 : 	Actual Translation: También está muy involucrado en el caso de Troy Davis, llevando incluso a veces camisetas con el mensaje "I am Troy Davis" durante su gira en los Estados Unidos.
+VERSION 1.1.3 : 2023-12-07 04:12:24 : TRANSLATION 16 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:24 : 	Original Text: Michiru also appears in the all-ages spin-off game titled "Idol Mahō Shōjo Chiru Chiru☆Michiru" as main character.
+VERSION 1.1.3 : 2023-12-07 04:12:24 : 	Generated Translation: Michiru también apareció en el juego de spin-off de todos los años titulado "Idol Mahō Shōjo Chiru Chiru☆Michiru" como personaje principal.
+VERSION 1.1.3 : 2023-12-07 04:12:24 : 	Actual Translation: Michiru también aparece en el spin-off del juego titulado Mahō Shōjo Chiru Chiru Michiru ☆ como personaje principal.
+VERSION 1.1.3 : 2023-12-07 04:12:25 : TRANSLATION 17 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:25 : 	Original Text: The chemical element of each atom is often indicated by the sphere's color.
+VERSION 1.1.3 : 2023-12-07 04:12:25 : 	Generated Translation: El elemento químico de cada átomos se indica a menudo por el color del espacio.
+VERSION 1.1.3 : 2023-12-07 04:12:25 : 	Actual Translation: A menudo el elemento químico de cada átomo es representado por diferentes colores de de esfera.
+VERSION 1.1.3 : 2023-12-07 04:12:25 : TRANSLATION 18 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:25 : 	Original Text: He fleshed it out with reading keys and concrete proposals for a counter-offensive.
+VERSION 1.1.3 : 2023-12-07 04:12:25 : 	Generated Translation: Él se llenó con las llaves de lectura y propuestas concretas para una contraofensiva.
+VERSION 1.1.3 : 2023-12-07 04:12:25 : 	Actual Translation: Pero aporta también claves de lectura y propuestas concretas para una contraofensiva.
+VERSION 1.1.3 : 2023-12-07 04:12:26 : TRANSLATION 19 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:26 : 	Original Text: * Aurora Cáceres: Peruvian feminist writer, daughter of the former President of Perú general Andrés Avelino Cáceres.
+VERSION 1.1.3 : 2023-12-07 04:12:26 : 	Generated Translation: * Aurora Cáceres: escritor peruano, hija del ex presidente del general Perú Andrés Avelino Cáceres.
+VERSION 1.1.3 : 2023-12-07 04:12:26 : 	Actual Translation: * Aurora Cáceres: escritora feminista peruana, hija del expresidente peruano general Andrés Avelino Cáceres.
+VERSION 1.1.3 : 2023-12-07 04:12:26 : TRANSLATION 20 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:26 : 	Original Text: The majority of this population (20,200) is from Mauritania.
+VERSION 1.1.3 : 2023-12-07 04:12:26 : 	Generated Translation: La mayoría de esta población (20,200) es de Mauritania.
+VERSION 1.1.3 : 2023-12-07 04:12:26 : 	Actual Translation: La mayoría de esta población (20.200) provenía de Mauritania.
+VERSION 1.1.3 : 2023-12-07 04:12:26 : TRANSLATION 21 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:26 : 	Original Text: Popular dive sites include Coconut Point, Mamsa, Cogon, Rockpoint and Chapel.
+VERSION 1.1.3 : 2023-12-07 04:12:26 : 	Generated Translation: Los sitios populares incluyen Coconut Point, Mamsa, Cogon, Rockpoint y Chapel.
+VERSION 1.1.3 : 2023-12-07 04:12:26 : 	Actual Translation: Lugares de buceo incluyen Punto de Cocos, Mamsa, Cogon, Rockpoint y Chapel.
+VERSION 1.1.3 : 2023-12-07 04:12:27 : TRANSLATION 22 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:27 : 	Original Text: Since 2004, Eurostat publishes annual statistics called Healthy Life Years (HLY) based on reported activity limitations.
+VERSION 1.1.3 : 2023-12-07 04:12:27 : 	Generated Translation: Desde 2004, Eurostat publica estadísticas anuales llamadas Healthy Life Years (HLY) basadas en limitaciones de actividad reportadas.
+VERSION 1.1.3 : 2023-12-07 04:12:27 : 	Actual Translation: Desde 2004, Eurostat publica estadísticas anuales llamadas "Healthy Life Years" (HLY) basado en reportes.
+VERSION 1.1.3 : 2023-12-07 04:12:27 : TRANSLATION 23 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:27 : 	Original Text: On a trip to New York in 1896, Barrie attended a performance of "Rosemary" and at once decided that Adams was the actress to play Lady Babbie.
+VERSION 1.1.3 : 2023-12-07 04:12:27 : 	Generated Translation: En un viaje a Nueva York en 1896, Barrie asistió a una actuación de Rosemary y decidió que Adams era la actriz para interpretar Lady Babbie.
+VERSION 1.1.3 : 2023-12-07 04:12:27 : 	Actual Translation: En un viaje a Nueva York en 1896, Barrie asistió a una función de "Rosemary" y de inmediato decidió que Adams fuera la actriz que interpretara a Lady Babbie.
+VERSION 1.1.3 : 2023-12-07 04:12:28 : TRANSLATION 24 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:28 : 	Original Text: Among his most recent film appearances were as the protagonist of ("No somos nadie") and has worked with directors like Guillermo del Toro ("El espinazo del diablo"), María Ripoll ("Utopía") and Manuel Huerga ("Salvador").
+VERSION 1.1.3 : 2023-12-07 04:12:28 : 	Generated Translation: Entre sus apariciones más recientes de la película fueron como protagonista de ("No somos nadie") y ha trabajado con directores como Guillermo del Toro ("El espinazo del diablo"), María Ripoll ("Utopía") y Manuel Huerga ("Salvador").
+VERSION 1.1.3 : 2023-12-07 04:12:28 : 	Actual Translation: Entre sus últimas apariciones en cine lo hemos visto como protagonista de la "opera prima" de Jordi Mollá como director (No somos nadie) y ha trabajado a las órdenes de directores como Guillermo del Toro (El espinazo del diablo), María Ripoll ("Utopía") o Manuel Huerga (Salvador).
+VERSION 1.1.3 : 2023-12-07 04:12:29 : TRANSLATION 25 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:29 : 	Original Text: They posted an advertisement in the local music publication in Chicago, Illinois, called the "Illinois Entertainer".
+VERSION 1.1.3 : 2023-12-07 04:12:29 : 	Generated Translation: Publicaron una publicación en la publicación local de música en Chicago, Illinois, llamada "Illinois Entertainer".
+VERSION 1.1.3 : 2023-12-07 04:12:29 : 	Actual Translation: Pusieron un anuncio en la publicación de música local en Chicago, Illinois, llamado el "Artista de Illinois".
+VERSION 1.1.3 : 2023-12-07 04:12:29 : TRANSLATION 26 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:29 : 	Original Text: If Daigorō chose the ball, his father would kill him, sending Daigorō to be with his mother; however, the child crawls toward the sword and reaches for its hilt.
+VERSION 1.1.3 : 2023-12-07 04:12:29 : 	Generated Translation: Si Daigorō elige la bola, su padre le mataría, enviando a Daigorō a ser con su madre; sin embargo, el niño se escapa hacia la cabeza y llega a su hilta.
+VERSION 1.1.3 : 2023-12-07 04:12:29 : 	Actual Translation: Si Daigorō elegía la pelota, su padre lo hubiera matado, enviándolo con su difunta madre; sin embargo, el niño gateó hacia la espada.
+VERSION 1.1.3 : 2023-12-07 04:12:30 : TRANSLATION 27 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:30 : 	Original Text: ==Commercial performance==The album debuted at number one on the U.S. "Billboard" 200 chart and sold 286,000 copies in its first week.
+VERSION 1.1.3 : 2023-12-07 04:12:30 : 	Generated Translation: == Performance comercial ==El álbum debutó en el número uno en la lista de Billboard 200 y vendió 286.000 copias en su primera semana.
+VERSION 1.1.3 : 2023-12-07 04:12:30 : 	Actual Translation: == Recepción ===== Rendimiento comercial ===El álbum debutó en el número uno en "Billboard 200" y vendió 286,000 copias en su primer semana.
+VERSION 1.1.3 : 2023-12-07 04:12:31 : TRANSLATION 28 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:31 : 	Original Text: The crew consisted of 200 men which included the Captain, ten dignitaries who may have been commanders, several archers, a few soldiers, and 170 oarsmen.
+VERSION 1.1.3 : 2023-12-07 04:12:31 : 	Generated Translation: La tripulación consistió en 200 hombres que incluían al capitán, diez dignos que pueden haber sido comandantes, varios archers, algunos soldados y 170 oarsmen.
+VERSION 1.1.3 : 2023-12-07 04:12:31 : 	Actual Translation: La tripulación consistía en 200 hombres, incluyendo capitán, diez dignatarios que podían haber sido comandantes, muchos arqueros, unos cuantos soldados y 170 remeros.
+VERSION 1.1.3 : 2023-12-07 04:12:32 : TRANSLATION 29 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:32 : 	Original Text: As Commander Garan (Garrett Wang) and his security officers take them to the conference room, Curate Prime (Daamen Krall) has a few "last words" with Kittrick before his impending execution, before ordering Garan to the bridge.
+VERSION 1.1.3 : 2023-12-07 04:12:32 : 	Generated Translation: Como comandante Garan (Garrett Wang) y sus oficiales de seguridad llevan a la sala de la conferencia, Curate Prime (Daamen Krall) tiene algunas "palabras" con Kittrick antes de su inminente ejecución, antes de ordenar a Garan al puente.
+VERSION 1.1.3 : 2023-12-07 04:12:32 : 	Actual Translation: Como Comandante Garan ( Garrett Wang ) y sus agentes de seguridad los llevan a la sala de conferencias, Curate Prime (Daamen Krall) tiene algunos "últimas palabras" con Kittrick antes de su ejecución inminente, antes de ordenar Garan al puente.
+VERSION 1.1.3 : 2023-12-07 04:12:32 : TRANSLATION 30 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:32 : 	Original Text: The Christian Social Party (, CSP) was a right-wing political party in the German Empire, founded in 1878 by Adolf Stoecker as the "Christlichsoziale Arbeiterpartei" (Christian Social Workers' Party).
+VERSION 1.1.3 : 2023-12-07 04:12:32 : 	Generated Translation: El Partido Socialista Christian (CSP) fue un partido político alemán fundado en 1878 por Adolf Stoecker como el Partido Socialista Christian.
+VERSION 1.1.3 : 2023-12-07 04:12:32 : 	Actual Translation: El Partido Social Cristiano (alemán: "Christlich-soziale Partei", CSP) fue un partido político derechista en el imperio alemán, fundado en 1878 por Adolf Stoecker como "Christlichsoziale Arbeiterpartei" (Partido Social Cristiano de los Trabajadores).
+VERSION 1.1.3 : 2023-12-07 04:12:32 : TRANSLATION 31 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:32 : 	Original Text: From 1976, he studied on a scholarship in Vienna.
+VERSION 1.1.3 : 2023-12-07 04:12:32 : 	Generated Translation: Desde 1976 estudió en una educación en Viena.
+VERSION 1.1.3 : 2023-12-07 04:12:32 : 	Actual Translation: Desde 1976 estudió con una beca en Viena.
+VERSION 1.1.3 : 2023-12-07 04:12:33 : TRANSLATION 32 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:33 : 	Original Text: Weber's insistence on the importance of domination and symbolic systems in social life was retained by Pierre Bourdieu, who developed the idea of social orders, ultimately transforming it into a theory of fields.
+VERSION 1.1.3 : 2023-12-07 04:12:33 : 	Generated Translation: La insistencia de Weber sobre la importancia de la dominación y sistemas simbólicos en la vida social fue retenido por Pierre Bourdieu, quien desarrolló la idea de ordenes sociales, transformándolo en una teoría de campos.
+VERSION 1.1.3 : 2023-12-07 04:12:33 : 	Actual Translation: La insistencia de Max Weber en la importancia de la dominación y los sistemas simbólicos en la vida social ha sido continuada por Pierre Bourdieu, que desarrolló la idea de los órdenes sociales, transformándola por último en una teoría de campos.
+VERSION 1.1.3 : 2023-12-07 04:12:33 : TRANSLATION 33 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:33 : 	Original Text: It is considered a delicacy in Iceland and Greenland.
+VERSION 1.1.3 : 2023-12-07 04:12:33 : 	Generated Translation: Se considera una delicada en Islandia y Groenlandia.
+VERSION 1.1.3 : 2023-12-07 04:12:33 : 	Actual Translation: En Groenlandia e Islandia es considerado una exquisitez.
+VERSION 1.1.3 : 2023-12-07 04:12:34 : TRANSLATION 34 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:34 : 	Original Text: As a result, he was overthrown and assassinated in a "coup d'état" led by the French-backed Blaise Compaoré on October 15, 1987.
+VERSION 1.1.3 : 2023-12-07 04:12:34 : 	Generated Translation: Como resultado, fue asesinado y asesinado en un "coup d'état" dirigido por el ejército francés Blaise Compaoré el 15 de octubre de 1987.
+VERSION 1.1.3 : 2023-12-07 04:12:34 : 	Actual Translation: Como resultado, fue derrocado y asesinado en un golpe de estado liderado por Blaise Compaoré que era respaldado por los franceses el 15 de octubre de 1987.
+VERSION 1.1.3 : 2023-12-07 04:12:34 : TRANSLATION 35 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:34 : 	Original Text: The per capita income for the county was $16,884.
+VERSION 1.1.3 : 2023-12-07 04:12:34 : 	Generated Translation: La renta per cápita para el condado era de $16,884.
+VERSION 1.1.3 : 2023-12-07 04:12:34 : 	Actual Translation: El ingreso per cápita para el condado era de $16,884.
+VERSION 1.1.3 : 2023-12-07 04:12:34 : TRANSLATION 36 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:34 : 	Original Text: In 1964, Jules Romains was named citizen of honor of Saint-Avertin.
+VERSION 1.1.3 : 2023-12-07 04:12:34 : 	Generated Translation: En 1964, Jules Romains fue nombrado ciudadano de honor de San-Avertin.
+VERSION 1.1.3 : 2023-12-07 04:12:34 : 	Actual Translation: En 1964, fue nombrado ciudadano de honor de Saint-Avertin.
+VERSION 1.1.3 : 2023-12-07 04:12:35 : TRANSLATION 37 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:35 : 	Original Text: Cartwright graduated from high school in 1976 and accepted a scholarship from Ohio University.
+VERSION 1.1.3 : 2023-12-07 04:12:35 : 	Generated Translation: Cartwright se graduó de la escuela secundaria en 1976 y aceptó una educación de la Universidad de Ohio.
+VERSION 1.1.3 : 2023-12-07 04:12:35 : 	Actual Translation: Nancy se graduó de la escuela en 1976 y aceptó una beca para la Universidad de Ohio.
+VERSION 1.1.3 : 2023-12-07 04:12:35 : TRANSLATION 38 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:35 : 	Original Text: The game arrived on the Wii Virtual Console in Europe on July 20, 2007, in North America on August 13, 2007, and in Japan on March 4, 2008.
+VERSION 1.1.3 : 2023-12-07 04:12:35 : 	Generated Translation: El juego llegó en el Wii Virtual Console en Europa el 20 de julio de 2007, en América del Norte el 13 de agosto de 2007, y en Japón el 4 de marzo de 2008.
+VERSION 1.1.3 : 2023-12-07 04:12:35 : 	Actual Translation: El juego también fue lanzado para la Consola Virtual de la Wii, el 20 de julio de 2007 para Europa, el 13 de agosto del mismo año para América y el 4 de marzo de 2008 en Japón.
+VERSION 1.1.3 : 2023-12-07 04:12:36 : TRANSLATION 39 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:36 : 	Original Text: During fall 2010, Tacita Dean produced a film on Twombly, titled "Edwin Parker".
+VERSION 1.1.3 : 2023-12-07 04:12:36 : 	Generated Translation: Durante el verano de 2010, Tacita Dean produjo una película en Twombly, titulada "Edwin Parker".
+VERSION 1.1.3 : 2023-12-07 04:12:36 : 	Actual Translation: Durante el otoño de 2010, Tacita Dean produjo un filme acerca de Twombly, titulado "Edwin Parker".
+VERSION 1.1.3 : 2023-12-07 04:12:36 : TRANSLATION 40 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:36 : 	Original Text: Tawara was born in Ōita Prefecture and studied at the Medical School, Imperial University of Tokyo in Tokyo, graduating in 1901 and receiving his Doctorate of Medical Science in 1908.
+VERSION 1.1.3 : 2023-12-07 04:12:36 : 	Generated Translation: Tawara nació en la Prefectura de Ōita y estudió en la escuela médica, la Universidad Imperial de Tokio en Tokio, graduándose en 1901 y recibió su Doctorado de Ciencias Médicas en 1908.
+VERSION 1.1.3 : 2023-12-07 04:12:36 : 	Actual Translation: == Biografía ==Tawara estudió medicina en la Facultad de Medicina de la Universidad de Tokio, en donde se graduó en 1901 y en 1908 obtuvo un doctorado en Ciencias Médicas.
+VERSION 1.1.3 : 2023-12-07 04:12:37 : TRANSLATION 41 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:37 : 	Original Text: [http://www.insects.demon.co.uk/bullsn/bull-4.html]* Späth, M. (1999), Pt.
+VERSION 1.1.3 : 2023-12-07 04:12:37 : 	Generated Translation: [http://www.insects.demon.co.uk/bullsn/bull-4.html]* Späth, M. (1999), Pt.
+VERSION 1.1.3 : 2023-12-07 04:12:37 : 	Actual Translation: [http://web.archive.org/web/http://www.insects.demon.co.uk/bullsn/bull-4.html]* Späth, M. (1999), Pt.
+VERSION 1.1.3 : 2023-12-07 04:12:37 : TRANSLATION 42 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:37 : 	Original Text: The cake was first served at the Demel and later at the Hotel Sacher, established by Eduard in 1876.
+VERSION 1.1.3 : 2023-12-07 04:12:37 : 	Generated Translation: El cake fue servido primero en el Demel y más tarde en el Hotel Sacher, establecido por Eduard en 1876.
+VERSION 1.1.3 : 2023-12-07 04:12:37 : 	Actual Translation: Eduard, el hijo mayor de Franz Sacher, fue aprendiz de repostero en la confitería vienesa Demel.
+VERSION 1.1.3 : 2023-12-07 04:12:38 : TRANSLATION 43 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:38 : 	Original Text: The pedestal is by Corgolin.
+VERSION 1.1.3 : 2023-12-07 04:12:38 : 	Generated Translation: El pedestal es de Corgolin.
+VERSION 1.1.3 : 2023-12-07 04:12:38 : 	Actual Translation: El pedestal es de Corgolin.
+VERSION 1.1.3 : 2023-12-07 04:12:38 : TRANSLATION 44 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:38 : 	Original Text: The group's largest business area is highway management, in which it is the largest concessionaire in its home country.
+VERSION 1.1.3 : 2023-12-07 04:12:38 : 	Generated Translation: El área más grande del grupo es el desarrollo de la autopista, en la que es el mayor concesionaria en su país natal.
+VERSION 1.1.3 : 2023-12-07 04:12:38 : 	Actual Translation: La mayor área de negocio del grupo es la gestión de autopistas, del que es el primer concesionario en el país.
+VERSION 1.1.3 : 2023-12-07 04:12:39 : TRANSLATION 45 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:39 : 	Original Text: Being adept in both academic representational style and modern abstract, he has utilized almost all kinds of materials from hard wood ("molave", "acacia", "langka" wood, "ipil", "kamagong", palm wood and bamboo) to adobe, metal, stainless steel, cement, marble, bronze, iron, alabaster, coral and brass.
+VERSION 1.1.3 : 2023-12-07 04:12:39 : 	Generated Translation: Además de ser adeptado en el estilo estructural y abstracto moderno, ha utilizado casi todos los materiales de madera duro (molave, "acacia", "langka" madera, "ipil", "kamagong", palmo y bambú) para adobe, metal, acero stainless steel, cement, bronce, bronce, oro, alabaster, coral y acero.
+VERSION 1.1.3 : 2023-12-07 04:12:39 : 	Actual Translation: Al ser tan hábil tanto en representaciones de estilo académico y abstracto moderno, ha utilizado casi todo tipo de materiales de madera dura (molave, acacia, madera de Langka, ipil, kamagong, madera de palma y bambú) así como de adobe, metal, acero inoxidable, cemento, mármol, bronce, hierro, alabastro, coral y latón.
+VERSION 1.1.3 : 2023-12-07 04:12:40 : TRANSLATION 46 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:40 : 	Original Text: The flowers show a column with a unique shieldlike staminode.
+VERSION 1.1.3 : 2023-12-07 04:12:40 : 	Generated Translation: Las flores mostran una columna con un único staminode shieldlike.
+VERSION 1.1.3 : 2023-12-07 04:12:40 : 	Actual Translation: Las flores presentan una columna con un solo estaminodio como un escudo.
+VERSION 1.1.3 : 2023-12-07 04:12:40 : TRANSLATION 47 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:40 : 	Original Text: The district capital lies at the city of Tokmok.
+VERSION 1.1.3 : 2023-12-07 04:12:40 : 	Generated Translation: La capital del distrito está en la ciudad de Tokmok.
+VERSION 1.1.3 : 2023-12-07 04:12:40 : 	Actual Translation: Tiene como capital la ciudad de Chuy.
+VERSION 1.1.3 : 2023-12-07 04:12:41 : TRANSLATION 48 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:41 : 	Original Text: 'You will tell Matthew to do something that cannot be done and will go away yourself, and he will muddle everything,' and as she spoke her usual ironical smile wrinkled the corners of Dolly's mouth.
+VERSION 1.1.3 : 2023-12-07 04:12:41 : 	Generated Translation: ––No puedes contar a Matthew que no puede hacer nada y volverá a usted, y a volverá a buscarlo, y a buscarlo.
+VERSION 1.1.3 : 2023-12-07 04:12:41 : 	Actual Translation: Y una sonrisa irónica plegó, como de costumbre, las comisuras de sus labios. «La reconciliación es completa» , pensó ahora Ana.
+VERSION 1.1.3 : 2023-12-07 04:12:41 : TRANSLATION 49 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:41 : 	Original Text: In 1989, Townshend began work on a novel entitled "Ray High & The Glass Household", a draft of which was later submitted to his editor.
+VERSION 1.1.3 : 2023-12-07 04:12:41 : 	Generated Translation: En 1989, Townshend comenzó a trabajar en una novela titulada "Ray High & The Glass Household", un draft de la cual fue posteriormente enviada a su editor.
+VERSION 1.1.3 : 2023-12-07 04:12:41 : 	Actual Translation: En 1989, Townshend comenzó a trabajar en una novela titulada "Ray High & The Glass Household", cuyo borrador fue más tarde enviado a su editor.
+VERSION 1.1.3 : 2023-12-07 04:12:41 : TRANSLATION 50 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:41 : 	Original Text: In 2011 the company started collaborating with the French designer Christian Lacroix.
+VERSION 1.1.3 : 2023-12-07 04:12:41 : 	Generated Translation: En 2011 la compañía comenzó a colaborar con el diseñador francés Christian Lacroix.
+VERSION 1.1.3 : 2023-12-07 04:12:41 : 	Actual Translation: En 2011 la firma inició una colaboración con el diseñador francés Christian Lacroix.
+VERSION 1.1.3 : 2023-12-07 04:12:42 : TRANSLATION 51 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:42 : 	Original Text: In many examples of 3D optical data storage systems, several wavelengths (colors) of light are used (e.g.
+VERSION 1.1.3 : 2023-12-07 04:12:42 : 	Generated Translation: En muchos ejemplos de sistemas de almacenamiento de datos 3D, varios longitudes (colores) de luz son utilizados (e.g.
+VERSION 1.1.3 : 2023-12-07 04:12:42 : 	Actual Translation: En muchos ejemplos de sistemas de almacenamiento de datos 3D se usan diferentes tipos de longitudes de onda (colores) de luz (ej.
+VERSION 1.1.3 : 2023-12-07 04:12:42 : TRANSLATION 52 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:42 : 	Original Text: Klaus and Eva Herlitz are German businesspeople, living in Berlin.
+VERSION 1.1.3 : 2023-12-07 04:12:42 : 	Generated Translation: Klaus y Eva Herlitz son empresarios alemáns, viviendo en Berlín.
+VERSION 1.1.3 : 2023-12-07 04:12:42 : 	Actual Translation: Eva y Klaus Herlitz son un matrimonio que reside en Berlín.
+VERSION 1.1.3 : 2023-12-07 04:12:43 : TRANSLATION 53 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:43 : 	Original Text: With the rise of Adolf Hitler in Germany in the 1930s a few readers (including Donald Wollheim) wrote letters complaining about the inclusion of German stories.
+VERSION 1.1.3 : 2023-12-07 04:12:43 : 	Generated Translation: Con el auge de Adolf Hitler en Alemania en los años 1930, algunos lectores (incluyendo Donald Wollheim) escribieron cartas que reclamaban sobre la inclusión de las historias alemanas.
+VERSION 1.1.3 : 2023-12-07 04:12:43 : 	Actual Translation: Con el ascenso de Adolf Hitler en la década de 1930 en Alemania, unos pocos lectores, como Donald Wollheim, escribieron cartas quejándose de la inclusión de historias alemanas.
+VERSION 1.1.3 : 2023-12-07 04:12:44 : TRANSLATION 54 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:44 : 	Original Text: The end of this century brought the end of Turkish sovereignty, but found the city bereft of much of its wealth, municipal freedom, cultural centrality, political significance and even population.
+VERSION 1.1.3 : 2023-12-07 04:12:44 : 	Generated Translation: El final del siglo XV llevó al final de la soberanía turca, pero encontró la ciudad a gran parte de su riqueza, la libertad municipal, la centralidad cultural, la importancia política y incluso la población.
+VERSION 1.1.3 : 2023-12-07 04:12:44 : 	Actual Translation: El fin de este siglo trajo consigo el fin de la soberanía otomana, pero la ciudad perdió mucho de su fortuna, su libertad municipal, su centralidad cultural, su relevancia política e incluso parte de su población.
+VERSION 1.1.3 : 2023-12-07 04:12:44 : TRANSLATION 55 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:44 : 	Original Text: He died in his hometown on 27 November 1720, leaving all his possessions to his sister, Francisca.
+VERSION 1.1.3 : 2023-12-07 04:12:44 : 	Generated Translation: Murió en su ciudad natal el 27 de noviembre de 1720, dejando todas sus posesiones a su hermana, Francisca.
+VERSION 1.1.3 : 2023-12-07 04:12:44 : 	Actual Translation: Murió en su ciudad natal el 27 de noviembre de 1720, dejando todos sus bienes a su hermana, Francisca.
+VERSION 1.1.3 : 2023-12-07 04:12:44 : TRANSLATION 56 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:44 : 	Original Text: The per capita income for the CDP was $34,665.
+VERSION 1.1.3 : 2023-12-07 04:12:44 : 	Generated Translation: La renta per cápita para la localidad era de $34,665.
+VERSION 1.1.3 : 2023-12-07 04:12:44 : 	Actual Translation: La renta per cápita para la localidad era de $34,665.
+VERSION 1.1.3 : 2023-12-07 04:12:44 : TRANSLATION 57 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:44 : 	Original Text: * 1962 — Paintings by Ceri Richards.
+VERSION 1.1.3 : 2023-12-07 04:12:44 : 	Generated Translation: * 1962 — Pinturas de Ceri Richards.
+VERSION 1.1.3 : 2023-12-07 04:12:44 : 	Actual Translation: * 1962 - Los cuadros de Ceri Richards.
+VERSION 1.1.3 : 2023-12-07 04:12:46 : TRANSLATION 58 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:46 : 	Original Text: Elizabeth Rebecca "Liz" Mitchell (born 12 July 1952, Clarendon, Jamaica) is a singer, best known as the former lead singer of the 1970s disco/pop band, Boney M.==Early life==At the age of eleven, Mitchell and her family emigrated to London, England, in 1963.
+VERSION 1.1.3 : 2023-12-07 04:12:46 : 	Generated Translation: Elizabeth Rebecca "Liz" Mitchell ( Clarendon, Jamaica, 12 de julio de 1952) es una cantante, conocida como la antigua cantante de disco/pop de 1970, Boney M.== Primeros años ==A la edad de once años, Mitchell y su familia emigraron a Londres, Inglaterra, en 1963.
+VERSION 1.1.3 : 2023-12-07 04:12:46 : 	Actual Translation: Liz Mitchell (nacida Elizabeth Mitchell Rebecca, 12 de julio de 1952, Clarendon, Jamaica) es una cantante, más conocida por ser la ex cantante del grupo de música disco de la década de 1970 , Boney M==Primeros años==En 1963 a la edad de once años, Mitchell y su familia emigraron a Londres , Inglaterra.
+VERSION 1.1.3 : 2023-12-07 04:12:46 : TRANSLATION 59 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:46 : 	Original Text: He was a member of the National Assembly of Bulgaria in 1990.
+VERSION 1.1.3 : 2023-12-07 04:12:46 : 	Generated Translation: Fue miembro de la Asamblea Nacional de Bulgaria en 1990.
+VERSION 1.1.3 : 2023-12-07 04:12:46 : 	Actual Translation: Fue miembro de la Asamblea Nacional de Bulgaria en 1990.
+VERSION 1.1.3 : 2023-12-07 04:12:46 : TRANSLATION 60 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:46 : 	Original Text: ==Destruction==The kapu or '"ai kapu" system was abolished in October, 1819 by Liholiho, Kamehameha II.
+VERSION 1.1.3 : 2023-12-07 04:12:46 : 	Generated Translation: == Destrucción ==El sistema de kapu o "ai kapu" fue abolido en octubre de 1819 por Liholiho, Kamehameha II.
+VERSION 1.1.3 : 2023-12-07 04:12:46 : 	Actual Translation: El kapu o sistema "ai kapu" fue abolido en 1819 por Liholiho, Kamehameha II.
+VERSION 1.1.3 : 2023-12-07 04:12:47 : TRANSLATION 61 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:47 : 	Original Text: Acrocercops terminaliae is a moth of the Gracillariidae family.
+VERSION 1.1.3 : 2023-12-07 04:12:47 : 	Generated Translation: Acrocercops terminaliae es un hongo de la familia Gracillariidae.
+VERSION 1.1.3 : 2023-12-07 04:12:47 : 	Actual Translation: Acrocercops terminaliae es un insecto lepidóptero perteneciente a la familia Gracillariidae.
+VERSION 1.1.3 : 2023-12-07 04:12:47 : TRANSLATION 62 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:47 : 	Original Text: As the stampede chases them, Ryan Dunn jumps into a station wagon before a bull rips off the open door.
+VERSION 1.1.3 : 2023-12-07 04:12:47 : 	Generated Translation: Como el escudo lanza a ellos, Ryan Dunn se lanza en un vagone de estación antes de que un bull se rompe en la puerta bierta.
+VERSION 1.1.3 : 2023-12-07 04:12:47 : 	Actual Translation: A medida que la estampida los persigue, Ryan Dunn salta en una camioneta antes que el toro rompe la puerta abierta.
+VERSION 1.1.3 : 2023-12-07 04:12:48 : TRANSLATION 63 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:48 : 	Original Text: Hispanic or Latino of any race were 1.55% of the population.
+VERSION 1.1.3 : 2023-12-07 04:12:48 : 	Generated Translation: Del total de la población el 1.21% eran hispanos o latinos de cualquier raza.
+VERSION 1.1.3 : 2023-12-07 04:12:48 : 	Actual Translation: Del total de la población el 0.39% eran hispanos o latinos de cualquier raza.
+VERSION 1.1.3 : 2023-12-07 04:12:48 : TRANSLATION 64 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:48 : 	Original Text: This same formula can be used to compute the approximate radius of a main sequence star relative to the sun:: formula_14where formula_15, is the solar radius, and so forth.
+VERSION 1.1.3 : 2023-12-07 04:12:48 : 	Generated Translation: Esta misma fórmula puede ser utilizada para computar el área aproximada de una estrella principal relativa al sol:: formula_14donde formula_15, es el área solar y así así.
+VERSION 1.1.3 : 2023-12-07 04:12:48 : 	Actual Translation: Esta misma fórmula puede usarse para computar el radio aproximado de una estrella de la secuencia principal y, por tanto, similar al Sol:</math> }}donde formula_3 es el radio solar.
+VERSION 1.1.3 : 2023-12-07 04:12:49 : TRANSLATION 65 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:49 : 	Original Text: Three subspecies are recognized:*"Alisterus chloropterus" (Ramsay, EP 1879)**"Alisterus chloropterus chloropterus" (Ramsay, EP 1879), the nominate subspecies, which occurs in eastern New Guinea to the Huon Peninsula in the north, and Hall Sound in the south.
+VERSION 1.1.3 : 2023-12-07 04:12:49 : 	Generated Translation: Tres subespecies son reconocidas:* "Alisterus chloropterus" (Ramsay, EP 1879)** "Alisterus chloropterus chloropterus" (Ramsay, EP 1879), la subespecie nominada, que se encuentra en el este de Nueva Guinea a la Península Huon en el norte, y Hall Sound en el sur.
+VERSION 1.1.3 : 2023-12-07 04:12:49 : 	Actual Translation: Se reconocen tres subespecies:*"Alisterus chloropterus chloropterus" (Ramsay, EP 1879), la subespecie nominal que se encuentra en el este de Nueva Guinea, desde la península de Huon por el norte hasta Hall Sound en el sur.
+VERSION 1.1.3 : 2023-12-07 04:12:50 : TRANSLATION 66 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:50 : 	Original Text: Sarnak is also on the permanent faculty at the School of Mathematics of the Institute for Advanced Study.
+VERSION 1.1.3 : 2023-12-07 04:12:50 : 	Generated Translation: Sarnak también está en la facultad permanentes en la escuela de matemáticas del Instituto de Estudios Avanzados.
+VERSION 1.1.3 : 2023-12-07 04:12:50 : 	Actual Translation: Sarnak también está en la facultad permanente de la Facultad de Matemáticas del Instituto de Estudios Avanzados.
+VERSION 1.1.3 : 2023-12-07 04:12:50 : TRANSLATION 67 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:50 : 	Original Text: He received his episcopal consecration on the following September 11 from Lawrence Cardinal Sheehan, with Bishops Thomas Murphy and Thomas Mardaga serving as co-consecrators.
+VERSION 1.1.3 : 2023-12-07 04:12:50 : 	Generated Translation: Recibió su condecoración episcopal el 11 de septiembre de Lawrence Cardinal Sheehan, con los obispos Thomas Murphy y Thomas Mardaga que sirvieron como co-consecradores.
+VERSION 1.1.3 : 2023-12-07 04:12:50 : 	Actual Translation: Recibió su consagración episcopal el siguiente 11 de septiembre por el Cardenal Lawrence Sheehan, con los obispos Thomas Murphy y Thomas Mardaga sirviendo como co-consagrantes.
+VERSION 1.1.3 : 2023-12-07 04:12:51 : TRANSLATION 68 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:51 : 	Original Text: The SOFIA (Stratospheric Observatory For Infrared Astronomy) airborne platform will observe in near- and mid-infrared.
+VERSION 1.1.3 : 2023-12-07 04:12:51 : 	Generated Translation: La SOFIA (Observatorio Astronómico para Astronomía Infrared) se observará en cerca de y medio-infrared.
+VERSION 1.1.3 : 2023-12-07 04:12:51 : 	Actual Translation: El SOFIA (Stratospheric Observatory For Infrared Astronomy), una plataforma aérea estudiará el infrarrojo cercano y medio.
+VERSION 1.1.3 : 2023-12-07 04:12:52 : TRANSLATION 69 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:52 : 	Original Text: With his spirit broken, Andy becomes an overweight drug addict and seemingly loses his power, and is eventually deemed useless by the Shop.
+VERSION 1.1.3 : 2023-12-07 04:12:52 : 	Generated Translation: Con su éxito rompido, Andy se convierte en un adicto de drogas de peso pesado y parecía perder su poder, y finalmente es considerado usos por el Shop.
+VERSION 1.1.3 : 2023-12-07 04:12:52 : 	Actual Translation: Con su espíritu quebrantado, Andy se convierte en un adicto a las drogas y aparentemente pierde su poder, y es considerado inútil para the Shop.
+VERSION 1.1.3 : 2023-12-07 04:12:52 : TRANSLATION 70 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:52 : 	Original Text: The song runs over six minutes in length.
+VERSION 1.1.3 : 2023-12-07 04:12:52 : 	Generated Translation: La canción gira a seis minutos en longitud.
+VERSION 1.1.3 : 2023-12-07 04:12:52 : 	Actual Translation: La canción dura más de seis minutos.
+VERSION 1.1.3 : 2023-12-07 04:12:52 : TRANSLATION 71 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:52 : 	Original Text: On September 17, 2010, United's shareholders approved the merger deal with Continental Airlines.
+VERSION 1.1.3 : 2023-12-07 04:12:52 : 	Generated Translation: El 17 de septiembre de 2010, los shareholders de United aprobaron el acuerdo de fusiones con Continental Airlines.
+VERSION 1.1.3 : 2023-12-07 04:12:52 : 	Actual Translation: El 17 de septiembre de 2010, los accionistas de United aprobaron el acuerdo de fusión con Continental Airlines.
+VERSION 1.1.3 : 2023-12-07 04:12:52 : TRANSLATION 72 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:52 : 	Original Text: The population density was 66.5 people per square mile (25.7/km²).
+VERSION 1.1.3 : 2023-12-07 04:12:52 : 	Generated Translation: La densidad de población era de 25,7 hab./km2.
+VERSION 1.1.3 : 2023-12-07 04:12:52 : 	Actual Translation: La densidad de población era de 19,38 hab./km².
+VERSION 1.1.3 : 2023-12-07 04:12:53 : TRANSLATION 73 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:53 : 	Original Text: He also held a Doctorate of Divinity degree from Oral Roberts University.
+VERSION 1.1.3 : 2023-12-07 04:12:53 : 	Generated Translation: También tuvo un doctorado de Divinidad de la Universidad Oral Roberts.
+VERSION 1.1.3 : 2023-12-07 04:12:53 : 	Actual Translation: Posteriormente obtuvo un doctorado en la Oral Roberts University.
+VERSION 1.1.3 : 2023-12-07 04:12:53 : TRANSLATION 74 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:53 : 	Original Text: However, it was decided to abandon that plan and launch a small space laboratory instead.
+VERSION 1.1.3 : 2023-12-07 04:12:53 : 	Generated Translation: Sin embargo, se decidió abandonar el plan y lanzar un pequeño laboratorio de espacio en lugar.
+VERSION 1.1.3 : 2023-12-07 04:12:53 : 	Actual Translation: Sin embargo, se decidió abandonar dicho plan y lanzar en su lugar un pequeño laboratorio espacial.
+VERSION 1.1.3 : 2023-12-07 04:12:53 : TRANSLATION 75 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:53 : 	Original Text: == The decrees ==Decree N° 464/973 of June 27, 1973, bears the signature of Bordaberry and his ministers Néstor Bolentini and Walter Ravenna.
+VERSION 1.1.3 : 2023-12-07 04:12:53 : 	Generated Translation: == Los diputados ==El 27 de junio de 1973, tiene la firma de Bordaberry y sus ministros Néstor Bolentini y Walter Ravenna.
+VERSION 1.1.3 : 2023-12-07 04:12:53 : 	Actual Translation: == Los decretos ==El decreto N° 464/973 del 27 de junio de 1973 lleva la firma de Bordaberry y de sus ministros Néstor Bolentini y Walter Ravenna.
+VERSION 1.1.3 : 2023-12-07 04:12:55 : TRANSLATION 76 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:55 : 	Original Text: Organizers of seminars may choose to routinely record complete seminars and make them available to all attendees for future reference and/or sell these recordings to people who cannot afford the fee of the live seminar or do not have the time to attend it.
+VERSION 1.1.3 : 2023-12-07 04:12:55 : 	Generated Translation: Los organizadores de seminarios pueden elegir a realizar rutinariamente seminarios completos y hacerlos disponibles para todos los participantes para la referencia futura y/o vender estas grabaciones a personas que no pueden afford la plaza del seminario vivo o no tienen el tiempo para esistir.
+VERSION 1.1.3 : 2023-12-07 04:12:55 : 	Actual Translation: Por ejemplo, los organizadores de seminarios relacionados con computadoras puede elegir grabar los los los los seminarios completos y ponerlos disponibles en DVD para futura referencia de todos los asistentes y/o vender esas grabaciones a la gente que no puede asistir al seminario o no puede costeárselo.
+VERSION 1.1.3 : 2023-12-07 04:12:55 : TRANSLATION 77 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:55 : 	Original Text: At Payback, Rybaxel defeated Cody Rhodes and Goldust in a tag team match.
+VERSION 1.1.3 : 2023-12-07 04:12:55 : 	Generated Translation: En Payback, Rybaxel derrotó a Cody Rhodes y Goldust en un partido de tag.
+VERSION 1.1.3 : 2023-12-07 04:12:55 : 	Actual Translation: A mediados de mayo RybAxel comenzó una rivalidad con Cody Rhodes & Goldust.
+VERSION 1.1.3 : 2023-12-07 04:12:55 : TRANSLATION 78 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:55 : 	Original Text: When Jacques Bollinger died in 1941, Lilly Bollinger took over.
+VERSION 1.1.3 : 2023-12-07 04:12:55 : 	Generated Translation: Cuando Jacques Bollinger murió en 1941, Lilly Bollinger se retiró.
+VERSION 1.1.3 : 2023-12-07 04:12:55 : 	Actual Translation: Cuando Jacques Bollinger murió en 1941, Lilly Bollinger se hizo cargo del negocio.
+VERSION 1.1.3 : 2023-12-07 04:12:56 : TRANSLATION 79 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:56 : 	Original Text: I asked him if he knew to what height of improvement he had brought the plantation, and whether he thought it might be worth looking after; or whether, on my going thither, I should meet with any obstruction to my possessing my just right in the moiety.
+VERSION 1.1.3 : 2023-12-07 04:12:56 : 	Generated Translation: Pregunté si él sabía qué medida de mejoramiento había traído la planta, y si pensaba que podría ser worth looking after; o si, en mi camino, me puedo encontrar con cualquier obstrucción para mi posesión justo en la motería.
+VERSION 1.1.3 : 2023-12-07 04:12:56 : 	Actual Translation: Le pregunté si sabía cuánto había crecido mi plantación, si le parecía que valía la pena reclamarla o si, por el contrario, solo encontraría obstáculos para recuperar lo que justamente me correspondía. Me dijo que no podía decirme con exactitud cuánto había crecido mi plantación pero sabía con certeza que mi socio se había hecho muy rico, con solo la mitad y que, según creía recordar, la tercera parte del rey, que, al parecer, le había sido otorgada a otro monasterio o comunidad religiosa, producía unos doscientos moidores al año.
+VERSION 1.1.3 : 2023-12-07 04:12:56 : TRANSLATION 80 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:56 : 	Original Text: Manuel Pereira da Silva (7 December 1920 – 2003) was a Portuguese sculptor.
+VERSION 1.1.3 : 2023-12-07 04:12:56 : 	Generated Translation: Manuel Pereira da Silva (7 de diciembre de 1920 - 2003) fue un compositor portugués.
+VERSION 1.1.3 : 2023-12-07 04:12:56 : 	Actual Translation: Manuel Pereira da Silva (7 de diciembre de 1920 – 2003) es un escultor Portugués.
+VERSION 1.1.3 : 2023-12-07 04:12:57 : TRANSLATION 81 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:57 : 	Original Text: Five other shrines are located in the area as well: Phra-mae Lakshmi, Phra Tri Murati, Phra Bighanesh (Ganesh), Phra Indra and Phra Narayana song suban.
+VERSION 1.1.3 : 2023-12-07 04:12:57 : 	Generated Translation: Cinco otros ramas se encuentran en el área así como: Phra-mae Lakshmi, Phra Tri Murati, Phra Bighanesh (Ganesh), Phra Indra y Phra Narayana song suban.
+VERSION 1.1.3 : 2023-12-07 04:12:57 : 	Actual Translation: Cinco otros santuarios están ubicados en la zona también: Phra-mae Lakshmi, Phra Tri Murati, Phra Bighanesh (Ganesh), Phra Indra y Phra Narayana song suban.
+VERSION 1.1.3 : 2023-12-07 04:12:57 : TRANSLATION 82 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:57 : 	Original Text: The administrative center is the village of Balestrand.
+VERSION 1.1.3 : 2023-12-07 04:12:57 : 	Generated Translation: El centro administrativo es el pueblo de Balestrand.
+VERSION 1.1.3 : 2023-12-07 04:12:57 : 	Actual Translation: El centro administrativo es el pueblo de Balestrand.
+VERSION 1.1.3 : 2023-12-07 04:12:58 : TRANSLATION 83 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:58 : 	Original Text: The engineer made a turning-lathe, with which he turned several articles both for the toilet and the kitchen, particularly buttons, the want of which was greatly felt.
+VERSION 1.1.3 : 2023-12-07 04:12:58 : 	Generated Translation: El ingeniero hizo un ataque de cambio, con el que hizo varios artículos para el dormitorio y la cocina, particularmente buttons, el objetivo de que era mucho sentado.
+VERSION 1.1.3 : 2023-12-07 04:12:58 : 	Actual Translation: El ingeniero instaló un torno, que le permitía dar forma a algunos utensilios de tocador o de cocina, y particularmente hacer botones, cuya falta se notaba.
+VERSION 1.1.3 : 2023-12-07 04:12:58 : TRANSLATION 84 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:58 : 	Original Text: Oligonicella bolliana is a species of praying mantis.
+VERSION 1.1.3 : 2023-12-07 04:12:58 : 	Generated Translation: Oligonicella bolliana es una especie de mantis de oración.
+VERSION 1.1.3 : 2023-12-07 04:12:58 : 	Actual Translation: Oligonicella bolliana es una especie de mantis de la familia Thespidae.
+VERSION 1.1.3 : 2023-12-07 04:12:58 : TRANSLATION 85 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:58 : 	Original Text: Siglo XXI, Mexico, 1969.
+VERSION 1.1.3 : 2023-12-07 04:12:58 : 	Generated Translation: Siglo XXI, México, 1969.
+VERSION 1.1.3 : 2023-12-07 04:12:58 : 	Actual Translation: Siglo XXI, México, 1969.
+VERSION 1.1.3 : 2023-12-07 04:12:59 : TRANSLATION 86 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:59 : 	Original Text: Chief Roi Mata Domain was inscribed as a UNESCO World Heritage Site in 2008.
+VERSION 1.1.3 : 2023-12-07 04:12:59 : 	Generated Translation: El Chief Roi Mata Domain fue descrito como un sitio de Heritage World Heritage Site en 2008.
+VERSION 1.1.3 : 2023-12-07 04:12:59 : 	Actual Translation: El dominio de Jefe Roi Mata fue inscrito como Patrimonio de la Humanidad por la UNESCO en 2008.
+VERSION 1.1.3 : 2023-12-07 04:12:59 : TRANSLATION 87 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:12:59 : 	Original Text: More than 100 contestants were expected to compete, but only 82 eventually participated.
+VERSION 1.1.3 : 2023-12-07 04:12:59 : 	Generated Translation: Los más de 100 concursantes esperaban competir, pero sólo 82 participaron finalmente.
+VERSION 1.1.3 : 2023-12-07 04:12:59 : 	Actual Translation: Se esperaba que participasen más de 100 concursantes, pero sólo 82 finalmente participaron.
+VERSION 1.1.3 : 2023-12-07 04:13:00 : TRANSLATION 88 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:13:00 : 	Original Text: The chemistry between the two was so strong during this jam that they decided to perform together on a regular basis (under the name "Rudess/Morgenstein Project" or later "RMP") and have since released a studio and a live record.
+VERSION 1.1.3 : 2023-12-07 04:13:00 : 	Generated Translation: La química entre los dos fue tan fuerte durante esta jornada que decidieron actuar juntos en una base regular (de la palabra "Rudess/Morgenstein Project" o más tarde "RMP") y desde entonces han lanzado un estudio y un disco vivo.
+VERSION 1.1.3 : 2023-12-07 04:13:00 : 	Actual Translation: La química entre los dos fue tan fuerte en ese "jam" que decidieron actuar juntos regularmente (bajo el nombre "Rudess/Morgenstein Project", después "RMP") y desde entonces, han lanzado un álbum en estudio y uno en vivo.
+VERSION 1.1.3 : 2023-12-07 04:13:01 : TRANSLATION 89 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:13:01 : 	Original Text: During World War II, Duncan served in the United States Public Health Service, in which he earned the rank of Major.
+VERSION 1.1.3 : 2023-12-07 04:13:01 : 	Generated Translation: Durante la Segunda Guerra Mundial, Duncan sirvió en el Servicio de Salud Publica de los Estados Unidos, en el que ganó el rango de Major.
+VERSION 1.1.3 : 2023-12-07 04:13:01 : 	Actual Translation: Durante la segunda guerra mundial, Duncan sirvió en el Servicio de Salud Pública, en la que obtuvo el grado de Mayor.
+VERSION 1.1.3 : 2023-12-07 04:13:01 : TRANSLATION 90 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:13:01 : 	Original Text: In 1874, the club adopted the rules of the Football Association.
+VERSION 1.1.3 : 2023-12-07 04:13:01 : 	Generated Translation: En 1874, el club adoptó las reglas de la Asociación de Fútbol.
+VERSION 1.1.3 : 2023-12-07 04:13:01 : 	Actual Translation: No fue hasta 1874 que el club adoptó las reglas de la Asociación de Fútbol.
+VERSION 1.1.3 : 2023-12-07 04:13:02 : TRANSLATION 91 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:13:02 : 	Original Text: In 1986, at the age of 25, she published her first book: an essay about a Catalan realist poet from the 1960s, Gabriel Ferrater, written in collaboration with Xavier Macià, under the title "The poetry of Gabriel Ferrater".
+VERSION 1.1.3 : 2023-12-07 04:13:02 : 	Generated Translation: En 1986, a los 25 años, publicó su primer libro: un ensayo sobre un poeta realista catalano de las décadas de 1960, Gabriel Ferrater, escrito en colaboración con Xavier Macià, bajo el título "La poesía de Gabriel Ferrater".
+VERSION 1.1.3 : 2023-12-07 04:13:02 : 	Actual Translation: En 1986, a los veinticinco años, publica su primer libro: un ensayo sobre un poeta catalán realista de los años sesenta escrito en colaboración con Xavier Macià titulado "La poesia de Gabriel Ferrater".
+VERSION 1.1.3 : 2023-12-07 04:13:02 : TRANSLATION 92 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:13:02 : 	Original Text: The animation was produced domestically at Klasky Csupo, with Wesley Archer, David Silverman, and Bill Kopp being animators for the first season.
+VERSION 1.1.3 : 2023-12-07 04:13:02 : 	Generated Translation: La animación fue producida domesticamente en Klasky Csupo, con Wesley Archer, David Silverman y Bill Kopp como animadores para la primera temporada.
+VERSION 1.1.3 : 2023-12-07 04:13:02 : 	Actual Translation: La animación es producida en Estados Unidos en Klasky Csupo, con Wesley Archer, David Silverman y Bill Kopp siendo animadores de la primera temporada.
+VERSION 1.1.3 : 2023-12-07 04:13:03 : TRANSLATION 93 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:13:03 : 	Original Text: Though Brian was killed in the battle, the Irishmen ultimately drove back their enemies into the sea, and Sigurd himself was killed.
+VERSION 1.1.3 : 2023-12-07 04:13:03 : 	Generated Translation: Aunque Brian fue muerto en la batalla, los irlandeses aún se retiraron de sus enemigos en el mar, y Sigurd se fue asesinado.
+VERSION 1.1.3 : 2023-12-07 04:13:03 : 	Actual Translation: Aunque Brian había muerto en la batalla, los irlandeses como último recurso dirigieron a los enemigos hacia el mar, donde el mismo Sigurd murió.
+VERSION 1.1.3 : 2023-12-07 04:13:03 : TRANSLATION 94 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:13:03 : 	Original Text: Kraljevi ulice is a Croatian band founded by Miran Hadži Veljković and Zlatko Petrović Pajo.
+VERSION 1.1.3 : 2023-12-07 04:13:03 : 	Generated Translation: Kraljevi ulice es una banda croata fundada por Miran Hadži Veljković y Zlatko Petrović Pajo.
+VERSION 1.1.3 : 2023-12-07 04:13:03 : 	Actual Translation: Kraljevi Ulice es una banda fundada por el croata Miran Hadzi Veljkovic y Zlatko Petrović Pajo en 1987.
+VERSION 1.1.3 : 2023-12-07 04:13:04 : TRANSLATION 95 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:13:04 : 	Original Text: 'Whom could she take after, not to be good?
+VERSION 1.1.3 : 2023-12-07 04:13:04 : 	Generated Translation: –¿Quién podría tomar adelante, no ser bueno?
+VERSION 1.1.3 : 2023-12-07 04:13:04 : 	Actual Translation: –¿Cómo podía ser de otro modo? –repuso el hombre–.
+VERSION 1.1.3 : 2023-12-07 04:13:04 : TRANSLATION 96 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:13:04 : 	Original Text: ==Geography==Cowlington is located at (35.307146, -94.791413).
+VERSION 1.1.3 : 2023-12-07 04:13:04 : 	Generated Translation: == Geografía ==Cowlington se encuentra ubicado en el municipio de (35.307146, -94.791413).
+VERSION 1.1.3 : 2023-12-07 04:13:04 : 	Actual Translation: == Geografía ==Cowlington se encuentra ubicado en las coordenadas (35.307146, -94.791413).
+VERSION 1.1.3 : 2023-12-07 04:13:05 : TRANSLATION 97 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:13:05 : 	Original Text: After the latter episode, the producers decided that if a celebrity wished to guest star on the show, they had to be willing to be credited under their real name.
+VERSION 1.1.3 : 2023-12-07 04:13:05 : 	Generated Translation: Después del último episodio, los productores decidieron que si una estrella invitada deseaba ser invitada en el show, tenían que ser capaces de ser acreditadas bajo su nombre real.
+VERSION 1.1.3 : 2023-12-07 04:13:05 : 	Actual Translation: Después de este último episodio, los productores decidieron que si una celebridad deseaba ser estrella invitada en la serie, tenía que estar dispuesto a ser acreditado bajo su nombre real.
+VERSION 1.1.3 : 2023-12-07 04:13:05 : TRANSLATION 98 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:13:05 : 	Original Text: The city is also home to some 8,406 (1.42%) Polish people.
+VERSION 1.1.3 : 2023-12-07 04:13:05 : 	Generated Translation: La ciudad también es casa de algunos 8,406 (1.42%) personas polacas.
+VERSION 1.1.3 : 2023-12-07 04:13:05 : 	Actual Translation: La ciudad es también el hogar de algunos polacos, 8.406 (1,42%).
+VERSION 1.1.3 : 2023-12-07 04:13:06 : TRANSLATION 99 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:13:06 : 	Original Text: == IPv4 ranges ==North Korea has one known block of 1,024 IPv4 addresses:* 175.45.176.0 – 175.45.179.255Despite North Korea's limited Internet access, the small pool of IP addresses has led to very conservative allocations.
+VERSION 1.1.3 : 2023-12-07 04:13:06 : 	Generated Translation: == Referencias IPv4 ==La Corea del Norte tiene un bloque conocido de 1,024 direcciones IPv4:* 175.45.176.0 - 175.45.179.255A pesar de la limitada acceso Internet de Corea del Norte, el pequeño pico de direcciones IP ha llevado a a alojamientos muy conservadores.
+VERSION 1.1.3 : 2023-12-07 04:13:06 : 	Actual Translation: == Rangos de IPv4 ==Corea del Norte tiene un bloque conocido de 1.024 direcciones IPv4:* 175.45.176.0 – 175.45.179.255A pesar del limitado acceso a internet de Corea del Norte, el pequeño conjunto de direcciones IP ha llevado a distribuciones muy conservadoras.
+VERSION 1.1.3 : 2023-12-07 04:13:06 : TRANSLATION 100 on "English to Spanish"
+VERSION 1.1.3 : 2023-12-07 04:13:06 : 	Original Text: In Sweden, three Sámi languages are spoken, with the other 7 Sámi languages being spoken in Norway, Russia and Finland.
+VERSION 1.1.3 : 2023-12-07 04:13:06 : 	Generated Translation: En Suecia, tres lenguas Sámi se hablan, con los otros 7 lenguas Sámi se hablan en Noruega, Rusia y Finca.
+VERSION 1.1.3 : 2023-12-07 04:13:06 : 	Actual Translation: En Suecia se hablan tres idiomas sami, los otros siete se hablan en Noruega, Rusia y Finlandia.
+VERSION 1.1.3 : 2023-12-07 04:13:06 : REPEAT TRANSLATION SAMPLES:
+VERSION 1.1.3 : 2023-12-07 04:13:07 : REPEAT TRANSLATION 0
+VERSION 1.1.3 : 2023-12-07 04:13:07 : 	Original Text: Are no probabilities to be accepted, merely because they are not certainties?
+VERSION 1.1.3 : 2023-12-07 04:13:07 : 	Generated Translation: No hay probabilidades de ser aceptadas, porque no son certezas?
+VERSION 1.1.3 : 2023-12-07 04:13:08 : REPEAT TRANSLATION 1
+VERSION 1.1.3 : 2023-12-07 04:13:08 : 	Original Text: Of yourself you could come with soft flight and nestle against my heart, if you would: seized against your will, you will elude the grasp like an essence--you will vanish ere I inhale your fragrance.
+VERSION 1.1.3 : 2023-12-07 04:13:08 : 	Generated Translation: De usted podría llegar con un viaje dulce y lleno contra mi corazón, si usted: se hizo contra su voluntad, usted expulsará la grasa como una espíritu, y usted expulsará la grasa como una espíritu, y usted lanzará el ereo a la perfume.
+VERSION 1.1.3 : 2023-12-07 04:13:08 : REPEAT TRANSLATION 2
+VERSION 1.1.3 : 2023-12-07 04:13:08 : 	Original Text: My deep love, my wild woe, my frantic prayer, are all nothing to you?"
+VERSION 1.1.3 : 2023-12-07 04:13:08 : 	Generated Translation: -¿Qué amor, mi dulce amor, mi dulce odio, mi oración frantic, no hay nada a usted?
+VERSION 1.1.3 : 2023-12-07 04:13:09 : REPEAT TRANSLATION 3
+VERSION 1.1.3 : 2023-12-07 04:13:09 : 	Original Text: Go up to your own room; think over all I have said, and, Jane, cast a glance on my sufferings--think of me."
+VERSION 1.1.3 : 2023-12-07 04:13:09 : 	Generated Translation: -Ahora, a la habitación de usted, pienso sobre todo lo que he dicho, y Jane, puso una mirada sobre mis sufrimientos--exclamé de mí.
+VERSION 1.1.3 : 2023-12-07 04:13:09 : REPEAT TRANSLATION 4
+VERSION 1.1.3 : 2023-12-07 04:13:09 : 	Original Text: "God bless you, my dear master!"
+VERSION 1.1.3 : 2023-12-07 04:13:09 : 	Generated Translation: ¡¡Gracias, mi señor señor!
+VERSION 1.1.3 : 2023-12-07 04:13:10 : REPEAT TRANSLATION 5
+VERSION 1.1.3 : 2023-12-07 04:13:10 : 	Original Text: I watched her come--watched with the strangest anticipation; as though some word of doom were to be written on her disk.
+VERSION 1.1.3 : 2023-12-07 04:13:10 : 	Generated Translation: Mientras tanto, me volvió a ver a ella con la atención más profunda; como aunque alguna palabra de doom se escribía en su disco.
+VERSION 1.1.3 : 2023-12-07 04:13:10 : REPEAT TRANSLATION 6
+VERSION 1.1.3 : 2023-12-07 04:13:10 : 	Original Text: "My daughter, flee temptation."
+VERSION 1.1.3 : 2023-12-07 04:13:10 : 	Generated Translation: -Mi hija, lucha a la tentación.
+VERSION 1.1.3 : 2023-12-07 04:13:10 : REPEAT TRANSLATION 7
+VERSION 1.1.3 : 2023-12-07 04:13:10 : 	Original Text: So I answered after I had waked from the trance-like dream.
+VERSION 1.1.3 : 2023-12-07 04:13:10 : 	Generated Translation: En respuesta, y respondió después de que había llorado de la realidad de la trance.
+VERSION 1.1.3 : 2023-12-07 04:13:11 : REPEAT TRANSLATION 8
+VERSION 1.1.3 : 2023-12-07 04:13:11 : 	Original Text: I left that; it was not mine: it was the visionary bride's who had melted in air.
+VERSION 1.1.3 : 2023-12-07 04:13:11 : 	Generated Translation: -No era mi -no era la novia visionaria que había vuelto en el aire.
+VERSION 1.1.3 : 2023-12-07 04:13:12 : REPEAT TRANSLATION 9
+VERSION 1.1.3 : 2023-12-07 04:13:12 : 	Original Text: The other articles I made up in a parcel; my purse, containing twenty shillings (it was all I had), I put in my pocket: I tied on my straw bonnet, pinned my shawl, took the parcel and my slippers, which I would not put on yet, and stole from my room.
+VERSION 1.1.3 : 2023-12-07 04:13:12 : 	Generated Translation: Los otros artículos que me hicieron en una parcela, mi purse, con veinte shillings (que no había), me colocó en mi bolsa: hice un paquete de sopa, y hice un paquete de sopa, y hice un paquete de sopa, y hice un paquete de sopa, que no me había puesto en ningún sitio, y me hizo a la habitación.
+VERSION 1.1.3 : 2023-12-07 04:13:13 : REPEAT TRANSLATION 10
+VERSION 1.1.3 : 2023-12-07 04:13:13 : 	Original Text: No thought could be admitted of entering to embrace her.
+VERSION 1.1.3 : 2023-12-07 04:13:13 : 	Generated Translation: No se podía admitir que se puede entrar para abracela.
+VERSION 1.1.3 : 2023-12-07 04:13:13 : REPEAT TRANSLATION 11
+VERSION 1.1.3 : 2023-12-07 04:13:13 : 	Original Text: I thought of this too. My hand moved towards the lock: I caught it back, and glided on.
+VERSION 1.1.3 : 2023-12-07 04:13:13 : 	Generated Translation: Mi mano se trasladó hacia la puerta, y se volvió a correr.
+VERSION 1.1.3 : 2023-12-07 04:13:13 : REPEAT TRANSLATION 12
+VERSION 1.1.3 : 2023-12-07 04:13:13 : 	Original Text: I opened the door, passed out, shut it softly.
+VERSION 1.1.3 : 2023-12-07 04:13:13 : 	Generated Translation: Cuando me abrió la puerta, me volvió a ponerlo a cabo.
+VERSION 1.1.3 : 2023-12-07 04:13:14 : REPEAT TRANSLATION 13
+VERSION 1.1.3 : 2023-12-07 04:13:14 : 	Original Text: The great gates were closed and locked; but a wicket in one of them was only latched.
+VERSION 1.1.3 : 2023-12-07 04:13:14 : 	Generated Translation: Las grans puertas estaban cerradas y cerradas; pero una wicket en una de ellas sólo fue hecha.
+VERSION 1.1.3 : 2023-12-07 04:13:14 : REPEAT TRANSLATION 14
+VERSION 1.1.3 : 2023-12-07 04:13:14 : 	Original Text: Through that I departed: it, too, I shut; and now I was out of Thornfield.
+VERSION 1.1.3 : 2023-12-07 04:13:14 : 	Generated Translation: Desde que me volvió, y ahora me volvió a Thornfield.
+VERSION 1.1.3 : 2023-12-07 04:13:14 : REPEAT TRANSLATION 15
+VERSION 1.1.3 : 2023-12-07 04:13:14 : 	Original Text: In the midst of my pain of heart and frantic effort of principle, I abhorred myself.
+VERSION 1.1.3 : 2023-12-07 04:13:14 : 	Generated Translation: En el medio de mi dolor del corazón y el esfuerzo frantico de principio, me abhoré.
+VERSION 1.1.3 : 2023-12-07 04:13:15 : REPEAT TRANSLATION 16
+VERSION 1.1.3 : 2023-12-07 04:13:15 : 	Original Text: I asked for what sum he would take me there; he said thirty shillings; I answered I had but twenty; well, he would try to make it do.
+VERSION 1.1.3 : 2023-12-07 04:13:15 : 	Generated Translation: Pregunté por lo que me hizo allí; dijo treinta shillings; me respondió que me había tenido pero veinte; bien, y ahí, a qué hizo hacerlo.
+VERSION 1.1.3 : 2023-12-07 04:13:16 : REPEAT TRANSLATION 17
+VERSION 1.1.3 : 2023-12-07 04:13:16 : 	Original Text: The population here must be thin, and I see no passengers on these roads: they stretch out east, west, north, and south--white, broad, lonely; they are all cut in the moor, and the heather grows deep and wild to their very verge.
+VERSION 1.1.3 : 2023-12-07 04:13:16 : 	Generated Translation: La población aquí debe ser larga, y no tengo pasajeros en estos caminos: se encuentran al este, al oeste, al norte y al sur, y al sur, y al sur, y al norte, y al sur, y el hogar crece profundamente y a su gran ventura.
+VERSION 1.1.3 : 2023-12-07 04:13:17 : REPEAT TRANSLATION 18
+VERSION 1.1.3 : 2023-12-07 04:13:17 : 	Original Text: The dew fell, but with propitious softness; no breeze whispered.
+VERSION 1.1.3 : 2023-12-07 04:13:17 : 	Generated Translation: El dew cayó, pero con dulces y dulces; no se acerca la brisa.
+VERSION 1.1.3 : 2023-12-07 04:13:17 : REPEAT TRANSLATION 19
+VERSION 1.1.3 : 2023-12-07 04:13:17 : 	Original Text: To-night, at least, I would be her guest, as I was her child: my mother would lodge me without money and without price.
+VERSION 1.1.3 : 2023-12-07 04:13:17 : 	Generated Translation: Al menos, me hizo su invitado, como era su hijo: mi madre me alojaría sin dinero y sin precio.
+VERSION 1.1.3 : 2023-12-07 04:13:17 : REPEAT TRANSLATION 20
+VERSION 1.1.3 : 2023-12-07 04:13:17 : 	Original Text: But this is no excuse for their concealing it from us."
+VERSION 1.1.3 : 2023-12-07 04:13:17 : 	Generated Translation: Pero no es excusa para su concesión de nosotros.
+VERSION 1.1.3 : 2023-12-07 04:13:17 : REPEAT TRANSLATION 21
+VERSION 1.1.3 : 2023-12-07 04:13:17 : 	Original Text: I said my evening prayers at its conclusion, and then chose my couch.
+VERSION 1.1.3 : 2023-12-07 04:13:17 : 	Generated Translation: dijo mis prayers at the evening at its conclusión, and then chose my couch.
+VERSION 1.1.3 : 2023-12-07 04:13:19 : REPEAT TRANSLATION 22
+VERSION 1.1.3 : 2023-12-07 04:13:19 : 	Original Text: We know that God is everywhere; but certainly we feel His presence most when His works are on the grandest scale spread before us; and it is in the unclouded night-sky, where His worlds wheel their silent course, that we read clearest His infinitude, His omnipotence, His omnipresence.
+VERSION 1.1.3 : 2023-12-07 04:13:19 : 	Generated Translation: Aprendemos que Dios está todavía; pero ciertomente estamos a la presencia más cuando sus obras están en la escala más grande que antes de nosotros; y es en el cielo desabierto, donde sus mundos corren su curso silencioso, que leeremos claramente su infinitude, su omnipotencia, su omnipresencia.
+VERSION 1.1.3 : 2023-12-07 04:13:19 : REPEAT TRANSLATION 23
+VERSION 1.1.3 : 2023-12-07 04:13:19 : 	Original Text: I would fain at the moment have become bee or lizard, that I might have found fitting nutriment, permanent shelter here.
+VERSION 1.1.3 : 2023-12-07 04:13:19 : 	Generated Translation: Cuando se había vuelto a la mañana se habría convertido en pez o lizard, que podría encontrar nutrimento, refugio permanentemente aquí.
+VERSION 1.1.3 : 2023-12-07 04:13:20 : REPEAT TRANSLATION 24
+VERSION 1.1.3 : 2023-12-07 04:13:20 : 	Original Text: "I want no proof of their affection," said Elinor; "but of their engagement I do."
+VERSION 1.1.3 : 2023-12-07 04:13:20 : 	Generated Translation: –No quiero evidencia de su affection –dijo Elinor–, pero de su compromiso me hace.
+VERSION 1.1.3 : 2023-12-07 04:13:20 : REPEAT TRANSLATION 25
+VERSION 1.1.3 : 2023-12-07 04:13:20 : 	Original Text: I felt it would be degrading to faint with hunger on the causeway of a hamlet.
+VERSION 1.1.3 : 2023-12-07 04:13:20 : 	Generated Translation: Me sentí que sería degradando a la hambre en la orilla de una aldea.
+VERSION 1.1.3 : 2023-12-07 04:13:20 : REPEAT TRANSLATION 26
+VERSION 1.1.3 : 2023-12-07 04:13:20 : 	Original Text: I considered.
+VERSION 1.1.3 : 2023-12-07 04:13:20 : 	Generated Translation: Mi considero.
+VERSION 1.1.3 : 2023-12-07 04:13:20 : REPEAT TRANSLATION 27
+VERSION 1.1.3 : 2023-12-07 04:13:20 : 	Original Text: "Yes; two or three.
+VERSION 1.1.3 : 2023-12-07 04:13:20 : 	Generated Translation: "Sí; dos o tres.
+VERSION 1.1.3 : 2023-12-07 04:13:21 : REPEAT TRANSLATION 28
+VERSION 1.1.3 : 2023-12-07 04:13:21 : 	Original Text: I was driven to the point now. I was brought face to face with Necessity. I stood in the position of one without a resource, without a friend, without a coin.
+VERSION 1.1.3 : 2023-12-07 04:13:21 : 	Generated Translation: Desde entonces, me llevé a la posición de una a la cabeza con necesidad. Me puso en la posición de una sin un recurso, sin un amigo, sin un moneda.
+VERSION 1.1.3 : 2023-12-07 04:13:21 : REPEAT TRANSLATION 29
+VERSION 1.1.3 : 2023-12-07 04:13:21 : 	Original Text: "Nay; she couldn't say."
+VERSION 1.1.3 : 2023-12-07 04:13:21 : 	Generated Translation: ––No, no podía explicar.
+VERSION 1.1.3 : 2023-12-07 04:13:21 : REPEAT TRANSLATION 30
+VERSION 1.1.3 : 2023-12-07 04:13:21 : 	Original Text: "What was the chief trade in this place?
+VERSION 1.1.3 : 2023-12-07 04:13:21 : 	Generated Translation: "¿Qué era el jefe comercio en este lugar?
+VERSION 1.1.3 : 2023-12-07 04:13:22 : REPEAT TRANSLATION 31
+VERSION 1.1.3 : 2023-12-07 04:13:22 : 	Original Text: I passed up the street, looking as I went at all the houses to the right hand and to the left; but I could discover no pretext, nor see an inducement to enter any.
+VERSION 1.1.3 : 2023-12-07 04:13:22 : 	Generated Translation: Cuando pasé a la calle, me puso como estuve en todas las casas a la mano derecha y a la derecha; pero no podía descubrir ni ningún pretexto, ni ver un inducimiento para entrar a cualquiera.
+VERSION 1.1.3 : 2023-12-07 04:13:23 : REPEAT TRANSLATION 32
+VERSION 1.1.3 : 2023-12-07 04:13:23 : 	Original Text: Much exhausted, and suffering greatly now for want of food, I turned aside into a lane and sat down under the hedge. Ere many minutes had elapsed, I was again on my feet, however, and again searching something--a resource, or at least an informant.
+VERSION 1.1.3 : 2023-12-07 04:13:23 : 	Generated Translation: Mucho exhaustado, y sufriendo gran parte de la necesidad de alimento, me volvió a ponerse en una puerta y se puso en la espalda y se puso en la espalda.
+VERSION 1.1.3 : 2023-12-07 04:13:23 : REPEAT TRANSLATION 33
+VERSION 1.1.3 : 2023-12-07 04:13:23 : 	Original Text: A mild-looking, cleanly-attired young woman opened the door.
+VERSION 1.1.3 : 2023-12-07 04:13:23 : 	Generated Translation: Una joven joven poco agradable abrió la puerta.
+VERSION 1.1.3 : 2023-12-07 04:13:24 : REPEAT TRANSLATION 34
+VERSION 1.1.3 : 2023-12-07 04:13:24 : 	Original Text: If she had held it open a little longer, I believe I should have begged a piece of bread; for I was now brought low.
+VERSION 1.1.3 : 2023-12-07 04:13:24 : 	Generated Translation: Si había tenido una poco más larga, creí que había hecho una pieza de arroz; por lo que ahora había sido abierto.
+VERSION 1.1.3 : 2023-12-07 04:13:24 : REPEAT TRANSLATION 35
+VERSION 1.1.3 : 2023-12-07 04:13:24 : 	Original Text: Solitude would be no solitude--rest no rest--while the vulture, hunger, thus sank beak and talons in my side.
+VERSION 1.1.3 : 2023-12-07 04:13:24 : 	Generated Translation: La solitud no sería solitud, no descansaría, mientras que la vultura, la hambre, así se aplastó y talones en mi lado.
+VERSION 1.1.3 : 2023-12-07 04:13:25 : REPEAT TRANSLATION 36
+VERSION 1.1.3 : 2023-12-07 04:13:25 : 	Original Text: Meantime, the afternoon advanced, while I thus wandered about like a lost and starving dog.
+VERSION 1.1.3 : 2023-12-07 04:13:25 : 	Generated Translation: El día avanzaba, mientras que aún me volvió a buscar un perro perdido y luchando.
+VERSION 1.1.3 : 2023-12-07 04:13:26 : REPEAT TRANSLATION 37
+VERSION 1.1.3 : 2023-12-07 04:13:26 : 	Original Text: "Nay, there was naught but her, and she was housekeeper;" and of her, reader, I could not bear to ask the relief for want of which I was sinking; I could not yet beg; and again I crawled away.
+VERSION 1.1.3 : 2023-12-07 04:13:26 : 	Generated Translation: -No había visto a ella, y a su señora era señora; y de su, lector, no podía pedir la atención de la necesidad de la que me había aplastado; no podía llegar; y ahí me volvió a buscar el refugio de la que me había aplastado.
+VERSION 1.1.3 : 2023-12-07 04:13:26 : REPEAT TRANSLATION 38
+VERSION 1.1.3 : 2023-12-07 04:13:26 : 	Original Text: Almost desperate, I asked for half a cake; she again refused.
+VERSION 1.1.3 : 2023-12-07 04:13:26 : 	Generated Translation: Aún desafortunado, me pregunté por la mitad de un cake; ella volvió a rechazar.
+VERSION 1.1.3 : 2023-12-07 04:13:26 : REPEAT TRANSLATION 39
+VERSION 1.1.3 : 2023-12-07 04:13:26 : 	Original Text: "How could she tell where I had got the handkerchief?" she said.
+VERSION 1.1.3 : 2023-12-07 04:13:26 : 	Generated Translation: –¿Cómo podría contar donde había tenido el jefe? –dijo.
+VERSION 1.1.3 : 2023-12-07 04:13:27 : REPEAT TRANSLATION 40
+VERSION 1.1.3 : 2023-12-07 04:13:27 : 	Original Text: "No! what could she do with them?"
+VERSION 1.1.3 : 2023-12-07 04:13:27 : 	Generated Translation: –¿No! ¿qué podría hacer con ellos?
+VERSION 1.1.3 : 2023-12-07 04:13:27 : REPEAT TRANSLATION 41
+VERSION 1.1.3 : 2023-12-07 04:13:27 : 	Original Text: Reader, it is not pleasant to dwell on these details.
+VERSION 1.1.3 : 2023-12-07 04:13:27 : 	Generated Translation: Lectura, no es seguro de estar en estos datos.
+VERSION 1.1.3 : 2023-12-07 04:13:27 : REPEAT TRANSLATION 42
+VERSION 1.1.3 : 2023-12-07 04:13:27 : 	Original Text: To be sure, what I begged was employment; but whose business was it to provide me with employment?
+VERSION 1.1.3 : 2023-12-07 04:13:27 : 	Generated Translation: Para ser seguro, lo que me dijo era la empleo; pero cuyo negocio era que me proporcionaba la empleo?
+VERSION 1.1.3 : 2023-12-07 04:13:28 : REPEAT TRANSLATION 43
+VERSION 1.1.3 : 2023-12-07 04:13:28 : 	Original Text: A little before dark I passed a farm-house, at the open door of which the farmer was sitting, eating his supper of bread and cheese.
+VERSION 1.1.3 : 2023-12-07 04:13:28 : 	Generated Translation: A poco después de oscuro pasé una casa de tierra, en la puerta abierta de la que el agricultor estaba sentado, comer su salsa de arroz y leche.
+VERSION 1.1.3 : 2023-12-07 04:13:28 : REPEAT TRANSLATION 44
+VERSION 1.1.3 : 2023-12-07 04:13:28 : 	Original Text: "How strange this is!
+VERSION 1.1.3 : 2023-12-07 04:13:28 : 	Generated Translation: "¿Qué raro es?
+VERSION 1.1.3 : 2023-12-07 04:13:28 : REPEAT TRANSLATION 45
+VERSION 1.1.3 : 2023-12-07 04:13:28 : 	Original Text: T' pig doesn't want it."
+VERSION 1.1.3 : 2023-12-07 04:13:28 : 	Generated Translation: El perro no lo necesita.
+VERSION 1.1.3 : 2023-12-07 04:13:29 : REPEAT TRANSLATION 46
+VERSION 1.1.3 : 2023-12-07 04:13:29 : 	Original Text: The girl emptied the stiffened mould into my hand, and I devoured it ravenously.
+VERSION 1.1.3 : 2023-12-07 04:13:29 : 	Generated Translation: La chica emptió la cabeza a mi mano, y lo devoró a la misma.
+VERSION 1.1.3 : 2023-12-07 04:13:29 : REPEAT TRANSLATION 47
+VERSION 1.1.3 : 2023-12-07 04:13:29 : 	Original Text: "Well, I would rather die yonder than in a street or on a frequented road," I reflected.
+VERSION 1.1.3 : 2023-12-07 04:13:29 : 	Generated Translation: ––Bien, aún se refugiaría más que en una calle o en una carretera frecuentada ––respondió.
+VERSION 1.1.3 : 2023-12-07 04:13:30 : REPEAT TRANSLATION 48
+VERSION 1.1.3 : 2023-12-07 04:13:30 : 	Original Text: I questioned. I watched to see whether it would spread: but no; as it did not diminish, so it did not enlarge. "It may be a candle in a house," I then conjectured; "but if so, I can never reach it. It is much too far away: and were it within a yard of me, what would it avail? I should but knock at the door to have it shut in my face."
+VERSION 1.1.3 : 2023-12-07 04:13:30 : 	Generated Translation: -No me pregunté, y me pregunté, y me pregunté, y me pregunté que se puede romper, pero no, como no se diminía, porque no se alargaba. -Puesto que no se puede llegar a la casa, y a la puerta de mí, ¿qué podría hacer?
+VERSION 1.1.3 : 2023-12-07 04:13:31 : REPEAT TRANSLATION 49
+VERSION 1.1.3 : 2023-12-07 04:13:31 : 	Original Text: It led me aslant over the hill, through a wide bog, which would have been impassable in winter, and was splashy and shaking even now, in the height of summer.
+VERSION 1.1.3 : 2023-12-07 04:13:31 : 	Generated Translation: Se llevó a correr sobre la cima, a través de un gran bosque, que habría sido impassable en invierno, y fue aún aún ahora, en la altura del verano.
+VERSION 1.1.3 : 2023-12-07 04:13:33 : REPEAT TRANSLATION 50
+VERSION 1.1.3 : 2023-12-07 04:13:33 : 	Original Text: I approached it; it was a road or a track: it led straight up to the light, which now beamed from a sort of knoll, amidst a clump of trees--firs, apparently, from what I could distinguish of the character of their forms and foliage through the gloom.
+VERSION 1.1.3 : 2023-12-07 04:13:33 : 	Generated Translation: Cuando me acercó, fue una ruta o una pista: se dirigió a la luz, que ahora se alineó de una especie de pedazos, a la cual ahora se alineó de una especie de pedazos, a la cual se alineó de una especie de arbustos, a lo largo de una cantidad de árboles--firs, aparentemente, de lo que podía distinguir el personaje de sus formas y foliaje a través del gloom.
+VERSION 1.1.3 : 2023-12-07 04:13:33 : REPEAT TRANSLATION 51
+VERSION 1.1.3 : 2023-12-07 04:13:33 : 	Original Text: My star vanished as I drew near: some obstacle had intervened between me and it.
+VERSION 1.1.3 : 2023-12-07 04:13:33 : 	Generated Translation: Mi estrella se vio a cerca de algunos obstáculos habían intervenido entre mí y él.
+VERSION 1.1.3 : 2023-12-07 04:13:34 : REPEAT TRANSLATION 52
+VERSION 1.1.3 : 2023-12-07 04:13:34 : 	Original Text: I put out my hand to feel the dark mass before me: I discriminated the rough stones of a low wall--above it, something like palisades, and within, a high and prickly hedge.
+VERSION 1.1.3 : 2023-12-07 04:13:34 : 	Generated Translation: Mi mano me puso la mano para sentir la masa oscura antes de mí: discriminaba las piedras duras de una pared baja--abajo de él, algo como palisades, y en el interior, una larga y profunda hoja.
+VERSION 1.1.3 : 2023-12-07 04:13:35 : REPEAT TRANSLATION 53
+VERSION 1.1.3 : 2023-12-07 04:13:35 : 	Original Text: I groped on. Again a whitish object gleamed before me: it was a gate--a wicket; it moved on its hinges as I touched it. On each side stood a sable bush-holly or yew.
+VERSION 1.1.3 : 2023-12-07 04:13:35 : 	Generated Translation: A continuación, un objeto rojo y amarillo se puso antes de mí: era un puerta--una puerta; se movió en sus manos como me touchó. En cada lado se puso un poco agradable o amarillo.
+VERSION 1.1.3 : 2023-12-07 04:13:36 : REPEAT TRANSLATION 54
+VERSION 1.1.3 : 2023-12-07 04:13:36 : 	Original Text: This scene was as silent as if all the figures had been shadows and the firelit apartment a picture: so hushed was it, I could hear the cinders fall from the grate, the clock tick in its obscure corner; and I even fancied I could distinguish the click-click of the woman's knitting-needles.
+VERSION 1.1.3 : 2023-12-07 04:13:36 : 	Generated Translation: Esta escena era tan silenciosa como si todas las figuras habían sido sombras y el apartamento incendiado una imagen: tan abierta era que aún había sido sombras y el apartamento de edificio a una imagen: tan abierta era que aún había visto los clavos de la puerta, el clock a su corner oscuro; y aún me encantaba distinguir la flecha de la cabeza de la mujer.
+VERSION 1.1.3 : 2023-12-07 04:13:40 : REPEAT TRANSLATION 55
+VERSION 1.1.3 : 2023-12-07 04:13:40 : 	Original Text: Good! good!" she exclaimed, while her dark and deep eye sparkled.
+VERSION 1.1.3 : 2023-12-07 04:13:40 : 	Generated Translation: -¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡
+VERSION 1.1.3 : 2023-12-07 04:13:40 : REPEAT TRANSLATION 56
+VERSION 1.1.3 : 2023-12-07 04:13:40 : 	Original Text: I have had my doubts, I confess; but they are fainter than they were, and they may soon be entirely done away.
+VERSION 1.1.3 : 2023-12-07 04:13:40 : 	Generated Translation: Tienes mis sospechas, y me confeso; pero son fainter que fueron, y pueden llegar a llegar completamente a cabo.
+VERSION 1.1.3 : 2023-12-07 04:13:40 : REPEAT TRANSLATION 57
+VERSION 1.1.3 : 2023-12-07 04:13:40 : 	Original Text: "Varry like: but give ower studying; ye've done enough for to-night."
+VERSION 1.1.3 : 2023-12-07 04:13:40 : 	Generated Translation: -Varry como: pero da a ower estudiar; he hecho suficiente para la noche.
+VERSION 1.1.3 : 2023-12-07 04:13:41 : REPEAT TRANSLATION 58
+VERSION 1.1.3 : 2023-12-07 04:13:41 : 	Original Text: If we find they correspond, every fear of mine will be removed."
+VERSION 1.1.3 : 2023-12-07 04:13:41 : 	Generated Translation: Si encuentramos que corresponden, cada temor de mi me será removido.
+VERSION 1.1.3 : 2023-12-07 04:13:41 : REPEAT TRANSLATION 59
+VERSION 1.1.3 : 2023-12-07 04:13:41 : 	Original Text: It rains fast, Hannah: will you have the goodness to look at the fire in the parlour?"
+VERSION 1.1.3 : 2023-12-07 04:13:41 : 	Generated Translation: Cuando aún se acalma, Hannah: ¿puedes tener la biendad de ver el incendio en el parlour?
+VERSION 1.1.3 : 2023-12-07 04:13:41 : REPEAT TRANSLATION 60
+VERSION 1.1.3 : 2023-12-07 04:13:41 : 	Original Text: Hannah opened.
+VERSION 1.1.3 : 2023-12-07 04:13:41 : 	Generated Translation: Hannah abrió.
+VERSION 1.1.3 : 2023-12-07 04:13:42 : REPEAT TRANSLATION 61
+VERSION 1.1.3 : 2023-12-07 04:13:42 : 	Original Text: "I want a night's shelter in an out-house or anywhere, and a morsel of bread to eat."
+VERSION 1.1.3 : 2023-12-07 04:13:42 : 	Generated Translation: -Me gusta un refugio de noche en un apartamento o cualquier lugar, y un sopa de arroz para comer.
+VERSION 1.1.3 : 2023-12-07 04:13:42 : REPEAT TRANSLATION 62
+VERSION 1.1.3 : 2023-12-07 04:13:42 : 	Original Text: "I'll give you a piece of bread," she said, after a pause; "but we can't take in a vagrant to lodge. It isn't likely."
+VERSION 1.1.3 : 2023-12-07 04:13:42 : 	Generated Translation: -No puede darle una pieza de arroz -dijo, después de una pausa, pero no puede tomar en un vagrant para albergar. No es probable.
+VERSION 1.1.3 : 2023-12-07 04:13:43 : REPEAT TRANSLATION 63
+VERSION 1.1.3 : 2023-12-07 04:13:43 : 	Original Text: "But I must die if I am turned away."
+VERSION 1.1.3 : 2023-12-07 04:13:43 : 	Generated Translation: –Pero no me debe morir si me vuelve a volver.
+VERSION 1.1.3 : 2023-12-07 04:13:43 : REPEAT TRANSLATION 64
+VERSION 1.1.3 : 2023-12-07 04:13:43 : 	Original Text: Nothing in my opinion has ever passed to justify doubt; no secrecy has been attempted; all has been uniformly open and unreserved.
+VERSION 1.1.3 : 2023-12-07 04:13:43 : 	Generated Translation: No ha sido ninguna palabra en mi opinión que nunca ha pasado a justificar la duda; no se ha intentado aún abierta y desagradable.
+VERSION 1.1.3 : 2023-12-07 04:13:43 : REPEAT TRANSLATION 65
+VERSION 1.1.3 : 2023-12-07 04:13:43 : 	Original Text: "I can but die," I said, "and I believe in God.
+VERSION 1.1.3 : 2023-12-07 04:13:43 : 	Generated Translation: –No puedo morir –dijo –y creí en Dios.
+VERSION 1.1.3 : 2023-12-07 04:13:44 : REPEAT TRANSLATION 66
+VERSION 1.1.3 : 2023-12-07 04:13:44 : 	Original Text: "Hush, Hannah!
+VERSION 1.1.3 : 2023-12-07 04:13:44 : 	Generated Translation: "Hush, Hannah!
+VERSION 1.1.3 : 2023-12-07 04:13:44 : REPEAT TRANSLATION 67
+VERSION 1.1.3 : 2023-12-07 04:13:44 : 	Original Text: Presently I stood within that clean, bright kitchen--on the very hearth--trembling, sickening; conscious of an aspect in the last degree ghastly, wild, and weather-beaten.
+VERSION 1.1.3 : 2023-12-07 04:13:44 : 	Generated Translation: Presentemente, estaba en la cocina limpia, brillante, a la misma corazón, a la misma corazón, aterrorizado, aterrorizado;consciente de un aspecto en el último grado agradable, y agradable.
+VERSION 1.1.3 : 2023-12-07 04:13:45 : REPEAT TRANSLATION 68
+VERSION 1.1.3 : 2023-12-07 04:13:45 : 	Original Text: "Perhaps a little water would restore her. Hannah, fetch some.
+VERSION 1.1.3 : 2023-12-07 04:13:45 : 	Generated Translation: -Pues alguna agua restauraría. Hannah, añadió algunas.
+VERSION 1.1.3 : 2023-12-07 04:13:45 : REPEAT TRANSLATION 69
+VERSION 1.1.3 : 2023-12-07 04:13:45 : 	Original Text: Has there been any inconsistency on his side to create alarm? can he be deceitful?"
+VERSION 1.1.3 : 2023-12-07 04:13:45 : 	Generated Translation: ¿Has había ninguna inconsistencia en su lado para crear alarmes? ¿puede ser deceitful?
+VERSION 1.1.3 : 2023-12-07 04:13:45 : REPEAT TRANSLATION 70
+VERSION 1.1.3 : 2023-12-07 04:13:45 : 	Original Text: "What account can you give of yourself?"
+VERSION 1.1.3 : 2023-12-07 04:13:45 : 	Generated Translation: -¿Qué aporte puede usted dar de usted?
+VERSION 1.1.3 : 2023-12-07 04:13:46 : REPEAT TRANSLATION 71
+VERSION 1.1.3 : 2023-12-07 04:13:46 : 	Original Text: I took sudden courage. Answering her compassionate gaze with a smile, I said-
+VERSION 1.1.3 : 2023-12-07 04:13:46 : 	Generated Translation: -Me hizo aún aún a tener atención y a responder a su compassionata atención con una atención, dijo--.
+VERSION 1.1.3 : 2023-12-07 04:13:46 : REPEAT TRANSLATION 72
+VERSION 1.1.3 : 2023-12-07 04:13:46 : 	Original Text: "I love Willoughby, sincerely love him; and suspicion of his integrity cannot be more painful to yourself than to me.
+VERSION 1.1.3 : 2023-12-07 04:13:46 : 	Generated Translation: -Yo amo Willoughby, sinceramente lo amo; y la sospecha de su integritad no puede ser más dolorosa que a mí.
+VERSION 1.1.3 : 2023-12-07 04:13:47 : REPEAT TRANSLATION 73
+VERSION 1.1.3 : 2023-12-07 04:13:47 : 	Original Text: A kind of pleasant stupor was stealing over me as I sat by the genial fire.
+VERSION 1.1.3 : 2023-12-07 04:13:47 : 	Generated Translation: Un tipo de sorpresa agradable fue robándome sobre mí como me estalló por el genial incendio.
+VERSION 1.1.3 : 2023-12-07 04:13:47 : REPEAT TRANSLATION 74
+VERSION 1.1.3 : 2023-12-07 04:13:47 : 	Original Text: I can recall some sensations felt in that interval; but few thoughts framed, and no actions performed.
+VERSION 1.1.3 : 2023-12-07 04:13:47 : 	Generated Translation: También puede recalar algunas sensaciones sentidas en ese intervalo; pero pocas pensamientos se aplastaron, y no acciones realizadas.
+VERSION 1.1.3 : 2023-12-07 04:13:49 : REPEAT TRANSLATION 75
+VERSION 1.1.3 : 2023-12-07 04:13:49 : 	Original Text: He pronounced it needless to send for a doctor: nature, he was sure, would manage best, left to herself. He said every nerve had been overstrained in some way, and the whole system must sleep torpid a while. There was no disease. He imagined my recovery would be rapid enough when once commenced.
+VERSION 1.1.3 : 2023-12-07 04:13:49 : 	Generated Translation: Se le dijo que no podía enviar para un doctor: la naturaleza, era segura, y sería mejor, dejó a su propio. Él dijo que cada nervio había sido deprimido en alguna manera, y todo el sistema debe descansar a poco tiempo. No había enfermedad. Imaginó que mi recuperación sería fácil cuando comenzó.
+VERSION 1.1.3 : 2023-12-07 04:13:49 : REPEAT TRANSLATION 76
+VERSION 1.1.3 : 2023-12-07 04:13:49 : 	Original Text: "You will find she is some young lady who has had a misunderstanding with her friends, and has probably injudiciously left them.
+VERSION 1.1.3 : 2023-12-07 04:13:49 : 	Generated Translation: -Vuestra joven señora que ha tenido un desconocimiento con sus amigos, y probablemente se ha dejado injudiciosamente.
+VERSION 1.1.3 : 2023-12-07 04:13:49 : REPEAT TRANSLATION 77
+VERSION 1.1.3 : 2023-12-07 04:13:49 : 	Original Text: She pointed to the rocking-chair: I took it.
+VERSION 1.1.3 : 2023-12-07 04:13:49 : 	Generated Translation: Ella le dijo a la cabeza de la cabeza: me lo llevé.
+VERSION 1.1.3 : 2023-12-07 04:13:50 : REPEAT TRANSLATION 78
+VERSION 1.1.3 : 2023-12-07 04:13:50 : 	Original Text: I was indignant for a moment; but remembering that anger was out of the question, and that I had indeed appeared as a beggar to her, I answered quietly, but still not without a certain marked firmness--
+VERSION 1.1.3 : 2023-12-07 04:13:50 : 	Generated Translation: -Aunque a pesar de que el ataque estaba en la pregunta, y que aún había aparecido como un adicto a ella, respondí tranquilamente, pero aún no sin una cierto firmeza marcada.
+VERSION 1.1.3 : 2023-12-07 04:13:50 : REPEAT TRANSLATION 79
+VERSION 1.1.3 : 2023-12-07 04:13:50 : 	Original Text: "But you've never been to a boarding-school?"
+VERSION 1.1.3 : 2023-12-07 04:13:50 : 	Generated Translation: –¿Pero nunca ha estado a un escuela de boarding?
+VERSION 1.1.3 : 2023-12-07 04:13:51 : REPEAT TRANSLATION 80
+VERSION 1.1.3 : 2023-12-07 04:13:51 : 	Original Text: Willoughby certainly does not deserve to be suspected.
+VERSION 1.1.3 : 2023-12-07 04:13:51 : 	Generated Translation: Willoughby ciertomente no debe ser sospechado.
+VERSION 1.1.3 : 2023-12-07 04:13:51 : REPEAT TRANSLATION 81
+VERSION 1.1.3 : 2023-12-07 04:13:51 : 	Original Text: "Happen ye've been a dressmaker?"
+VERSION 1.1.3 : 2023-12-07 04:13:51 : 	Generated Translation: –¿Ha sido un vestido?
+VERSION 1.1.3 : 2023-12-07 04:13:51 : REPEAT TRANSLATION 82
+VERSION 1.1.3 : 2023-12-07 04:13:51 : 	Original Text: "Nay; he doesn't live here: he is only staying a while.
+VERSION 1.1.3 : 2023-12-07 04:13:51 : 	Generated Translation: "Nay; no vive aquí: sólo está a permanecer un tiempo.
+VERSION 1.1.3 : 2023-12-07 04:13:52 : REPEAT TRANSLATION 83
+VERSION 1.1.3 : 2023-12-07 04:13:52 : 	Original Text: I remembered the answer of the old housekeeper at the parsonage, when I had asked to see the clergyman.
+VERSION 1.1.3 : 2023-12-07 04:13:52 : 	Generated Translation: Cuando me había dado la respuesta del antiguo señor de casa en la parroquia, cuando me había dado que ver al clero.
+VERSION 1.1.3 : 2023-12-07 04:13:52 : REPEAT TRANSLATION 84
+VERSION 1.1.3 : 2023-12-07 04:13:52 : 	Original Text: "This, then, was his father's residence?"
+VERSION 1.1.3 : 2023-12-07 04:13:52 : 	Generated Translation: –¿Esta, entonces, era su residencia de su padre?
+VERSION 1.1.3 : 2023-12-07 04:13:52 : REPEAT TRANSLATION 85
+VERSION 1.1.3 : 2023-12-07 04:13:52 : 	Original Text: Hannah was evidently fond of talking.
+VERSION 1.1.3 : 2023-12-07 04:13:52 : 	Generated Translation: Hannah era evidentemente abierta de hablar.
+VERSION 1.1.3 : 2023-12-07 04:13:52 : REPEAT TRANSLATION 86
+VERSION 1.1.3 : 2023-12-07 04:13:52 : 	Original Text: She did not know where there was such a family for being united.
+VERSION 1.1.3 : 2023-12-07 04:13:52 : 	Generated Translation: No sabía donde había una familia para ser unida.
+VERSION 1.1.3 : 2023-12-07 04:13:53 : REPEAT TRANSLATION 87
+VERSION 1.1.3 : 2023-12-07 04:13:53 : 	Original Text: Mary and I sit in the kitchen sometimes, because at home we like to be free, even to license--but you are a visitor, and must go into the parlour."
+VERSION 1.1.3 : 2023-12-07 04:13:53 : 	Generated Translation: Mary y yo se encuentran en la cocina a veces, porque en casa nos gusta ser libre, incluso para licenciar, pero usted es un visitante, y debe ir a la parrilla.
+VERSION 1.1.3 : 2023-12-07 04:13:53 : REPEAT TRANSLATION 88
+VERSION 1.1.3 : 2023-12-07 04:13:53 : 	Original Text: The old-fashioned chairs were very bright, and the walnut-wood table was like a looking-glass.
+VERSION 1.1.3 : 2023-12-07 04:13:53 : 	Generated Translation: Las sillas antiguas eran muy brillantes, y la mesa de madera de acero era como un escudo de ojos.
+VERSION 1.1.3 : 2023-12-07 04:13:54 : REPEAT TRANSLATION 89
+VERSION 1.1.3 : 2023-12-07 04:13:54 : 	Original Text: Had he been a statue instead of a man, he could not have been easier.
+VERSION 1.1.3 : 2023-12-07 04:13:54 : 	Generated Translation: Ha sido una estatua en lugar de un hombre, no podía haber sido más fácil.
+VERSION 1.1.3 : 2023-12-07 04:13:54 : REPEAT TRANSLATION 90
+VERSION 1.1.3 : 2023-12-07 04:13:54 : 	Original Text: "I am near nineteen: but I am not married.
+VERSION 1.1.3 : 2023-12-07 04:13:54 : 	Generated Translation: -Me tengo cerca de nueve años, pero no me casé.
+VERSION 1.1.3 : 2023-12-07 04:13:54 : REPEAT TRANSLATION 91
+VERSION 1.1.3 : 2023-12-07 04:13:54 : 	Original Text: I felt a burning glow mount to my face; for bitter and agitating recollections were awakened by the allusion to marriage.
+VERSION 1.1.3 : 2023-12-07 04:13:54 : 	Generated Translation: Me sentí un ala de brillante a mi cara; por las reacciones dulces y agitadas fueron aún a la incomprensión del matrimonio.
+VERSION 1.1.3 : 2023-12-07 04:13:55 : REPEAT TRANSLATION 92
+VERSION 1.1.3 : 2023-12-07 04:13:55 : 	Original Text: "The name of the place where, and of the person with whom I lived, is my secret," I replied concisely.
+VERSION 1.1.3 : 2023-12-07 04:13:55 : 	Generated Translation: El nombre del lugar donde, y de la persona con quien vivió, es mi secreto, respondió con claridad.
+VERSION 1.1.3 : 2023-12-07 04:13:55 : REPEAT TRANSLATION 93
+VERSION 1.1.3 : 2023-12-07 04:13:55 : 	Original Text: "Which, if you like, you have, in my opinion, a right to keep, both from St. John and every other questioner," remarked Diana.
+VERSION 1.1.3 : 2023-12-07 04:13:55 : 	Generated Translation: -¿Qué, si usted quiere, en mi opinión, un derecho de mantener, tanto de San Juan como de cada otro preguntador -respondió Diana.
+VERSION 1.1.3 : 2023-12-07 04:13:56 : REPEAT TRANSLATION 94
+VERSION 1.1.3 : 2023-12-07 04:13:56 : 	Original Text: "Yet if I know nothing about you or your history, I cannot help you," he said. "And you need help, do you not?"
+VERSION 1.1.3 : 2023-12-07 04:13:56 : 	Generated Translation: –¿Y si no sabe nada sobre usted o su historia, no puedo ayudarlo –dijo–.
+VERSION 1.1.3 : 2023-12-07 04:13:57 : REPEAT TRANSLATION 95
+VERSION 1.1.3 : 2023-12-07 04:13:57 : 	Original Text: I was mightily refreshed by the beverage; as much so as a giant with wine: it gave new tone to my unstrung nerves, and enabled me to address this penetrating young judge steadily.
+VERSION 1.1.3 : 2023-12-07 04:13:57 : 	Generated Translation: Fue probable agradable por la comida; tan bien como un gigante con vino: dio nuevo tono a mis nervios desagradables, y me permitió a identificar este joven juez a menudo.
+VERSION 1.1.3 : 2023-12-07 04:13:57 : REPEAT TRANSLATION 96
+VERSION 1.1.3 : 2023-12-07 04:13:57 : 	Original Text: I will tell you as much of the history of the wanderer you have harboured, as I can tell without compromising my own peace of mind--my own security, moral and physical, and that of others.
+VERSION 1.1.3 : 2023-12-07 04:13:57 : 	Generated Translation: También le contaré la historia de los caballeros que han hecho, como puede contar sin compromisar mi propia paz de la mente, mi propia seguridad, moral y física, y la de otros.
+VERSION 1.1.3 : 2023-12-07 04:13:58 : REPEAT TRANSLATION 97
+VERSION 1.1.3 : 2023-12-07 04:13:58 : 	Original Text: I will even tell you the name of the establishment, where I passed six years as a pupil, and two as a teacher--Lowood Orphan Asylum, ---shire: you will have heard of it, Mr. Rivers?--the Rev. Robert Brocklehurst is the treasurer."
+VERSION 1.1.3 : 2023-12-07 04:13:58 : 	Generated Translation: También le dijo el nombre del establecimiento, donde pasé seis años como pupil, y dos como profesor-Lowood Orphan Asylum, --shire: ¿te ha visto de él, el señor Rivers?--el Rev. Robert Brocklehurst es el señor.
+VERSION 1.1.3 : 2023-12-07 04:13:59 : REPEAT TRANSLATION 98
+VERSION 1.1.3 : 2023-12-07 04:13:59 : 	Original Text: No blame attached to me: I am as free from culpability as any one of you three.
+VERSION 1.1.3 : 2023-12-07 04:13:59 : 	Generated Translation: No me acuerdo a mí: soy libres de culpabilidad como cualquiera de usted tres.
+VERSION 1.1.3 : 2023-12-07 04:13:59 : REPEAT TRANSLATION 99
+VERSION 1.1.3 : 2023-12-07 04:13:59 : 	Original Text: I gave an involuntary half start at hearing the _alias_: I had forgotten my new name.
+VERSION 1.1.3 : 2023-12-07 04:13:59 : 	Generated Translation: -Ahora, hice una mitad involuntaria en escuchar el _alias_: había olvidado mi nuevo nombre.
+VERSION 1.1.3 : 2023-12-07 04:13:59 : REPEAT TRANSLATION 100
+VERSION 1.1.3 : 2023-12-07 04:13:59 : 	Original Text: "You said your name was Jane Elliott?" he observed.
+VERSION 1.1.3 : 2023-12-07 04:13:59 : 	Generated Translation: –¿Y dijo que su nombre era Jane Elliott? –observó.
+VERSION 1.1.3 : 2023-12-07 04:13:59 : RUN COMPLETED

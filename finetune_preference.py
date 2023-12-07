@@ -20,8 +20,9 @@ import tensorboard
 import torch
 
 import numpy as np
+import random as rand
 
-VERSION = "1.0.0"
+VERSION = "1.0.2"
 
 class PreferenceTrainer(Seq2SeqTrainer):
 
@@ -33,7 +34,7 @@ class PreferenceTrainer(Seq2SeqTrainer):
         return (loss, outputs) if return_outputs else loss
 
 
-def make_logger(filepath):
+def make_logger(filepath, mixture):
 
     # Set up logger
     version_tracking = {"version": "VERSION %s" % VERSION}
@@ -44,7 +45,7 @@ def make_logger(filepath):
     logger = logging.getLogger("data_log")
     logger.setLevel(logging.INFO)
 
-    handler = logging.FileHandler(f"{filepath}/preference-{VERSION}.log")
+    handler = logging.FileHandler(f"{filepath}/preference-{mixture}-{VERSION}.log")
     handler.setFormatter(fmt)
 
     logger.addHandler(handler)
@@ -72,12 +73,12 @@ def opus_formatter(dataset_list, lang1 = "en", lang2 = "es", batch_size = 128):
 
     return combine.concatenate_datasets(dsets=dsets).shuffle()
 
-def make_preprocess(tokenizer, task = "", source = "", target = "", device = "cuda"):
+def make_preprocess_mt(tokenizer, task = "", source = "", target = "", device = "cuda"):
     """
     Returns a preprocessing function using the given tokenizer.
     """
 
-    def preprocess(examples):
+    def preprocess_mt(examples):
         """
         Tokenizes the inputs and targets to feed to the model.
         """
@@ -85,14 +86,47 @@ def make_preprocess(tokenizer, task = "", source = "", target = "", device = "cu
         padding = "max_length"
         max_length = 200
 
-        inputs = [task + ": " + str(i) for i in examples[source]]
+        inputs = [f"{task}: " + str(i) for i in examples[source]]
         targets = [str(t) for t in examples[target]]
 
         # Memory reqs grow quadratically with input size, stops at max_length
         tokens = tokenizer(text=inputs, text_target=targets, max_length=max_length, padding=padding, truncation=True, return_tensors="pt").to(device)
         return tokens
 
-    return preprocess
+    return preprocess_mt
+
+def make_preprocess_pt(tokenizer, task = "", translations = "", keys = "", source = "en", device = "cuda"):
+    """
+    Returns a preprocessing function using the given tokenizer.
+    """
+
+    def preprocess_pt(examples):
+        """
+        Tokenizes the inputs and targets to feed to the model.
+        """
+
+        padding = "max_length"
+        max_length = 200
+
+        inputs = [f"{task}: " + str(i) for i in examples[source]]
+
+        targets_good, targets_bad = [], []
+        for batch in zip(*[examples[col] for col in translations], *[examples[key] for key in keys]):
+
+            trans, ks = batch[0: len(translations)], batch[len(translations):]  # Separate the translations and keys
+            best = ks.index(max(ks))  # The index of the best score should also be the index of the best translation
+            worse = ks.index(min(ks))
+
+            targets_good.append(trans[best])
+            targets_bad.append(trans[worse])
+
+        # Memory reqs grow quadratically with input size, stops at max_length; "labels" = "labels_good" to save space
+        tokens = tokenizer(text=inputs, text_target=targets_good, max_length=max_length, padding=padding, truncation=True, return_tensors="pt").to(device)
+        tokens["labels_bad"] = tokenizer(text_target = targets_bad, max_length=max_length, padding=padding, truncation=True, return_tensors="pt")["input_ids"].to(device)
+
+        return tokens
+
+    return preprocess_pt
 
 def make_compute_metrics(tokenizer, metric_name="bleu", metric_keys=[]):
 
@@ -116,9 +150,51 @@ def make_compute_metrics(tokenizer, metric_name="bleu", metric_keys=[]):
     
     return compute_metrics
 
-def make_trainer(model, tokenizer, dataset,
-                 learning_rate = 4e-5, epochs = 1, batch_size = 8, 
-                 save_at = 0.5, output = "models", metric_name = "bleu", metric_keys=["bleu"]):
+def make_trainer_mt(model, tokenizer, dataset,
+                    learning_rate = 4e-5, epochs = 1, batch_size = 8, 
+                    save_at = 0.5, output = "models", metric_name = "bleu", metric_keys=["bleu"]):
+    """
+    Creates a trainer for the model.
+    """
+
+    save_steps = int((len(dataset["train"]) // batch_size) * save_at) if save_at != 1 else "epoch"
+
+    args = Seq2SeqTrainingArguments(
+            output_dir=output,
+            evaluation_strategy="steps" if isinstance(save_steps, (int)) else save_steps,
+            eval_steps=save_steps if isinstance(save_steps, (int)) else 1,
+            logging_strategy="steps",
+            logging_steps=100,    # Dirty fix, but I need to get this done
+            save_strategy="steps" if isinstance(save_steps, (int)) else save_steps,
+            save_steps=save_steps if isinstance(save_steps, (int)) else 1,
+            learning_rate=learning_rate,
+            per_device_train_batch_size=batch_size,
+            per_device_eval_batch_size=batch_size,
+            weight_decay=0.01,
+            save_total_limit=1,
+            num_train_epochs=epochs,
+            predict_with_generate=True,
+            bf16=True,
+            load_best_model_at_end=True,
+            metric_for_best_model=f"{metric_name}_{metric_keys[0]}",
+            report_to="tensorboard",)
+
+    compute_metrics = make_compute_metrics(tokenizer=tokenizer, metric_name=metric_name, metric_keys=metric_keys)
+
+    dc = DataCollatorForSeq2Seq(tokenizer=tokenizer, model=model)
+
+    return Seq2SeqTrainer(
+            model=model,
+            args=args,
+            train_dataset=dataset["train"],
+            eval_dataset=dataset["valid"],
+            data_collator=dc,
+            tokenizer=tokenizer,
+            compute_metrics=compute_metrics,)
+
+def make_trainer_pt(model, tokenizer, dataset,
+                    learning_rate = 4e-5, epochs = 1, batch_size = 8, 
+                    save_at = 0.5, output = "models", metric_name = "bleu", metric_keys=["bleu"]):
     """
     Creates a trainer for the model.
     """
@@ -174,7 +250,7 @@ def preview_translation(model, tokenizer, dataset, task = "", source = "", num_e
 def main(args: argparse.ArgumentParser):
 
     # Logger setup
-    logger = make_logger(args.logging)
+    logger = make_logger(args.logging, args.task_mixture)
     logger.info("===================== RUN =====================")
 
     # Sync the device
@@ -185,65 +261,133 @@ def main(args: argparse.ArgumentParser):
     model = AutoModelForSeq2SeqLM.from_pretrained(args.model, max_length=256).to(device)
     tokenizer = AutoTokenizer.from_pretrained(args.model, use_fast=False)
 
-    # Load the preprocessing function
-    logger.info(f"TASK: {args.task}")
-    preprocess = make_preprocess(tokenizer=tokenizer, task=args.task, source=args.source, target=args.target, device=device)
+    # Load the preprocessing functions
+    logger.info(f"MACHINE TRANSLATION TASK: {args.task}")
+    preprocess_mt = make_preprocess_mt(tokenizer=tokenizer, task=args.task, source=args.source, target=args.target, device=device)
+    preprocess_pt = make_preprocess_pt(tokenizer=tokenizer, translations=args.mtrans, keys=args.mtrans_keys, source=args.source, device=device)
 
     # Load the dataset and split into training, testing and validation partitions
-    logger.info(f"DATASET(S): {', '.join(args.dataset)}")
+    logger.info(f"MACHINE TRANSLATION DATASET(S): {', '.join(args.datasetmt)}")
     if not args.local:
 
         if not args.opus:
-            dataset = load_dataset(args.dataset[0], split=args.split) \
+            datasetmt = load_dataset(args.datasetmt[0], split=args.split) \
                 .filter(lambda row: isinstance(row[args.source], str) and isinstance(row[args.target], str)) \
                 .train_test_split(test_size=0.3)
         else:
-            dataset = opus_formatter(args.dataset, lang1=args.source, lang2=args.target, batch_size=args.text_batch_size) \
+            datasetmt = opus_formatter(args.datasetmt, lang1=args.source, lang2=args.target, batch_size=args.text_batch_size) \
                 .train_test_split(test_size=args.test_split)
         
         # Separate the test split into test and validation partitions
-        valid = dataset["test"].train_test_split(test_size=0.5)
-        dataset = DatasetDict({
-                    'train': dataset['train'],
+        valid = datasetmt["test"].train_test_split(test_size=0.5)
+        datasetmt = DatasetDict({
+                    'train': datasetmt['train'],
                     'test': valid['test'],
                     'valid': valid['train'],}).shuffle(seed=42)
         
     else:
-        dataset = load_from_disk(args.dataset[0])
+        datasetmt = load_from_disk(args.datasetmt[0])
+
+    # Load the RT dataset
+    datasetpt = load_from_disk(args.datasetpt)
     
     # Make the trainer and train the model
     if args.finetune:
 
         # Make separate tokenized dataset
-        token_set = DatasetDict({
-                        'train': dataset['train'].map(preprocess, batched=True, batch_size=args.text_batch_size),
-                        'test': dataset['test'].map(preprocess, batched=True, batch_size=args.text_batch_size),
-                        'valid': dataset['valid'].map(preprocess, batched=True, batch_size=args.text_batch_size),})
+        token_set_pt = DatasetDict({
+                        'train': datasetpt['train'].map(preprocess_pt, batched=True, batch_size=args.text_batch_size),
+                        'test': datasetpt['test'].map(preprocess_pt, batched=True, batch_size=args.text_batch_size),
+                        'valid': datasetpt['valid'].map(preprocess_pt, batched=True, batch_size=args.text_batch_size),})
 
-        logger.info("Model finetuning started...")
-        logger.info("HYPERPARAMETERS:")
-        logger.info(f"\tEPOCHS: {args.epochs}")
+        token_set_mt = DatasetDict({
+                        'train': datasetmt['train'].map(preprocess_mt, batched=True, batch_size=args.text_batch_size),
+                        'test': datasetmt['test'].map(preprocess_mt, batched=True, batch_size=args.text_batch_size),
+                        'valid': datasetmt['valid'].map(preprocess_mt, batched=True, batch_size=args.text_batch_size),})
+        
+        if args.task_mixture < 2:
+
+            logger.info("Model finetuning started...")
+            logger.info("HYPERPARAMETERS (MACHINE TRANSLATION):")
+            logger.info(f"\tEPOCHS: {args.epochs / 2}")
+            logger.info(f"\tBATCH SIZE: {args.batch_size}")
+            logger.info(f"\tLEARNING RATE: {args.learning_rate:g}")
+            logger.info(f"\tTRAINING SIZE: {len(datasetmt['train'])}")
+            logger.info(f"\tVALIDATION SIZE: {len(datasetmt['valid'])}")
+            logger.info(f"\tTESTING SIZE: {len(datasetmt['test'])}")
+            logger.info(f"\tEVALUATION METRIC: {args.metric} using {','.join(args.metric_keys)}")
+
+        logger.info("HYPERPARAMETERS (REPEAT TRANSLATION):")
+        logger.info(f"\tEPOCHS: {args.epochs / 2 if args.task_mixture < 2 else args.epochs}")
         logger.info(f"\tBATCH SIZE: {args.batch_size}")
         logger.info(f"\tLEARNING RATE: {args.learning_rate:g}")
-        logger.info(f"\tTRAINING SIZE: {len(dataset['train'])}")
-        logger.info(f"\tVALIDATION SIZE: {len(dataset['valid'])}")
-        logger.info(f"\tTESTING SIZE: {len(dataset['test'])}")
+        logger.info(f"\tTRAINING SIZE: {len(datasetpt['train'])}")
+        logger.info(f"\tVALIDATION SIZE: {len(datasetpt['valid'])}")
+        logger.info(f"\tTESTING SIZE: {len(datasetpt['test'])}")
         logger.info(f"\tEVALUATION METRIC: {args.metric} using {','.join(args.metric_keys)}")
 
-        trainer = make_trainer(model, tokenizer, dataset=token_set, 
-                               learning_rate=args.learning_rate, epochs=args.epochs, batch_size=args.batch_size, 
-                               save_at=args.save_at, output=args.output, metric_name=args.metric, metric_keys=args.metric_keys)
+        # This is bad code, but I am unsure how the pointers get updated after each training set, so I make sure to give the make functions
+        # the most up-to-date model by calling them explicitly after all previous training in that mixture is done. If they always track the
+        # latest model, this code can be reduced significantly. I also put the try-catch at the end because I had some weird issues I was
+        # unsure how to solve at the time, and this is expensive to retrain for just the end results.
+        if args.task_mixture == 0:
 
-        if not args.skip:
-            logger.info(f"PRE-EVALUATION (VALIDATION): {str(trainer.evaluate())}")
+            trainer_pt = make_trainer_pt(model, tokenizer, dataset=token_set_pt, 
+                                         learning_rate=args.learning_rate, epochs=args.epochs / 2, batch_size=args.batch_size, 
+                                         save_at=args.save_at, output=args.output, metric_name=args.metric, metric_keys=args.metric_keys)
 
-        logger.info("FINE-TUNING")
-        trainer.train()
+            logger.info("FINE-TUNING ON HINGE LOSS")
+            trainer_pt.train()
 
-        logger.info(f"POST-EVALUATION (VALIDATION): {str(trainer.evaluate())}")
+            trainer_mt = make_trainer_mt(model, tokenizer, dataset=token_set_mt, 
+                                         learning_rate=args.learning_rate, epochs=args.epochs / 2, batch_size=args.batch_size, 
+                                         save_at=args.save_at, output=args.output, metric_name=args.metric, metric_keys=args.metric_keys)
+            
+            if not args.skip:
+                logger.info(f"PRE-EVALUATION ON MACHINE TRANSLATION (VALIDATION): {str(trainer_mt.evaluate())}")
+            
+            logger.info("FINE-TUNING ON MACHINE TRANSLATION")
+            trainer_mt.train()
+
+            logger.info(f"POST-EVALUATION ON MACHINE TRANSLATION (VALIDATION): {str(trainer_mt.evaluate())}")
+
+        elif args.task_mixture == 1:
+
+            trainer_mt = make_trainer_mt(model, tokenizer, dataset=token_set_mt, 
+                                         learning_rate=args.learning_rate, epochs=args.epochs / 2, batch_size=args.batch_size, 
+                                         save_at=args.save_at, output=args.output, metric_name=args.metric, metric_keys=args.metric_keys)
+
+            if not args.skip:
+                logger.info(f"PRE-EVALUATION ON MACHINE TRANSLATION (VALIDATION): {str(trainer_mt.evaluate())}")
+
+            logger.info("FINE-TUNING ON MACHINE TRANSLATION")
+            trainer_mt.train()
+            
+            trainer_pt = make_trainer_pt(model, tokenizer, dataset=token_set_pt, 
+                                         learning_rate=args.learning_rate, epochs=args.epochs / 2, batch_size=args.batch_size, 
+                                         save_at=args.save_at, output=args.output, metric_name=args.metric, metric_keys=args.metric_keys)
+
+            logger.info("FINE-TUNING ON HINGE LOSS")
+            trainer_pt.train()
+
+            logger.info(f"POST-EVALUATION ON MACHINE TRANSLATION (VALIDATION): {str(trainer_mt.evaluate())}")
+
+        elif args.task_mixture == 2:
+
+            trainer_pt = make_trainer_pt(model, tokenizer, dataset=token_set_pt, 
+                                         learning_rate=args.learning_rate, epochs=args.epochs, batch_size=args.batch_size, 
+                                         save_at=args.save_at, output=args.output, metric_name=args.metric, metric_keys=args.metric_keys)
+
+
+            logger.info("FINE-TUNING ON HINGE LOSS")
+            trainer_pt.train()
+
+            trainer_mt = make_trainer_mt(model, tokenizer, dataset=token_set_mt, 
+                                         learning_rate=args.learning_rate, epochs=args.epochs / 2, batch_size=args.batch_size, 
+                                         save_at=args.save_at, output=args.output, metric_name=args.metric, metric_keys=args.metric_keys)
 
         try:
-            logger.info(f"POST-EVALUATION (TEST): {str(trainer.evaluate(eval_dataset=token_set['test']))}")
+            logger.info(f"POST-EVALUATION MACHINE TRANSLATION (TEST): {str(trainer_mt.evaluate(eval_dataset=token_set_mt['test']))}")
         except:
             logger.info("UNABLE TO RUN POST-EVALUATION ON THE TEST SET, SKIPPING...")
 
@@ -252,8 +396,9 @@ def main(args: argparse.ArgumentParser):
     # Sample the model's output
     if args.examples:
 
+        logger.info("MACHINE TRANSLATION SAMPLES:")
         for i, row, trans in preview_translation(model, tokenizer, task=args.task, 
-                                                 source=args.source, dataset=dataset["valid"], 
+                                                 source=args.source, dataset=datasetmt["valid"], 
                                                  num_examples=args.examples, device=device):
 
             logger.info(f"TRANSLATION {i} on \"{args.task}\"")
@@ -277,12 +422,12 @@ def add_args(parser: argparse.ArgumentParser):
     )
 
     parser.add_argument(
-        "-d",
-        "--dataset",
+        "-dmt",
+        "--datasetmt",
         type=str,
         nargs="+",
         default="hackathon-pln-es/Axolotl-Spanish-Nahuatl",
-        help="Datasets; either on the HuggingFace Hub or a local directory. Assumes one dataset if opus is False.\n \n",
+        help="Datasets for the MT task; either on the HuggingFace Hub or a local directory. Assumes one dataset if opus is False.\n \n",
     )
 
     parser.add_argument(
@@ -326,11 +471,27 @@ def add_args(parser: argparse.ArgumentParser):
     )
 
     parser.add_argument(
-        "-tb",
-        "--text_batch_size",
-        type=int,
-        default=32,
-        help="batch size for text preprocessing.\n \n",
+        "-drt",
+        "--datasetrt",
+        type=str,
+        default="hackathon-pln-es/Axolotl-Spanish-Nahuatl",
+        help="Datasets for the RT task; must be a local directory. Assumes one dataset if opus is False.\n \n",
+    )
+
+    parser.add_argument(
+        "-mts",
+        "--mtrans",
+        type=str,
+        nargs="+",
+        help="Column names of the translations for the RT task.\n \n",
+    )
+
+    parser.add_argument(
+        "-mtk",
+        "--mtrans_keys",
+        type=str,
+        nargs="+",
+        help="Column name of the translation scores for the RT task.\n \n",
     )
 
     parser.add_argument(
@@ -339,6 +500,14 @@ def add_args(parser: argparse.ArgumentParser):
         type=float,
         default=0.3,
         help="Test/dev split; defaults to 0.3, 30%%.\n \n",
+    )
+
+    parser.add_argument(
+        "-tb",
+        "--text_batch_size",
+        type=int,
+        default=32,
+        help="batch size for text preprocessing.\n \n",
     )
 
     parser.add_argument(
@@ -394,8 +563,8 @@ def add_args(parser: argparse.ArgumentParser):
         "-e",
         "--epochs",
         type=int,
-        default=1,
-        help="Training epochs; defaults to 1.\n \n",
+        default=2,
+        help="Training epochs; defaults to 1 (greater than this should be even as to split epochs between the two tasks).\n \n",
     )
 
     parser.add_argument(
@@ -404,6 +573,14 @@ def add_args(parser: argparse.ArgumentParser):
         type=int,
         default=8,
         help="Batch size during preprocessing and fine-tuning.\n \n",
+    )
+
+    parser.add_argument(
+        "-tm",
+        "--task_mixture",
+        type=int,
+        default=0,
+        help="How to train on the two tasks: 0 = RT-MT, 1 = MT-RT.\n \n",
     )
 
     parser.add_argument(
@@ -455,7 +632,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         prog="finetune_preference.py",
         formatter_class=argparse.RawTextHelpFormatter,
-        description="Fine-tunes a model with our preference-based approach.",
+        description="Fine-tunes a model with our preference-based loss function approach.",
         epilog="Created by Alejandro Ciuba, alc307@pitt.edu",
     )
 

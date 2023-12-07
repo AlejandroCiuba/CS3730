@@ -335,8 +335,8 @@ def main(args: argparse.ArgumentParser):
         elif args.task_mixture == 2:
 
             trainer_rt = make_trainer(model, tokenizer, dataset=token_set_rt, 
-                                                learning_rate=args.learning_rate, epochs=args.epochs, batch_size=args.batch_size, 
-                                                save_at=args.save_at, output=args.output, metric_name=args.metric, metric_keys=args.metric_keys)
+                                      learning_rate=args.learning_rate, epochs=args.epochs, batch_size=args.batch_size, 
+                                      save_at=args.save_at, output=args.output, metric_name=args.metric, metric_keys=args.metric_keys)
 
             if not args.skip:
                 logger.info(f"PRE-EVALUATION ON REPEAT TRANSLATION (VALIDATION): {str(trainer_rt.evaluate())}")
