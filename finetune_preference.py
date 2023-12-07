@@ -483,8 +483,8 @@ def add_args(parser: argparse.ArgumentParser):
     )
 
     parser.add_argument(
-        "-drt",
-        "--datasetrt",
+        "-dpt",
+        "--datasetpt",
         type=str,
         default="hackathon-pln-es/Axolotl-Spanish-Nahuatl",
         help="Datasets for the RT task; must be a local directory. Assumes one dataset if opus is False.\n \n",

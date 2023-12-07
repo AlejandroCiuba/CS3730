@@ -42,7 +42,7 @@ python finetune_preference.py -m google/mt5-small \
 							  -sl en \
 							  -tl es \
 							  -op 1 \
-							  -drt datasets/ix_datasets/opus_flan_opus_nllb \
+							  -dpt datasets/ix_datasets/opus_flan_opus_nllb \
 							  -mts flan-t5-large nllb-200-distilled-600M \
 							  -mtk flan-t5-large_score nllb-200-distilled-600M_score \
 							  -ts 0.3 \
