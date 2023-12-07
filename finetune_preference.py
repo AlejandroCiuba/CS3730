@@ -26,12 +26,24 @@ VERSION = "1.0.2"
 
 class PreferenceTrainer(Seq2SeqTrainer):
 
+    # Implements a modified hinge loss from the paper https://aclanthology.org/P16-1137.pdf
     def compute_loss(self, model, inputs, return_outputs=False):
 
-        outputs = model(**inputs)
-        loss = outputs["loss"] if isinstance(outputs, dict) else outputs[0]
+        GAMMA = 1.0
+        ZERO = torch.zeros(1)
 
-        return (loss, outputs) if return_outputs else loss
+        # Get the good translation loss
+        outputs = model(inputs["input_ids"], inputs["labels"])
+        loss_good = outputs["loss"] if isinstance(outputs, dict) else outputs[0]
+
+        # Get the bad translation loss
+        outputs = model(inputs["input_ids"], inputs["labels_bad"])
+        loss_bad = outputs["loss"] if isinstance(outputs, dict) else outputs[0]
+
+        # Calculate the final loss
+        combined_loss = GAMMA - loss_good + loss_bad
+
+        return (combined_loss, outputs) if combined_loss[0] > 0 else (ZERO, outputs)
 
 
 def make_logger(filepath, mixture):
@@ -296,14 +308,14 @@ def main(args: argparse.ArgumentParser):
 
         # Make separate tokenized dataset
         token_set_pt = DatasetDict({
-                        'train': datasetpt['train'].map(preprocess_pt, batched=True, batch_size=args.text_batch_size),
-                        'test': datasetpt['test'].map(preprocess_pt, batched=True, batch_size=args.text_batch_size),
-                        'valid': datasetpt['valid'].map(preprocess_pt, batched=True, batch_size=args.text_batch_size),})
+                        'train': datasetpt['train'].map(preprocess_pt, batched=True, batch_size=args.text_batch_size)[:100],
+                        'test': datasetpt['test'].map(preprocess_pt, batched=True, batch_size=args.text_batch_size)[:50],
+                        'valid': datasetpt['valid'].map(preprocess_pt, batched=True, batch_size=args.text_batch_size)[:50],})
 
         token_set_mt = DatasetDict({
-                        'train': datasetmt['train'].map(preprocess_mt, batched=True, batch_size=args.text_batch_size),
-                        'test': datasetmt['test'].map(preprocess_mt, batched=True, batch_size=args.text_batch_size),
-                        'valid': datasetmt['valid'].map(preprocess_mt, batched=True, batch_size=args.text_batch_size),})
+                        'train': datasetmt['train'].map(preprocess_mt, batched=True, batch_size=args.text_batch_size)[:100],
+                        'test': datasetmt['test'].map(preprocess_mt, batched=True, batch_size=args.text_batch_size)[:50],
+                        'valid': datasetmt['valid'].map(preprocess_mt, batched=True, batch_size=args.text_batch_size)[:50],})
         
         if args.task_mixture < 2:
 
