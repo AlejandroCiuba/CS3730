@@ -16,7 +16,7 @@
 #SBATCH --gres=gpu:1
 #SBATCH --ntasks-per-node=1
 
-#SBATCH --time=3-00:00:00
+#SBATCH --time=0-05:00:00
 #SBATCH --qos=short
 ############## SBATCH HEADER END ##############
 
@@ -55,7 +55,7 @@ python finetune_preference.py -m google/mt5-small \
 							  -l 4e-5 \
 							  -e 2 \
 							  -b 16 \
-							  -tm 1 \
+							  -tm 2 \
 							  -sa 1 \
 							  -x 100 \
 							  -o models/ix_models/repeat-$SLURM_ARRAY_TASK_ID \

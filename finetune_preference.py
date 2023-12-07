@@ -22,7 +22,7 @@ import torch
 import numpy as np
 import random as rand
 
-VERSION = "1.0.2"
+VERSION = "1.0.3"
 
 class PreferenceTrainer(Seq2SeqTrainer):
 
