@@ -23,10 +23,10 @@ import logging
 import os
 import tensorboard
 import torch
-import torch.nn
 
 import numpy as np
 import random as rand
+import torch.nn as nn
 
 VERSION = "1.1.0"
 
@@ -58,16 +58,28 @@ class PreferenceTrainer(Seq2SeqTrainer):
     def compute_loss(self, model, inputs, return_outputs=False):
 
         GAMMA = 1.0
+        LOSS = nn.CrossEntropyLoss()
 
         # Get the good translation loss
         outputs: Seq2SeqLMOutput = model(inputs["input_ids"], inputs["attention_mask"], inputs["labels"])
-        loss_good = outputs.loss["logits"]
+        loss_good: torch.Tensor = outputs[0]
+        print(loss_good.shape, inputs["labels"].shape)
+        loss_good: torch.Tensor = LOSS(loss_good.view(-1, loss_good.shape[1]), inputs["labels"])
+        print(loss_good.shape, inputs["labels"].shape)
+        loss_good: torch.Tensor = loss_good.mean(axis=1)
+        print(loss_good.shape, inputs["labels"].shape)
 
         # Get the bad translation loss
         outputs = model(inputs["input_ids"], inputs["attention_mask"], inputs["labels_bad"])
-        loss_bad = outputs.loss["logits"]
+        loss_bad: torch.Tensor = outputs[0]
+        print(loss_bad.shape, inputs["labels"].shape)
+        loss_bad: torch.Tensor = LOSS(loss_bad.view(-1, loss_bad.shape[1]), inputs["labels"])
+        print(loss_bad.shape, inputs["labels"].shape)
+        loss_bad: torch.Tensor = loss_bad.mean(axis=1)
+        print(loss_bad.shape, inputs["labels"].shape)
 
-        print(loss_bad)
+        print(loss_bad, loss_good)
+        exit()
         # Calculate the final loss
         loss = GAMMA - loss_good + loss_bad
 
