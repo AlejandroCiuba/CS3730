@@ -47,6 +47,7 @@ python finetune_preference.py -m google/mt5-small \
 							  -mtk flan-t5-large_score nllb-200-distilled-600M_score \
 							  -ts 0.3 \
 							  -tb 256 \
+							  -g 1.0 \
 							  -t "English to Spanish" \
 							  -me sacrebleu \
 							  -mk score \

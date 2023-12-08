@@ -26,11 +26,14 @@ import torch
 
 import numpy as np
 import random as rand
-import torch.nn as nn
 
 VERSION = "1.1.0"
 
 class PreferenceTrainer(Seq2SeqTrainer):
+
+    def __init__(self, gamma: float = 1.0, **kwargs):
+        super(**kwargs)
+        self.gamma = gamma
 
     def get_train_dataloader(self) -> DataLoader:
 
@@ -57,33 +60,21 @@ class PreferenceTrainer(Seq2SeqTrainer):
     # Implements a modified hinge loss from the paper https://aclanthology.org/P16-1137.pdf
     def compute_loss(self, model, inputs, return_outputs=False):
 
-        GAMMA = 1.0
-        LOSS = nn.CrossEntropyLoss()
+        GAMMA = self.gamma
 
         # Get the good translation loss
         outputs: Seq2SeqLMOutput = model(inputs["input_ids"], inputs["attention_mask"], inputs["labels"])
         loss_good: torch.Tensor = outputs[0]
-        print(loss_good.shape, inputs["labels"].shape)
-        loss_good: torch.Tensor = LOSS(loss_good.view(-1, loss_good.shape[1]), inputs["labels"])
-        print(loss_good.shape, inputs["labels"].shape)
-        loss_good: torch.Tensor = loss_good.mean(axis=1)
-        print(loss_good.shape, inputs["labels"].shape)
 
         # Get the bad translation loss
         outputs = model(inputs["input_ids"], inputs["attention_mask"], inputs["labels_bad"])
         loss_bad: torch.Tensor = outputs[0]
-        print(loss_bad.shape, inputs["labels"].shape)
-        loss_bad: torch.Tensor = LOSS(loss_bad.view(-1, loss_bad.shape[1]), inputs["labels"])
-        print(loss_bad.shape, inputs["labels"].shape)
-        loss_bad: torch.Tensor = loss_bad.mean(axis=1)
-        print(loss_bad.shape, inputs["labels"].shape)
 
-        print(loss_bad, loss_good)
-        exit()
         # Calculate the final loss
         loss = GAMMA - loss_good + loss_bad
+        loss = loss.where(0.0 < loss, 0.0)
 
-        return (loss, outputs) if loss[0] > 0 else (torch.zeros(loss.shape), outputs)
+        return (loss, outputs) if return_outputs else loss
 
 
 def make_logger(filepath, mixture):
@@ -245,7 +236,7 @@ def make_trainer_mt(model, tokenizer, dataset,
             compute_metrics=compute_metrics,)
 
 def make_trainer_pt(model, tokenizer, dataset,
-                    learning_rate = 4e-5, epochs = 1, batch_size = 8, 
+                    learning_rate = 4e-5, epochs = 1, batch_size = 8, gamma = 1.0,
                     save_at = 0.5, output = "models", metric_name = "bleu", metric_keys=["bleu"]):
     """
     Creates a trainer for the model.
@@ -278,6 +269,7 @@ def make_trainer_pt(model, tokenizer, dataset,
     dc = DataCollatorForSeq2Seq(tokenizer=tokenizer, model=model)
 
     return PreferenceTrainer(
+            gamma=gamma,
             model=model,
             args=args,
             train_dataset=dataset["train"],
@@ -397,7 +389,7 @@ def main(args: argparse.ArgumentParser):
         if args.task_mixture == 0:
 
             trainer_pt = make_trainer_pt(model, tokenizer, dataset=token_set_pt, 
-                                         learning_rate=args.learning_rate, epochs=args.epochs / 2, batch_size=args.batch_size, 
+                                         learning_rate=args.learning_rate, epochs=args.epochs / 2, batch_size=args.batch_size, gamma=args.gamma,
                                          save_at=args.save_at, output=args.output, metric_name=args.metric, metric_keys=args.metric_keys)
 
             logger.info("FINE-TUNING ON HINGE LOSS")
@@ -428,7 +420,7 @@ def main(args: argparse.ArgumentParser):
             trainer_mt.train()
             
             trainer_pt = make_trainer_pt(model, tokenizer, dataset=token_set_pt, 
-                                         learning_rate=args.learning_rate, epochs=args.epochs / 2, batch_size=args.batch_size, 
+                                         learning_rate=args.learning_rate, epochs=args.epochs / 2, batch_size=args.batch_size, gamma=args.gamma, 
                                          save_at=args.save_at, output=args.output, metric_name=args.metric, metric_keys=args.metric_keys)
 
             logger.info("FINE-TUNING ON HINGE LOSS")
@@ -439,7 +431,7 @@ def main(args: argparse.ArgumentParser):
         elif args.task_mixture == 2:
 
             trainer_pt = make_trainer_pt(model, tokenizer, dataset=token_set_pt, 
-                                         learning_rate=args.learning_rate, epochs=args.epochs, batch_size=args.batch_size, 
+                                         learning_rate=args.learning_rate, epochs=args.epochs, batch_size=args.batch_size, gamma=args.gamma,
                                          save_at=args.save_at, output=args.output, metric_name=args.metric, metric_keys=args.metric_keys)
 
 
@@ -572,6 +564,14 @@ def add_args(parser: argparse.ArgumentParser):
         type=int,
         default=32,
         help="batch size for text preprocessing.\n \n",
+    )
+
+    parser.add_argument(
+        "-g",
+        "--gamma",
+        type=float,
+        default=1.0,
+        help="Gamma for the hinge loss.\n \n",
     )
 
     parser.add_argument(
