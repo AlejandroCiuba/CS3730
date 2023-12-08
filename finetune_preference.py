@@ -10,6 +10,7 @@ from transformers import (AutoModelForSeq2SeqLM,
                           Seq2SeqTrainingArguments,
                           Seq2SeqTrainer,
                           pipeline,)
+from transformers.modeling_outputs import Seq2SeqLMOutput
 from tqdm import tqdm
 
 import argparse
@@ -30,20 +31,22 @@ class PreferenceTrainer(Seq2SeqTrainer):
     def compute_loss(self, model, inputs, return_outputs=False):
 
         GAMMA = 1.0
-        ZERO = torch.zeros(1)
+
+        print(inputs)
+        exit()
 
         # Get the good translation loss
-        outputs = model(inputs["input_ids"], inputs["labels"])
-        loss_good = outputs["loss"] if isinstance(outputs, dict) else outputs[0]
+        outputs: Seq2SeqLMOutput = model(inputs["input_ids"], inputs["attention_mask"], inputs["labels"])
+        loss_good = outputs.loss
 
         # Get the bad translation loss
-        outputs = model(inputs["input_ids"], inputs["labels_bad"])
-        loss_bad = outputs["loss"] if isinstance(outputs, dict) else outputs[0]
+        outputs = model(inputs["input_ids"], inputs["attention_mask"], inputs["labels_bad"])
+        loss_bad = outputs.loss
 
         # Calculate the final loss
-        combined_loss = GAMMA - loss_good + loss_bad
+        loss = GAMMA - loss_good + loss_bad
 
-        return (combined_loss, outputs) if combined_loss[0] > 0 else (ZERO, outputs)
+        return (loss, outputs) if loss[0] > 0 else (torch.zeros(loss.shape), outputs)
 
 
 def make_logger(filepath, mixture):
@@ -300,22 +303,30 @@ def main(args: argparse.ArgumentParser):
     else:
         datasetmt = load_from_disk(args.datasetmt[0])
 
+    datasetmt = DatasetDict({'train': datasetmt['train'].select(range(100)),
+                             'test': datasetmt['valid'].select(range(50)),
+                             'valid': datasetmt['valid'].select(range(50)),})
+
     # Load the RT dataset
     datasetpt = load_from_disk(args.datasetpt)
+
+    datasetpt = DatasetDict({'train': datasetpt['train'].select(range(100)),
+                             'test': datasetpt['valid'].select(range(50)),
+                             'valid': datasetpt['valid'].select(range(50)),})
     
     # Make the trainer and train the model
     if args.finetune:
 
         # Make separate tokenized dataset
         token_set_pt = DatasetDict({
-                        'train': datasetpt['train'].map(preprocess_pt, batched=True, batch_size=args.text_batch_size)[:100],
-                        'test': datasetpt['test'].map(preprocess_pt, batched=True, batch_size=args.text_batch_size)[:50],
-                        'valid': datasetpt['valid'].map(preprocess_pt, batched=True, batch_size=args.text_batch_size)[:50],})
+                        'train': datasetpt['train'].map(preprocess_pt, batched=True, batch_size=args.text_batch_size),
+                        'test': datasetpt['test'].map(preprocess_pt, batched=True, batch_size=args.text_batch_size),
+                        'valid': datasetpt['valid'].map(preprocess_pt, batched=True, batch_size=args.text_batch_size),})
 
         token_set_mt = DatasetDict({
-                        'train': datasetmt['train'].map(preprocess_mt, batched=True, batch_size=args.text_batch_size)[:100],
-                        'test': datasetmt['test'].map(preprocess_mt, batched=True, batch_size=args.text_batch_size)[:50],
-                        'valid': datasetmt['valid'].map(preprocess_mt, batched=True, batch_size=args.text_batch_size)[:50],})
+                        'train': datasetmt['train'].map(preprocess_mt, batched=True, batch_size=args.text_batch_size),
+                        'test': datasetmt['test'].map(preprocess_mt, batched=True, batch_size=args.text_batch_size),
+                        'valid': datasetmt['valid'].map(preprocess_mt, batched=True, batch_size=args.text_batch_size),})
         
         if args.task_mixture < 2:
 
