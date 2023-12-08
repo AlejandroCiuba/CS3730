@@ -58,7 +58,7 @@ python finetune_preference.py -m google/mt5-small \
 							  -tm 2 \
 							  -sa 1 \
 							  -x 100 \
-							  -o models/ix_models/preference-$SLURM_ARRAY_TASK_ID \
+							  -o models/ix_models/preference-pretest \
 							  -lo logs
 
 echo "DONE"

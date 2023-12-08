@@ -27,7 +27,7 @@ import torch
 import numpy as np
 import random as rand
 
-VERSION = "1.0.3"
+VERSION = "1.1.0"
 
 class PreferenceTrainer(Seq2SeqTrainer):
 
@@ -41,7 +41,7 @@ class PreferenceTrainer(Seq2SeqTrainer):
 
         dataloader_params = {
             "batch_size": self._train_batch_size,
-            #"collate_fn": data_collator,
+            "collate_fn": data_collator,
             "num_workers": self.args.dataloader_num_workers,
             "pin_memory": self.args.dataloader_pin_memory,
         }
@@ -57,9 +57,6 @@ class PreferenceTrainer(Seq2SeqTrainer):
     def compute_loss(self, model, inputs, return_outputs=False):
 
         GAMMA = 1.0
-
-        print(inputs)
-        exit()
 
         # Get the good translation loss
         outputs: Seq2SeqLMOutput = model(inputs["input_ids"], inputs["attention_mask"], inputs["labels"])
@@ -271,7 +268,7 @@ def make_trainer_pt(model, tokenizer, dataset,
             args=args,
             train_dataset=dataset["train"],
             eval_dataset=dataset["valid"],
-            #data_collator=dc,
+            data_collator=dc,
             tokenizer=tokenizer,
             compute_metrics=compute_metrics,)
 
@@ -343,16 +340,20 @@ def main(args: argparse.ArgumentParser):
     # Make the trainer and train the model
     if args.finetune:
 
+        # Get the column names for the two datasets so we can remove everything that isn't numbers
+        names_pt = datasetpt["train"].column_names
+        names_mt = datasetmt["train"].column_names
+
         # Make separate tokenized dataset
         token_set_pt = DatasetDict({
-                        'train': datasetpt['train'].map(preprocess_pt, batched=True, batch_size=args.text_batch_size),
-                        'test': datasetpt['test'].map(preprocess_pt, batched=True, batch_size=args.text_batch_size),
-                        'valid': datasetpt['valid'].map(preprocess_pt, batched=True, batch_size=args.text_batch_size),})
+                        'train': datasetpt['train'].map(preprocess_pt, batched=True, batch_size=args.text_batch_size).remove_columns(names_pt),
+                        'test': datasetpt['test'].map(preprocess_pt, batched=True, batch_size=args.text_batch_size).remove_columns(names_pt),
+                        'valid': datasetpt['valid'].map(preprocess_pt, batched=True, batch_size=args.text_batch_size).remove_columns(names_pt),})
 
         token_set_mt = DatasetDict({
-                        'train': datasetmt['train'].map(preprocess_mt, batched=True, batch_size=args.text_batch_size),
-                        'test': datasetmt['test'].map(preprocess_mt, batched=True, batch_size=args.text_batch_size),
-                        'valid': datasetmt['valid'].map(preprocess_mt, batched=True, batch_size=args.text_batch_size),})
+                        'train': datasetmt['train'].map(preprocess_mt, batched=True, batch_size=args.text_batch_size).remove_columns(names_mt),
+                        'test': datasetmt['test'].map(preprocess_mt, batched=True, batch_size=args.text_batch_size).remove_columns(names_mt),
+                        'valid': datasetmt['valid'].map(preprocess_mt, batched=True, batch_size=args.text_batch_size).remove_columns(names_mt),})
         
         if args.task_mixture < 2:
 
