@@ -4,6 +4,10 @@ from datasets import (combine,
                       load_dataset,
                       load_from_disk,)
 from pathlib import Path
+from torch.utils.data import (DataLoader,
+                              Dataset,
+                              IterableDataset,)
+from tqdm import tqdm
 from transformers import (AutoModelForSeq2SeqLM, 
                           AutoTokenizer, 
                           DataCollatorForSeq2Seq,
@@ -11,7 +15,7 @@ from transformers import (AutoModelForSeq2SeqLM,
                           Seq2SeqTrainer,
                           pipeline,)
 from transformers.modeling_outputs import Seq2SeqLMOutput
-from tqdm import tqdm
+from transformers.trainer_utils import seed_worker
 
 import argparse
 import evaluate
@@ -26,6 +30,28 @@ import random as rand
 VERSION = "1.0.3"
 
 class PreferenceTrainer(Seq2SeqTrainer):
+
+    def get_train_dataloader(self) -> DataLoader:
+
+        if self.train_dataset is None:
+            raise ValueError("Trainer: training requires a train_dataset.")
+
+        train_dataset = self.train_dataset
+        data_collator = self.data_collator
+
+        dataloader_params = {
+            "batch_size": self._train_batch_size,
+            #"collate_fn": data_collator,
+            "num_workers": self.args.dataloader_num_workers,
+            "pin_memory": self.args.dataloader_pin_memory,
+        }
+
+        if not isinstance(train_dataset, IterableDataset):
+            dataloader_params["sampler"] = self._get_train_sampler()
+            dataloader_params["drop_last"] = self.args.dataloader_drop_last
+            dataloader_params["worker_init_fn"] = seed_worker
+
+        return self.accelerator.prepare(DataLoader(train_dataset, **dataloader_params))
 
     # Implements a modified hinge loss from the paper https://aclanthology.org/P16-1137.pdf
     def compute_loss(self, model, inputs, return_outputs=False):
@@ -245,7 +271,7 @@ def make_trainer_pt(model, tokenizer, dataset,
             args=args,
             train_dataset=dataset["train"],
             eval_dataset=dataset["valid"],
-            data_collator=dc,
+            #data_collator=dc,
             tokenizer=tokenizer,
             compute_metrics=compute_metrics,)
 
@@ -406,7 +432,7 @@ def main(args: argparse.ArgumentParser):
             trainer_pt.train()
 
             trainer_mt = make_trainer_mt(model, tokenizer, dataset=token_set_mt, 
-                                         learning_rate=args.learning_rate, epochs=args.epochs / 2, batch_size=args.batch_size, 
+                                         learning_rate=args.learning_rate, epochs=args.epochs, batch_size=args.batch_size, 
                                          save_at=args.save_at, output=args.output, metric_name=args.metric, metric_keys=args.metric_keys)
 
         try:
