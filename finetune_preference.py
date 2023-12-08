@@ -23,6 +23,7 @@ import logging
 import os
 import tensorboard
 import torch
+import torch.nn
 
 import numpy as np
 import random as rand
@@ -60,12 +61,13 @@ class PreferenceTrainer(Seq2SeqTrainer):
 
         # Get the good translation loss
         outputs: Seq2SeqLMOutput = model(inputs["input_ids"], inputs["attention_mask"], inputs["labels"])
-        loss_good = outputs.loss
+        loss_good = outputs.loss["logits"]
 
         # Get the bad translation loss
         outputs = model(inputs["input_ids"], inputs["attention_mask"], inputs["labels_bad"])
-        loss_bad = outputs.loss
+        loss_bad = outputs.loss["logits"]
 
+        print(loss_bad)
         # Calculate the final loss
         loss = GAMMA - loss_good + loss_bad
 
