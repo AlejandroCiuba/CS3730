@@ -28,7 +28,7 @@ import numpy as np
 import random as rand
 import torch.nn as nn
 
-VERSION = "1.1.7"
+VERSION = "1.1.9"
 
 class PreferenceTrainer(Seq2SeqTrainer):
 
@@ -63,7 +63,6 @@ class PreferenceTrainer(Seq2SeqTrainer):
 
         GAMMA = self.gamma
         LOSS_FUNC = nn.CrossEntropyLoss()
-        print(GAMMA)
 
         # Get the good translation loss
         outputs: Seq2SeqLMOutput = model(inputs["input_ids"], inputs["attention_mask"], inputs["labels"])

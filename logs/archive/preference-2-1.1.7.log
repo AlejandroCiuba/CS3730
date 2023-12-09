@@ -1,0 +1,436 @@
+VERSION 1.1.7 : 2023-12-08 19:27:44 : ===================== RUN =====================
+VERSION 1.1.7 : 2023-12-08 19:27:45 : MODEL: google/mt5-small on cuda
+VERSION 1.1.7 : 2023-12-08 19:27:51 : MACHINE TRANSLATION TASK: English to Spanish
+VERSION 1.1.7 : 2023-12-08 19:27:51 : MACHINE TRANSLATION DATASET(S): datasets/ix_datasets/opus
+VERSION 1.1.7 : 2023-12-08 19:28:06 : HYPERPARAMETERS (HINGE LOSS TRAINING):
+VERSION 1.1.7 : 2023-12-08 19:28:06 : 	EPOCHS: 2
+VERSION 1.1.7 : 2023-12-08 19:28:06 : 	BATCH SIZE: 16
+VERSION 1.1.7 : 2023-12-08 19:28:06 : 	LEARNING RATE: 4e-05
+VERSION 1.1.7 : 2023-12-08 19:28:06 : 	HINGE GAMMA: 1
+VERSION 1.1.7 : 2023-12-08 19:28:06 : 	TRAINING SIZE: 100
+VERSION 1.1.7 : 2023-12-08 19:28:06 : 	VALIDATION SIZE: 50
+VERSION 1.1.7 : 2023-12-08 19:28:06 : 	TESTING SIZE: 50
+VERSION 1.1.7 : 2023-12-08 19:28:06 : 	EVALUATION METRIC: sacrebleu using score
+VERSION 1.1.7 : 2023-12-08 19:28:08 : FINE-TUNING ON HINGE LOSS
+VERSION 1.1.7 : 2023-12-08 19:29:10 : POST-EVALUATION MACHINE TRANSLATION (TEST): {'eval_loss': 58.19736862182617, 'eval_sacrebleu_score': 0.01979100008284194, 'eval_runtime': 0.6867, 'eval_samples_per_second': 72.817, 'eval_steps_per_second': 5.825}
+VERSION 1.1.7 : 2023-12-08 19:29:10 : SAVE LOCATION: 1.0
+VERSION 1.1.7 : 2023-12-08 19:29:10 : MACHINE TRANSLATION SAMPLES:
+VERSION 1.1.7 : 2023-12-08 19:29:10 : TRANSLATION 0 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:29:10 : 	Original Text: Martín Lousteau (born December 8, 1970) was the Minister of Economy and Production of Argentina under the administration of President Cristina Fernández de Kirchner, from December 10, 2007, until April 24, 2008.
+VERSION 1.1.7 : 2023-12-08 19:29:10 : 	Generated Translation: <extra_id_0>.
+VERSION 1.1.7 : 2023-12-08 19:29:10 : 	Actual Translation: Martín Lousteau (n. Buenos Aires, Argentina, 8 de diciembre de 1970) es un economista y político argentino, que se desempeño como Ministro de Economía de Argentina, desde el 10 de diciembre de 2007 hasta el 24 de abril de 2008.
+VERSION 1.1.7 : 2023-12-08 19:29:10 : TRANSLATION 1 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:29:10 : 	Original Text: Forel was able to combine the "dynamic approach" of French psychiatry with the biological orientation of the German school of psychiatric thought.
+VERSION 1.1.7 : 2023-12-08 19:29:10 : 	Generated Translation: <extra_id_0>.
+VERSION 1.1.7 : 2023-12-08 19:29:10 : 	Actual Translation: Forel fue capaz de combinar "el acercamiento dinámico" de la psiquiatría francesa con la orientación biológica del pensamiento psiquiátrico de la escuela alemana.
+VERSION 1.1.7 : 2023-12-08 19:29:10 : TRANSLATION 2 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:29:10 : 	Original Text: Howard Browne, who had been on a leave of absence from Ziff-Davis to write fiction, took over as editor and began by throwing away 300,000 words of inventory that Palmer had acquired before he left.
+VERSION 1.1.7 : 2023-12-08 19:29:10 : 	Generated Translation: <extra_id_0>.
+VERSION 1.1.7 : 2023-12-08 19:29:10 : 	Actual Translation: Howard Browne, quien se había ausentado de Ziff-Davis para escribir ficción, asumió el cargo de editor y comenzó desechando alrededor de 300 000 palabras del inventario que Palmer había adquirido antes de renunciar.
+VERSION 1.1.7 : 2023-12-08 19:29:10 : TRANSLATION 3 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:29:10 : 	Original Text: ==History==The club was established on 10 May 1930, and was initially named Selmashstroy (Сельмашстрой).
+VERSION 1.1.7 : 2023-12-08 19:29:10 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:29:10 : 	Actual Translation: ==Historia==El club fue fundado el 10 de mayo de 1930 y fue nombrado inicialmente Selmashstroy (Сельмашстрой).
+VERSION 1.1.7 : 2023-12-08 19:29:10 : TRANSLATION 4 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:29:10 : 	Original Text: In the first half of the 20th century, the parish lost many members, as residential neighborhoods were torn down to develop banks and department stores in the city center.
+VERSION 1.1.7 : 2023-12-08 19:29:10 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:29:10 : 	Actual Translation: En la primera mitad del siglo XX, la parroquia perdió muchos miembros, ya que loscercanos barrios residenciales fueron derribados para desarrollar bancos y grandes almacenes en el centro de la ciudad.
+VERSION 1.1.7 : 2023-12-08 19:29:10 : TRANSLATION 5 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:29:10 : 	Original Text: There were 5,906 housing units at an average density of 17 per square mile (7/km²).
+VERSION 1.1.7 : 2023-12-08 19:29:10 : 	Generated Translation: <extra_id_0> units
+VERSION 1.1.7 : 2023-12-08 19:29:10 : 	Actual Translation: Hay 5.906 unidades habitacionales con una densidad promedio de 7 u.a./km² (17 u.a./mi²).
+VERSION 1.1.7 : 2023-12-08 19:29:10 : TRANSLATION 6 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:29:10 : 	Original Text: __NOTOC__Year 5 (V) was a common year starting on Thursday (link will display the full calendar) of the Julian calendar.
+VERSION 1.1.7 : 2023-12-08 19:29:10 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:29:10 : 	Actual Translation: 5 (V) fue un año común comenzado en jueves según el calendario juliano, en vigor en aquella fecha.
+VERSION 1.1.7 : 2023-12-08 19:29:10 : TRANSLATION 7 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:29:10 : 	Original Text: Brown was the President of the Boston Athletic Association from 1941 to 1964.
+VERSION 1.1.7 : 2023-12-08 19:29:10 : 	Generated Translation: <extra_id_0>.
+VERSION 1.1.7 : 2023-12-08 19:29:10 : 	Actual Translation: Brown fue el Presidente de la Boston Athletic Association desde 1941 hasta 1964.
+VERSION 1.1.7 : 2023-12-08 19:29:10 : TRANSLATION 8 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:29:10 : 	Original Text: From 9 to 25 January 2003, the Manitoba Theatre Centre, in Manitoba, Canada, held a nearly month-long "PinterFest", in which over 130 performances of twelve of Pinter's plays were performed by a dozen different theatre companies.
+VERSION 1.1.7 : 2023-12-08 19:29:10 : 	Generated Translation: <extra_id_0>.
+VERSION 1.1.7 : 2023-12-08 19:29:10 : 	Actual Translation: Del 9 a 25 enero de 2003, el Manitoba Theatre Centre, en Manitoba, Canadá, celebró una "PinterFest" en la cual una docena de compañías de teatro realizaron más de 130 actuaciones de doce de las obras de Pinter.
+VERSION 1.1.7 : 2023-12-08 19:29:10 : TRANSLATION 9 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:29:10 : 	Original Text: Paris Saint-Germain became champions for the first time in their history with 56 points.
+VERSION 1.1.7 : 2023-12-08 19:29:10 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:29:10 : 	Actual Translation: Paris Saint-Germain FC resultó campeón con 55 puntos, obteniendo su primer título.
+VERSION 1.1.7 : 2023-12-08 19:29:10 : TRANSLATION 10 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:29:10 : 	Original Text: == History ==The history of Böttcherstraße goes back to the Middle Ages.
+VERSION 1.1.7 : 2023-12-08 19:29:10 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:29:10 : 	Actual Translation: == Historia ==La Historia de la Böttcherstraße se rastrea hasta la edad media.
+VERSION 1.1.7 : 2023-12-08 19:29:10 : TRANSLATION 11 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:29:10 : 	Original Text: In radio communication the goal is the transmission of information, so the amount of power reaching the receiver is unimportant as long as it is enough that the signal to noise ratio is high enough that the information can be received intelligibly.
+VERSION 1.1.7 : 2023-12-08 19:29:10 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:29:10 : 	Actual Translation: En las radiocomunicaciones el objetivo es la transmisión de información, por lo tanto, la cantidad de energía que llega al receptor no es tan importante mientras sea suficiente para que la relación señal/ruido sean tan alta como para que la información pueda ser recibida inteligiblemente.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : TRANSLATION 12 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Original Text: : In the TV series, Akane works as a model and appears in clothing advertisements throughout the city.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Generated Translation: <extra_id_0>.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Actual Translation: ): En la serie de TV, Akane trabaja como modelo y aparece en anuncios de ropa que se pueden ver por la ciudad.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : TRANSLATION 13 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Original Text: The National Roman Museum (in Italian: Museo Nazionale Romano) is a museum, with several branches in separate buildings throughout the city of Rome, Italy.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Generated Translation: <extra_id_0>.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Actual Translation: El Museo Nacional Romano (Museo Nazionale Romano en italiano es un conjunto de museos en Roma (Italia), dividido en varios lugares de la ciudad.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : TRANSLATION 14 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Original Text: The average household size was 2.32 and the average family size was 2.89.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Actual Translation: El tamaño promedio de los hogares era de 2,32 personas y el de las familias de 2,89.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : TRANSLATION 15 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Original Text: It is also very involved in the case of Troy Davis, leading sometimes even T-shirts with the message "I am Troy Davis" during his tour in the United States.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Actual Translation: También está muy involucrado en el caso de Troy Davis, llevando incluso a veces camisetas con el mensaje "I am Troy Davis" durante su gira en los Estados Unidos.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : TRANSLATION 16 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Original Text: Michiru also appears in the all-ages spin-off game titled "Idol Mahō Shōjo Chiru Chiru☆Michiru" as main character.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Actual Translation: Michiru también aparece en el spin-off del juego titulado Mahō Shōjo Chiru Chiru Michiru ☆ como personaje principal.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : TRANSLATION 17 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Original Text: The chemical element of each atom is often indicated by the sphere's color.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Actual Translation: A menudo el elemento químico de cada átomo es representado por diferentes colores de de esfera.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : TRANSLATION 18 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Original Text: He fleshed it out with reading keys and concrete proposals for a counter-offensive.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Generated Translation: <extra_id_0>.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Actual Translation: Pero aporta también claves de lectura y propuestas concretas para una contraofensiva.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : TRANSLATION 19 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Original Text: * Aurora Cáceres: Peruvian feminist writer, daughter of the former President of Perú general Andrés Avelino Cáceres.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Generated Translation: <extra_id_0>.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Actual Translation: * Aurora Cáceres: escritora feminista peruana, hija del expresidente peruano general Andrés Avelino Cáceres.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : TRANSLATION 20 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Original Text: The majority of this population (20,200) is from Mauritania.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Actual Translation: La mayoría de esta población (20.200) provenía de Mauritania.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : TRANSLATION 21 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Original Text: Popular dive sites include Coconut Point, Mamsa, Cogon, Rockpoint and Chapel.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Actual Translation: Lugares de buceo incluyen Punto de Cocos, Mamsa, Cogon, Rockpoint y Chapel.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : TRANSLATION 22 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Original Text: Since 2004, Eurostat publishes annual statistics called Healthy Life Years (HLY) based on reported activity limitations.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Actual Translation: Desde 2004, Eurostat publica estadísticas anuales llamadas "Healthy Life Years" (HLY) basado en reportes.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : TRANSLATION 23 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Original Text: On a trip to New York in 1896, Barrie attended a performance of "Rosemary" and at once decided that Adams was the actress to play Lady Babbie.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Actual Translation: En un viaje a Nueva York en 1896, Barrie asistió a una función de "Rosemary" y de inmediato decidió que Adams fuera la actriz que interpretara a Lady Babbie.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : TRANSLATION 24 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Original Text: Among his most recent film appearances were as the protagonist of ("No somos nadie") and has worked with directors like Guillermo del Toro ("El espinazo del diablo"), María Ripoll ("Utopía") and Manuel Huerga ("Salvador").
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Generated Translation: <extra_id_0>.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Actual Translation: Entre sus últimas apariciones en cine lo hemos visto como protagonista de la "opera prima" de Jordi Mollá como director (No somos nadie) y ha trabajado a las órdenes de directores como Guillermo del Toro (El espinazo del diablo), María Ripoll ("Utopía") o Manuel Huerga (Salvador).
+VERSION 1.1.7 : 2023-12-08 19:29:11 : TRANSLATION 25 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Original Text: They posted an advertisement in the local music publication in Chicago, Illinois, called the "Illinois Entertainer".
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Actual Translation: Pusieron un anuncio en la publicación de música local en Chicago, Illinois, llamado el "Artista de Illinois".
+VERSION 1.1.7 : 2023-12-08 19:29:11 : TRANSLATION 26 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Original Text: If Daigorō chose the ball, his father would kill him, sending Daigorō to be with his mother; however, the child crawls toward the sword and reaches for its hilt.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Actual Translation: Si Daigorō elegía la pelota, su padre lo hubiera matado, enviándolo con su difunta madre; sin embargo, el niño gateó hacia la espada.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : TRANSLATION 27 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Original Text: ==Commercial performance==The album debuted at number one on the U.S. "Billboard" 200 chart and sold 286,000 copies in its first week.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Generated Translation: <extra_id_0>.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Actual Translation: == Recepción ===== Rendimiento comercial ===El álbum debutó en el número uno en "Billboard 200" y vendió 286,000 copias en su primer semana.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : TRANSLATION 28 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Original Text: The crew consisted of 200 men which included the Captain, ten dignitaries who may have been commanders, several archers, a few soldiers, and 170 oarsmen.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Actual Translation: La tripulación consistía en 200 hombres, incluyendo capitán, diez dignatarios que podían haber sido comandantes, muchos arqueros, unos cuantos soldados y 170 remeros.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : TRANSLATION 29 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Original Text: As Commander Garan (Garrett Wang) and his security officers take them to the conference room, Curate Prime (Daamen Krall) has a few "last words" with Kittrick before his impending execution, before ordering Garan to the bridge.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Generated Translation: <extra_id_0>.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Actual Translation: Como Comandante Garan ( Garrett Wang ) y sus agentes de seguridad los llevan a la sala de conferencias, Curate Prime (Daamen Krall) tiene algunos "últimas palabras" con Kittrick antes de su ejecución inminente, antes de ordenar Garan al puente.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : TRANSLATION 30 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Original Text: The Christian Social Party (, CSP) was a right-wing political party in the German Empire, founded in 1878 by Adolf Stoecker as the "Christlichsoziale Arbeiterpartei" (Christian Social Workers' Party).
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Generated Translation: <extra_id_0>.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Actual Translation: El Partido Social Cristiano (alemán: "Christlich-soziale Partei", CSP) fue un partido político derechista en el imperio alemán, fundado en 1878 por Adolf Stoecker como "Christlichsoziale Arbeiterpartei" (Partido Social Cristiano de los Trabajadores).
+VERSION 1.1.7 : 2023-12-08 19:29:11 : TRANSLATION 31 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Original Text: From 1976, he studied on a scholarship in Vienna.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Actual Translation: Desde 1976 estudió con una beca en Viena.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : TRANSLATION 32 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Original Text: Weber's insistence on the importance of domination and symbolic systems in social life was retained by Pierre Bourdieu, who developed the idea of social orders, ultimately transforming it into a theory of fields.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Actual Translation: La insistencia de Max Weber en la importancia de la dominación y los sistemas simbólicos en la vida social ha sido continuada por Pierre Bourdieu, que desarrolló la idea de los órdenes sociales, transformándola por último en una teoría de campos.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : TRANSLATION 33 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Original Text: It is considered a delicacy in Iceland and Greenland.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Actual Translation: En Groenlandia e Islandia es considerado una exquisitez.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : TRANSLATION 34 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Original Text: As a result, he was overthrown and assassinated in a "coup d'état" led by the French-backed Blaise Compaoré on October 15, 1987.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Actual Translation: Como resultado, fue derrocado y asesinado en un golpe de estado liderado por Blaise Compaoré que era respaldado por los franceses el 15 de octubre de 1987.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : TRANSLATION 35 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Original Text: The per capita income for the county was $16,884.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Generated Translation: <extra_id_0>.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Actual Translation: El ingreso per cápita para el condado era de $16,884.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : TRANSLATION 36 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Original Text: In 1964, Jules Romains was named citizen of honor of Saint-Avertin.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Actual Translation: En 1964, fue nombrado ciudadano de honor de Saint-Avertin.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : TRANSLATION 37 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Original Text: Cartwright graduated from high school in 1976 and accepted a scholarship from Ohio University.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Generated Translation: <extra_id_0>.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Actual Translation: Nancy se graduó de la escuela en 1976 y aceptó una beca para la Universidad de Ohio.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : TRANSLATION 38 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Original Text: The game arrived on the Wii Virtual Console in Europe on July 20, 2007, in North America on August 13, 2007, and in Japan on March 4, 2008.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Actual Translation: El juego también fue lanzado para la Consola Virtual de la Wii, el 20 de julio de 2007 para Europa, el 13 de agosto del mismo año para América y el 4 de marzo de 2008 en Japón.
+VERSION 1.1.7 : 2023-12-08 19:29:11 : TRANSLATION 39 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Original Text: During fall 2010, Tacita Dean produced a film on Twombly, titled "Edwin Parker".
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:29:11 : 	Actual Translation: Durante el otoño de 2010, Tacita Dean produjo un filme acerca de Twombly, titulado "Edwin Parker".
+VERSION 1.1.7 : 2023-12-08 19:29:12 : TRANSLATION 40 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:29:12 : 	Original Text: Tawara was born in Ōita Prefecture and studied at the Medical School, Imperial University of Tokyo in Tokyo, graduating in 1901 and receiving his Doctorate of Medical Science in 1908.
+VERSION 1.1.7 : 2023-12-08 19:29:12 : 	Generated Translation: <extra_id_0>.
+VERSION 1.1.7 : 2023-12-08 19:29:12 : 	Actual Translation: == Biografía ==Tawara estudió medicina en la Facultad de Medicina de la Universidad de Tokio, en donde se graduó en 1901 y en 1908 obtuvo un doctorado en Ciencias Médicas.
+VERSION 1.1.7 : 2023-12-08 19:29:12 : TRANSLATION 41 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:29:12 : 	Original Text: [http://www.insects.demon.co.uk/bullsn/bull-4.html]* Späth, M. (1999), Pt.
+VERSION 1.1.7 : 2023-12-08 19:29:12 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:29:12 : 	Actual Translation: [http://web.archive.org/web/http://www.insects.demon.co.uk/bullsn/bull-4.html]* Späth, M. (1999), Pt.
+VERSION 1.1.7 : 2023-12-08 19:29:12 : TRANSLATION 42 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:29:12 : 	Original Text: The cake was first served at the Demel and later at the Hotel Sacher, established by Eduard in 1876.
+VERSION 1.1.7 : 2023-12-08 19:29:12 : 	Generated Translation: <extra_id_0>.
+VERSION 1.1.7 : 2023-12-08 19:29:12 : 	Actual Translation: Eduard, el hijo mayor de Franz Sacher, fue aprendiz de repostero en la confitería vienesa Demel.
+VERSION 1.1.7 : 2023-12-08 19:29:12 : TRANSLATION 43 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:29:12 : 	Original Text: The pedestal is by Corgolin.
+VERSION 1.1.7 : 2023-12-08 19:29:12 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:29:12 : 	Actual Translation: El pedestal es de Corgolin.
+VERSION 1.1.7 : 2023-12-08 19:29:12 : TRANSLATION 44 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:29:12 : 	Original Text: The group's largest business area is highway management, in which it is the largest concessionaire in its home country.
+VERSION 1.1.7 : 2023-12-08 19:29:12 : 	Generated Translation: <extra_id_0>.
+VERSION 1.1.7 : 2023-12-08 19:29:12 : 	Actual Translation: La mayor área de negocio del grupo es la gestión de autopistas, del que es el primer concesionario en el país.
+VERSION 1.1.7 : 2023-12-08 19:29:12 : TRANSLATION 45 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:29:12 : 	Original Text: Being adept in both academic representational style and modern abstract, he has utilized almost all kinds of materials from hard wood ("molave", "acacia", "langka" wood, "ipil", "kamagong", palm wood and bamboo) to adobe, metal, stainless steel, cement, marble, bronze, iron, alabaster, coral and brass.
+VERSION 1.1.7 : 2023-12-08 19:29:12 : 	Generated Translation: <extra_id_0>.
+VERSION 1.1.7 : 2023-12-08 19:29:12 : 	Actual Translation: Al ser tan hábil tanto en representaciones de estilo académico y abstracto moderno, ha utilizado casi todo tipo de materiales de madera dura (molave, acacia, madera de Langka, ipil, kamagong, madera de palma y bambú) así como de adobe, metal, acero inoxidable, cemento, mármol, bronce, hierro, alabastro, coral y latón.
+VERSION 1.1.7 : 2023-12-08 19:29:12 : TRANSLATION 46 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:29:12 : 	Original Text: The flowers show a column with a unique shieldlike staminode.
+VERSION 1.1.7 : 2023-12-08 19:29:12 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:29:12 : 	Actual Translation: Las flores presentan una columna con un solo estaminodio como un escudo.
+VERSION 1.1.7 : 2023-12-08 19:29:12 : TRANSLATION 47 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:29:12 : 	Original Text: The district capital lies at the city of Tokmok.
+VERSION 1.1.7 : 2023-12-08 19:29:12 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:29:12 : 	Actual Translation: Tiene como capital la ciudad de Chuy.
+VERSION 1.1.7 : 2023-12-08 19:29:12 : TRANSLATION 48 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:29:12 : 	Original Text: 'You will tell Matthew to do something that cannot be done and will go away yourself, and he will muddle everything,' and as she spoke her usual ironical smile wrinkled the corners of Dolly's mouth.
+VERSION 1.1.7 : 2023-12-08 19:29:12 : 	Generated Translation: <extra_id_0>.
+VERSION 1.1.7 : 2023-12-08 19:29:12 : 	Actual Translation: Y una sonrisa irónica plegó, como de costumbre, las comisuras de sus labios. «La reconciliación es completa» , pensó ahora Ana.
+VERSION 1.1.7 : 2023-12-08 19:29:12 : TRANSLATION 49 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:29:12 : 	Original Text: In 1989, Townshend began work on a novel entitled "Ray High & The Glass Household", a draft of which was later submitted to his editor.
+VERSION 1.1.7 : 2023-12-08 19:29:12 : 	Generated Translation: <extra_id_0>.
+VERSION 1.1.7 : 2023-12-08 19:29:12 : 	Actual Translation: En 1989, Townshend comenzó a trabajar en una novela titulada "Ray High & The Glass Household", cuyo borrador fue más tarde enviado a su editor.
+VERSION 1.1.7 : 2023-12-08 19:29:12 : RUN COMPLETED
+VERSION 1.1.7 : 2023-12-08 19:40:34 : ===================== RUN =====================
+VERSION 1.1.7 : 2023-12-08 19:40:34 : MODEL: google/mt5-small on cuda
+VERSION 1.1.7 : 2023-12-08 19:40:48 : MACHINE TRANSLATION TASK: English to Spanish
+VERSION 1.1.7 : 2023-12-08 19:40:48 : MACHINE TRANSLATION DATASET(S): datasets/ix_datasets/opus
+VERSION 1.1.7 : 2023-12-08 19:40:58 : HYPERPARAMETERS (HINGE LOSS TRAINING):
+VERSION 1.1.7 : 2023-12-08 19:40:58 : 	EPOCHS: 2
+VERSION 1.1.7 : 2023-12-08 19:40:58 : 	BATCH SIZE: 16
+VERSION 1.1.7 : 2023-12-08 19:40:58 : 	LEARNING RATE: 4e-05
+VERSION 1.1.7 : 2023-12-08 19:40:58 : 	HINGE GAMMA: 1
+VERSION 1.1.7 : 2023-12-08 19:40:58 : 	TRAINING SIZE: 100
+VERSION 1.1.7 : 2023-12-08 19:40:58 : 	VALIDATION SIZE: 50
+VERSION 1.1.7 : 2023-12-08 19:40:58 : 	TESTING SIZE: 50
+VERSION 1.1.7 : 2023-12-08 19:40:58 : 	EVALUATION METRIC: sacrebleu using score
+VERSION 1.1.7 : 2023-12-08 19:41:00 : FINE-TUNING ON HINGE LOSS
+VERSION 1.1.7 : 2023-12-08 19:41:55 : POST-EVALUATION MACHINE TRANSLATION (TEST): {'eval_loss': 58.19736862182617, 'eval_sacrebleu_score': 0.01979100008284194, 'eval_runtime': 0.6274, 'eval_samples_per_second': 79.692, 'eval_steps_per_second': 6.375}
+VERSION 1.1.7 : 2023-12-08 19:41:55 : SAVE LOCATION: 1.0
+VERSION 1.1.7 : 2023-12-08 19:41:55 : MACHINE TRANSLATION SAMPLES:
+VERSION 1.1.7 : 2023-12-08 19:41:55 : TRANSLATION 0 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:41:55 : 	Original Text: Martín Lousteau (born December 8, 1970) was the Minister of Economy and Production of Argentina under the administration of President Cristina Fernández de Kirchner, from December 10, 2007, until April 24, 2008.
+VERSION 1.1.7 : 2023-12-08 19:41:55 : 	Generated Translation: <extra_id_0>.
+VERSION 1.1.7 : 2023-12-08 19:41:55 : 	Actual Translation: Martín Lousteau (n. Buenos Aires, Argentina, 8 de diciembre de 1970) es un economista y político argentino, que se desempeño como Ministro de Economía de Argentina, desde el 10 de diciembre de 2007 hasta el 24 de abril de 2008.
+VERSION 1.1.7 : 2023-12-08 19:41:55 : TRANSLATION 1 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:41:55 : 	Original Text: Forel was able to combine the "dynamic approach" of French psychiatry with the biological orientation of the German school of psychiatric thought.
+VERSION 1.1.7 : 2023-12-08 19:41:55 : 	Generated Translation: <extra_id_0>.
+VERSION 1.1.7 : 2023-12-08 19:41:55 : 	Actual Translation: Forel fue capaz de combinar "el acercamiento dinámico" de la psiquiatría francesa con la orientación biológica del pensamiento psiquiátrico de la escuela alemana.
+VERSION 1.1.7 : 2023-12-08 19:41:55 : TRANSLATION 2 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:41:55 : 	Original Text: Howard Browne, who had been on a leave of absence from Ziff-Davis to write fiction, took over as editor and began by throwing away 300,000 words of inventory that Palmer had acquired before he left.
+VERSION 1.1.7 : 2023-12-08 19:41:55 : 	Generated Translation: <extra_id_0>.
+VERSION 1.1.7 : 2023-12-08 19:41:55 : 	Actual Translation: Howard Browne, quien se había ausentado de Ziff-Davis para escribir ficción, asumió el cargo de editor y comenzó desechando alrededor de 300 000 palabras del inventario que Palmer había adquirido antes de renunciar.
+VERSION 1.1.7 : 2023-12-08 19:41:55 : TRANSLATION 3 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:41:55 : 	Original Text: ==History==The club was established on 10 May 1930, and was initially named Selmashstroy (Сельмашстрой).
+VERSION 1.1.7 : 2023-12-08 19:41:55 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:41:55 : 	Actual Translation: ==Historia==El club fue fundado el 10 de mayo de 1930 y fue nombrado inicialmente Selmashstroy (Сельмашстрой).
+VERSION 1.1.7 : 2023-12-08 19:41:55 : TRANSLATION 4 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:41:55 : 	Original Text: In the first half of the 20th century, the parish lost many members, as residential neighborhoods were torn down to develop banks and department stores in the city center.
+VERSION 1.1.7 : 2023-12-08 19:41:55 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:41:55 : 	Actual Translation: En la primera mitad del siglo XX, la parroquia perdió muchos miembros, ya que loscercanos barrios residenciales fueron derribados para desarrollar bancos y grandes almacenes en el centro de la ciudad.
+VERSION 1.1.7 : 2023-12-08 19:41:55 : TRANSLATION 5 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:41:55 : 	Original Text: There were 5,906 housing units at an average density of 17 per square mile (7/km²).
+VERSION 1.1.7 : 2023-12-08 19:41:55 : 	Generated Translation: <extra_id_0> units
+VERSION 1.1.7 : 2023-12-08 19:41:55 : 	Actual Translation: Hay 5.906 unidades habitacionales con una densidad promedio de 7 u.a./km² (17 u.a./mi²).
+VERSION 1.1.7 : 2023-12-08 19:41:55 : TRANSLATION 6 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:41:55 : 	Original Text: __NOTOC__Year 5 (V) was a common year starting on Thursday (link will display the full calendar) of the Julian calendar.
+VERSION 1.1.7 : 2023-12-08 19:41:55 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:41:55 : 	Actual Translation: 5 (V) fue un año común comenzado en jueves según el calendario juliano, en vigor en aquella fecha.
+VERSION 1.1.7 : 2023-12-08 19:41:55 : TRANSLATION 7 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:41:55 : 	Original Text: Brown was the President of the Boston Athletic Association from 1941 to 1964.
+VERSION 1.1.7 : 2023-12-08 19:41:55 : 	Generated Translation: <extra_id_0>.
+VERSION 1.1.7 : 2023-12-08 19:41:55 : 	Actual Translation: Brown fue el Presidente de la Boston Athletic Association desde 1941 hasta 1964.
+VERSION 1.1.7 : 2023-12-08 19:41:55 : TRANSLATION 8 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:41:55 : 	Original Text: From 9 to 25 January 2003, the Manitoba Theatre Centre, in Manitoba, Canada, held a nearly month-long "PinterFest", in which over 130 performances of twelve of Pinter's plays were performed by a dozen different theatre companies.
+VERSION 1.1.7 : 2023-12-08 19:41:55 : 	Generated Translation: <extra_id_0>.
+VERSION 1.1.7 : 2023-12-08 19:41:55 : 	Actual Translation: Del 9 a 25 enero de 2003, el Manitoba Theatre Centre, en Manitoba, Canadá, celebró una "PinterFest" en la cual una docena de compañías de teatro realizaron más de 130 actuaciones de doce de las obras de Pinter.
+VERSION 1.1.7 : 2023-12-08 19:41:55 : TRANSLATION 9 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:41:55 : 	Original Text: Paris Saint-Germain became champions for the first time in their history with 56 points.
+VERSION 1.1.7 : 2023-12-08 19:41:55 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:41:55 : 	Actual Translation: Paris Saint-Germain FC resultó campeón con 55 puntos, obteniendo su primer título.
+VERSION 1.1.7 : 2023-12-08 19:41:55 : TRANSLATION 10 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:41:55 : 	Original Text: == History ==The history of Böttcherstraße goes back to the Middle Ages.
+VERSION 1.1.7 : 2023-12-08 19:41:55 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:41:55 : 	Actual Translation: == Historia ==La Historia de la Böttcherstraße se rastrea hasta la edad media.
+VERSION 1.1.7 : 2023-12-08 19:41:55 : TRANSLATION 11 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:41:55 : 	Original Text: In radio communication the goal is the transmission of information, so the amount of power reaching the receiver is unimportant as long as it is enough that the signal to noise ratio is high enough that the information can be received intelligibly.
+VERSION 1.1.7 : 2023-12-08 19:41:55 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:41:55 : 	Actual Translation: En las radiocomunicaciones el objetivo es la transmisión de información, por lo tanto, la cantidad de energía que llega al receptor no es tan importante mientras sea suficiente para que la relación señal/ruido sean tan alta como para que la información pueda ser recibida inteligiblemente.
+VERSION 1.1.7 : 2023-12-08 19:41:55 : TRANSLATION 12 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:41:55 : 	Original Text: : In the TV series, Akane works as a model and appears in clothing advertisements throughout the city.
+VERSION 1.1.7 : 2023-12-08 19:41:55 : 	Generated Translation: <extra_id_0>.
+VERSION 1.1.7 : 2023-12-08 19:41:55 : 	Actual Translation: ): En la serie de TV, Akane trabaja como modelo y aparece en anuncios de ropa que se pueden ver por la ciudad.
+VERSION 1.1.7 : 2023-12-08 19:41:55 : TRANSLATION 13 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:41:55 : 	Original Text: The National Roman Museum (in Italian: Museo Nazionale Romano) is a museum, with several branches in separate buildings throughout the city of Rome, Italy.
+VERSION 1.1.7 : 2023-12-08 19:41:55 : 	Generated Translation: <extra_id_0>.
+VERSION 1.1.7 : 2023-12-08 19:41:55 : 	Actual Translation: El Museo Nacional Romano (Museo Nazionale Romano en italiano es un conjunto de museos en Roma (Italia), dividido en varios lugares de la ciudad.
+VERSION 1.1.7 : 2023-12-08 19:41:55 : TRANSLATION 14 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:41:55 : 	Original Text: The average household size was 2.32 and the average family size was 2.89.
+VERSION 1.1.7 : 2023-12-08 19:41:55 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:41:55 : 	Actual Translation: El tamaño promedio de los hogares era de 2,32 personas y el de las familias de 2,89.
+VERSION 1.1.7 : 2023-12-08 19:41:55 : TRANSLATION 15 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:41:55 : 	Original Text: It is also very involved in the case of Troy Davis, leading sometimes even T-shirts with the message "I am Troy Davis" during his tour in the United States.
+VERSION 1.1.7 : 2023-12-08 19:41:55 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:41:55 : 	Actual Translation: También está muy involucrado en el caso de Troy Davis, llevando incluso a veces camisetas con el mensaje "I am Troy Davis" durante su gira en los Estados Unidos.
+VERSION 1.1.7 : 2023-12-08 19:41:55 : TRANSLATION 16 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:41:55 : 	Original Text: Michiru also appears in the all-ages spin-off game titled "Idol Mahō Shōjo Chiru Chiru☆Michiru" as main character.
+VERSION 1.1.7 : 2023-12-08 19:41:55 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:41:55 : 	Actual Translation: Michiru también aparece en el spin-off del juego titulado Mahō Shōjo Chiru Chiru Michiru ☆ como personaje principal.
+VERSION 1.1.7 : 2023-12-08 19:41:55 : TRANSLATION 17 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:41:55 : 	Original Text: The chemical element of each atom is often indicated by the sphere's color.
+VERSION 1.1.7 : 2023-12-08 19:41:55 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:41:55 : 	Actual Translation: A menudo el elemento químico de cada átomo es representado por diferentes colores de de esfera.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : TRANSLATION 18 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Original Text: He fleshed it out with reading keys and concrete proposals for a counter-offensive.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Generated Translation: <extra_id_0>.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Actual Translation: Pero aporta también claves de lectura y propuestas concretas para una contraofensiva.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : TRANSLATION 19 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Original Text: * Aurora Cáceres: Peruvian feminist writer, daughter of the former President of Perú general Andrés Avelino Cáceres.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Generated Translation: <extra_id_0>.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Actual Translation: * Aurora Cáceres: escritora feminista peruana, hija del expresidente peruano general Andrés Avelino Cáceres.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : TRANSLATION 20 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Original Text: The majority of this population (20,200) is from Mauritania.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Actual Translation: La mayoría de esta población (20.200) provenía de Mauritania.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : TRANSLATION 21 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Original Text: Popular dive sites include Coconut Point, Mamsa, Cogon, Rockpoint and Chapel.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Actual Translation: Lugares de buceo incluyen Punto de Cocos, Mamsa, Cogon, Rockpoint y Chapel.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : TRANSLATION 22 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Original Text: Since 2004, Eurostat publishes annual statistics called Healthy Life Years (HLY) based on reported activity limitations.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Actual Translation: Desde 2004, Eurostat publica estadísticas anuales llamadas "Healthy Life Years" (HLY) basado en reportes.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : TRANSLATION 23 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Original Text: On a trip to New York in 1896, Barrie attended a performance of "Rosemary" and at once decided that Adams was the actress to play Lady Babbie.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Actual Translation: En un viaje a Nueva York en 1896, Barrie asistió a una función de "Rosemary" y de inmediato decidió que Adams fuera la actriz que interpretara a Lady Babbie.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : TRANSLATION 24 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Original Text: Among his most recent film appearances were as the protagonist of ("No somos nadie") and has worked with directors like Guillermo del Toro ("El espinazo del diablo"), María Ripoll ("Utopía") and Manuel Huerga ("Salvador").
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Generated Translation: <extra_id_0>.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Actual Translation: Entre sus últimas apariciones en cine lo hemos visto como protagonista de la "opera prima" de Jordi Mollá como director (No somos nadie) y ha trabajado a las órdenes de directores como Guillermo del Toro (El espinazo del diablo), María Ripoll ("Utopía") o Manuel Huerga (Salvador).
+VERSION 1.1.7 : 2023-12-08 19:41:56 : TRANSLATION 25 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Original Text: They posted an advertisement in the local music publication in Chicago, Illinois, called the "Illinois Entertainer".
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Actual Translation: Pusieron un anuncio en la publicación de música local en Chicago, Illinois, llamado el "Artista de Illinois".
+VERSION 1.1.7 : 2023-12-08 19:41:56 : TRANSLATION 26 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Original Text: If Daigorō chose the ball, his father would kill him, sending Daigorō to be with his mother; however, the child crawls toward the sword and reaches for its hilt.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Actual Translation: Si Daigorō elegía la pelota, su padre lo hubiera matado, enviándolo con su difunta madre; sin embargo, el niño gateó hacia la espada.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : TRANSLATION 27 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Original Text: ==Commercial performance==The album debuted at number one on the U.S. "Billboard" 200 chart and sold 286,000 copies in its first week.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Generated Translation: <extra_id_0>.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Actual Translation: == Recepción ===== Rendimiento comercial ===El álbum debutó en el número uno en "Billboard 200" y vendió 286,000 copias en su primer semana.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : TRANSLATION 28 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Original Text: The crew consisted of 200 men which included the Captain, ten dignitaries who may have been commanders, several archers, a few soldiers, and 170 oarsmen.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Actual Translation: La tripulación consistía en 200 hombres, incluyendo capitán, diez dignatarios que podían haber sido comandantes, muchos arqueros, unos cuantos soldados y 170 remeros.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : TRANSLATION 29 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Original Text: As Commander Garan (Garrett Wang) and his security officers take them to the conference room, Curate Prime (Daamen Krall) has a few "last words" with Kittrick before his impending execution, before ordering Garan to the bridge.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Generated Translation: <extra_id_0>.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Actual Translation: Como Comandante Garan ( Garrett Wang ) y sus agentes de seguridad los llevan a la sala de conferencias, Curate Prime (Daamen Krall) tiene algunos "últimas palabras" con Kittrick antes de su ejecución inminente, antes de ordenar Garan al puente.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : TRANSLATION 30 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Original Text: The Christian Social Party (, CSP) was a right-wing political party in the German Empire, founded in 1878 by Adolf Stoecker as the "Christlichsoziale Arbeiterpartei" (Christian Social Workers' Party).
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Generated Translation: <extra_id_0>.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Actual Translation: El Partido Social Cristiano (alemán: "Christlich-soziale Partei", CSP) fue un partido político derechista en el imperio alemán, fundado en 1878 por Adolf Stoecker como "Christlichsoziale Arbeiterpartei" (Partido Social Cristiano de los Trabajadores).
+VERSION 1.1.7 : 2023-12-08 19:41:56 : TRANSLATION 31 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Original Text: From 1976, he studied on a scholarship in Vienna.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Actual Translation: Desde 1976 estudió con una beca en Viena.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : TRANSLATION 32 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Original Text: Weber's insistence on the importance of domination and symbolic systems in social life was retained by Pierre Bourdieu, who developed the idea of social orders, ultimately transforming it into a theory of fields.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Actual Translation: La insistencia de Max Weber en la importancia de la dominación y los sistemas simbólicos en la vida social ha sido continuada por Pierre Bourdieu, que desarrolló la idea de los órdenes sociales, transformándola por último en una teoría de campos.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : TRANSLATION 33 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Original Text: It is considered a delicacy in Iceland and Greenland.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Actual Translation: En Groenlandia e Islandia es considerado una exquisitez.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : TRANSLATION 34 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Original Text: As a result, he was overthrown and assassinated in a "coup d'état" led by the French-backed Blaise Compaoré on October 15, 1987.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Actual Translation: Como resultado, fue derrocado y asesinado en un golpe de estado liderado por Blaise Compaoré que era respaldado por los franceses el 15 de octubre de 1987.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : TRANSLATION 35 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Original Text: The per capita income for the county was $16,884.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Generated Translation: <extra_id_0>.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Actual Translation: El ingreso per cápita para el condado era de $16,884.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : TRANSLATION 36 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Original Text: In 1964, Jules Romains was named citizen of honor of Saint-Avertin.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Actual Translation: En 1964, fue nombrado ciudadano de honor de Saint-Avertin.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : TRANSLATION 37 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Original Text: Cartwright graduated from high school in 1976 and accepted a scholarship from Ohio University.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Generated Translation: <extra_id_0>.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Actual Translation: Nancy se graduó de la escuela en 1976 y aceptó una beca para la Universidad de Ohio.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : TRANSLATION 38 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Original Text: The game arrived on the Wii Virtual Console in Europe on July 20, 2007, in North America on August 13, 2007, and in Japan on March 4, 2008.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Actual Translation: El juego también fue lanzado para la Consola Virtual de la Wii, el 20 de julio de 2007 para Europa, el 13 de agosto del mismo año para América y el 4 de marzo de 2008 en Japón.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : TRANSLATION 39 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Original Text: During fall 2010, Tacita Dean produced a film on Twombly, titled "Edwin Parker".
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Actual Translation: Durante el otoño de 2010, Tacita Dean produjo un filme acerca de Twombly, titulado "Edwin Parker".
+VERSION 1.1.7 : 2023-12-08 19:41:56 : TRANSLATION 40 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Original Text: Tawara was born in Ōita Prefecture and studied at the Medical School, Imperial University of Tokyo in Tokyo, graduating in 1901 and receiving his Doctorate of Medical Science in 1908.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Generated Translation: <extra_id_0>.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Actual Translation: == Biografía ==Tawara estudió medicina en la Facultad de Medicina de la Universidad de Tokio, en donde se graduó en 1901 y en 1908 obtuvo un doctorado en Ciencias Médicas.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : TRANSLATION 41 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Original Text: [http://www.insects.demon.co.uk/bullsn/bull-4.html]* Späth, M. (1999), Pt.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Actual Translation: [http://web.archive.org/web/http://www.insects.demon.co.uk/bullsn/bull-4.html]* Späth, M. (1999), Pt.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : TRANSLATION 42 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Original Text: The cake was first served at the Demel and later at the Hotel Sacher, established by Eduard in 1876.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Generated Translation: <extra_id_0>.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Actual Translation: Eduard, el hijo mayor de Franz Sacher, fue aprendiz de repostero en la confitería vienesa Demel.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : TRANSLATION 43 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Original Text: The pedestal is by Corgolin.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Actual Translation: El pedestal es de Corgolin.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : TRANSLATION 44 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Original Text: The group's largest business area is highway management, in which it is the largest concessionaire in its home country.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Generated Translation: <extra_id_0>.
+VERSION 1.1.7 : 2023-12-08 19:41:56 : 	Actual Translation: La mayor área de negocio del grupo es la gestión de autopistas, del que es el primer concesionario en el país.
+VERSION 1.1.7 : 2023-12-08 19:41:57 : TRANSLATION 45 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:41:57 : 	Original Text: Being adept in both academic representational style and modern abstract, he has utilized almost all kinds of materials from hard wood ("molave", "acacia", "langka" wood, "ipil", "kamagong", palm wood and bamboo) to adobe, metal, stainless steel, cement, marble, bronze, iron, alabaster, coral and brass.
+VERSION 1.1.7 : 2023-12-08 19:41:57 : 	Generated Translation: <extra_id_0>.
+VERSION 1.1.7 : 2023-12-08 19:41:57 : 	Actual Translation: Al ser tan hábil tanto en representaciones de estilo académico y abstracto moderno, ha utilizado casi todo tipo de materiales de madera dura (molave, acacia, madera de Langka, ipil, kamagong, madera de palma y bambú) así como de adobe, metal, acero inoxidable, cemento, mármol, bronce, hierro, alabastro, coral y latón.
+VERSION 1.1.7 : 2023-12-08 19:41:57 : TRANSLATION 46 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:41:57 : 	Original Text: The flowers show a column with a unique shieldlike staminode.
+VERSION 1.1.7 : 2023-12-08 19:41:57 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:41:57 : 	Actual Translation: Las flores presentan una columna con un solo estaminodio como un escudo.
+VERSION 1.1.7 : 2023-12-08 19:41:57 : TRANSLATION 47 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:41:57 : 	Original Text: The district capital lies at the city of Tokmok.
+VERSION 1.1.7 : 2023-12-08 19:41:57 : 	Generated Translation: <extra_id_0>
+VERSION 1.1.7 : 2023-12-08 19:41:57 : 	Actual Translation: Tiene como capital la ciudad de Chuy.
+VERSION 1.1.7 : 2023-12-08 19:41:57 : TRANSLATION 48 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:41:57 : 	Original Text: 'You will tell Matthew to do something that cannot be done and will go away yourself, and he will muddle everything,' and as she spoke her usual ironical smile wrinkled the corners of Dolly's mouth.
+VERSION 1.1.7 : 2023-12-08 19:41:57 : 	Generated Translation: <extra_id_0>.
+VERSION 1.1.7 : 2023-12-08 19:41:57 : 	Actual Translation: Y una sonrisa irónica plegó, como de costumbre, las comisuras de sus labios. «La reconciliación es completa» , pensó ahora Ana.
+VERSION 1.1.7 : 2023-12-08 19:41:57 : TRANSLATION 49 on "English to Spanish"
+VERSION 1.1.7 : 2023-12-08 19:41:57 : 	Original Text: In 1989, Townshend began work on a novel entitled "Ray High & The Glass Household", a draft of which was later submitted to his editor.
+VERSION 1.1.7 : 2023-12-08 19:41:57 : 	Generated Translation: <extra_id_0>.
+VERSION 1.1.7 : 2023-12-08 19:41:57 : 	Actual Translation: En 1989, Townshend comenzó a trabajar en una novela titulada "Ray High & The Glass Household", cuyo borrador fue más tarde enviado a su editor.
+VERSION 1.1.7 : 2023-12-08 19:41:57 : RUN COMPLETED
