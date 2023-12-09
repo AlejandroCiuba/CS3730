@@ -26,13 +26,14 @@ import torch
 
 import numpy as np
 import random as rand
+import torch.nn as nn
 
 VERSION = "1.1.4"
 
 class PreferenceTrainer(Seq2SeqTrainer):
 
     def __init__(self, gamma: float = 1.0, **kwargs):
-        super(**kwargs)
+        super(PreferenceTrainer, self).__init__(**kwargs)
         self.gamma = gamma
 
     def get_train_dataloader(self) -> DataLoader:
@@ -61,14 +62,19 @@ class PreferenceTrainer(Seq2SeqTrainer):
     def compute_loss(self, model, inputs, return_outputs=False):
 
         GAMMA = self.gamma
+        LOSS_FUNC = nn.CrossEntropyLoss()
 
         # Get the good translation loss
         outputs: Seq2SeqLMOutput = model(inputs["input_ids"], inputs["attention_mask"], inputs["labels"])
         loss_good: torch.Tensor = outputs[0]
+        loss_good: torch.Tensor = LOSS_FUNC(loss_good.view(loss_good.shape[0], loss_good.shape[2], loss_good.shape[1]), inputs["labels"])
+        print(loss_good.shape)
 
         # Get the bad translation loss
         outputs = model(inputs["input_ids"], inputs["attention_mask"], inputs["labels_bad"])
         loss_bad: torch.Tensor = outputs[0]
+        loss_bad: torch.Tensor = LOSS_FUNC(loss_bad.view(loss_bad.shape[0], loss_bad.shape[2], loss_bad.shape[1]), inputs["labels"])
+        print(loss_good.shape)
 
         # Calculate the final loss
         loss = GAMMA - loss_good + loss_bad
