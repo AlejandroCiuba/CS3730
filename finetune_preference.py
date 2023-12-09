@@ -28,7 +28,7 @@ import numpy as np
 import random as rand
 import torch.nn as nn
 
-VERSION = "1.1.4"
+VERSION = "1.1.7"
 
 class PreferenceTrainer(Seq2SeqTrainer):
 
@@ -63,18 +63,17 @@ class PreferenceTrainer(Seq2SeqTrainer):
 
         GAMMA = self.gamma
         LOSS_FUNC = nn.CrossEntropyLoss()
+        print(GAMMA)
 
         # Get the good translation loss
         outputs: Seq2SeqLMOutput = model(inputs["input_ids"], inputs["attention_mask"], inputs["labels"])
         loss_good: torch.Tensor = outputs[0]
         loss_good: torch.Tensor = LOSS_FUNC(loss_good.view(loss_good.shape[0], loss_good.shape[2], loss_good.shape[1]), inputs["labels"])
-        print(loss_good.shape)
 
         # Get the bad translation loss
         outputs = model(inputs["input_ids"], inputs["attention_mask"], inputs["labels_bad"])
         loss_bad: torch.Tensor = outputs[0]
         loss_bad: torch.Tensor = LOSS_FUNC(loss_bad.view(loss_bad.shape[0], loss_bad.shape[2], loss_bad.shape[1]), inputs["labels"])
-        print(loss_good.shape)
 
         # Calculate the final loss
         loss = GAMMA - loss_good + loss_bad
@@ -338,16 +337,16 @@ def main(args: argparse.ArgumentParser):
     else:
         datasetmt = load_from_disk(args.datasetmt[0])
 
-    datasetmt = DatasetDict({'train': datasetmt['train'].select(range(100)),
-                             'test': datasetmt['valid'].select(range(50)),
-                             'valid': datasetmt['valid'].select(range(50)),})
+    datasetmt = DatasetDict({'train': datasetmt['train'],
+                             'test': datasetmt['valid'],
+                             'valid': datasetmt['valid'],})
 
     # Load the RT dataset
     datasetpt = load_from_disk(args.datasetpt)
 
-    datasetpt = DatasetDict({'train': datasetpt['train'].select(range(100)),
-                             'test': datasetpt['valid'].select(range(50)),
-                             'valid': datasetpt['valid'].select(range(50)),})
+    datasetpt = DatasetDict({'train': datasetpt['train'],
+                             'test': datasetpt['valid'],
+                             'valid': datasetpt['valid'],})
     
     # Make the trainer and train the model
     if args.finetune:
@@ -379,10 +378,11 @@ def main(args: argparse.ArgumentParser):
             logger.info(f"\tTESTING SIZE: {len(datasetmt['test'])}")
             logger.info(f"\tEVALUATION METRIC: {args.metric} using {','.join(args.metric_keys)}")
 
-        logger.info("HYPERPARAMETERS (REPEAT TRANSLATION):")
+        logger.info("HYPERPARAMETERS (HINGE LOSS TRAINING):")
         logger.info(f"\tEPOCHS: {args.epochs / 2 if args.task_mixture < 2 else args.epochs}")
         logger.info(f"\tBATCH SIZE: {args.batch_size}")
         logger.info(f"\tLEARNING RATE: {args.learning_rate:g}")
+        logger.info(f"\tHINGE GAMMA: {args.gamma:g}")
         logger.info(f"\tTRAINING SIZE: {len(datasetpt['train'])}")
         logger.info(f"\tVALIDATION SIZE: {len(datasetpt['valid'])}")
         logger.info(f"\tTESTING SIZE: {len(datasetpt['test'])}")
