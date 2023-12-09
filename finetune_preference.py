@@ -81,7 +81,7 @@ class PreferenceTrainer(Seq2SeqTrainer):
         return (loss, outputs) if return_outputs else loss
 
 
-def make_logger(filepath, mixture):
+def make_logger(filepath, mixture, gamma):
 
     # Set up logger
     version_tracking = {"version": "VERSION %s" % VERSION}
@@ -92,7 +92,7 @@ def make_logger(filepath, mixture):
     logger = logging.getLogger("data_log")
     logger.setLevel(logging.INFO)
 
-    handler = logging.FileHandler(f"{filepath}/preference-{mixture}-{VERSION}.log")
+    handler = logging.FileHandler(f"{filepath}/preference-{mixture}-{gamma:g}-{VERSION}.log")
     handler.setFormatter(fmt)
 
     logger.addHandler(handler)
@@ -298,7 +298,7 @@ def preview_translation(model, tokenizer, dataset, task = "", source = "", num_e
 def main(args: argparse.ArgumentParser):
 
     # Logger setup
-    logger = make_logger(args.logging, args.task_mixture)
+    logger = make_logger(args.logging, args.task_mixture, args.gamma)
     logger.info("===================== RUN =====================")
 
     # Sync the device

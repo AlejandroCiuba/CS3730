@@ -35,6 +35,8 @@ version=`python finetune_preference.py --version`
 
 echo "RUNNING $version SCRIPT"
 
+GAMMA=1.0
+
 python finetune_preference.py -m google/mt5-small \
 							  -dmt datasets/ix_datasets/opus \
 							  -s train \
@@ -47,7 +49,7 @@ python finetune_preference.py -m google/mt5-small \
 							  -mtk flan-t5-large_score nllb-200-distilled-600M_score \
 							  -ts 0.3 \
 							  -tb 256 \
-							  -g 1.0 \
+							  -g $GAMMA \
 							  -t "English to Spanish" \
 							  -me sacrebleu \
 							  -mk score \
