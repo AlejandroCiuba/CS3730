@@ -65,20 +65,20 @@ class PreferenceTrainer(Seq2SeqTrainer):
         LOSS_FUNC = nn.CrossEntropyLoss()
 
         # Get the good translation loss
-        outputs: Seq2SeqLMOutput = model(inputs["input_ids"], inputs["attention_mask"], inputs["labels"])
+        outputs: Seq2SeqLMOutput = model(inputs["input_ids"], inputs["attention_mask"], inputs["labels_good"])
         loss_good: torch.Tensor = outputs[0]
-        loss_good: torch.Tensor = LOSS_FUNC(loss_good.view(loss_good.shape[0], loss_good.shape[2], loss_good.shape[1]), inputs["labels"])
 
         # Get the bad translation loss
         outputs = model(inputs["input_ids"], inputs["attention_mask"], inputs["labels_bad"])
         loss_bad: torch.Tensor = outputs[0]
-        loss_bad: torch.Tensor = LOSS_FUNC(loss_bad.view(loss_bad.shape[0], loss_bad.shape[2], loss_bad.shape[1]), inputs["labels"])
 
-        # Calculate the final loss
+        # Perform the hinge loss
         loss = GAMMA - loss_good + loss_bad
         loss = loss.where(0.0 < loss, 0.0)
+        loss = LOSS_FUNC(loss.view(loss.shape[0], loss.shape[2], loss.shape[1]), inputs["labels"])
 
         return (loss, outputs) if return_outputs else loss
+
 
 def make_logger(filepath, mixture, gamma):
 
@@ -141,7 +141,7 @@ def make_preprocess_mt(tokenizer, task = "", source = "", target = "", device = 
 
     return preprocess_mt
 
-def make_preprocess_pt(tokenizer, task = "", translations = "", keys = "", source = "en", device = "cuda"):
+def make_preprocess_pt(tokenizer, task = "", translations = "", keys = "", source = "en", target = "es", device = "cuda"):
     """
     Returns a preprocessing function using the given tokenizer.
     """
@@ -155,6 +155,7 @@ def make_preprocess_pt(tokenizer, task = "", translations = "", keys = "", sourc
         max_length = 200
 
         inputs = [f"{task}: " + str(i) for i in examples[source]]
+        targets = [tgt for tgt in examples[target]]
 
         targets_good, targets_bad = [], []
         for batch in zip(*[examples[col] for col in translations], *[examples[key] for key in keys]):
@@ -166,8 +167,9 @@ def make_preprocess_pt(tokenizer, task = "", translations = "", keys = "", sourc
             targets_good.append(trans[best])
             targets_bad.append(trans[worse])
 
-        # Memory reqs grow quadratically with input size, stops at max_length; "labels" = "labels_good" to save space
-        tokens = tokenizer(text=inputs, text_target=targets_good, max_length=max_length, padding=padding, truncation=True, return_tensors="pt").to(device)
+        # Memory reqs grow quadratically with input size, stops at max_length
+        tokens = tokenizer(text=inputs, text_target=targets, max_length=max_length, padding=padding, truncation=True, return_tensors="pt").to(device)
+        tokens["labels_good"] = tokenizer(text=inputs, text_target=targets_good, max_length=max_length, padding=padding, truncation=True, return_tensors="pt").to(device)
         tokens["labels_bad"] = tokenizer(text_target = targets_bad, max_length=max_length, padding=padding, truncation=True, return_tensors="pt")["input_ids"].to(device)
 
         return tokens
@@ -311,7 +313,7 @@ def main(args: argparse.ArgumentParser):
     # Load the preprocessing functions
     logger.info(f"MACHINE TRANSLATION TASK: {args.task}")
     preprocess_mt = make_preprocess_mt(tokenizer=tokenizer, task=args.task, source=args.source, target=args.target, device=device)
-    preprocess_pt = make_preprocess_pt(tokenizer=tokenizer, translations=args.mtrans, keys=args.mtrans_keys, source=args.source, device=device)
+    preprocess_pt = make_preprocess_pt(tokenizer=tokenizer, translations=args.mtrans, keys=args.mtrans_keys, source=args.source, target=args.target, device=device)
 
     # Load the dataset and split into training, testing and validation partitions
     logger.info(f"MACHINE TRANSLATION DATASET(S): {', '.join(args.datasetmt)}")
