@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Finetune model with our approach
+=======
+# Finetune model with our approach; an alternate version applying cross entropy at the end.
+>>>>>>> refs/remotes/origin/main
 from datasets import (combine,
                       DatasetDict,
                       load_dataset,
@@ -91,7 +95,11 @@ def make_logger(filepath, mixture, gamma):
     logger = logging.getLogger("data_log")
     logger.setLevel(logging.INFO)
 
+<<<<<<< HEAD
     handler = logging.FileHandler(f"{filepath}/preference-{mixture}-{gamma:g}-{VERSION}.log")
+=======
+    handler = logging.FileHandler(f"{filepath}/preference_alt-{mixture}-{gamma:g}-{VERSION}.log")
+>>>>>>> refs/remotes/origin/main
     handler.setFormatter(fmt)
 
     logger.addHandler(handler)
@@ -152,7 +160,11 @@ def make_preprocess_pt(tokenizer, task = "", translations = "", keys = "", sourc
         """
 
         padding = "max_length"
+<<<<<<< HEAD
         max_length = 200
+=======
+        max_length = 100
+>>>>>>> refs/remotes/origin/main
 
         inputs = [f"{task}: " + str(i) for i in examples[source]]
         targets = [tgt for tgt in examples[target]]
@@ -169,8 +181,13 @@ def make_preprocess_pt(tokenizer, task = "", translations = "", keys = "", sourc
 
         # Memory reqs grow quadratically with input size, stops at max_length
         tokens = tokenizer(text=inputs, text_target=targets, max_length=max_length, padding=padding, truncation=True, return_tensors="pt").to(device)
+<<<<<<< HEAD
         tokens["labels_good"] = tokenizer(text=inputs, text_target=targets_good, max_length=max_length, padding=padding, truncation=True, return_tensors="pt").to(device)
         tokens["labels_bad"] = tokenizer(text_target = targets_bad, max_length=max_length, padding=padding, truncation=True, return_tensors="pt")["input_ids"].to(device)
+=======
+        tokens["labels_good"] = tokenizer(text_target=targets_good, max_length=max_length, padding=padding, truncation=True, return_tensors="pt")["input_ids"].to(device)
+        tokens["labels_bad"] = tokenizer(text_target=targets_bad, max_length=max_length, padding=padding, truncation=True, return_tensors="pt")["input_ids"].to(device)
+>>>>>>> refs/remotes/origin/main
 
         return tokens
 
@@ -700,9 +717,15 @@ if __name__ == "__main__":
         del os.environ['PYTHONHOME']
 
     parser = argparse.ArgumentParser(
+<<<<<<< HEAD
         prog="finetune_preference.py",
         formatter_class=argparse.RawTextHelpFormatter,
         description="Fine-tunes a model with our preference-based loss function approach.",
+=======
+        prog="finetune_preference_alt.py",
+        formatter_class=argparse.RawTextHelpFormatter,
+        description="Fine-tunes a model with our preference-based loss function approach, applying cross entropy at the end with the grounded translations.",
+>>>>>>> refs/remotes/origin/main
         epilog="Created by Alejandro Ciuba, alc307@pitt.edu",
     )
 

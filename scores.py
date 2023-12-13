@@ -318,9 +318,9 @@ def add_args(parser: argparse.ArgumentParser):
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(
-        prog="segment.py",
+        prog="scores.py",
         formatter_class=argparse.RawTextHelpFormatter,
-        description="Outputs a segmented .eaf file according to APLS standards.",
+        description="Get the sacrebleu scores from the given models.",
         epilog="Created by Alejandro Ciuba, alc307@pitt.edu",
     )
 

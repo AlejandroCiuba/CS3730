@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-# Slurm script for running finetune_preference.py on the CRC cluster
+# Slurm script for running finetune_preference_akt.py on the CRC cluster
 # Alejandro Ciuba, alc307@pitt.edu
 
 ############## SBATCH HEADER BEGIN ##############
-#SBATCH --job-name=cs3730-preference
+#SBATCH --job-name=cs3730-preference-alt
 #SBATCH --output=output/%x-%a-%A.out
 #SBATCH --mail-user=alc307@pitt.edu
 #SBATCH --mail-type=END
@@ -16,7 +16,7 @@
 #SBATCH --gres=gpu:1
 #SBATCH --ntasks-per-node=1
 #SBATCH --array=0-2
-#SBATCH --time=4-00:00:00
+#SBATCH --time=5-00:00:00
 #SBATCH --qos=short
 ############## SBATCH HEADER END ##############
 
@@ -31,11 +31,11 @@ source activate cs3730
 unset PYTHONHOME
 unset PYTHONPATH
 
-version=`python finetune_preference.py --version`
+version=`python finetune_preference_alt.py --version`
 
 echo "RUNNING $version SCRIPT"
 
-python finetune_preference.py -m google/mt5-small \
+python finetune_preference_alt.py -m google/mt5-small \
 							  -dmt datasets/ix_datasets/opus \
 							  -s train \
 							  -lc 1 \
@@ -59,7 +59,7 @@ python finetune_preference.py -m google/mt5-small \
 							  -tm $SLURM_ARRAY_TASK_ID \
 							  -sa 1 \
 							  -x 100 \
-							  -o models/ix_models/preference-$SLURM_ARRAY_TASK_ID \
+							  -o models/ix_models/preference-alt-$SLURM_ARRAY_TASK_ID \
 							  -lo logs
 
 echo "DONE"
