@@ -35,42 +35,48 @@ if __name__ == "__main__":
     # dataset = load_dataset("opus_wikipedia", lang1="en", lang2="es", split="train")
     # print(len(dataset))
 
-    gpt_df = pd.read_csv("./chatgpt_translate/comparative_samples_chatgpt_translated.csv")
+    # gpt_df = pd.read_csv("./chatgpt_translate/comparative_samples_chatgpt_translated.csv")
     # print(gpt_df.info())
 
     # Randomly select five sentences for our evaluation
     # print(gpt_df.sample(5))  # 58, 57, 35, 73, 34
 
-    indices = [34, 35, 57, 58, 73]
+    # indices = [34, 35, 57, 58, 73]
 
-    gpt_df = gpt_df.iloc[indices, :]
-    gpt_df.rename(columns={"Spanish": "GPT-3.5"}, inplace=True)
-    print(gpt_df)
+    # gpt_df = gpt_df.iloc[indices, :]
+    # gpt_df.rename(columns={"Spanish": "GPT-3.5"}, inplace=True)
+    # print(gpt_df)
 
-    # Get the sentences from the log files (preference = GCL and preference-alt = LCL)
-    LOGPATH = Path("./logs")
-    LOGS = {"finetune*", "preference*", "preference-alt*", "repeat*"}
+    # # Get the sentences from the log files (preference = GCL and preference-alt = LCL)
+    # LOGPATH = Path("./logs")
+    # LOGS = {"finetune*", "preference*", "preference-alt*", "repeat*"}
 
-    for log in LOGS:
+    # for log in LOGS:
 
-        for file in LOGPATH.glob(log):
+    #     for file in LOGPATH.glob(log):
 
-            with open(file, 'r', encoding='utf-8') as src:
-                full = [text[38:].strip() for text in src.readlines(-1)]
+    #         with open(file, 'r', encoding='utf-8') as src:
+    #             full = [text[38:].strip() for text in src.readlines(-1)]
             
-            selected = []
-            for index in indices:
+    #         selected = []
+    #         for index in indices:
 
-                line_locator = f"TRANSLATION {index} on \"English to Spanish\""
+    #             line_locator = f"TRANSLATION {index} on \"English to Spanish\""
 
-                try:
-                    start = full.index(line_locator)
-                except ValueError:
-                    print(f"{line_locator} NOT FOUND IN FILE {file}")
+    #             try:
+    #                 start = full.index(line_locator)
+    #             except ValueError:
+    #                 print(f"{line_locator} NOT FOUND IN FILE {file}")
 
-                selected.append(full[start + 2].removeprefix("Generated Translation: "))
+    #             selected.append(full[start + 2].removeprefix("Generated Translation: "))
 
-            gpt_df[file] = selected
+    #         gpt_df[file] = selected
 
-    print(gpt_df.info)
-    gpt_df.to_csv("./chatgpt_translate/all_models.csv")
+    df = pd.read_csv("./chatgpt_translate/all_models.csv")
+
+    index = 0
+    for col in df.columns:
+        print(f"{col.upper()}: {df.loc[0, col]}")
+
+    # print(gpt_df.info)
+    # gpt_df.to_csv("./chatgpt_translate/all_models.csv")
