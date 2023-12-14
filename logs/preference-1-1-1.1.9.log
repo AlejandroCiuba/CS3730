@@ -23,3 +23,411 @@ VERSION 1.1.9 : 2023-12-08 20:09:09 : 	EVALUATION METRIC: sacrebleu using score
 VERSION 1.1.9 : 2023-12-08 20:09:10 : FINE-TUNING ON MACHINE TRANSLATION
 VERSION 1.1.9 : 2023-12-09 08:55:20 : FINE-TUNING ON HINGE LOSS
 VERSION 1.1.9 : 2023-12-13 05:51:27 : POST-EVALUATION ON MACHINE TRANSLATION (VALIDATION): {'eval_loss': 0.4351884722709656, 'eval_sacrebleu_score': 8.731559314528328, 'eval_runtime': 60952.8343, 'eval_samples_per_second': 4.183, 'eval_steps_per_second': 0.261, 'epoch': 1.0}
+VERSION 1.1.9 : 2023-12-13 22:47:12 : POST-EVALUATION MACHINE TRANSLATION (TEST): {'eval_loss': 0.4351884722709656, 'eval_sacrebleu_score': 8.731559314528328, 'eval_runtime': 60944.207, 'eval_samples_per_second': 4.183, 'eval_steps_per_second': 0.261, 'epoch': 1.0}
+VERSION 1.1.9 : 2023-12-13 22:47:12 : SAVE LOCATION: 1.0
+VERSION 1.1.9 : 2023-12-13 22:47:12 : MACHINE TRANSLATION SAMPLES:
+VERSION 1.1.9 : 2023-12-13 22:47:13 : TRANSLATION 0 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:47:13 : 	Original Text: Martín Lousteau (born December 8, 1970) was the Minister of Economy and Production of Argentina under the administration of President Cristina Fernández de Kirchner, from December 10, 2007, until April 24, 2008.
+VERSION 1.1.9 : 2023-12-13 22:47:13 : 	Generated Translation: Martín Lousteau (nacido el 8 de diciembre de 1970, y tuvo cargo de cargos de cargos y administración de Cristina Fernández de Kirchner, y a partir de enero de 2008.
+VERSION 1.1.9 : 2023-12-13 22:47:13 : 	Actual Translation: Martín Lousteau (n. Buenos Aires, Argentina, 8 de diciembre de 1970) es un economista y político argentino, que se desempeño como Ministro de Economía de Argentina, desde el 10 de diciembre de 2007 hasta el 24 de abril de 2008.
+VERSION 1.1.9 : 2023-12-13 22:47:14 : TRANSLATION 1 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:47:14 : 	Original Text: Forel was able to combine the "dynamic approach" of French psychiatry with the biological orientation of the German school of psychiatric thought.
+VERSION 1.1.9 : 2023-12-13 22:47:14 : 	Generated Translation: El Forel fue capaz de combinar el acuerdo de acuerdo de la escuela de estudios de la escuela de Alemania, a la escuela de psychiatria.
+VERSION 1.1.9 : 2023-12-13 22:47:14 : 	Actual Translation: Forel fue capaz de combinar "el acercamiento dinámico" de la psiquiatría francesa con la orientación biológica del pensamiento psiquiátrico de la escuela alemana.
+VERSION 1.1.9 : 2023-12-13 22:47:14 : TRANSLATION 2 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:47:14 : 	Original Text: Howard Browne, who had been on a leave of absence from Ziff-Davis to write fiction, took over as editor and began by throwing away 300,000 words of inventory that Palmer had acquired before he left.
+VERSION 1.1.9 : 2023-12-13 22:47:14 : 	Generated Translation: Howard Browne, que había a antes de tuvo.
+VERSION 1.1.9 : 2023-12-13 22:47:14 : 	Actual Translation: Howard Browne, quien se había ausentado de Ziff-Davis para escribir ficción, asumió el cargo de editor y comenzó desechando alrededor de 300 000 palabras del inventario que Palmer había adquirido antes de renunciar.
+VERSION 1.1.9 : 2023-12-13 22:47:15 : TRANSLATION 3 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:47:15 : 	Original Text: ==History==The club was established on 10 May 1930, and was initially named Selmashstroy (Сельмашстрой).
+VERSION 1.1.9 : 2023-12-13 22:47:15 : 	Generated Translation: == Historia ==El club fue establecido el 10 de mayo de 1930, y fue fundado el 10 de mayo de 1930, y fue nombrado Selmashstroy (Sельмашстрой).
+VERSION 1.1.9 : 2023-12-13 22:47:15 : 	Actual Translation: ==Historia==El club fue fundado el 10 de mayo de 1930 y fue nombrado inicialmente Selmashstroy (Сельмашстрой).
+VERSION 1.1.9 : 2023-12-13 22:47:16 : TRANSLATION 4 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:47:16 : 	Original Text: In the first half of the 20th century, the parish lost many members, as residential neighborhoods were torn down to develop banks and department stores in the city center.
+VERSION 1.1.9 : 2023-12-13 22:47:16 : 	Generated Translation: En la primera mitad del siglo XX, la parroquia se volvió a la primera mitad del siglo XX, la parroquia se volvió a la primera mitad del siglo XX, la parroquia se volvió a la primera mitad del siglo XX, la parroquia tuvo muchos miembros, y las comunidades y tiendas de la ciudad.
+VERSION 1.1.9 : 2023-12-13 22:47:16 : 	Actual Translation: En la primera mitad del siglo XX, la parroquia perdió muchos miembros, ya que loscercanos barrios residenciales fueron derribados para desarrollar bancos y grandes almacenes en el centro de la ciudad.
+VERSION 1.1.9 : 2023-12-13 22:47:16 : TRANSLATION 5 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:47:16 : 	Original Text: There were 5,906 housing units at an average density of 17 per square mile (7/km²).
+VERSION 1.1.9 : 2023-12-13 22:47:16 : 	Generated Translation: La densidad de edificios de área media de 7,906 había una densidad.
+VERSION 1.1.9 : 2023-12-13 22:47:16 : 	Actual Translation: Hay 5.906 unidades habitacionales con una densidad promedio de 7 u.a./km² (17 u.a./mi²).
+VERSION 1.1.9 : 2023-12-13 22:47:16 : TRANSLATION 6 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:47:16 : 	Original Text: __NOTOC__Year 5 (V) was a common year starting on Thursday (link will display the full calendar) of the Julian calendar.
+VERSION 1.1.9 : 2023-12-13 22:47:16 : 	Generated Translation: El año 5 (V) fue un año común.
+VERSION 1.1.9 : 2023-12-13 22:47:16 : 	Actual Translation: 5 (V) fue un año común comenzado en jueves según el calendario juliano, en vigor en aquella fecha.
+VERSION 1.1.9 : 2023-12-13 22:47:17 : TRANSLATION 7 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:47:17 : 	Original Text: Brown was the President of the Boston Athletic Association from 1941 to 1964.
+VERSION 1.1.9 : 2023-12-13 22:47:17 : 	Generated Translation: Brown fue el presidente de la Asociación de la Asociación de Boston Athletic Association de 1941.
+VERSION 1.1.9 : 2023-12-13 22:47:17 : 	Actual Translation: Brown fue el Presidente de la Boston Athletic Association desde 1941 hasta 1964.
+VERSION 1.1.9 : 2023-12-13 22:47:20 : TRANSLATION 8 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:47:20 : 	Original Text: From 9 to 25 January 2003, the Manitoba Theatre Centre, in Manitoba, Canada, held a nearly month-long "PinterFest", in which over 130 performances of twelve of Pinter's plays were performed by a dozen different theatre companies.
+VERSION 1.1.9 : 2023-12-13 22:47:20 : 	Generated Translation: El 9 de enero de 2003, el Teatro de Manitoba, en el Teatro de Manitoba, en el Teatro de Manitoba, en el Teatro de Manitoba, en el Teatro de Manitoba, en el Teatro de Manitoba, en el Teatro de Manitoba, en el Teatro de Manitoba, en el Teatro de Manitoba, en el Teatro de Manitoba, en el Teatro de Manitoba, en el Teatro de Manitoba, en el Teatro de Manitoba, en el Teatro de Manitoba, en el Teatro de Manitoba, a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a
+VERSION 1.1.9 : 2023-12-13 22:47:20 : 	Actual Translation: Del 9 a 25 enero de 2003, el Manitoba Theatre Centre, en Manitoba, Canadá, celebró una "PinterFest" en la cual una docena de compañías de teatro realizaron más de 130 actuaciones de doce de las obras de Pinter.
+VERSION 1.1.9 : 2023-12-13 22:47:21 : TRANSLATION 9 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:47:21 : 	Original Text: Paris Saint-Germain became champions for the first time in their history with 56 points.
+VERSION 1.1.9 : 2023-12-13 22:47:21 : 	Generated Translation: El Paris Saint-Germain se convirtió en campeón por la primera vez en la historia de la primera temporada.
+VERSION 1.1.9 : 2023-12-13 22:47:21 : 	Actual Translation: Paris Saint-Germain FC resultó campeón con 55 puntos, obteniendo su primer título.
+VERSION 1.1.9 : 2023-12-13 22:47:21 : TRANSLATION 10 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:47:21 : 	Original Text: == History ==The history of Böttcherstraße goes back to the Middle Ages.
+VERSION 1.1.9 : 2023-12-13 22:47:21 : 	Generated Translation: == Historia ==La historia de Böttcherstraße se vuelve a la actualidad.
+VERSION 1.1.9 : 2023-12-13 22:47:21 : 	Actual Translation: == Historia ==La Historia de la Böttcherstraße se rastrea hasta la edad media.
+VERSION 1.1.9 : 2023-12-13 22:47:25 : TRANSLATION 11 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:47:25 : 	Original Text: In radio communication the goal is the transmission of information, so the amount of power reaching the receiver is unimportant as long as it is enough that the signal to noise ratio is high enough that the information can be received intelligibly.
+VERSION 1.1.9 : 2023-12-13 22:47:25 : 	Generated Translation: La comunicación de radiocomunicación el objetivo es la comunicación de la comunicación de la comunicación, la comunicación de la comunicación es la comunicación es la comunicación es la comunicación es la comunicación es la comunicación es la comunicación es la comunicación es la comunicación es la comunicación es la comunicación es la comunicación es la comunicación es la comunicación es la comunicación es la comunicación es la comunicación es la comunicación es la comunicación estuvo a la comunicación, a la cualquiera comunicación estuvo a la comunicación, a la cualquiera comunicación a la comunicación, la cualquiera comunicación estuvo a la comunicación, a la comunicación, la cualquiera comunicación estuvo a la comunicación, a la cualquiera comunicación a la comunicación, la cualquiera comunicación estuvo a la comunicación, a la cualquiera distancia a la comunicación a la comunicación, la cualquiera distancia a la comunicación a la comunicación, la cualquiera distancia a
+VERSION 1.1.9 : 2023-12-13 22:47:25 : 	Actual Translation: En las radiocomunicaciones el objetivo es la transmisión de información, por lo tanto, la cantidad de energía que llega al receptor no es tan importante mientras sea suficiente para que la relación señal/ruido sean tan alta como para que la información pueda ser recibida inteligiblemente.
+VERSION 1.1.9 : 2023-12-13 22:47:25 : TRANSLATION 12 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:47:25 : 	Original Text: : In the TV series, Akane works as a model and appears in clothing advertisements throughout the city.
+VERSION 1.1.9 : 2023-12-13 22:47:25 : 	Generated Translation: En la serie de televisión, Akane trabaja como modelo y aparece en la serie de televisión.
+VERSION 1.1.9 : 2023-12-13 22:47:25 : 	Actual Translation: ): En la serie de TV, Akane trabaja como modelo y aparece en anuncios de ropa que se pueden ver por la ciudad.
+VERSION 1.1.9 : 2023-12-13 22:47:28 : TRANSLATION 13 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:47:28 : 	Original Text: The National Roman Museum (in Italian: Museo Nazionale Romano) is a museum, with several branches in separate buildings throughout the city of Rome, Italy.
+VERSION 1.1.9 : 2023-12-13 22:47:28 : 	Generated Translation: El Museo Nacional del Museo Nacional (en italiano) es un museo y museo y Museo Nazionale Romano es un museo y Museo Nazionale también es un museo y Museo Museo Nazionale, es un museo y Museo y Museo y Museo y Museo y Museo y Museo y Museo y Museo y Museo y Museo y Museo y Museo y Museo y Museo y Museo y Museo y Museo y Museo y Museo y Museo y Museo y Museo y Museo y Museo y Museo y Museo y Museo y Museo y Museo y Museo y Museo y Museo y Museo y Museo y Museo y Museo y Museo y Museo y Museo y Museo y Museo y Museo y Museo y Museo y Museo y Museo y Museo y Museo y Museo y Museo y Museo
+VERSION 1.1.9 : 2023-12-13 22:47:28 : 	Actual Translation: El Museo Nacional Romano (Museo Nazionale Romano en italiano es un conjunto de museos en Roma (Italia), dividido en varios lugares de la ciudad.
+VERSION 1.1.9 : 2023-12-13 22:47:28 : TRANSLATION 14 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:47:28 : 	Original Text: The average household size was 2.32 and the average family size was 2.89.
+VERSION 1.1.9 : 2023-12-13 22:47:28 : 	Generated Translation: La tamaño media.
+VERSION 1.1.9 : 2023-12-13 22:47:28 : 	Actual Translation: El tamaño promedio de los hogares era de 2,32 personas y el de las familias de 2,89.
+VERSION 1.1.9 : 2023-12-13 22:47:29 : TRANSLATION 15 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:47:29 : 	Original Text: It is also very involved in the case of Troy Davis, leading sometimes even T-shirts with the message "I am Troy Davis" during his tour in the United States.
+VERSION 1.1.9 : 2023-12-13 22:47:29 : 	Generated Translation: También se encuentra además a cargo del caso de Troy Davis, también se encuentra además el relato de Troy Davis, y también se encuentra además el relato de Troy Davis, además, a cargo de a los títulos
+VERSION 1.1.9 : 2023-12-13 22:47:29 : 	Actual Translation: También está muy involucrado en el caso de Troy Davis, llevando incluso a veces camisetas con el mensaje "I am Troy Davis" durante su gira en los Estados Unidos.
+VERSION 1.1.9 : 2023-12-13 22:47:33 : TRANSLATION 16 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:47:33 : 	Original Text: Michiru also appears in the all-ages spin-off game titled "Idol Mahō Shōjo Chiru Chiru☆Michiru" as main character.
+VERSION 1.1.9 : 2023-12-13 22:47:33 : 	Generated Translation: Michiru también aparece en el juego de juegos de juegos de aventuras de Idol Mahō Shōjo Chiru y también aparece en el juego de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de juegos de
+VERSION 1.1.9 : 2023-12-13 22:47:33 : 	Actual Translation: Michiru también aparece en el spin-off del juego titulado Mahō Shōjo Chiru Chiru Michiru ☆ como personaje principal.
+VERSION 1.1.9 : 2023-12-13 22:47:36 : TRANSLATION 17 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:47:36 : 	Original Text: The chemical element of each atom is often indicated by the sphere's color.
+VERSION 1.1.9 : 2023-12-13 22:47:36 : 	Generated Translation: El elemento químico de cada átomo se caracteriza a menudo a menudo a la estructura de la estructura y el elemento de la estructura y el elemento de la estructura y el elemento de la estructura y el elemento de la estructura y el elemento de la estructura y el elemento de la estructura y el elemento de la estructura y el elemento de la estructura y el elemento de la estructura y el elemento de la estructura y el elemento de la estructura y el elemento de la estructura y el elemento de la estructura y el elemento de la estructura y el elemento de la estructura y el elemento de la estructura y el elemento de la estructura y el elemento de la estructura y el elemento de la estructura y el elemento de la estructura y el elemento de la estructura y el elemento de la estructura y el elemento de la estructura y el elemento de la estructura y el elemento de la
+VERSION 1.1.9 : 2023-12-13 22:47:36 : 	Actual Translation: A menudo el elemento químico de cada átomo es representado por diferentes colores de de esfera.
+VERSION 1.1.9 : 2023-12-13 22:47:40 : TRANSLATION 18 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:47:40 : 	Original Text: He fleshed it out with reading keys and concrete proposals for a counter-offensive.
+VERSION 1.1.9 : 2023-12-13 22:47:40 : 	Generated Translation: El lector se puso en adelante con las llaves y las obras de prensa y a la prensa y a la prensa y a la prensa y a la prensa y a la prensa y a la prensa y a la prensa y a la prensa y a la prensa y a la prensa y a la prensa y a la prensa y a la prensa y a la prensa y a la prensa y a la prensa y a la prensa y a la prensa y a la prensa y a la prensa y a la prensa y a la prensa y a la prensa y a la prensa y a la prensa y a la prensa y a la prensa y a la prensa y a la prensa y a la prensa y a la prensa y a la prensa y a la prensa
+VERSION 1.1.9 : 2023-12-13 22:47:40 : 	Actual Translation: Pero aporta también claves de lectura y propuestas concretas para una contraofensiva.
+VERSION 1.1.9 : 2023-12-13 22:47:40 : TRANSLATION 19 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:47:40 : 	Original Text: * Aurora Cáceres: Peruvian feminist writer, daughter of the former President of Perú general Andrés Avelino Cáceres.
+VERSION 1.1.9 : 2023-12-13 22:47:40 : 	Generated Translation: * Aurora Cáceres: escritor peruano, hija del expresidente de Perú.
+VERSION 1.1.9 : 2023-12-13 22:47:40 : 	Actual Translation: * Aurora Cáceres: escritora feminista peruana, hija del expresidente peruano general Andrés Avelino Cáceres.
+VERSION 1.1.9 : 2023-12-13 22:47:40 : TRANSLATION 20 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:47:40 : 	Original Text: The majority of this population (20,200) is from Mauritania.
+VERSION 1.1.9 : 2023-12-13 22:47:40 : 	Generated Translation: La mayoría de la población (20,200) es de Mauritania.
+VERSION 1.1.9 : 2023-12-13 22:47:40 : 	Actual Translation: La mayoría de esta población (20.200) provenía de Mauritania.
+VERSION 1.1.9 : 2023-12-13 22:47:41 : TRANSLATION 21 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:47:41 : 	Original Text: Popular dive sites include Coconut Point, Mamsa, Cogon, Rockpoint and Chapel.
+VERSION 1.1.9 : 2023-12-13 22:47:41 : 	Generated Translation: Los sitios de navegación populares incluyen sitios de navegación de Coconut Point, Mamsa, Cogon, y Chapel.
+VERSION 1.1.9 : 2023-12-13 22:47:41 : 	Actual Translation: Lugares de buceo incluyen Punto de Cocos, Mamsa, Cogon, Rockpoint y Chapel.
+VERSION 1.1.9 : 2023-12-13 22:47:41 : TRANSLATION 22 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:47:41 : 	Original Text: Since 2004, Eurostat publishes annual statistics called Healthy Life Years (HLY) based on reported activity limitations.
+VERSION 1.1.9 : 2023-12-13 22:47:41 : 	Generated Translation: Desde 2004, Eurostat publicó estadísticas a partir de la actualidad y a partir de 2004, Eurostat publicó datos anuales.
+VERSION 1.1.9 : 2023-12-13 22:47:41 : 	Actual Translation: Desde 2004, Eurostat publica estadísticas anuales llamadas "Healthy Life Years" (HLY) basado en reportes.
+VERSION 1.1.9 : 2023-12-13 22:47:44 : TRANSLATION 23 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:47:44 : 	Original Text: On a trip to New York in 1896, Barrie attended a performance of "Rosemary" and at once decided that Adams was the actress to play Lady Babbie.
+VERSION 1.1.9 : 2023-12-13 22:47:44 : 	Generated Translation: El viaje a Nueva York en 1896, Barrie tuvo una presentación de "Rosemary" y a partir de 1896, y a partir de aquella película, y a partir de entonces, a partir de aquella película, y a partir de aquella película de Nueva York, y a partir de entonces, a partir de aquella película y a partir de a partir de a partir de a partir de a Nueva York, y a partir de entonces, a partir de a aquella película y a partir de a aquella película.
+VERSION 1.1.9 : 2023-12-13 22:47:44 : 	Actual Translation: En un viaje a Nueva York en 1896, Barrie asistió a una función de "Rosemary" y de inmediato decidió que Adams fuera la actriz que interpretara a Lady Babbie.
+VERSION 1.1.9 : 2023-12-13 22:47:47 : TRANSLATION 24 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:47:47 : 	Original Text: Among his most recent film appearances were as the protagonist of ("No somos nadie") and has worked with directors like Guillermo del Toro ("El espinazo del diablo"), María Ripoll ("Utopía") and Manuel Huerga ("Salvador").
+VERSION 1.1.9 : 2023-12-13 22:47:47 : 	Generated Translation: Entre sus películas más recientes fueron además de las películas de ("No somos nadie") y también tuvo además películas como "No somos nadie" y María Ripoll ("El señor María ("El señor María ("El señor María ("El señor María ("El señor María ("El señor María ("El señor María ("El señor María") y María ("El señor María ("El señor María ("El señor María ("El señor María ("El señor María ("El señor María ("El señor María ("El señor María ("El señor María ("El señor María ("El señor María ("El señor María ("El señor María ("El señor María ("El señor María ("El señor María ("El señor María ("El señor María ("El señor María ("El señor María
+VERSION 1.1.9 : 2023-12-13 22:47:47 : 	Actual Translation: Entre sus últimas apariciones en cine lo hemos visto como protagonista de la "opera prima" de Jordi Mollá como director (No somos nadie) y ha trabajado a las órdenes de directores como Guillermo del Toro (El espinazo del diablo), María Ripoll ("Utopía") o Manuel Huerga (Salvador).
+VERSION 1.1.9 : 2023-12-13 22:47:48 : TRANSLATION 25 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:47:48 : 	Original Text: They posted an advertisement in the local music publication in Chicago, Illinois, called the "Illinois Entertainer".
+VERSION 1.1.9 : 2023-12-13 22:47:48 : 	Generated Translation: La publicación de la publicación de la publicación de la revista de la música local en Chicago, Illinois, y también publicó una publicación de la revista de Chicago, Illinois, y también tuvo una publicación en la revista "Illinois Entertainer.
+VERSION 1.1.9 : 2023-12-13 22:47:48 : 	Actual Translation: Pusieron un anuncio en la publicación de música local en Chicago, Illinois, llamado el "Artista de Illinois".
+VERSION 1.1.9 : 2023-12-13 22:47:49 : TRANSLATION 26 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:47:49 : 	Original Text: If Daigorō chose the ball, his father would kill him, sending Daigorō to be with his mother; however, the child crawls toward the sword and reaches for its hilt.
+VERSION 1.1.9 : 2023-12-13 22:47:49 : 	Generated Translation: Si Daigorō hizo la ballena, y su padre se hizo a la cabeza y a la madre, y a la madre, y a la madre, y a la madre.
+VERSION 1.1.9 : 2023-12-13 22:47:49 : 	Actual Translation: Si Daigorō elegía la pelota, su padre lo hubiera matado, enviándolo con su difunta madre; sin embargo, el niño gateó hacia la espada.
+VERSION 1.1.9 : 2023-12-13 22:47:49 : TRANSLATION 27 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:47:49 : 	Original Text: ==Commercial performance==The album debuted at number one on the U.S. "Billboard" 200 chart and sold 286,000 copies in its first week.
+VERSION 1.1.9 : 2023-12-13 22:47:49 : 	Generated Translation: == Música ==El álbum debutó en el número uno en la Billboard 200 y vendió a primera semana.
+VERSION 1.1.9 : 2023-12-13 22:47:49 : 	Actual Translation: == Recepción ===== Rendimiento comercial ===El álbum debutó en el número uno en "Billboard 200" y vendió 286,000 copias en su primer semana.
+VERSION 1.1.9 : 2023-12-13 22:47:49 : TRANSLATION 28 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:47:49 : 	Original Text: The crew consisted of 200 men which included the Captain, ten dignitaries who may have been commanders, several archers, a few soldiers, and 170 oarsmen.
+VERSION 1.1.9 : 2023-12-13 22:47:49 : 	Generated Translation: La tripulación consistió de 200 hombres que incluían a los caballeros.
+VERSION 1.1.9 : 2023-12-13 22:47:49 : 	Actual Translation: La tripulación consistía en 200 hombres, incluyendo capitán, diez dignatarios que podían haber sido comandantes, muchos arqueros, unos cuantos soldados y 170 remeros.
+VERSION 1.1.9 : 2023-12-13 22:47:53 : TRANSLATION 29 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:47:53 : 	Original Text: As Commander Garan (Garrett Wang) and his security officers take them to the conference room, Curate Prime (Daamen Krall) has a few "last words" with Kittrick before his impending execution, before ordering Garan to the bridge.
+VERSION 1.1.9 : 2023-12-13 22:47:53 : 	Generated Translation: El jefe de la oficina de asesor de Garrett (Garrett Wang) y sus jefes, y sus jefes, y sus jefes, y sus jefes, y sus jefes, además a la habitación de la habitación de la oficina de la oficina de a la oficina de a la oficina de a la oficina de a la oficina de a la oficina de a la oficina de a cargo de la oficina de a cargo de a la oficina de a cargo de a la oficina de a cargo de a la oficina de a cargo de a la oficina de a cargo de a cargo de a cargo de a cargo de a cargo de a la oficina de a cargo de a cargo de a cargo de a la oficina de a cargo de a cargo de a cargo de a cargo de a cargo de a cargo de a la oficina de
+VERSION 1.1.9 : 2023-12-13 22:47:53 : 	Actual Translation: Como Comandante Garan ( Garrett Wang ) y sus agentes de seguridad los llevan a la sala de conferencias, Curate Prime (Daamen Krall) tiene algunos "últimas palabras" con Kittrick antes de su ejecución inminente, antes de ordenar Garan al puente.
+VERSION 1.1.9 : 2023-12-13 22:47:53 : TRANSLATION 30 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:47:53 : 	Original Text: The Christian Social Party (, CSP) was a right-wing political party in the German Empire, founded in 1878 by Adolf Stoecker as the "Christlichsoziale Arbeiterpartei" (Christian Social Workers' Party).
+VERSION 1.1.9 : 2023-12-13 22:47:53 : 	Generated Translation: El Partido Socialista (CSP) fue un partido político y el Partido Socialista y el Partido Socialista.
+VERSION 1.1.9 : 2023-12-13 22:47:53 : 	Actual Translation: El Partido Social Cristiano (alemán: "Christlich-soziale Partei", CSP) fue un partido político derechista en el imperio alemán, fundado en 1878 por Adolf Stoecker como "Christlichsoziale Arbeiterpartei" (Partido Social Cristiano de los Trabajadores).
+VERSION 1.1.9 : 2023-12-13 22:47:53 : TRANSLATION 31 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:47:53 : 	Original Text: From 1976, he studied on a scholarship in Vienna.
+VERSION 1.1.9 : 2023-12-13 22:47:53 : 	Generated Translation: De 1976, estudió en Viena.
+VERSION 1.1.9 : 2023-12-13 22:47:53 : 	Actual Translation: Desde 1976 estudió con una beca en Viena.
+VERSION 1.1.9 : 2023-12-13 22:47:57 : TRANSLATION 32 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:47:57 : 	Original Text: Weber's insistence on the importance of domination and symbolic systems in social life was retained by Pierre Bourdieu, who developed the idea of social orders, ultimately transforming it into a theory of fields.
+VERSION 1.1.9 : 2023-12-13 22:47:57 : 	Generated Translation: La insistencia de Weber en la presencia de la presencia de la presencia de la presencia de la presencia de la presencia de la presencia de la presencia de la presencia de la presencia de la presencia de la presencia de la presencia de la presencia de la presencia de la presencia de la presencia de la presencia de la presencia de la presencia de la presencia de la presencia de la presencia de la presencia de la presencia de la presencia de a la presencia de la presencia de la presencia de la presencia de la presencia de la presencia de la presencia de la presencia de la presencia de la presencia de la presencia de la presencia de la presencia de la presencia de la presencia de la presencia de la presencia de la presencia de la presencia de la presencia de la presencia de la presencia de la presencia de la presencia de la presencia de la presencia de la presencia de la presencia de la presencia de la presencia de la presencia de la presencia de la presencia de la presencia de la presencia de la presencia
+VERSION 1.1.9 : 2023-12-13 22:47:57 : 	Actual Translation: La insistencia de Max Weber en la importancia de la dominación y los sistemas simbólicos en la vida social ha sido continuada por Pierre Bourdieu, que desarrolló la idea de los órdenes sociales, transformándola por último en una teoría de campos.
+VERSION 1.1.9 : 2023-12-13 22:47:58 : TRANSLATION 33 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:47:58 : 	Original Text: It is considered a delicacy in Iceland and Greenland.
+VERSION 1.1.9 : 2023-12-13 22:47:58 : 	Generated Translation: La edición de Finlandia se consideraba una delicada y a la actualidad y a la edición de Finlandia y Finlandia y Finlandia y Finlandia y Finlandia y Finlandia y Finlandia y Finlandia y Finlandia y Finlandia.
+VERSION 1.1.9 : 2023-12-13 22:47:58 : 	Actual Translation: En Groenlandia e Islandia es considerado una exquisitez.
+VERSION 1.1.9 : 2023-12-13 22:47:59 : TRANSLATION 34 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:47:59 : 	Original Text: As a result, he was overthrown and assassinated in a "coup d'état" led by the French-backed Blaise Compaoré on October 15, 1987.
+VERSION 1.1.9 : 2023-12-13 22:47:59 : 	Generated Translation: El resultado fue asesinado y asesinado en un "coup d'état" y el compuesto de Blaise Compaoré, el 15 de octubre de 1987, y el compuesto de ataque a la primera vez a la actualidad, y a partir de octubre de 1987.
+VERSION 1.1.9 : 2023-12-13 22:47:59 : 	Actual Translation: Como resultado, fue derrocado y asesinado en un golpe de estado liderado por Blaise Compaoré que era respaldado por los franceses el 15 de octubre de 1987.
+VERSION 1.1.9 : 2023-12-13 22:47:59 : TRANSLATION 35 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:47:59 : 	Original Text: The per capita income for the county was $16,884.
+VERSION 1.1.9 : 2023-12-13 22:47:59 : 	Generated Translation: La renta per cápita del condado era de $16,884.
+VERSION 1.1.9 : 2023-12-13 22:47:59 : 	Actual Translation: El ingreso per cápita para el condado era de $16,884.
+VERSION 1.1.9 : 2023-12-13 22:47:59 : TRANSLATION 36 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:47:59 : 	Original Text: In 1964, Jules Romains was named citizen of honor of Saint-Avertin.
+VERSION 1.1.9 : 2023-12-13 22:47:59 : 	Generated Translation: En 1964, Jules Romains fue nombrado ciudadano de honor de Saint-Avertin.
+VERSION 1.1.9 : 2023-12-13 22:47:59 : 	Actual Translation: En 1964, fue nombrado ciudadano de honor de Saint-Avertin.
+VERSION 1.1.9 : 2023-12-13 22:48:00 : TRANSLATION 37 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:48:00 : 	Original Text: Cartwright graduated from high school in 1976 and accepted a scholarship from Ohio University.
+VERSION 1.1.9 : 2023-12-13 22:48:00 : 	Generated Translation: Cartwright se graduó de la escuela de la Universidad de Ohio.
+VERSION 1.1.9 : 2023-12-13 22:48:00 : 	Actual Translation: Nancy se graduó de la escuela en 1976 y aceptó una beca para la Universidad de Ohio.
+VERSION 1.1.9 : 2023-12-13 22:48:01 : TRANSLATION 38 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:48:01 : 	Original Text: The game arrived on the Wii Virtual Console in Europe on July 20, 2007, in North America on August 13, 2007, and in Japan on March 4, 2008.
+VERSION 1.1.9 : 2023-12-13 22:48:01 : 	Generated Translation: El juego llegó en el Wii Virtual Console en Europa el 20 de julio de 2007, en el juego se estrenó en Europa el 20 de julio de 2007, en el juego de la versión de Wii Virtual Console en Europa el 20 de agosto de 2007, en el cualquiera versión y el juego se estrenó en el juego en el juego de Estados Unidos, y en Japón, el 13 de agosto de 2007.
+VERSION 1.1.9 : 2023-12-13 22:48:01 : 	Actual Translation: El juego también fue lanzado para la Consola Virtual de la Wii, el 20 de julio de 2007 para Europa, el 13 de agosto del mismo año para América y el 4 de marzo de 2008 en Japón.
+VERSION 1.1.9 : 2023-12-13 22:48:01 : TRANSLATION 39 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:48:01 : 	Original Text: During fall 2010, Tacita Dean produced a film on Twombly, titled "Edwin Parker".
+VERSION 1.1.9 : 2023-12-13 22:48:01 : 	Generated Translation: El verano de 2010, Tacita Dean hizo una película de "Edwin Parker" y además, estrenó una película.
+VERSION 1.1.9 : 2023-12-13 22:48:01 : 	Actual Translation: Durante el otoño de 2010, Tacita Dean produjo un filme acerca de Twombly, titulado "Edwin Parker".
+VERSION 1.1.9 : 2023-12-13 22:48:02 : TRANSLATION 40 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:48:02 : 	Original Text: Tawara was born in Ōita Prefecture and studied at the Medical School, Imperial University of Tokyo in Tokyo, graduating in 1901 and receiving his Doctorate of Medical Science in 1908.
+VERSION 1.1.9 : 2023-12-13 22:48:02 : 	Generated Translation: Tawara nació en la Universidad de Ōita, y estudió en la Universidad de Universidad Imperial de Tokio, y académico en 1908.
+VERSION 1.1.9 : 2023-12-13 22:48:02 : 	Actual Translation: == Biografía ==Tawara estudió medicina en la Facultad de Medicina de la Universidad de Tokio, en donde se graduó en 1901 y en 1908 obtuvo un doctorado en Ciencias Médicas.
+VERSION 1.1.9 : 2023-12-13 22:48:02 : TRANSLATION 41 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:48:02 : 	Original Text: [http://www.insects.demon.co.uk/bullsn/bull-4.html]* Späth, M. (1999), Pt.
+VERSION 1.1.9 : 2023-12-13 22:48:02 : 	Generated Translation: [http://www.insects.demon.co.uk/bullsn/bull-4.html]* Späth, M. (1999), Pt.
+VERSION 1.1.9 : 2023-12-13 22:48:02 : 	Actual Translation: [http://web.archive.org/web/http://www.insects.demon.co.uk/bullsn/bull-4.html]* Späth, M. (1999), Pt.
+VERSION 1.1.9 : 2023-12-13 22:48:06 : TRANSLATION 42 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:48:06 : 	Original Text: The cake was first served at the Demel and later at the Hotel Sacher, established by Eduard in 1876.
+VERSION 1.1.9 : 2023-12-13 22:48:06 : 	Generated Translation: El cake fue compuesto en el Hotel Sacher, y a finales de agosto de 1876, y a finales de agosto de 1876, y a finales de agosto de 1876, y a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de
+VERSION 1.1.9 : 2023-12-13 22:48:06 : 	Actual Translation: Eduard, el hijo mayor de Franz Sacher, fue aprendiz de repostero en la confitería vienesa Demel.
+VERSION 1.1.9 : 2023-12-13 22:48:06 : TRANSLATION 43 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:48:06 : 	Original Text: The pedestal is by Corgolin.
+VERSION 1.1.9 : 2023-12-13 22:48:06 : 	Generated Translation: El pedestal es el epísta es a la misma versión de Corgolin.
+VERSION 1.1.9 : 2023-12-13 22:48:06 : 	Actual Translation: El pedestal es de Corgolin.
+VERSION 1.1.9 : 2023-12-13 22:48:10 : TRANSLATION 44 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:48:10 : 	Original Text: The group's largest business area is highway management, in which it is the largest concessionaire in its home country.
+VERSION 1.1.9 : 2023-12-13 22:48:10 : 	Generated Translation: El área del grupo es el área del grupo es el área del grupo es el área del grupo es el área del grupo es el área del área del grupo es el área del área del grupo es el área del área del grupo es el área del área del grupo es el área del área del grupo es el área del área del grupo es el área del área del área del grupo es el cualquiera y el equipo de negocios del grupo es el área del grupo es el área del área del grupo es el área del área del grupo es el área del área del área del grupo es el cualquiera y el área del grupo es el área del área del grupo es el cualquiera y el equipo de negocios del grupo es el área del grupo es el área del área del grupo es el área del área del grupo es el cualquiera y
+VERSION 1.1.9 : 2023-12-13 22:48:10 : 	Actual Translation: La mayor área de negocio del grupo es la gestión de autopistas, del que es el primer concesionario en el país.
+VERSION 1.1.9 : 2023-12-13 22:48:11 : TRANSLATION 45 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:48:11 : 	Original Text: Being adept in both academic representational style and modern abstract, he has utilized almost all kinds of materials from hard wood ("molave", "acacia", "langka" wood, "ipil", "kamagong", palm wood and bamboo) to adobe, metal, stainless steel, cement, marble, bronze, iron, alabaster, coral and brass.
+VERSION 1.1.9 : 2023-12-13 22:48:11 : 	Generated Translation: El estilo y estilo moderno, y a partir de estilo y estilo y moderno, ha utilizado además de estilo y arquitectura, a partir de estilo y a estilo y a estilo y a común.
+VERSION 1.1.9 : 2023-12-13 22:48:11 : 	Actual Translation: Al ser tan hábil tanto en representaciones de estilo académico y abstracto moderno, ha utilizado casi todo tipo de materiales de madera dura (molave, acacia, madera de Langka, ipil, kamagong, madera de palma y bambú) así como de adobe, metal, acero inoxidable, cemento, mármol, bronce, hierro, alabastro, coral y latón.
+VERSION 1.1.9 : 2023-12-13 22:48:11 : TRANSLATION 46 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:48:11 : 	Original Text: The flowers show a column with a unique shieldlike staminode.
+VERSION 1.1.9 : 2023-12-13 22:48:11 : 	Generated Translation: Las flores presentan una columna con una columna con un escudo único.
+VERSION 1.1.9 : 2023-12-13 22:48:11 : 	Actual Translation: Las flores presentan una columna con un solo estaminodio como un escudo.
+VERSION 1.1.9 : 2023-12-13 22:48:11 : TRANSLATION 47 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:48:11 : 	Original Text: The district capital lies at the city of Tokmok.
+VERSION 1.1.9 : 2023-12-13 22:48:11 : 	Generated Translation: La capital del distrito está ubicada en la ciudad de Tokmok.
+VERSION 1.1.9 : 2023-12-13 22:48:11 : 	Actual Translation: Tiene como capital la ciudad de Chuy.
+VERSION 1.1.9 : 2023-12-13 22:48:15 : TRANSLATION 48 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:48:15 : 	Original Text: 'You will tell Matthew to do something that cannot be done and will go away yourself, and he will muddle everything,' and as she spoke her usual ironical smile wrinkled the corners of Dolly's mouth.
+VERSION 1.1.9 : 2023-12-13 22:48:15 : 	Generated Translation: El señor dijo a Matthew y dijo a ella a qué ella dijo a ella a qué ella dijo a ella a qué ella dijo a ella a qué ella dijo a ella a qué ella a ella a ella a ella a ella a ella a ella a ella a ella a ella a ella a ella a ella a ella a ella a ella a ella a ella a ella a ella a ella a ella a ella a ella a ella a ella a ella a ella a ella a ella a ella a ella a ella a ella a ella a ella a ella a ella a ella a ella a ella a ella a ella a ella a ella a ella a ella
+VERSION 1.1.9 : 2023-12-13 22:48:15 : 	Actual Translation: Y una sonrisa irónica plegó, como de costumbre, las comisuras de sus labios. «La reconciliación es completa» , pensó ahora Ana.
+VERSION 1.1.9 : 2023-12-13 22:48:18 : TRANSLATION 49 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:48:18 : 	Original Text: In 1989, Townshend began work on a novel entitled "Ray High & The Glass Household", a draft of which was later submitted to his editor.
+VERSION 1.1.9 : 2023-12-13 22:48:18 : 	Generated Translation: En 1989, Townshend comenzó a trabajar en una novela titulada "Ray High & The Glass Household", una novela de estudio, a partir de la novela de a partir de a partir de 1989, y a partir de entonces, a partir de 1989, y a partir de 1989, y a partir de entonces, a partir de 1989, y a partir de entonces, a partir de a partir de 1989, y a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de
+VERSION 1.1.9 : 2023-12-13 22:48:18 : 	Actual Translation: En 1989, Townshend comenzó a trabajar en una novela titulada "Ray High & The Glass Household", cuyo borrador fue más tarde enviado a su editor.
+VERSION 1.1.9 : 2023-12-13 22:48:18 : TRANSLATION 50 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:48:18 : 	Original Text: In 2011 the company started collaborating with the French designer Christian Lacroix.
+VERSION 1.1.9 : 2023-12-13 22:48:18 : 	Generated Translation: En 2011 la compañía comenzó a colaborar con el diseñado francés.
+VERSION 1.1.9 : 2023-12-13 22:48:18 : 	Actual Translation: En 2011 la firma inició una colaboración con el diseñador francés Christian Lacroix.
+VERSION 1.1.9 : 2023-12-13 22:48:19 : TRANSLATION 51 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:48:19 : 	Original Text: In many examples of 3D optical data storage systems, several wavelengths (colors) of light are used (e.g.
+VERSION 1.1.9 : 2023-12-13 22:48:19 : 	Generated Translation: En muchos ejemplos de sistemas de almacenamiento de datos de datos de datos, varias líneas (colores) y varias longitudes (colores) y además.
+VERSION 1.1.9 : 2023-12-13 22:48:19 : 	Actual Translation: En muchos ejemplos de sistemas de almacenamiento de datos 3D se usan diferentes tipos de longitudes de onda (colores) de luz (ej.
+VERSION 1.1.9 : 2023-12-13 22:48:19 : TRANSLATION 52 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:48:19 : 	Original Text: Klaus and Eva Herlitz are German businesspeople, living in Berlin.
+VERSION 1.1.9 : 2023-12-13 22:48:19 : 	Generated Translation: Klaus y Eva Herlitz son empresas alemanas, viven en Berlín.
+VERSION 1.1.9 : 2023-12-13 22:48:19 : 	Actual Translation: Eva y Klaus Herlitz son un matrimonio que reside en Berlín.
+VERSION 1.1.9 : 2023-12-13 22:48:20 : TRANSLATION 53 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:48:20 : 	Original Text: With the rise of Adolf Hitler in Germany in the 1930s a few readers (including Donald Wollheim) wrote letters complaining about the inclusion of German stories.
+VERSION 1.1.9 : 2023-12-13 22:48:20 : 	Generated Translation: En la actualidad, a los libros de Adolf Hitler en la Alemania en la década de 1930, algunos escritores (incluyendo Donald Wollheim) escribió cartas acerca de la actualidad.
+VERSION 1.1.9 : 2023-12-13 22:48:20 : 	Actual Translation: Con el ascenso de Adolf Hitler en la década de 1930 en Alemania, unos pocos lectores, como Donald Wollheim, escribieron cartas quejándose de la inclusión de historias alemanas.
+VERSION 1.1.9 : 2023-12-13 22:48:23 : TRANSLATION 54 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:48:23 : 	Original Text: The end of this century brought the end of Turkish sovereignty, but found the city bereft of much of its wealth, municipal freedom, cultural centrality, political significance and even population.
+VERSION 1.1.9 : 2023-12-13 22:48:23 : 	Generated Translation: El fin del siglo XXI, el fin del siglo XXI, tuvo el fin de la República, y la ciudad tuvo la riqueza, la libertad y la comunidad y la ciudad y la ciudad y la comunidad y la comunidad y la comunidad y la comunidad y la comunidad y la comunidad y la comunidad y la comunidad y la comunidad y la comunidad y la comunidad y la comunidad y la comunidad y la comunidad tuvo la actualidad y a la cualquiera cualquiera cualquiera cualquiera cualquiera cualquiera cualquiera cualquiera cualquiera cualquiera sociedad y a la cualquiera sociedad y a la cualquiera sociedad y a la cualquiera sociedad y a la cualquiera sociedad y a la cualquiera sociedad y a la actualidad tuvo a partir del siglo XIX, y el pueblo tuvo la
+VERSION 1.1.9 : 2023-12-13 22:48:23 : 	Actual Translation: El fin de este siglo trajo consigo el fin de la soberanía otomana, pero la ciudad perdió mucho de su fortuna, su libertad municipal, su centralidad cultural, su relevancia política e incluso parte de su población.
+VERSION 1.1.9 : 2023-12-13 22:48:24 : TRANSLATION 55 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:48:24 : 	Original Text: He died in his hometown on 27 November 1720, leaving all his possessions to his sister, Francisca.
+VERSION 1.1.9 : 2023-12-13 22:48:24 : 	Generated Translation: Murió en su casada el 27 de noviembre de 1720, y tuvo sus residencias, a la residencia de la madre, Francisca.
+VERSION 1.1.9 : 2023-12-13 22:48:24 : 	Actual Translation: Murió en su ciudad natal el 27 de noviembre de 1720, dejando todos sus bienes a su hermana, Francisca.
+VERSION 1.1.9 : 2023-12-13 22:48:24 : TRANSLATION 56 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:48:24 : 	Original Text: The per capita income for the CDP was $34,665.
+VERSION 1.1.9 : 2023-12-13 22:48:24 : 	Generated Translation: La renta per cápita para la localidad era de $34,665.
+VERSION 1.1.9 : 2023-12-13 22:48:24 : 	Actual Translation: La renta per cápita para la localidad era de $34,665.
+VERSION 1.1.9 : 2023-12-13 22:48:24 : TRANSLATION 57 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:48:24 : 	Original Text: * 1962 — Paintings by Ceri Richards.
+VERSION 1.1.9 : 2023-12-13 22:48:24 : 	Generated Translation: * 1962: Paintings by Ceri Richards.
+VERSION 1.1.9 : 2023-12-13 22:48:24 : 	Actual Translation: * 1962 - Los cuadros de Ceri Richards.
+VERSION 1.1.9 : 2023-12-13 22:48:28 : TRANSLATION 58 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:48:28 : 	Original Text: Elizabeth Rebecca "Liz" Mitchell (born 12 July 1952, Clarendon, Jamaica) is a singer, best known as the former lead singer of the 1970s disco/pop band, Boney M.==Early life==At the age of eleven, Mitchell and her family emigrated to London, England, in 1963.
+VERSION 1.1.9 : 2023-12-13 22:48:28 : 	Generated Translation: Elizabeth Rebecca "Liz" Mitchell (Carroll, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica, Jamaica
+VERSION 1.1.9 : 2023-12-13 22:48:28 : 	Actual Translation: Liz Mitchell (nacida Elizabeth Mitchell Rebecca, 12 de julio de 1952, Clarendon, Jamaica) es una cantante, más conocida por ser la ex cantante del grupo de música disco de la década de 1970 , Boney M==Primeros años==En 1963 a la edad de once años, Mitchell y su familia emigraron a Londres , Inglaterra.
+VERSION 1.1.9 : 2023-12-13 22:48:28 : TRANSLATION 59 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:48:28 : 	Original Text: He was a member of the National Assembly of Bulgaria in 1990.
+VERSION 1.1.9 : 2023-12-13 22:48:28 : 	Generated Translation: Fue miembro de la Asamblea Nacional de Bulgaria en 1990.
+VERSION 1.1.9 : 2023-12-13 22:48:28 : 	Actual Translation: Fue miembro de la Asamblea Nacional de Bulgaria en 1990.
+VERSION 1.1.9 : 2023-12-13 22:48:31 : TRANSLATION 60 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:48:31 : 	Original Text: ==Destruction==The kapu or '"ai kapu" system was abolished in October, 1819 by Liholiho, Kamehameha II.
+VERSION 1.1.9 : 2023-12-13 22:48:31 : 	Generated Translation: == Destrucción ==El sistema de la construcción del sistema de la línea o el sistema de la línea "ai kapu" y el sistema de la línea "ai"""ai"""ai""""ai"""""ai""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+VERSION 1.1.9 : 2023-12-13 22:48:31 : 	Actual Translation: El kapu o sistema "ai kapu" fue abolido en 1819 por Liholiho, Kamehameha II.
+VERSION 1.1.9 : 2023-12-13 22:48:32 : TRANSLATION 61 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:48:32 : 	Original Text: Acrocercops terminaliae is a moth of the Gracillariidae family.
+VERSION 1.1.9 : 2023-12-13 22:48:32 : 	Generated Translation: Acrocercops terminaliae es un perro de la familia Gracillariidae es una familia de la familia abreviada.
+VERSION 1.1.9 : 2023-12-13 22:48:32 : 	Actual Translation: Acrocercops terminaliae es un insecto lepidóptero perteneciente a la familia Gracillariidae.
+VERSION 1.1.9 : 2023-12-13 22:48:35 : TRANSLATION 62 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:48:35 : 	Original Text: As the stampede chases them, Ryan Dunn jumps into a station wagon before a bull rips off the open door.
+VERSION 1.1.9 : 2023-12-13 22:48:35 : 	Generated Translation: El acantilado a los lanzadores, Ryan Dunn lanza a la puerta a la puerta, a la puerta a la puerta, a la puerta, a la puerta, a la puerta, a la puerta, a la puerta, a la puerta a la puerta, a la puerta a la puerta, a la puerta a la puerta a la puerta a la puerta a la puerta a la puerta a la puerta y a la puerta a la puerta a la puerta a la puerta a la puerta a la puerta a la puerta a la puerta a la puerta a la puerta a la puerta a la puerta a la puerta a la puerta a la puerta a la puerta a la puerta a la puert
+VERSION 1.1.9 : 2023-12-13 22:48:35 : 	Actual Translation: A medida que la estampida los persigue, Ryan Dunn salta en una camioneta antes que el toro rompe la puerta abierta.
+VERSION 1.1.9 : 2023-12-13 22:48:36 : TRANSLATION 63 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:48:36 : 	Original Text: Hispanic or Latino of any race were 1.55% of the population.
+VERSION 1.1.9 : 2023-12-13 22:48:36 : 	Generated Translation: Del total de la población el 1.95% eran hispanos o latinos de cualquier raza de la población de cualquier raza de la población de la población de cualquier raza de la población era de la población de cualquier raza de la población.
+VERSION 1.1.9 : 2023-12-13 22:48:36 : 	Actual Translation: Del total de la población el 0.39% eran hispanos o latinos de cualquier raza.
+VERSION 1.1.9 : 2023-12-13 22:48:40 : TRANSLATION 64 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:48:40 : 	Original Text: This same formula can be used to compute the approximate radius of a main sequence star relative to the sun:: formula_14where formula_15, is the solar radius, and so forth.
+VERSION 1.1.9 : 2023-12-13 22:48:40 : 	Generated Translation: Esta misma formula puede ser utilizada para computar el área a partir de la misma formula puede utilizar la misma formula a la misma formula puede utilizar la línea a distancia a la cualquiera línea a distancia a la cualquiera distancia a la cualquiera distancia a la cualquiera distancia a la cualquiera distancia a la cualquiera distancia a la cualquiera distancia a la cualquiera distancia a la cualquiera distancia a la cualquiera distancia a la cualquiera línea a la cualquiera distancia a la cualquiera distancia a la cualquiera distancia a la cualquiera distancia a la cualquiera distancia a la cualquiera distancia a la cualquiera distancia a la cualquiera distancia a la cualquiera distancia a la cualquiera distancia a la cualquiera distancia a la
+VERSION 1.1.9 : 2023-12-13 22:48:40 : 	Actual Translation: Esta misma fórmula puede usarse para computar el radio aproximado de una estrella de la secuencia principal y, por tanto, similar al Sol:</math> }}donde formula_3 es el radio solar.
+VERSION 1.1.9 : 2023-12-13 22:48:41 : TRANSLATION 65 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:48:41 : 	Original Text: Three subspecies are recognized:*"Alisterus chloropterus" (Ramsay, EP 1879)**"Alisterus chloropterus chloropterus" (Ramsay, EP 1879), the nominate subspecies, which occurs in eastern New Guinea to the Huon Peninsula in the north, and Hall Sound in the south.
+VERSION 1.1.9 : 2023-12-13 22:48:41 : 	Generated Translation: La subespecies son reconocidas:* "Alisterus chloropterus" (Ramsay, EP 1879)** "Alisterus chloropterus" (Ramsay, EP 1879)** "Alisterus chloropterus" (Ramsay, EP 1879)** "Alisterus chloropterus" (Ramsay, EP 1879), la subespecies y además, la subespecies y además se encuentran afluentes y además.
+VERSION 1.1.9 : 2023-12-13 22:48:41 : 	Actual Translation: Se reconocen tres subespecies:*"Alisterus chloropterus chloropterus" (Ramsay, EP 1879), la subespecie nominal que se encuentra en el este de Nueva Guinea, desde la península de Huon por el norte hasta Hall Sound en el sur.
+VERSION 1.1.9 : 2023-12-13 22:48:42 : TRANSLATION 66 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:48:42 : 	Original Text: Sarnak is also on the permanent faculty at the School of Mathematics of the Institute for Advanced Study.
+VERSION 1.1.9 : 2023-12-13 22:48:42 : 	Generated Translation: Sarnak también está también en la facultad de la Facultad de Ciencias de la Universidad de Ciencias.
+VERSION 1.1.9 : 2023-12-13 22:48:42 : 	Actual Translation: Sarnak también está en la facultad permanente de la Facultad de Matemáticas del Instituto de Estudios Avanzados.
+VERSION 1.1.9 : 2023-12-13 22:48:42 : TRANSLATION 67 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:48:42 : 	Original Text: He received his episcopal consecration on the following September 11 from Lawrence Cardinal Sheehan, with Bishops Thomas Murphy and Thomas Mardaga serving as co-consecrators.
+VERSION 1.1.9 : 2023-12-13 22:48:42 : 	Generated Translation: El Presidente y además, recibió su composición episcopal a partir del 11 de septiembre de Lawrence Cardinal Sheehan, y además de los compositores.
+VERSION 1.1.9 : 2023-12-13 22:48:42 : 	Actual Translation: Recibió su consagración episcopal el siguiente 11 de septiembre por el Cardenal Lawrence Sheehan, con los obispos Thomas Murphy y Thomas Mardaga sirviendo como co-consagrantes.
+VERSION 1.1.9 : 2023-12-13 22:48:43 : TRANSLATION 68 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:48:43 : 	Original Text: The SOFIA (Stratospheric Observatory For Infrared Astronomy) airborne platform will observe in near- and mid-infrared.
+VERSION 1.1.9 : 2023-12-13 22:48:43 : 	Generated Translation: El SOFIA (Observatory de Observatory de Infrared Astronomy) se observará en el plataforma de navegación a la SOFIA (Sofía a a a distancia.
+VERSION 1.1.9 : 2023-12-13 22:48:43 : 	Actual Translation: El SOFIA (Stratospheric Observatory For Infrared Astronomy), una plataforma aérea estudiará el infrarrojo cercano y medio.
+VERSION 1.1.9 : 2023-12-13 22:48:44 : TRANSLATION 69 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:48:44 : 	Original Text: With his spirit broken, Andy becomes an overweight drug addict and seemingly loses his power, and is eventually deemed useless by the Shop.
+VERSION 1.1.9 : 2023-12-13 22:48:44 : 	Generated Translation: Con su éxito, Andy se encuentra a través de la tienda y a la cualquiera aún y se encuentra a ella y aún.
+VERSION 1.1.9 : 2023-12-13 22:48:44 : 	Actual Translation: Con su espíritu quebrantado, Andy se convierte en un adicto a las drogas y aparentemente pierde su poder, y es considerado inútil para the Shop.
+VERSION 1.1.9 : 2023-12-13 22:48:44 : TRANSLATION 70 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:48:44 : 	Original Text: The song runs over six minutes in length.
+VERSION 1.1.9 : 2023-12-13 22:48:44 : 	Generated Translation: La canción gira a unos seis minutos de longitud.
+VERSION 1.1.9 : 2023-12-13 22:48:44 : 	Actual Translation: La canción dura más de seis minutos.
+VERSION 1.1.9 : 2023-12-13 22:48:47 : TRANSLATION 71 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:48:47 : 	Original Text: On September 17, 2010, United's shareholders approved the merger deal with Continental Airlines.
+VERSION 1.1.9 : 2023-12-13 22:48:47 : 	Generated Translation: El 17 de septiembre de 2010, los shareholders of the United's shareholders approved the Continental Airlines agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement agreement
+VERSION 1.1.9 : 2023-12-13 22:48:47 : 	Actual Translation: El 17 de septiembre de 2010, los accionistas de United aprobaron el acuerdo de fusión con Continental Airlines.
+VERSION 1.1.9 : 2023-12-13 22:48:47 : TRANSLATION 72 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:48:47 : 	Original Text: The population density was 66.5 people per square mile (25.7/km²).
+VERSION 1.1.9 : 2023-12-13 22:48:47 : 	Generated Translation: La densidad de población era de 25,57 hab./km2.
+VERSION 1.1.9 : 2023-12-13 22:48:47 : 	Actual Translation: La densidad de población era de 19,38 hab./km².
+VERSION 1.1.9 : 2023-12-13 22:48:48 : TRANSLATION 73 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:48:48 : 	Original Text: He also held a Doctorate of Divinity degree from Oral Roberts University.
+VERSION 1.1.9 : 2023-12-13 22:48:48 : 	Generated Translation: También tuvo un doctorado de la Universidad Oral Roberts.
+VERSION 1.1.9 : 2023-12-13 22:48:48 : 	Actual Translation: Posteriormente obtuvo un doctorado en la Oral Roberts University.
+VERSION 1.1.9 : 2023-12-13 22:48:48 : TRANSLATION 74 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:48:48 : 	Original Text: However, it was decided to abandon that plan and launch a small space laboratory instead.
+VERSION 1.1.9 : 2023-12-13 22:48:48 : 	Generated Translation: Sin embargo, se decidió abandonar el plan y lanzaría un laboratorio
+VERSION 1.1.9 : 2023-12-13 22:48:48 : 	Actual Translation: Sin embargo, se decidió abandonar dicho plan y lanzar en su lugar un pequeño laboratorio espacial.
+VERSION 1.1.9 : 2023-12-13 22:48:51 : TRANSLATION 75 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:48:51 : 	Original Text: == The decrees ==Decree N° 464/973 of June 27, 1973, bears the signature of Bordaberry and his ministers Néstor Bolentini and Walter Ravenna.
+VERSION 1.1.9 : 2023-12-13 22:48:51 : 	Generated Translation: == Los decretos ==El censo de la fecha de la fecha de la fecha de la fecha de la fecha de la fecha de la fecha de la fecha de la fecha de la fecha de la fecha de la fecha de marzo de 1973, a la fecha de marzo de 1973, a la fecha de a partir de la fecha de a partir de la fecha de a partir de la fecha de a partir de la fecha de a partir de la fecha de a partir de la fecha de a partir de la fecha de a partir de la fecha de a partir de la fecha de a partir de la fecha de a partir de la fecha de a partir de la fecha de a partir de la fecha de a partir de la fecha de a partir de la fecha de a partir de la fecha de a partir de la fecha de a partir de la fecha de a partir de la fecha de a
+VERSION 1.1.9 : 2023-12-13 22:48:51 : 	Actual Translation: == Los decretos ==El decreto N° 464/973 del 27 de junio de 1973 lleva la firma de Bordaberry y de sus ministros Néstor Bolentini y Walter Ravenna.
+VERSION 1.1.9 : 2023-12-13 22:48:55 : TRANSLATION 76 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:48:55 : 	Original Text: Organizers of seminars may choose to routinely record complete seminars and make them available to all attendees for future reference and/or sell these recordings to people who cannot afford the fee of the live seminar or do not have the time to attend it.
+VERSION 1.1.9 : 2023-12-13 22:48:55 : 	Generated Translation: Los organizadores de seminarios pueden elegir a los estudiantes pueden elegir a realizar cursos y además pueden llegar a los estudiantes y asistir a realizar a partir de algunos estudiantes y además pueden vender a los estudiantes y asistir a realizar a partir de algunos estudiantes y a partir de a partir de aplicaciones y a partir de aplicaciones y a partir de aplicaciones y a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a los estudiantes y a los estudiantes y a los estudiantes pueden realizar a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir de a partir
+VERSION 1.1.9 : 2023-12-13 22:48:55 : 	Actual Translation: Por ejemplo, los organizadores de seminarios relacionados con computadoras puede elegir grabar los los los los seminarios completos y ponerlos disponibles en DVD para futura referencia de todos los asistentes y/o vender esas grabaciones a la gente que no puede asistir al seminario o no puede costeárselo.
+VERSION 1.1.9 : 2023-12-13 22:48:55 : TRANSLATION 77 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:48:55 : 	Original Text: At Payback, Rybaxel defeated Cody Rhodes and Goldust in a tag team match.
+VERSION 1.1.9 : 2023-12-13 22:48:55 : 	Generated Translation: En Payback, Rybaxel, y además, a partido de equipo.
+VERSION 1.1.9 : 2023-12-13 22:48:55 : 	Actual Translation: A mediados de mayo RybAxel comenzó una rivalidad con Cody Rhodes & Goldust.
+VERSION 1.1.9 : 2023-12-13 22:48:55 : TRANSLATION 78 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:48:55 : 	Original Text: When Jacques Bollinger died in 1941, Lilly Bollinger took over.
+VERSION 1.1.9 : 2023-12-13 22:48:55 : 	Generated Translation: Cuando Jacques Bollinger murió en 1941, Lilly Bollinger murió.
+VERSION 1.1.9 : 2023-12-13 22:48:55 : 	Actual Translation: Cuando Jacques Bollinger murió en 1941, Lilly Bollinger se hizo cargo del negocio.
+VERSION 1.1.9 : 2023-12-13 22:48:58 : TRANSLATION 79 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:48:58 : 	Original Text: I asked him if he knew to what height of improvement he had brought the plantation, and whether he thought it might be worth looking after; or whether, on my going thither, I should meet with any obstruction to my possessing my just right in the moiety.
+VERSION 1.1.9 : 2023-12-13 22:48:58 : 	Generated Translation: El señor dijo que a la aquél dijo que aquél aquél aquél aquél aquél aquél aquél aquél aquél aquél aquél aquél aquél aquél aquél aquél aquél aquél aquél aquél aquél aquél aquél aquél aquél aquél aquél aquél aquél aquél aquél aquél aquél aquél aquél.
+VERSION 1.1.9 : 2023-12-13 22:48:58 : 	Actual Translation: Le pregunté si sabía cuánto había crecido mi plantación, si le parecía que valía la pena reclamarla o si, por el contrario, solo encontraría obstáculos para recuperar lo que justamente me correspondía. Me dijo que no podía decirme con exactitud cuánto había crecido mi plantación pero sabía con certeza que mi socio se había hecho muy rico, con solo la mitad y que, según creía recordar, la tercera parte del rey, que, al parecer, le había sido otorgada a otro monasterio o comunidad religiosa, producía unos doscientos moidores al año.
+VERSION 1.1.9 : 2023-12-13 22:48:58 : TRANSLATION 80 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:48:58 : 	Original Text: Manuel Pereira da Silva (7 December 1920 – 2003) was a Portuguese sculptor.
+VERSION 1.1.9 : 2023-12-13 22:48:58 : 	Generated Translation: Manuel Pereira da Silva (7 de diciembre de 1920 - 2003) fue un artista portugués.
+VERSION 1.1.9 : 2023-12-13 22:48:58 : 	Actual Translation: Manuel Pereira da Silva (7 de diciembre de 1920 – 2003) es un escultor Portugués.
+VERSION 1.1.9 : 2023-12-13 22:48:58 : TRANSLATION 81 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:48:58 : 	Original Text: Five other shrines are located in the area as well: Phra-mae Lakshmi, Phra Tri Murati, Phra Bighanesh (Ganesh), Phra Indra and Phra Narayana song suban.
+VERSION 1.1.9 : 2023-12-13 22:48:58 : 	Generated Translation: Las otras ramas también se encuentran a partir de la zona de la área, así, a la misma edición.
+VERSION 1.1.9 : 2023-12-13 22:48:58 : 	Actual Translation: Cinco otros santuarios están ubicados en la zona también: Phra-mae Lakshmi, Phra Tri Murati, Phra Bighanesh (Ganesh), Phra Indra y Phra Narayana song suban.
+VERSION 1.1.9 : 2023-12-13 22:48:59 : TRANSLATION 82 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:48:59 : 	Original Text: The administrative center is the village of Balestrand.
+VERSION 1.1.9 : 2023-12-13 22:48:59 : 	Generated Translation: El centro administrativo es el centro de la aldea de Balestrand.
+VERSION 1.1.9 : 2023-12-13 22:48:59 : 	Actual Translation: El centro administrativo es el pueblo de Balestrand.
+VERSION 1.1.9 : 2023-12-13 22:49:02 : TRANSLATION 83 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:49:02 : 	Original Text: The engineer made a turning-lathe, with which he turned several articles both for the toilet and the kitchen, particularly buttons, the want of which was greatly felt.
+VERSION 1.1.9 : 2023-12-13 22:49:02 : 	Generated Translation: El ingeniero hizo un taller, con el que el ingeniero hizo un taller, y además, a la cocina, y el cualquiera cualquiera a cualquiera a cualquiera a cualquiera aplicación, a la cocina, y a la cocina, y el cualquiera cualquiera cualquiera a cualquiera aplicación, a la cocina, y a la cocina, a la cocina, y a la cocina, a la cocina, y el cualquiera cualquiera cualquiera a cualquiera a cualquiera a cualquiera a cualquiera a cualquiera a cualquiera a cualquiera a cualquiera a cualquiera a cualquiera a cualquiera a cualquiera a cualquiera a cualquiera a cualquiera a cualquiera a cualquier
+VERSION 1.1.9 : 2023-12-13 22:49:02 : 	Actual Translation: El ingeniero instaló un torno, que le permitía dar forma a algunos utensilios de tocador o de cocina, y particularmente hacer botones, cuya falta se notaba.
+VERSION 1.1.9 : 2023-12-13 22:49:02 : TRANSLATION 84 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:49:02 : 	Original Text: Oligonicella bolliana is a species of praying mantis.
+VERSION 1.1.9 : 2023-12-13 22:49:02 : 	Generated Translation: El oligonicella bolliana es una especie.
+VERSION 1.1.9 : 2023-12-13 22:49:02 : 	Actual Translation: Oligonicella bolliana es una especie de mantis de la familia Thespidae.
+VERSION 1.1.9 : 2023-12-13 22:49:02 : TRANSLATION 85 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:49:02 : 	Original Text: Siglo XXI, Mexico, 1969.
+VERSION 1.1.9 : 2023-12-13 22:49:02 : 	Generated Translation: Siglo XXI, México, 1969.
+VERSION 1.1.9 : 2023-12-13 22:49:02 : 	Actual Translation: Siglo XXI, México, 1969.
+VERSION 1.1.9 : 2023-12-13 22:49:03 : TRANSLATION 86 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:49:03 : 	Original Text: Chief Roi Mata Domain was inscribed as a UNESCO World Heritage Site in 2008.
+VERSION 1.1.9 : 2023-12-13 22:49:03 : 	Generated Translation: El jefe Roi Mata Domain fue descrita como el sitio web del Instituto de Heritage y el Instituto de Turismo de Estados Unidos, y el Instituto de Turismo de Estados Unidos, y el Instituto de Turismo de 2008.
+VERSION 1.1.9 : 2023-12-13 22:49:03 : 	Actual Translation: El dominio de Jefe Roi Mata fue inscrito como Patrimonio de la Humanidad por la UNESCO en 2008.
+VERSION 1.1.9 : 2023-12-13 22:49:04 : TRANSLATION 87 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:49:04 : 	Original Text: More than 100 contestants were expected to compete, but only 82 eventually participated.
+VERSION 1.1.9 : 2023-12-13 22:49:04 : 	Generated Translation: Los últimos equipos se esperaban a ganar, pero sólo unos 82 además, además, a los equipos y otros equipos se esperaban a ganar, y además, a los equipos y además, a los equipos.
+VERSION 1.1.9 : 2023-12-13 22:49:04 : 	Actual Translation: Se esperaba que participasen más de 100 concursantes, pero sólo 82 finalmente participaron.
+VERSION 1.1.9 : 2023-12-13 22:49:06 : TRANSLATION 88 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:49:06 : 	Original Text: The chemistry between the two was so strong during this jam that they decided to perform together on a regular basis (under the name "Rudess/Morgenstein Project" or later "RMP") and have since released a studio and a live record.
+VERSION 1.1.9 : 2023-12-13 22:49:06 : 	Generated Translation: La química entre los dos ambos se hizo tan fuerte durante este acuerdo que se hizo a partir de la química y a partir de la misma época, y a partir de la misma época, y a partir de la misma época, y a partir de la misma época, y a partir de la misma época, y a partir de la misma época, y a la química y a partir de aquella época.
+VERSION 1.1.9 : 2023-12-13 22:49:06 : 	Actual Translation: La química entre los dos fue tan fuerte en ese "jam" que decidieron actuar juntos regularmente (bajo el nombre "Rudess/Morgenstein Project", después "RMP") y desde entonces, han lanzado un álbum en estudio y uno en vivo.
+VERSION 1.1.9 : 2023-12-13 22:49:07 : TRANSLATION 89 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:49:07 : 	Original Text: During World War II, Duncan served in the United States Public Health Service, in which he earned the rank of Major.
+VERSION 1.1.9 : 2023-12-13 22:49:07 : 	Generated Translation: Duncan se desempeñó en el Servicio de Salud de los Estados Unidos, y a la Segunda Guerra Mundial, Duncan se desempeñó en el Servicio de Salud Público.
+VERSION 1.1.9 : 2023-12-13 22:49:07 : 	Actual Translation: Durante la segunda guerra mundial, Duncan sirvió en el Servicio de Salud Pública, en la que obtuvo el grado de Mayor.
+VERSION 1.1.9 : 2023-12-13 22:49:07 : TRANSLATION 90 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:49:07 : 	Original Text: In 1874, the club adopted the rules of the Football Association.
+VERSION 1.1.9 : 2023-12-13 22:49:07 : 	Generated Translation: En 1874, el club adoptó las reglas de la Asociación de la Football Association.
+VERSION 1.1.9 : 2023-12-13 22:49:07 : 	Actual Translation: No fue hasta 1874 que el club adoptó las reglas de la Asociación de Fútbol.
+VERSION 1.1.9 : 2023-12-13 22:49:07 : TRANSLATION 91 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:49:07 : 	Original Text: In 1986, at the age of 25, she published her first book: an essay about a Catalan realist poet from the 1960s, Gabriel Ferrater, written in collaboration with Xavier Macià, under the title "The poetry of Gabriel Ferrater".
+VERSION 1.1.9 : 2023-12-13 22:49:07 : 	Generated Translation: En 1986, a la edad de 25 años, publicó su primera novela.
+VERSION 1.1.9 : 2023-12-13 22:49:07 : 	Actual Translation: En 1986, a los veinticinco años, publica su primer libro: un ensayo sobre un poeta catalán realista de los años sesenta escrito en colaboración con Xavier Macià titulado "La poesia de Gabriel Ferrater".
+VERSION 1.1.9 : 2023-12-13 22:49:08 : TRANSLATION 92 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:49:08 : 	Original Text: The animation was produced domestically at Klasky Csupo, with Wesley Archer, David Silverman, and Bill Kopp being animators for the first season.
+VERSION 1.1.9 : 2023-12-13 22:49:08 : 	Generated Translation: La animación fue producida en el equipo de Klasky Csupo, con Wesley Archer, y Bill Kopp, y el equipo de música y además, y también tuvo además la películas.
+VERSION 1.1.9 : 2023-12-13 22:49:08 : 	Actual Translation: La animación es producida en Estados Unidos en Klasky Csupo, con Wesley Archer, David Silverman y Bill Kopp siendo animadores de la primera temporada.
+VERSION 1.1.9 : 2023-12-13 22:49:09 : TRANSLATION 93 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:49:09 : 	Original Text: Though Brian was killed in the battle, the Irishmen ultimately drove back their enemies into the sea, and Sigurd himself was killed.
+VERSION 1.1.9 : 2023-12-13 22:49:09 : 	Generated Translation: Aunque Brian fue muerto en la batalla, y los irlandeses, aunque aún se hizo a los extranjeros.
+VERSION 1.1.9 : 2023-12-13 22:49:09 : 	Actual Translation: Aunque Brian había muerto en la batalla, los irlandeses como último recurso dirigieron a los enemigos hacia el mar, donde el mismo Sigurd murió.
+VERSION 1.1.9 : 2023-12-13 22:49:12 : TRANSLATION 94 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:49:12 : 	Original Text: Kraljevi ulice is a Croatian band founded by Miran Hadži Veljković and Zlatko Petrović Pajo.
+VERSION 1.1.9 : 2023-12-13 22:49:12 : 	Generated Translation: Kraljevi ulice es una banda de la banda de origen croata, y también conocida como "Krájevai ulice" es una banda de origen y también conocida como "Krájeva ulica" y "Krájeva ulica""Krájeva" y "Krájeva" y "Krájeva" y "Krájeva" y "Krájeva" y "Krájeva" y "Krájeva" y "Krájeva" y "Krájeva" y "Krájeva" y "Krájeva" y "Krájeva" a"Lajković" y "Krájeva" y "Krájeva" y "Krájeva" y "Krájeva" y "Krájeva" y "Krájeva" a"Lajković" y "Krájeva" y "Krájeva" y "Krájeva" y "Krájeva" y "Krájeva" a"Krájeva" y "Krájeva" y "Krá
+VERSION 1.1.9 : 2023-12-13 22:49:12 : 	Actual Translation: Kraljevi Ulice es una banda fundada por el croata Miran Hadzi Veljkovic y Zlatko Petrović Pajo en 1987.
+VERSION 1.1.9 : 2023-12-13 22:49:12 : TRANSLATION 95 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:49:12 : 	Original Text: 'Whom could she take after, not to be good?
+VERSION 1.1.9 : 2023-12-13 22:49:12 : 	Generated Translation: ¿Qué pudo tomar adelante, no pudo tomar a qué aquél.
+VERSION 1.1.9 : 2023-12-13 22:49:12 : 	Actual Translation: –¿Cómo podía ser de otro modo? –repuso el hombre–.
+VERSION 1.1.9 : 2023-12-13 22:49:13 : TRANSLATION 96 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:49:13 : 	Original Text: ==Geography==Cowlington is located at (35.307146, -94.791413).
+VERSION 1.1.9 : 2023-12-13 22:49:13 : 	Generated Translation: == Geografía ==Cowlington se encuentra ubicado en el edificio de la Universidad de Cowlington se encuentra ubicado en el área de la Universidad de Ciudad de Ciudad de Ciudad de Ciudad de Ciudad de Ciudad de Ciudad.
+VERSION 1.1.9 : 2023-12-13 22:49:13 : 	Actual Translation: == Geografía ==Cowlington se encuentra ubicado en las coordenadas (35.307146, -94.791413).
+VERSION 1.1.9 : 2023-12-13 22:49:14 : TRANSLATION 97 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:49:14 : 	Original Text: After the latter episode, the producers decided that if a celebrity wished to guest star on the show, they had to be willing to be credited under their real name.
+VERSION 1.1.9 : 2023-12-13 22:49:14 : 	Generated Translation: Después del último episodio, los productores decidieron que si una estrella de la película, se decidió que a la temporada, los productores decidieron que a la temporada tuvo que tener a cargo de a la película, y además, a cargo de su nombre real.
+VERSION 1.1.9 : 2023-12-13 22:49:14 : 	Actual Translation: Después de este último episodio, los productores decidieron que si una celebridad deseaba ser estrella invitada en la serie, tenía que estar dispuesto a ser acreditado bajo su nombre real.
+VERSION 1.1.9 : 2023-12-13 22:49:15 : TRANSLATION 98 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:49:15 : 	Original Text: The city is also home to some 8,406 (1.42%) Polish people.
+VERSION 1.1.9 : 2023-12-13 22:49:15 : 	Generated Translation: La ciudad también es también alberga a unos 8,406 personas polacas.
+VERSION 1.1.9 : 2023-12-13 22:49:15 : 	Actual Translation: La ciudad es también el hogar de algunos polacos, 8.406 (1,42%).
+VERSION 1.1.9 : 2023-12-13 22:49:18 : TRANSLATION 99 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:49:18 : 	Original Text: == IPv4 ranges ==North Korea has one known block of 1,024 IPv4 addresses:* 175.45.176.0 – 175.45.179.255Despite North Korea's limited Internet access, the small pool of IP addresses has led to very conservative allocations.
+VERSION 1.1.9 : 2023-12-13 22:49:18 : 	Generated Translation: == Referencias ==El área de IPv4 ==La líneas de Estados Unidos y Estados Unidos y Estados Unidos y Estados Unidos y Estados Unidos y Estados Unidos y Estados Unidos y Estados Unidos y Estados Unidos y Estados Unidos y Estados Unidos y Estados Unidos y Estados Unidos y Estados Unidos y Estados Unidos y Estados Unidos y Estados Unidos y Estados Unidos y Estados Unidos y Estados Unidos y Estados Unidos y Estados Unidos y Estados Unidos y Estados Unidos y Estados Unidos y Estados Unidos y Estados Unidos y Estados Unidos y Estados Unidos y Estados Unidos y Estados Unidos y Estados Unidos y Estados Unidos y Estados Unidos y Estados Unidos y Estados Unidos y Estados Unidos y Estados Unidos y Estados Unidos y Estados Unidos y Estados Unidos y Estados Unidos y Estados Unidos y Estados Unidos y Estados Unidos y Estados Unidos y Estados Unidos y
+VERSION 1.1.9 : 2023-12-13 22:49:18 : 	Actual Translation: == Rangos de IPv4 ==Corea del Norte tiene un bloque conocido de 1.024 direcciones IPv4:* 175.45.176.0 – 175.45.179.255A pesar del limitado acceso a internet de Corea del Norte, el pequeño conjunto de direcciones IP ha llevado a distribuciones muy conservadoras.
+VERSION 1.1.9 : 2023-12-13 22:49:19 : TRANSLATION 100 on "English to Spanish"
+VERSION 1.1.9 : 2023-12-13 22:49:19 : 	Original Text: In Sweden, three Sámi languages are spoken, with the other 7 Sámi languages being spoken in Norway, Russia and Finland.
+VERSION 1.1.9 : 2023-12-13 22:49:19 : 	Generated Translation: En Suecia, los otros idiomas de Sámi se hablan a partir de Finlandia, y Finlandia, también se hablan otros idiomas de Finlandia, y Finlandia, y Finlandia, y Finlandia, y Finlandia, y Finlandia, y Finlandia, y Finlandia, y Finlandia, y Finlandia, y Finlandia.
+VERSION 1.1.9 : 2023-12-13 22:49:19 : 	Actual Translation: En Suecia se hablan tres idiomas sami, los otros siete se hablan en Noruega, Rusia y Finlandia.
+VERSION 1.1.9 : 2023-12-13 22:49:19 : RUN COMPLETED
