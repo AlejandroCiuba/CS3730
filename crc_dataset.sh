@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Slurm script for running finetune.py on the CRC cluster
+# Slurm script for running dataset.py on the CRC cluster
 # Alejandro Ciuba, alc307@pitt.edu
 
 ############## SBATCH HEADER BEGIN ##############
